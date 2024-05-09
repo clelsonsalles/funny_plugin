@@ -1,0 +1,156 @@
+
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelResultado-headid<%= resultadoChave.id %>">
+                            <button class="accordion-button buttonResultado" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" aria-expanded="true" aria-controls="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>">
+                                <i class="fa fa-line-chart" style="font-size: 24px; color: #ff0000; float: left; padding-right: 10px;"></i>
+                                <%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %>
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-panelResultado-id<%= resultadoChave.id %>" class="accordion-collapse collapse show aria-labelledby="panelResultado-headid<%= resultadoChave.id %>">
+                            <div class="accordion-body">
+                               <div class="row  mt-6">
+                                  <div  class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
+                                    <div class="card card-detalhes">
+                                        <!-- card body  -->
+                                        <div class="card-body">
+                                          <div class="box box-detalhes">
+                                            <b><%= link_to(resultadoChave.name, project_path(resultadoChave), :class => resultadoChave.css_classes).html_safe %></b>
+                                            <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= resultadoChave.description %></p>
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
+                                    <div class="card card-detalhes">
+                                      <!-- card body  -->
+                                      <div class="card-body">
+                                        <div class="align-items-center justify-content-between">
+                                          <% if User.current.allowed_to?(:view_issues, resultadoChave) %>
+                                          <div class="issues box box-detalhes">
+                                            <% with_subprojects = Setting.display_subprojects_issues? %>
+                                            <% cond = resultadoChave.project_condition(with_subprojects) %>
+                                            <% trackers = resultadoChave.rolled_up_trackers(with_subprojects).visible %>
+                                            <% if trackers.present? %>
+                                            <table class="list issue-report" style='font-size: 0.9em'>
+                                              <thead>
+                                                <tr>
+                                                  <th></th>
+                                                  <th><%=l(:label_open_issues_plural)%></th>
+                                                  <th><%=l(:label_closed_issues_plural)%></th>
+                                                  <th><%=l(:label_total)%></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              <% trackers.each do |tracker| %>
+                                                <% open_issues_by_tracker = Issue.visible.open.where(cond).group(:tracker).count %>
+                                                <% total_issues_by_tracker = Issue.visible.where(cond).group(:tracker).count %>                                     
+                                                <tr>
+                                                  <td class="name">
+                                                    <%= link_to tracker.name, project_issues_path(resultadoChave, :set_filter => 1, :tracker_id => tracker.id), :title => tracker.description %>
+                                                  </td>
+                                                  <td>
+                                                    <%= link_to open_issues_by_tracker[tracker].to_i, project_issues_path(resultadoChave, :set_filter => 1, :tracker_id => tracker.id) %>
+                                                  </td>
+                                                  <td>
+                                                    <%= link_to (total_issues_by_tracker[tracker].to_i - open_issues_by_tracker[tracker].to_i), project_issues_path(resultadoChave, :set_filter => 1, :tracker_id => tracker.id, :status_id => 'c') %>
+                                                  </td>
+                                                  <td class="total">
+                                                    <%= link_to total_issues_by_tracker[tracker].to_i, project_issues_path(resultadoChave, :set_filter => 1, :tracker_id => tracker.id, :status_id => '*') %>
+                                                  </td>
+                                                </tr>
+                                              <% end %>
+                                              </tbody>
+                                            </table>
+                                            <% end %>
+                                          </div>
+                                          <% end %>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- card  -->
+                                  <div class="col-xl-4 col-lg-12 col-md-12 col-12">
+                                    <div class="card card-detalhes">
+                                        <!-- card body  -->
+                                      <div class="card-body">
+                                        <div class="align-items-center justify-content-between">
+                                          <% if resultadoChave.principals_by_role.any? %>
+                                          <div class="members box box-detalhes">
+                                            <% resultadoChave.principals_by_role.keys.sort.each do |role| %>
+                                              <p><span class="label"><%= role %>:</span> <%= resultadoChave.principals_by_role[role].sort.collect{|p| link_to_principal(p, :class => p.is_a?(Group) ? 'icon icon-group' : nil)}.join(", ").html_safe %></p>
+                                            <% end %>
+                                          </div>
+                                          <% end %>
+                                        </div>
+                                      </div>
+                                    </div>
+                                 </div>
+                                </div>
+                                 <p></p>
+                                  <div class="row mt-6">
+                                  <div class="col-md-12 col-12">
+                                    <div class="card">
+                                      <div class="card-header bg-white border-bottom-0">
+                                         <i class="fa fa-cogs" style="font-size: 24px; color: #ff0000; float: left; padding-right: 10px;"></i>
+                                         <b><p class="mb-0">Atividades</p></b>
+                                      </div>
+                                      <div class="table-responsive">
+                                        <table class="table  mb-0">
+                                          <thead class="table-light">
+                                            <tr>
+                                              <th>Tarefas</th> <th>Situação</th> <th>Alterado em </th> <th>Autor </th> <th>Responsável</th> <th>Progresso</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                          <% tarefasKR = resultadoChave.issues %>
+                                          <% if tarefasKR.any? %>
+                                            <% tarefasKR.each do |tarefa| %>
+                                            <tr>
+                                              
+                                              <td class="align-middle">
+                                                 <%= link_to(tarefa.subject, project_path(tarefa), :class => tarefa.css_classes).html_safe %>
+                                              </td>
+                                              <td class="align-middle">
+                                                <span class="badge bg-success">
+                                                <%= tarefa.status.name %>
+                                                </span></td>
+                                               
+                                                <td class="align-middle">
+                                                Alterado em...
+                                                </span></td>
+
+                                                <td class="align-middle">
+                                                Autor...
+                                                </span></td>
+
+                                              <td class="align-middle"><div class="avatar-group">
+                                                <b><p> <%= tarefa.assigned_to.is_a?(User) ? tarefa.assigned_to.name : 'Não designado' %></p></b>
+                                                </div></td>
+                                              <td class="align-middle text-dark"><div
+                                                  class="float-start me-3"><%= tarefa.done_ratio %>%</div>
+                                                <div class="mt-2">
+                                                  <div class="progress" style="height: 5px;">
+                                                    <div class="progress-bar" role="progressbar"
+                                                      style="width:<%= tarefa.done_ratio %>%" aria-valuenow="<%= tarefa.done_ratio %>"
+                                                      aria-valuemin="0" aria-valuemax="100"></div>
+                                                  </div>
+                                                </div>
+                                              </td>
+                                            </tr>
+                                          <% end %> 
+                                        <% end %>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <!-- card footer  -->
+                                      <div class="card-footer bg-white text-center">
+                                        <a href="/projects">Ver todos os projetos</a>
+                                      </div>
+                                    </div>
+                      
+                                  </div>
+                                </div>
+                                <p></p>
+                                </div>
+                            </div>
+                         </div>

@@ -1,0 +1,45 @@
+
+
+            <div class="accordion" id="accordionPanelObjetivos-id<%= objetivo.id %>">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelObjetivos-headid<%= objetivo.id %>">
+                    <button class="accordion-button buttonObjetivo" type="button" data-bs-toggle="collapse" data-bs-target="#panelObjetivos-id<%= objetivo.id %>" aria-expanded="true" aria-controls="panelObjetivos-id<%= objetivo.id %>">
+                       <i class="fa fa-bullseye" style="font-size: 48px; color: #ff0000; float: left; padding-right: 10px;"></i>
+                       <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active").html_safe %>
+                    </button>
+                  </h2>
+                  <div id="panelObjetivos-id<%= objetivo.id %>" class="accordion-collapse collapse show" aria-labelledby="panelObjetivos-headid<%= objetivo.id %>">
+                    <div class="accordion-body">
+
+                     <b>
+                     <%= link_to(objetivo.name, project_path(objetivo), :class => objetivo.css_classes + " nav-link active ").html_safe %>                     
+                     </b>
+                     <p></p>
+                     <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= objetivo.description %></p>
+                    <div class="accordion" id="accordionPanelResultados-id<%= objetivo.id %>">
+                    <% subprojectsObjetivos = objetivo.children.visible.to_a %>
+                    <% if subprojectsObjetivos.any? %>
+                      <% subprojectsObjetivos.each do |resultadoChave| %>
+
+						  <% resultadoChave.visible_custom_field_values.each do |value| %>
+							<% if value.value.include? 'Objetivo' %>
+							  <%= render :partial => 'projeto_objetivo_okr_html', :locals => {:objetivo => resultadoChave} %>
+							<% end %>
+							<% if value.value.include? 'Resultado' %>
+							  <%= render :partial => 'projeto_resultado_okr_html', :locals => {:resultadoChave => resultadoChave} %>
+							<% end %>
+						  <% end %>
+
+
+
+
+
+
+                      <% end %> 
+                    <% end %>
+                    </div>
+                  </div>
+                 </div>
+               </div>
+            </div>
+						 
