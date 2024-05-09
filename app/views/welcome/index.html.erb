@@ -4,53 +4,7 @@
     <%= textilizable Setting.welcome_text %>
   </div>
   <%= call_hook(:view_welcome_index_left) %>
-<div class="row mt-6">
-    <div class="row">
-      
-      <div class="accordion" id="accordionPanelMonitoramento">
 
-
-      <% @projetos.each do |projetoMonitoramento| %>
-      <div class="accordion-item">
-          <h3 class="accordion-header" id="panelMonitoramento-headid<%= projetoMonitoramento.id %>">
-            <button class="accordion-button buttonMonitoramento" type="button" data-bs-toggle="collapse" data-bs-target="#panelMonitoramento-id<%= projetoMonitoramento.id %>" aria-expanded="true" aria-controls="panelMonitoramento-id<%= projetoMonitoramento.id %>">
-             <h3 style="color:#ffffff;"> <%= link_to(projetoMonitoramento.name, project_path(projetoMonitoramento), :class => projetoMonitoramento.css_classes + " nav-link active").html_safe %></h3>
-            </button>
-          </h3>
-            
-          <div id="panelMonitoramento-id<%= projetoMonitoramento.id %>" class="accordion-collapse collapse show" aria-labelledby="panelMonitoramento-headid<%= projetoMonitoramento.id %>">
-            <div class="accordion-body">
-              <p> Veja o manual de utilização do sistema, clique no botão abaixo e acesse:</p>
-               <a class="btn btn-outline-secondary" href="https://gestaocplan.mulheres.gov.br/attachments/1" role="button" target="_blank"><b>Manual de Utilização CPLAN</b></a> 
-             <p style="padding-left: 18px; color: #000; font-size: 18px;"> <%= projetoMonitoramento.description %></p>
-              <% subprojectsMonitoramento = projetoMonitoramento.children.visible.to_a %>
-              <% if subprojectsMonitoramento.any? %>
-                <% subprojectsMonitoramento.each do |objetivo| %>                  
-
-                  <% objetivo.visible_custom_field_values.each do |value| %>
-                    <% if value.value.include? 'Objetivo' %>
-                      <%= render :partial => 'projeto_objetivo_okr_html', :locals => {:objetivo => objetivo} %>
-                    <% end %>
-                    <% if value.value.include? 'Resultado' %>
-                      <%= render :partial => 'projeto_resultado_okr_html', :locals => {:resultadoChave => objetivo} %>
-                    <% end %>
-                  <% end %>
-
-                <% end %> 
-              <% end %>
-             </div>
-            </div>
-         </div>
-         <% end %>
-
-
-
-
-       </div>
-    </div>
-  <p></p>
-  </div>
-</div>
   <% if @news.any? %>
     <div class="splitcontentright">
       <div class="news box">
