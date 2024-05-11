@@ -4,7 +4,7 @@
   <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
   <%= back_url_hidden_field_tag %>
 
-<h2>Login</h2>
+<h2><b>Login</b></h2>
   
   <label for="username"><%=l(:field_login)%></label>
   <%= text_field_tag 'username', params[:username], :tabindex => '1', :autofocus => params[:username].blank? %>
