@@ -15,9 +15,8 @@
     
   </label>
   <%= password_field_tag 'password', nil, :tabindex => '2', :autofocus => params[:username].present? %>
-  <label for="password"> 
-   <%= link_to l(:label_password_lost), lost_password_path, :class => "lost_password" if Setting.lost_password? %>
-  </label>
+  <%= link_to l(:label_password_lost), lost_password_path, :class => "lost_password" if Setting.lost_password? %>
+  
   
   <% if Setting.autologin? %>
     <label for="autologin"><%= check_box_tag 'autologin', 1, false, :tabindex => 4 %> <%= l(:label_stay_logged_in) %></label>
