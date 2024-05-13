@@ -21,7 +21,7 @@
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
-<p><%= pref_fields.check_box :hide_mail %></p>
+
 <% end %>
 
 
