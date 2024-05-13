@@ -5,6 +5,10 @@
 <%= error_messages_for 'user' %>
 
 
+
+
+
+<div class="box tabular">
 <div class="container">
   <div class="row">
     <div class="col">col</div>
@@ -12,9 +16,6 @@
     <div class="col">col</div>
     <div class="col">col</div>
   </div>
-
-
-<div class="box tabular">
 <% if @user.auth_source_id.nil? %>
   <p><%= f.text_field :login, :size => 25, :required => true %></p>
 
