@@ -13,7 +13,9 @@
   <div class="row">
     <div class="col"><p><%= f.text_field :firstname, :required => true %></p></div>
     <div class="col"><p><%= f.text_field :lastname, :required => true %></p></div>
-    <div class="col">col</div>
+    <div class="col"><% @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| %>
+  <p><%= custom_field_tag_with_label :user, value %></p>
+<% end %></div>
     <div class="col">col</div>
   </div>
 <% if @user.auth_source_id.nil? %>
@@ -38,9 +40,7 @@
 
 
 
-<% @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| %>
-  <p><%= custom_field_tag_with_label :user, value %></p>
-<% end %>
+
 </div>
 
 <%= submit_tag l(:button_submit) %>
