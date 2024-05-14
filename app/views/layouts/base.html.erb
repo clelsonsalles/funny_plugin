@@ -71,7 +71,8 @@
     <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
 
     <!-- RETIRAR SEMPRE a barra de pesquisa rápida 'quick-search' -->
-    <% if User.current.logged? || !Setting.login_required? || false %>
+    # <% if User.current.logged? || !Setting.login_required? || false %>
+    <% if false %>
     <div id="quick-search">
         <%= form_tag(search_path(id: @project), :method => :get ) do %>
         <%= hidden_field_tag 'scope', default_search_project_scope, :id => nil %>
