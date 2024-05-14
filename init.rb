@@ -15,4 +15,17 @@ Redmine::Plugin.register :funny_plugin do
 
   delete_menu_item :top_menu, :my_page
   delete_menu_item :top_menu, :projects
+  delete_menu_item :top_menu, :help
+  delete_menu_item :admin_menu, :projects
+  delete_menu_item :admin_menu, :groups
+  delete_menu_item :admin_menu, :roles
+  delete_menu_item :admin_menu, :trackers
+  delete_menu_item :admin_menu, :issue_statuses
+  delete_menu_item :admin_menu, :workflows
+  delete_menu_item :admin_menu, :custom_fields
+  delete_menu_item :admin_menu, :enumerations
+  delete_menu_item :admin_menu, :auth_sources
+  delete_menu_item :admin_menu, :plugins
+  delete_menu_item :admin_menu, :info
 end
+
