@@ -12,4 +12,7 @@ Redmine::Plugin.register :funny_plugin do
     :krId_inicial => "krId_inicial"
   }, :partial => 'cti_plugin/configuracao_plugin'
 
+
+  delete_menu_item :top_menu, :my_page
+  delete_menu_item :top_menu, :projects
 end
