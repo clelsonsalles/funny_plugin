@@ -42,47 +42,7 @@
 </div>
 
 
-<--!
-<div style='float: left; width: 33%'>
-    <div class="form-group">
-        
- <p><%= f.password_field :password, :size => 25, :required => true %>
-  <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
-  <% if Setting.password_required_char_classes.any? %>
-    <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
-  <% end %>
-  </p>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
-        
-    </div>
-   </div>
 
-
-
-
-
-
-  
-
-  <p><%= f.password_field :password, :size => 25, :required => true %>
-  <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
-  <% if Setting.password_required_char_classes.any? %>
-    <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
-  <% end %>
-  </p>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
-
-
-
-
-<div style='float: left; width: 33%'>
-    <div class="form-group">
-        <%= f.label :empresaNome, 'Nome da Empresa' %>
-        <%= f.text_field :empresaNome, class: "form-control" %>
-    </div>
-</div>
-<div style='clear: both'></div>
--->
     <div class="form-inline">
         <%= f.submit "Inserir novo Cliente", class:" icon icon-add float-right" %>
     </div>
