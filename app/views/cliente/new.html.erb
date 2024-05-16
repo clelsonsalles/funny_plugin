@@ -10,23 +10,23 @@
 <br/>
 <h3>Informações Gerais</h3>
    
- <div class="row align-items-start">
+ <div style='float: left; width: 33%'>
   
-   <div class="col">
+   <div class="form-group">
         <%= f.label :text_field, 'Nome' %>
         <p><%= f.text_field :firstname, :required => true %></p>
     </div>
  </div>
 
- <div class="row align-items-start">
-   <div class="col">
+ <div style='float: left; width: 33%'>
+   <div class="form-group">
         <%= f.label :text_field, 'Sobrenome' %>
         <p><%= f.text_field :lastname, :required => true %></p>
    </div>
  </div>
 
- <div class="row align-items-start">
-   <div class="col">
+ <div style='float: left; width: 33%'>
+   <div class="form-group">
         <%= f.label :text_field, 'Email' %>
         <p><%= f.text_field :mail, :required => true %></p>
    </div>
@@ -34,12 +34,7 @@
 
 
 
-<div class="row align-items-start">
-    <div class="col">
-        <%= f.label :user, 'Usuário' %>
-        <p><%= f.text_field :login, :size => 25, :required => true %></p>
-    </div>
-</div>
+
 
 
 
