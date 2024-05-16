@@ -15,23 +15,22 @@
     <div class="form-group">
         <%= f.label :text_field, 'Nome' %>
         <p><%= f.text_field :firstname, :required => true %></p>
-        
     </div>
-   </div>
+ </div>
+
  <div style='float: left; width: 40%'>
    <div class="form-group">
-        <%= f.label :text_field,Sobrenome' %>
+        <%= f.label :text_field, 'Sobrenome' %>
         <p><%= f.text_field :lastname, :required => true %></p>
-        
-    </div>
    </div>
+ </div>
+
  <div style='float: left; width: 40%'>
    <div class="form-group">
         <%= f.label :text_field, 'Email' %>
         <p><%= f.text_field :mail, :required => true %></p>
-        
-    </div>
    </div>
+ </div>
 
 
 
@@ -39,11 +38,10 @@
     <div class="form-group">
         <%= f.label :user, 'Usuário' %>
         <p><%= f.text_field :login, :size => 25, :required => true %></p>
-        
     </div>
-   </div>
+</div>
 
-   <div style='float: left; width: 33%'>
+<div style='float: left; width: 33%'>
     <div class="form-group">
         
  <p><%= f.password_field :password, :size => 25, :required => true %>
@@ -73,11 +71,6 @@
   <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
 
 
-
-
-<p><%= f.text_field :firstname, :required => true %></p>
-<p><%= f.text_field :lastname, :required => true %></p>
-<p><%= f.text_field :mail, :required => true %></p>
 
 
 <div style='float: left; width: 33%'>
