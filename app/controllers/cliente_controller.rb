@@ -24,7 +24,7 @@ class ClienteController < ApplicationController
 
     usuario = User.create(valoresUsuario)
     cliente = Cliente.create(valoresUsuario)
-    cliente.usuario = usuario
+    cliente.user = usuario
     cliente.save
 
     redirect_to contrato_index_path(project_id: projeto.id)
