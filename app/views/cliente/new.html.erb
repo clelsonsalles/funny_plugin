@@ -4,20 +4,20 @@
 
 <%= form_for @cliente, url: cliente_index_path do |f| %>
 
-  <p><%= f.text_field :login, :size => 25, :required => true %></p>
+  <p><%= f.text_field :user.login, :size => 25, :required => true %></p>
 
-  <p><%= f.password_field :password, :size => 25, :required => true %>
+  <p><%= f.password_field :user.password, :size => 25, :required => true %>
   <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
   <% if Setting.password_required_char_classes.any? %>
     <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
   <% end %>
   </p>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
+  <p><%= f.password_field :user.password_confirmation, :size => 25, :required => true %></p>
 
 
-<p><%= f.text_field :firstname, :required => true %></p>
-<p><%= f.text_field :lastname, :required => true %></p>
-<p><%= f.text_field :mail, :required => true %></p>
+<p><%= f.text_field :user.firstname, :required => true %></p>
+<p><%= f.text_field :user.lastname, :required => true %></p>
+<p><%= f.text_field :user.mail, :required => true %></p>
 
 
 <div style='float: left; width: 33%'>
