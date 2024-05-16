@@ -1,0 +1,77 @@
+# encoding: UTF-8
+
+<h3>Informar dados do Contrato</h3>
+
+  <div class="wiki">
+    <%= textilizable @project.description %>
+  </div>
+
+
+<%= form_for @contrato, url: contrato_index_path do |f| %>
+<%= f.hidden_field :id_projeto, :value => @project.id %>
+
+<div style='float: left; width: 33%'>
+    <div class="form-group">
+        <%= f.label :numero, 'Número do Contrato' %>
+        <%= f.text_field :numero, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :objeto, 'Objeto da Contratação'  %>
+        <%= f.text_area :objeto, rows: 4, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :contratada, 'Empresa contratada' %>
+        <%= f.text_field :contratada, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :cnpjContratada, 'CNPJ da Empresa contratada' %>
+        <%= f.text_field :cnpjContratada, class: "form-control" %>
+    </div>
+</div>
+<div style='float: left; width: 33%'>
+    <div class="form-group">
+        <%= f.label :valorTotal, 'Valor total contratado' %>
+        <%= f.number_field :valorTotal, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :prazoContratacao, 'Prazo da contratação' %>
+        <%= f.text_field :prazoContratacao, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :dataAssinatura, 'Data da assinatura' %>
+        <%= f.date_field :dataAssinatura, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :dataPublicacao, 'Data da publicação' %>
+        <%= f.date_field :dataPublicacao, class: "form-control" %>
+    </div>
+</div>
+<div style='float: left; width: 33%'>
+    <div class="form-group">
+        <%= f.label :SEIcontratacao, 'Nº SEI da contratação' %>
+        <%= f.text_field :SEIcontratacao, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :SEIedital, 'Nº SEI do Edital da licitação' %>
+        <%= f.text_field :SEIedital, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :SEIcontrato, 'Nº SEI do contrato assinado' %>
+        <%= f.text_field :SEIcontrato, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :observacoes, 'Observações'  %>
+        <%= f.text_area :observacoes, rows: 4, class: "form-control" %>
+    </div>
+</div>
+
+<div style='clear: both'></div>
+
+    <div class="form-inline">
+        <%= link_to "Cancelar", referenciais_path, class: "icon icon-cancel float-left small-text" %>
+         <%= f.submit "Inserir dados do Contrato", class:" icon icon-add float-right" %>
+    </div>
+<% end %>
+
