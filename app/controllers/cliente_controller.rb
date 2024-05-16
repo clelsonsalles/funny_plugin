@@ -18,15 +18,15 @@ class ClienteController < ApplicationController
   end
 
   def create
-    valoresUsuario = params.require(:contrato).permit(:numero, :objeto, :contratada, :cnpjContratada, :SEIcontratacao, :SEIedital, :SEIcontrato, :observacoes, :prazoContratacao, :valorTotal, :dataAssinatura, :dataPublicacao)
-    valoresCliente = params.require(:contrato).permit(:numero, :objeto, :contratada, :cnpjContratada, :SEIcontratacao, :SEIedital, :SEIcontrato, :observacoes, :prazoContratacao, :valorTotal, :dataAssinatura, :dataPublicacao)
+    valoresUsuario = params.require(:cliente).permit(:empresaNome)
+    valoresCliente = params.require(:cliente).permit(:empresaNome)
 
     usuario = User.create(valoresUsuario)
-    cliente = Cliente.create(valoresUsuario)
+    cliente = Cliente.create(valoresCliente)
     cliente.user = usuario
     cliente.save
 
-    redirect_to contrato_index_path(project_id: projeto.id)
+    redirect_to cliente_index_path()
 
   end
 
