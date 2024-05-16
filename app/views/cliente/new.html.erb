@@ -6,15 +6,17 @@
 <h2><b>Criar Conta</b></h2>
 <h4>Para criar sua conta precisamos que você preencha as informações a seguir.</h4>
 
-<div style='float: left; width: 33%'>
+   <div style='float: left; width: 33%'>
     <div class="form-group">
         <%= f.label :empresaNome, 'Nome da Empresa' %>
         <% if @user.auth_source_id.nil? %>
+        <p><%= f.text_field :login, :size => 25, :required => true %></p>
     </div>
+   </div>
 
 <%= form_for @cliente, url: cliente_index_path do |f| %>
 
-  <p><%= f.text_field :login, :size => 25, :required => true %></p>
+  
 
   <p><%= f.password_field :password, :size => 25, :required => true %>
   <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
