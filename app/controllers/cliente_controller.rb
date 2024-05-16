@@ -14,6 +14,7 @@ class ClienteController < ApplicationController
   end
 
   def new
+    @cliente =   Cliente.new
   end
 
   def create
