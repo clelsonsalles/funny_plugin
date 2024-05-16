@@ -1,19 +1,13 @@
 
 class ClienteUser < User
-  include Redmine::SafeAttributes
+    attribute :empresaNome, :string
+    attribute :uf, :string
+    attribute :cnpj, :string
+    attribute :outorgas, :string
+    attribute :nomeResponsavelEmpresa, :string
+    attribute :emailResponsavelEmpresa, :string
+    attribute :celularResponsavelEmpresa, :string
+    attribute :celularResponsavelCadastro, :string
 
-  safe_attributes(
-      'empresaNome',
-      'uf',
-      'cnpj',
-      'outorgas',
 	  
-      'nomeResponsavelEmpresa',
-      'emailResponsavelEmpresa',
-      'celularResponsavelEmpresa',
-	  
-      'celularResponsavelCadastro'
-
-    )
-  
 end
