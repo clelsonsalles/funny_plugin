@@ -15,7 +15,7 @@
    </div>
 
 <%= form_for @cliente, url: cliente_index_path do |f| %>
-<% if @user.auth_source_id.nil? %>
+
 <p><%= f.text_field :login, :size => 25, :required => true %></p>
 
   
@@ -27,7 +27,7 @@
   <% end %>
   </p>
   <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
-<% end %>
+
 
 
 
