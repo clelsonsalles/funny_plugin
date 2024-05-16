@@ -1,7 +1,5 @@
 class ClienteController < ApplicationController
 
-  helper :user
-
   def index
   end
 
