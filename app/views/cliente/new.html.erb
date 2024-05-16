@@ -1,8 +1,10 @@
 # encoding: UTF-8
 
+
+<div id="login-form">
+
 <h2><b>Criar Conta</b></h2>
-<p>Para criar sua conta precisamos que você preencha<br/>
-as informações a seguir.</p>
+<h4>Para criar sua conta precisamos que você preencha as informações a seguir.</h4>
 
 <%= form_for @cliente, url: cliente_index_path do |f| %>
 
@@ -34,4 +36,5 @@ as informações a seguir.</p>
         <%= f.submit "Inserir novo Cliente", class:" icon icon-add float-right" %>
     </div>
 <% end %>
+</div>
 
