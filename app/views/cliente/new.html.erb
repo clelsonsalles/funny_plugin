@@ -11,7 +11,7 @@
         <p><%= f.text_field :login, :size => 25, :required => true %></p>
     </div>
     <div class="col">
-         <%= f.label :password_field, 'Senha' %>
+  <%= f.label :password_field, 'Senha' %>
   <p><%= f.password_field :password, :size => 25, :required => true %>
   <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
   
@@ -20,7 +20,10 @@
   <% end %>
   </p>
     </div>
-    <div c   <%= f.label :password_field, 'Confirmação de Senha' %>
+      
+
+ <div class="col">
+  <%= f.label :password_field, 'Confirmação de Senha' %>
   <p class="form-control"><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
     </div>
   </div>
