@@ -8,7 +8,7 @@
 <%= form_for @cliente, url: cliente_index_path do |f| %>
 
 <br/>
-<h3>Informações Gerais</h3>
+<h3>DADOS DO CLIENTE</h3>
 
 
        <%= f.label :text_field, 'Nome' %>
@@ -28,10 +28,13 @@
         <%= f.label :empresaNome, 'Nome da Empresa' %>
         <%= f.text_field :empresaNome, class: "form-control" %>
 
+
+<h2>DADOS DO USUÁRIO</h2>
+
         <%= f.label :user, 'Usuário' %>
         <p><%= f.text_field :login, :size => 25, :required => true %></p>
 
-
+       <%= f.label :password_field, 'Senha' %>
          <p><%= f.password_field :password, :size => 25, :required => true %>
   <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
   <% if Setting.password_required_char_classes.any? %>
