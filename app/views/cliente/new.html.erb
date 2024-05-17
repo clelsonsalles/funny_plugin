@@ -10,9 +10,6 @@
 <p>Para criar sua conta precisamos que você preencha as informações a seguir.</p>
 <%= form_for @cliente, url: { action: "create" } do |f| %>
 
-<% if @cliente.auth_source_id.nil? %>
-  <p><%= f.text_field :login, :size => 25, :required => true %></p>
-
 <h2>DADOS DO USUÁRIO</h2>
 
         <%= f.label :user, 'Usuário' %>
