@@ -29,33 +29,33 @@
   </div>
 </div>
 
+<div class="container">
+
 <h4>DADOS DO CLIENTE</h4>
   <div class="row">
     <div class="col">
       <%= f.label :text_field, 'Nome' %>
        <p class="text-xl-start"><%= f.text_field :firstname, :required => true %></p>
-    </div>
+  </div>
     <div class="col">
   
      <%= f.label :text_field, 'Sobrenome' %>
      <p><%= f.text_field :lastname, :required => true %></p>
-  
-
     </div>
       
 
  <div class="col">
  <%= f.label :text_field, 'Email' %>
         <p><%= f.text_field :mail, :required => true %></p>
-    </div>
+  </div>
 
  <div class="col">
 <%= f.label :empresaNome, 'Nome da Empresa' %>
         <p><%= f.text_field :empresaNome, class: "form-control" %></p>
-    </div>
+  </div>
   </div>
  </div>
-</div>
+
 
 
 
