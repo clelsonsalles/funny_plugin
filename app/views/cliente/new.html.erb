@@ -1,10 +1,10 @@
 # encoding: UTF-8
 
 <div class="container">
-<h4><b>Criar Conta</b></h4>
+<h3><b>Criar Conta</b></h3>
   <p>Para criar sua conta precisamos que você preencha as informações a seguir.</p><br/>
 <%= form_for @cliente, url: { action: "create" } do |f| %>
-<h2>DADOS DO USUÁRIO</h2>
+<h4>DADOS DO USUÁRIO</h4>
   <div class="row">
     <div class="col">
       <%= f.label :user, 'Usuário' %>
