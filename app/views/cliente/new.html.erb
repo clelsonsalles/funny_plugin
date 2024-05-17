@@ -1,25 +1,7 @@
 # encoding: UTF-8
 <div class="container">
 
-<h2><b>Criar Conta</b></h2>
-<h4>Para criar sua conta precisamos que você preencha as informações a seguir.</h4>
 
-<%= form_for @cliente, url: { action: "create" } do |f| %>
-
-
-
-<div class="box tabular">
-<% if @user.auth_source_id.nil? %>
-  <p><%= f.text_field :login, :size => 25, :required => true %></p>
-
-  <p><%= f.password_field :password, :size => 25, :required => true %>
-  <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
-  <% if Setting.password_required_char_classes.any? %>
-    <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
-  <% end %>
-  </p>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
-<% end %>
 
 
 
@@ -75,6 +57,6 @@
     <div class="form-inline">
         <%= f.submit "Inserir novo Cliente", class:" icon icon-add float-right" %>
     </div>
-
+<% end %>
 </div>
 
