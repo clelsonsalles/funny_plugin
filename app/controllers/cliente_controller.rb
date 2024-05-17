@@ -18,7 +18,7 @@ class ClienteController < ApplicationController
   end
 
   def create
-    valoresUsuario = params.require(:cliente).permit(:empresaNome)
+    valoresUsuario = params.require(:cliente).permit(:firstname, :lastname, :mail, :login, :password, :password_confirmation)
     valoresCliente = params.require(:cliente).permit(:empresaNome)
 
     usuario = User.create(valoresUsuario)
