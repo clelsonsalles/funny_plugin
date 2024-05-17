@@ -23,6 +23,8 @@ class ClienteController < ApplicationController
 
     usuario = User.create(valoresUsuario)
     cliente = Cliente.create(valoresCliente)
+    
+    usuario.save
     cliente.user = usuario
     cliente.save
 
