@@ -26,7 +26,11 @@ class ClienteController < ApplicationController
     cliente.user = usuario
     cliente.save
 
-    redirect_to cliente_index_path()
+    redirect_to cliente_aguarde_path()
+
+  end
+
+  def aguarde
 
   end
 
