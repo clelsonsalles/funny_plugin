@@ -1,31 +1,42 @@
 # encoding: UTF-8
-<div class="container">
 
-
-
-
-
-
-<h3><b>Criar Conta</b></h3>
-<p>Para criar sua conta precisamos que você preencha as informações a seguir.</p>
-<%= form_for @cliente, url: { action: "create" } do |f| %>
+<form class="row gy-2 gx-3 align-items-center">
+  <div class="col-auto">
+  <h3><b>Criar Conta</b></h3>
+  <p>Para criar sua conta precisamos que você preencha as informações a seguir.</p><br/><br/>
 
 <h2>DADOS DO USUÁRIO</h2>
-
+  <%= form_for @cliente, url: { action: "create" } do |f| %>
         <%= f.label :user, 'Usuário' %>
-        <p><%= f.text_field :login, :size => 25, :required => true %></p>
+        <p class="form-control" ><%= f.text_field :login, :size => 25, :required => true %></p>
 
-  <%= f.label :password_field, 'Senha' %>
-  <p><%= f.password_field :password, :size => 25, :required => true %>
+   <%= f.label :password_field, 'Senha' %>
+  <p class="form-control"><%= f.password_field :password, :size => 25, :required => true %>
   <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
   
   <% if Setting.password_required_char_classes.any? %>
     <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
   <% end %>
   </p>
+
+   <%= f.label :password_field, 'Confirmação de Senha' %>
+  <p class="form-control"><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+        
+
+ 
   
-  <%= f.label :password_field, 'Confirmação de Senha' %>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
+  
 
 
 
