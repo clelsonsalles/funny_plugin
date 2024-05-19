@@ -90,7 +90,6 @@ class ClienteController < ApplicationController
 
           cliente = Cliente.new
           cliente.empresaNome = 'Empresa nome teste no codigo'
-          cliente.user = @user
           cliente.save
 
           redirect_to aguarde_path()
