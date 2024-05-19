@@ -4,6 +4,8 @@
 <%= error_messages_for 'user' %>
 
 <div class="box tabular">
+<br/>
+<h3>Dados do Usuário</h3>
 <% if @user.auth_source_id.nil? %>
   <p><%= f.text_field :login, :size => 25, :required => true %></p>
 
@@ -15,13 +17,17 @@
   </p>
   <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
 <% end %>
+<br/>
+<h3>Dados da Empresa </h3>
+<p><%= f.text_field :emoresaNome, :required => true %></p>
+<p><%= f.text_field :uf, :required => true %></p>
+<p><%= f.text_field :cnpj, :required => true %></p>
+<p><%= f.text_field :outorgas, :required => true %></p>
 
-<p><%= f.text_field :firstname, :required => true %></p>
-<p><%= f.text_field :lastname, :required => true %></p>
-<p><%= f.text_field :mail, :required => true %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 <p><%= pref_fields.check_box :hide_mail %></p>
 <% end %>
+
 
 
 <% unless @user.force_default_language? %>
