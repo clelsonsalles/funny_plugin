@@ -30,11 +30,18 @@ ire<h2><%=l(:label_register)%></h2>
 
 <% end %>
 <br/>
-<h3>Dados Resonsável da Empresa</h3>
+<h3>Dados da Empresa</h3>
 <p><%= f.text_field :empresaNome %></p>
 <p><%= f.text_field :uf %></p>
 <p><%= f.text_field :cnpj %></p>
 <p><%= f.text_field :outorgas %></p>
+
+<br/>
+<h3>Dados Resposável Empresa</h3>
+<p><%= f.text_field :nomeResponsavelEmpresa %></p>
+<p><%= f.text_field :emailResponsavelEmpresa %></p>
+<p><%= f.text_field :celularResponsavelEmpresa %></p>
+<p><%= f.text_field :celularResponsavelCadastro %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
