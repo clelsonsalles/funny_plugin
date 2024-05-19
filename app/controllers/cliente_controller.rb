@@ -76,7 +76,7 @@ class ClienteController < ApplicationController
       @user = User.new
       
       @user.safe_attributes = params.require(:cliente_user).permit(:login, :password, :password_confirmation, :firstname, :lastname, :mail)
-        
+      @user.pref.safe_attributes = params[:pref]
       @user.admin = false
       @user.register
       if session[:auth_source_registration]
@@ -89,7 +89,8 @@ class ClienteController < ApplicationController
           flash[:notice] = l(:notice_account_activated)
 
           #TODO savar o cliente
-          cliente = Cliente.create( params.require(:cliente_user).permit(:empresaNome, :uf, :cnpj, :outorgas, :nomeResponsavelEmpresa, :emailResponsavelEmpresa, :celularResponsavelEmpresa, :celularResponsavelCadastro))
+          # cliente = Cliente.create( params.require(:cliente_user).permit(:empresaNome, :uf, :cnpj, :outorgas, :nomeResponsavelEmpresa, :emailResponsavelEmpresa, :celularResponsavelEmpresa, :celularResponsavelCadastro))
+          cliente = Cliente.new
           cliente.user = @user
           cliente.save
 
