@@ -25,7 +25,7 @@ ire<h2><%=l(:label_register)%></h2>
 <p><%= f.text_field :firstname, :required => true %></p>
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
-<p><%= f.text_field :empresaNome, :required => true %></p>
+<p><%= f.text_field :empresaNome %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
