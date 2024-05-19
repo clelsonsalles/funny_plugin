@@ -88,7 +88,7 @@ class ClienteController < ApplicationController
           self.logged_user = @user
           flash[:notice] = l(:notice_account_activated)
 
-          cliente = Cliente.new
+          cliente = Cliente.create()
           cliente.empresaNome = 'Empresa nome teste no codigo'
           cliente.save
 
