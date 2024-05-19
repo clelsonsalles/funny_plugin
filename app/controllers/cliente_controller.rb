@@ -87,9 +87,6 @@ class ClienteController < ApplicationController
           self.logged_user = @user
           flash[:notice] = l(:notice_account_activated)
 
-          cliente = Cliente.new(uf:  params[:cliente][:uf], empresaNome: 'Empresa nome teste no codigo')
-
-          cliente.save
 
           redirect_to aguarde_path()
 
