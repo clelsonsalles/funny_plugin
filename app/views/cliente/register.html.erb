@@ -19,10 +19,10 @@
 <% end %>
 <br/>
 <h3>Dados da Empresa </h3>
-<p><%= f.text_field :emoresaNome, :required => true %></p>
-<p><%= f.text_field :uf, :required => true %></p>
-<p><%= f.text_field :cnpj, :required => true %></p>
-<p><%= f.text_field :outorgas, :required => true %></p>
+<p><%= f.text_field :empresaNome, : => true %></p>
+<p><%= f.text_field :uf, : => true %></p>
+<p><%= f.text_field :cnpj, : => true %></p>
+<p><%= f.text_field :outorgas, : => true %></p>
 
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 <p><%= pref_fields.check_box :hide_mail %></p>
