@@ -69,10 +69,10 @@ class ClienteController < ApplicationController
     if !request.post?
       session[:auth_source_registration] = nil
       @user = User.new(:language => current_language.to_s)
-      @clienteUser = ClienteUser.new(:language => current_language.to_s)
+      @cliente_user = ClienteUser.new(:language => current_language.to_s)
     else
       user_params = params[:cliente_user] || {}
-      @clienteUser = ClienteUser.new
+      @cliente_user = ClienteUser.new
       @user = User.new
       @user.safe_attributes = user_params
       @user.pref.safe_attributes = params[:pref]
