@@ -1,4 +1,4 @@
-<h2><%=l(:label_register)%></h2>
+ire<h2><%=l(:label_register)%></h2>
 
 <%= labelled_form_for @user, :url => register_path do |f| %>
 <%= error_messages_for 'user' %>
@@ -25,7 +25,7 @@
 <p><%= f.text_field :firstname, :required => true %></p>
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
-<p><%= f.text_field :empresaNome, : => true %></p>
+<p><%= f.text_field :empresaNome, :required => true %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
