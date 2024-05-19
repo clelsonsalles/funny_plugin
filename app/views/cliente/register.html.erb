@@ -21,11 +21,18 @@ ire<h2><%=l(:label_register)%></h2>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 <p><%= pref_fields.check_box :hide_mail %></p>
 <% end %>
+<br/>
+<h3>Dados do Cliente</h3>
 
 <p><%= f.text_field :firstname, :required => true %></p>
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
+<br/>
+<h3>Dados Resonsável da Empresa</h3>
 <p><%= f.text_field :empresaNome %></p>
+<p><%= f.text_field :uf %></p>
+<p><%= f.text_field :cnpj %></p>
+<p><%= f.text_field :outorgas %></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
