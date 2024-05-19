@@ -74,15 +74,8 @@ class ClienteController < ApplicationController
       user_params = params[:cliente_user] || {}
       @cliente_user = ClienteUser.new
       @user = User.new
-      @user.safe_attributes = user_params
-      @user.pref.safe_attributes = params[:pref]
-
-      @user.login = params.require(:cliente_user).permit(:login)
-      @user.password = params.require(:cliente_user).permit(:password)
-      @user.password_confirmation = params.require(:cliente_user).permit(:password_confirmation)
-      @user.firstname = params.require(:cliente_user).permit(:firstname)
-      @user.lastname = params.require(:cliente_user).permit(:lastname)
-      @user.mail = params.require(:cliente_user).permit(:mail)
+      
+      @user.safe_attributes = params.require(:cliente_user).permit(:login, :password, :password_confirmation, :firstname, :lastname, :mail)
         
       @user.admin = false
       @user.register
