@@ -40,7 +40,7 @@ class ClienteController < ApplicationController
 
       
     cliente = Cliente.create(valoresCliente)
-    
+    cliente.uf = params[:cliente][:uf]
     cliente.user = @user
     cliente.save
 
