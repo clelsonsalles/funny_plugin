@@ -88,9 +88,8 @@ class ClienteController < ApplicationController
           self.logged_user = @user
           flash[:notice] = l(:notice_account_activated)
 
-          #TODO savar o cliente
-          # cliente = Cliente.create( params.require(:cliente_user).permit(:empresaNome, :uf, :cnpj, :outorgas, :nomeResponsavelEmpresa, :emailResponsavelEmpresa, :celularResponsavelEmpresa, :celularResponsavelCadastro))
           cliente = Cliente.new
+          cliente.empresaNome = 'Empresa nome teste no codigo'
           cliente.user = @user
           cliente.save
 
