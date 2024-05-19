@@ -29,13 +29,11 @@
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
-<% end %>
 
 
 
 <% unless @user.force_default_language? %>
 <p><%= f.select :language, lang_options_for_select %></p>
-<% end %>
 
 
 
