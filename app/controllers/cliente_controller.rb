@@ -68,10 +68,10 @@ class ClienteController < ApplicationController
     (redirect_to(home_url); return) unless Setting.self_registration? || session[:auth_source_registration]
     if !request.post?
       session[:auth_source_registration] = nil
-      @user = User.new(:language => current_language.to_s)
+      @user = ClienteUser.new(:language => current_language.to_s)
     else
       user_params = params[:user] || {}
-      @user = User.new
+      @user = ClienteUser.new
       @user.safe_attributes = user_params
       @user.pref.safe_attributes = params[:pref]
       @user.admin = false
@@ -84,7 +84,13 @@ class ClienteController < ApplicationController
           session[:auth_source_registration] = nil
           self.logged_user = @user
           flash[:notice] = l(:notice_account_activated)
-          redirect_to my_account_path
+
+          #TODO savar o cliente
+          cliente = Cliente.create(@user.empresaNome, @user.uf, @user.cnpj, @user.outorgas, @user.nomeResponsavelEmpresa, @user.emailResponsavelEmpresa, @user.celularResponsavelEmpresa, @user.celularResponsavelCadastro, @user.id)
+          cliente.save
+
+          redirect_to aguarde_path()
+
         end
       else
         unless user_params[:password].blank? && user_params[:password_confirmation].blank?
