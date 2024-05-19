@@ -40,7 +40,6 @@ class ClienteController < ApplicationController
 
       
     cliente = Cliente.create(valoresCliente)
-    cliente.uf = params[:cliente][:uf]
     cliente.user = @user
     cliente.save
 
@@ -88,8 +87,8 @@ class ClienteController < ApplicationController
           self.logged_user = @user
           flash[:notice] = l(:notice_account_activated)
 
-          cliente = Cliente.create()
-          cliente.empresaNome = 'Empresa nome teste no codigo'
+          cliente = Cliente.new(uf:  params[:cliente][:uf], empresaNome: 'Empresa nome teste no codigo')
+
           cliente.save
 
           redirect_to aguarde_path()
