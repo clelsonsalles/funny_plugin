@@ -40,9 +40,10 @@
 
 <% @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| %>
   <p><%= custom_field_tag_with_label :user, value %></p>
+<p><%= text_field :uf %></p>
 <% end %>
 
-<p><%= text_field :uf %></p>
+
 </div>
 
 <p><b>UF</b> <%= text_field(:cliente, :uf) %></p>
