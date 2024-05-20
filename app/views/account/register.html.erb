@@ -23,15 +23,38 @@
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
 
-<h3>Dados da Empresa</h3>
-<p><label for="fname">CNPJ:</label><br>
- <input type="text" id="" name=""></p>
-<p><label for="fname">Empresa:</label><br>
+<h3>Dados da Empresa</h3>Nome:</label><br>
  <input type="text" id="" name=""></p>
 <p><label for="fname">UF:</label><br>
- <input type="text" id="" name=""></p>
-<p><label for="fname">Responsável:</label><br>
- <input type="text" id="" name=""></p>
+ <input type="text" id="CNPJ:</label><br>
+
+<h4>Outorgas de Serviço de Telecom do Cliente
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    SCM
+  </label>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    TV por Assinatura
+  </label>
+   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    STFC
+  </label>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    SPM-RV
+  </label>
+   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Dispensa de Outorga
+  </label>
+</div>
+
+
+
+
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
