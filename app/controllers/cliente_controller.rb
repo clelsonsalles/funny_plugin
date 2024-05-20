@@ -39,7 +39,8 @@ class ClienteController < ApplicationController
     @user.save
 
       
-    cliente = Cliente.create(valoresCliente)
+    cliente = Cliente.new
+    cliente.empresaNome = params.require(:clienteUser).permit(:empresaNome)
     cliente.user = @user
     cliente.save
 
