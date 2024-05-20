@@ -18,8 +18,8 @@ class ClienteController < ApplicationController
   end
 
   def create
-    valoresUsuario = params.require(:cliente_user).permit(:firstname, :lastname, :mail, :login, :password, :password_confirmation)
-    valoresCliente = params.require(:cliente_user).permit(:empresaNome)
+    valoresUsuario = params.require(:clienteUser).permit(:firstname, :lastname, :mail, :login, :password, :password_confirmation)
+    valoresCliente = params.require(:clienteUser).permit(:empresaNome)
 
     @user = User.new(:language => Setting.default_language,
                      :mail_notification => Setting.default_notification_option,
@@ -27,14 +27,14 @@ class ClienteController < ApplicationController
 
     
     unless @user.auth_source_id
-      @user.password              = params[:cliente_user][:password]
-      @user.password_confirmation = params[:cliente_user][:password_confirmation]
+      @user.password              = params[:clienteUsUer][:password]
+      @user.password_confirmation = params[:clienteser][:password_confirmation]
     end
 
-    @user.firstname = params[:cliente_user][:firstname]
-    @user.lastname = params[:cliente_user][:lastname]
-    @user.mail = params[:cliente_user][:mail]
-    @user.login = params[:cliente_user][:login]
+    @user.firstname = params[:clienteUser][:firstname]
+    @user.lastname = params[:clienteUser][:lastname]
+    @user.mail = params[:clienteUser][:mail]
+    @user.login = params[:clienteUser][:login]
     
     @user.save
 
