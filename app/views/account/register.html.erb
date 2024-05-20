@@ -20,8 +20,8 @@
 <p><%= f.text_field :firstname, :required => true %></p>
 <p><%= f.text_field :lastname, :required => true %></p>
 <p><%= f.text_field :mail, :required => true %></p>
-<label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
+<p><label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"></p>
 <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
 
 <% end %>
