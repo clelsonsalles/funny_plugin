@@ -14,7 +14,7 @@ class ClienteController < ApplicationController
   end
 
   def new
-    @cliente~User =   ClienteUser.new
+    @clienteUser =   ClienteUser.new
   end
 
   def create
