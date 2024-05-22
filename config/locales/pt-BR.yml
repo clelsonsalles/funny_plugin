@@ -238,10 +238,10 @@ pt-BR:
   field_category: Categoria
   field_title: Título
   field_project: Organização
-  field_issue: Tarefa
+  field_issue: Formulário
   field_status: Situação
   field_notes: Notas
-  field_is_closed: Tarefa fechada
+  field_is_closed: Formulário fechado
   field_is_default: Situação padrão
   field_tracker: Tipo
   field_subject: Título
@@ -288,7 +288,7 @@ pt-BR:
   field_spent_on: Data
   field_identifier: Identificador
   field_is_filter: É um filtro
-  field_issue_to: Tarefa relacionada
+  field_issue_to: Formulário relacionado
   field_delay: Atraso
   field_assignable: Tarefas podem ser atribuídas a este papel
   field_redirect_existing_links: Redirecionar links existentes
@@ -356,8 +356,8 @@ pt-BR:
   label_project_all: Todas as organizações
   label_project_latest: Últimos projetos
   label_issue: Tarefa
-  label_issue_new: Nova tarefa
-  label_issue_plural: Tarefas
+  label_issue_new: Novo Formulário
+  label_issue_plural: Formulários 
   label_issue_view_all: Ver todas as tarefas
   label_issues_by: "Tarefas por %{value}"
   label_issue_added: Tarefa adicionada
@@ -1168,7 +1168,7 @@ pt-BR:
   field_total_estimated_hours: Tempo estimado geral
   label_api: API
   label_total_plural: Totais
-  label_assigned_issues: Tarefas atribuídas
+  label_assigned_issues: Formulários atribuídos
   label_field_format_enumeration: Chave/Lista de valores
   label_f_hour_short: '%{value} h'
   field_default_version: Versão padrão
@@ -1272,7 +1272,7 @@ pt-BR:
   field_parent_issue_subject: Assunto da tarefa pai
   permission_edit_own_issues: Editar as próprias tarefas
   text_select_apply_tracker: Selecione o tipo de tarefa
-  label_updated_issues: Tarefas atualizadas
+  label_updated_issues: Formulários atualizados
   text_avatar_server_config_html: O servidor de avatar atual é <a href="%{url}">% {url} </a>.
      Você pode configurá-lo em config / configuration.yml.
   setting_gantt_months_limit: Número máximo de meses exibidos no gráfico de Gantt
