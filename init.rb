@@ -16,7 +16,7 @@ Redmine::Plugin.register :funny_plugin do
   delete_menu_item :top_menu, :my_page
   delete_menu_item :top_menu, :projects
   delete_menu_item :top_menu, :help
-  delete_meni_item :account_menu, :register
+  
   delete_menu_item :admin_menu, :groups
   delete_menu_item :admin_menu, :roles
   delete_menu_item :admin_menu, :trackers
