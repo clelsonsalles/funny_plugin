@@ -237,7 +237,7 @@ pt-BR:
   field_value: Valor
   field_category: Categoria
   field_title: Título
-  field_project: Projeto
+  field_project: Organização
   field_issue: Tarefa
   field_status: Situação
   field_notes: Notas
@@ -251,7 +251,7 @@ pt-BR:
   field_fixed_version: Versão
   field_user: Usuário
   field_role: Cargo
-  field_homepage: Página do projeto
+  field_homepage: Página da Organização
   field_is_public: Público
   field_parent: Subprojeto de
   field_is_in_roadmap: Exibir no planejamento
@@ -346,14 +346,14 @@ pt-BR:
   label_user: Usuário
   label_user_plural: Usuários
   label_user_new: Novo usuário
-  label_project: Projeto
-  label_project_new: Novo projeto
-  label_project_plural: Projetos
+  label_project: Organização
+  label_project_new: Nova Organização
+  label_project_plural: Organizações
   label_x_projects:
     zero:  nenhum projeto
     one:   1 projeto
     other: "%{count} projetos"
-  label_project_all: Todos os projetos
+  label_project_all: Todas as organizações
   label_project_latest: Últimos projetos
   label_issue: Tarefa
   label_issue_new: Nova tarefa
@@ -398,7 +398,7 @@ pt-BR:
   label_home: Página inicial
   label_my_page: Minha página
   label_my_account: Minha conta
-  label_my_projects: Meus projetos
+  label_my_projects: Minhs organizações
   label_administration: Administração
   label_login: Entrar
   label_logout: Sair
@@ -600,7 +600,7 @@ pt-BR:
   label_module_plural: Módulos
   label_added_time_by: "Adicionado por %{author} %{age} atrás"
   label_updated_time: "Atualizado %{value} atrás"
-  label_jump_to_a_project: Ir para o projeto...
+  label_jump_to_a_project: Ir para a organização...
   label_file_plural: Arquivos
   label_changeset_plural: Conjunto de alterações
   label_default_columns: Colunas padrão
@@ -677,7 +677,7 @@ pt-BR:
 
   text_select_mail_notifications: Ações a serem notificadas por e-mail
   text_regexp_info: ex. ^[A-Z0-9]+$
-  text_project_destroy_confirmation: Você tem certeza que deseja excluir este projeto e todos os dados relacionados?
+  text_project_destroy_confirmation: Você tem certeza que deseja excluir esta organização e todos os dados relacionados?
   text_subprojects_destroy_warning: "Seu(s) subprojeto(s): %{value} também serão excluídos."
   text_workflow_edit: Selecione um papel e um tipo de tarefa para editar o fluxo de trabalho
   text_are_you_sure: Você tem certeza?
@@ -702,7 +702,7 @@ pt-BR:
   text_load_default_configuration: Carregar a configuração padrão
   text_status_changed_by_changeset: "Aplicado no conjunto de alterações %{value}."
   text_issues_destroy_confirmation: 'Você tem certeza que deseja excluir a(s) tarefa(s) selecionada(s)?'
-  text_select_project_modules: 'Selecione módulos para habilitar para este projeto:'
+  text_select_project_modules: 'Selecione módulos para habilitar para esta Organização:'
   text_default_administrator_account_changed: Conta padrão do administrador alterada
   text_file_repository_writable: Repositório com permissão de escrita
   text_minimagick_available: MiniMagick disponível (opcional)
@@ -782,7 +782,7 @@ pt-BR:
   permission_commit_access: Acesso do commit
   permission_browse_repository: Pesquisar repositório
   permission_view_documents: Ver documentos
-  permission_edit_project: Editar projeto
+  permission_edit_project: Editar organização
   permission_add_issue_notes: Adicionar notas
   permission_save_queries: Salvar consultas
   permission_view_wiki_pages: Ver wiki
@@ -825,7 +825,7 @@ pt-BR:
   mail_body_wiki_content_added: A página wiki '%{id}' foi adicionada por %{author}.
   label_wiki_content_updated: Página wiki atualizada
   mail_body_wiki_content_updated: A página wiki '%{id}' foi atualizada por %{author}.
-  permission_add_project: Criar projeto
+  permission_add_project: Criar organização
   setting_new_project_user_role_id: Papel atribuído a um usuário não-administrador que cria um projeto
   label_view_all_revisions: Ver todas as revisões
   label_tag: Tag
@@ -883,8 +883,8 @@ pt-BR:
   label_missing_feeds_access_key: Chave de acesso ao Atom faltando
   text_line_separated: Múltiplos valores permitidos (uma linha para cada valor).
   setting_mail_handler_body_delimiters: Truncar e-mails após uma destas linhas
-  permission_add_subprojects: Criar subprojetos
-  label_subproject_new: Novo subprojeto
+  permission_add_subprojects: Criar filial
+  label_subproject_new: Nova filial
   text_own_membership_delete_confirmation: |-
     Você irá excluir algumas de suas próprias permissões e não estará mais apto a editar este projeto após esta operação.
     Você tem certeza que deseja continuar?
@@ -979,7 +979,7 @@ pt-BR:
   description_issue_category_reassign: Escolha uma categoria de tarefas
   description_search: Campo de busca
   description_notes: Notas
-  description_choose_project: Projetos
+  description_choose_project: Organizações
   description_query_sort_criteria_attribute: Atributo de ordenação
   description_wiki_subpages_reassign: Escolha uma nova página pai
   description_selected_columns: Colunas selecionadas
@@ -1025,7 +1025,7 @@ pt-BR:
   setting_session_lifetime: Duração máxima da sessão
   setting_session_timeout: Tempo limite de inatividade da sessão
   label_session_expiration: "Expiração da sessão"
-  permission_close_project: Fechar / reabrir o projeto
+  permission_close_project: Fechar / reabrir a organização
   button_close: Fechar
   button_reopen: Reabrir
   project_status_active: ativo
@@ -1109,12 +1109,12 @@ pt-BR:
   label_radio_buttons: botões radio
   label_group_anonymous: Usuários anônimos
   label_group_non_member: Usuários não membros
-  label_add_projects: Adicionar projetos
+  label_add_projects: Adicionar organizações
   field_default_status: Situação padrão
   text_subversion_repository_note: 'Exemplos: file:///, http://, https://, svn://, svn+[tunnelscheme]://'
   field_users_visibility: Visibilidade do usuário
   label_users_visibility_all: Todos usuários ativos
-  label_users_visibility_members_of_visible_projects: Membros de projetos visíveis
+  label_users_visibility_members_of_visible_projects: Membros de organizações visíveis
   label_edit_attachments: Editar arquivos anexados
   setting_link_copied_issue: Relacionar tarefas copiadas
   label_link_copied_issue: Relacionar tarefas copiadas
