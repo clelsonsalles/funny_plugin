@@ -334,7 +334,7 @@ pt-BR:
   setting_mail_handler_api_key: Chave de API
   setting_sequential_project_identifiers: Gerar identificadores sequenciais de projeto
 
-  project_module_issue_tracking: Gerenciamento de Tarefas
+  project_module_issue_tracking: Gerenciamento de Formulários
   project_module_time_tracking: Gerenciamento de tempo
   project_module_news: Notícias
   project_module_documents: Documentos
@@ -355,10 +355,10 @@ pt-BR:
     other: "%{count} projetos"
   label_project_all: Todas as organizações
   label_project_latest: Últimos projetos
-  label_issue: Tarefa
+  label_issue: Formulário
   label_issue_new: Novo Formulário
   label_issue_plural: Formulários 
-  label_issue_view_all: Ver todas as tarefas
+  label_issue_view_all: Ver todos os formulários
   label_issues_by: "Tarefas por %{value}"
   label_issue_added: Tarefa adicionada
   label_issue_updated: Tarefa atualizada
@@ -376,12 +376,12 @@ pt-BR:
   label_member: Membro
   label_member_new: Novo membro
   label_member_plural: Membros
-  label_tracker: Tipo de tarefa
-  label_tracker_plural: Tipos de tarefas
+  label_tracker: Tipo de formulário
+  label_tracker_plural: Tipos de formulários
   label_tracker_new: Novo tipo
   label_workflow: Fluxo de trabalho
   label_issue_status: Situação da tarefa
-  label_issue_status_plural: Situação das tarefas
+  label_issue_status_plural: Situação dos formulários
   label_issue_status_new: Nova situação
   label_issue_category: Categoria da tarefa
   label_issue_category_plural: Categorias das tarefas
@@ -403,8 +403,8 @@ pt-BR:
   label_login: Entrar
   label_logout: Sair
   label_help: Ajuda
-  label_reported_issues: Tarefas reportadas
-  label_assigned_to_me_issues: Minhas tarefas
+  label_reported_issues: Formulários reportados
+  label_assigned_to_me_issues: Meus Formulários
   label_registered_on: Registrado em
   label_activity: Atividade
   label_new: Novo
@@ -746,7 +746,7 @@ pt-BR:
   label_copied: copiado
   setting_plain_text_mail: Usar mensagem sem formatação HTML
   permission_view_files: Ver arquivos
-  permission_edit_issues: Editar tarefas
+  permission_edit_issues: Editar formulários
   permission_edit_own_time_entries: Editar o próprio tempo de trabalho
   permission_manage_public_queries: Gerenciar consultas públicas
   permission_add_issues: Adicionar tarefas
@@ -776,7 +776,7 @@ pt-BR:
   permission_view_calendar: Ver calendário
   permission_manage_members: Gerenciar membros
   permission_edit_messages: Editar mensagens
-  permission_delete_issues: Excluir tarefas
+  permission_delete_issues: Excluir formulários
   permission_view_issue_watchers: Ver lista de observadores
   permission_manage_repository: Gerenciar repositório
   permission_commit_access: Acesso do commit
@@ -870,7 +870,7 @@ pt-BR:
   label_update_issue_done_ratios: Atualizar percentual de conclusão das tarefas
   setting_start_of_week: Início da semana
   field_watcher: Observador
-  permission_view_issues: Ver tarefas
+  permission_view_issues: Ver Formulários
   label_display_used_statuses_only: Somente exibir situações que são usadas por este tipo de tarefa
   label_revision_id: Revisão %{value}
   label_api_access_key: Chave de acesso à API
