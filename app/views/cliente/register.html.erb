@@ -5,7 +5,7 @@
 
 <div class="box tabular">
 <br/>
-<h3>Dados do Usuário</h3>
+<h3>Dados do Usuário Analista</h3>
 <% if @user.auth_source_id.nil? %>
   <p><%= f.text_field :login, :size => 25, :required => true %></p>
 
@@ -21,7 +21,7 @@
 
 
 <br/>
-<h3>Dados do Cliente</h3>
+<h3>Dados do Analista</h3>
 
 <p><%= f.text_field :firstname, :required => true %></p>
 <p><%= f.text_field :lastname, :required => true %></p>
