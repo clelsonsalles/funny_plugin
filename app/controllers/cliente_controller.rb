@@ -36,17 +36,18 @@ class ClienteController < ApplicationController
     @user.mail = params[:clienteUser][:mail]
     @user.login = params[:clienteUser][:login]
     
-    @user.save
-    @papel = Role.find(6)
-    @projeto = Project.find(1) 
-
-    member = Member.new(:project => @project, :user_id => @user.id)
-    member.set_editable_role_ids([6])
-    member.save
-    members = []
-    members << member
-    @project.members << members
-    @project.save
+    if @user.save
+      @papel = Role.find(6)
+      @projeto = Project.find(1) 
+  
+      member = Member.new(:project => @project, :user_id => @user.id)
+      member.set_editable_role_ids([6])
+      member.save
+      members = []
+      members << member
+      @project.members << members
+      @project.save
+    end
 
 
 
