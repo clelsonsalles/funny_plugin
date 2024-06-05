@@ -407,8 +407,7 @@ class AccountController < ApplicationController
     user.activate
     if user.save
       # configurações funny para cadastro de cliente
-      @papel = Role.find(6)
-      @projeto = Project.find(1) 
+      @project = Project.find(1) 
   
       member = Member.new(:project => @project, :user_id => @user.id)
       member.set_editable_role_ids([6])
