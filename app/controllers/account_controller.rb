@@ -406,6 +406,18 @@ class AccountController < ApplicationController
   def register_manually_by_administrator(user, &block)
     user.activate
     if user.save
+      # configurações funny para cadastro de cliente
+      @papel = Role.find(6)
+      @projeto = Project.find(1) 
+  
+      member = Member.new(:project => @project, :user_id => @user.id)
+      member.set_editable_role_ids([6])
+      member.save
+      members = []
+      members << member
+      @project.members << members
+      @project.save
+
       # Sends an email to the administrators
       Mailer.deliver_account_activation_request(user)
       account_pending(user)
