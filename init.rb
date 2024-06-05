@@ -28,7 +28,7 @@ Redmine::Plugin.register :funny_plugin do
   delete_menu_item :admin_menu, :plugins
   delete_menu_item :admin_menu, :info
 
-  menu :admin_menu, :cadastrarCliente, { :controller => 'cliente', :action => 'register' }, :caption => 'Novo Cliente', :before => :settings
+  menu :admin_menu, :cadastrarCliente, { :controller => 'cliente', :action => 'register' }, :caption => 'Novo Analista', :before => :settings
 
    
 end
