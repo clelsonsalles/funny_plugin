@@ -142,7 +142,6 @@ class AccountController < ApplicationController
       @user = User.new
       @user.safe_attributes = user_params
       @user.pref.safe_attributes = params[:pref]
-      @user.name = 'promiscuidade'
       @user.admin = false
       @user.register
       if session[:auth_source_registration]
@@ -405,6 +404,7 @@ class AccountController < ApplicationController
   #
   # Pass a block for behavior when a user fails to save
   def register_manually_by_administrator(user, &block)
+    user.activate
     if user.save
       # Sends an email to the administrators
       Mailer.deliver_account_activation_request(user)
