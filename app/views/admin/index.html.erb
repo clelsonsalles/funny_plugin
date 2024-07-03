@@ -1,17 +1,6 @@
+<div class="container">
 
-
-
-
-  
-
-
-<div id="admin-index">
- <div class="row">
-    <div class="col-sm-4">
-       <%= render :partial => 'menu' %>
-        <%= render :partial => 'no_data' if @no_configuration_data %>
-    </div>
-    <div class="col-sm-8">
+<div class="col-sm-8">
     
   <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
    
@@ -27,6 +16,22 @@
  
   </div>
 </div>
+
+
+
+
+</div>
+
+  
+
+
+<div id="admin-index">
+ <div class="row">
+    <div class="col-sm-4">
+       <%= render :partial => 'menu' %>
+        <%= render :partial => 'no_data' if @no_configuration_data %>
+    </div>
+
 
 
 
