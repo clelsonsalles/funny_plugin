@@ -1,8 +1,17 @@
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+       <%= render :partial => 'menu' %>
+        <%= render :partial => 'no_data' if @no_configuration_data %>
+    </div>
+    <div class="col-sm-8">col-sm-8</div>
+  </div>
+  
+</div>
 
 <div id="admin-index">
-  <%= render :partial => 'no_data' if @no_configuration_data %>
-  <%= render :partial => 'menu' %>
+ 
+  
 </div>
 
 <% html_title(l(:label_administration)) -%>
