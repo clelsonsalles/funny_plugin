@@ -1,5 +1,17 @@
-<div class="container-xxl">
-  <div class="row row-cols-1 row-cols-md-3 g-3">
+<div class="container">
+
+<div class="row">
+  <div class="col-4">
+   <div class="col-sm-4">
+       <%= render :partial => 'menu' %>
+       <%= render :partial => 'no_data' if @no_configuration_data %>
+   </div>
+    
+    </div>
+    
+<div class="col-8">
+
+   <div class="row row-cols-1 row-cols-md-3 g-3">
     <div class="col">
         <!-- Card with default left text alignment -->
         <div class="card">
@@ -31,6 +43,15 @@
         </div>
     </div>
 </div>
+
+</div>
+  </div>
+
+
+
+
+
+  
 </div>
 
 
@@ -54,10 +75,7 @@
 
 <div id="admin-index">
  <div class="row">
-    <div class="col-sm-4">
-       <%= render :partial => 'menu' %>
-        <%= render :partial => 'no_data' if @no_configuration_data %>
-    </div>
+ 
 
 
 
