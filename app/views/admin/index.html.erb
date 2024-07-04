@@ -1,46 +1,6 @@
-<div class="container-fluid">
+<div class="container-xxl">
   
-    <div class="col-md-3">
-       <%= render :partial => 'menu' %>
-       <%= render :partial => 'no_data' if @no_configuration_data %>
-    </div>
-    <div class="col-md-9">
-      <div class="row">
-            <div class="col-md-4">
-                <div class="box">
-                    <h3>Mensal</h3>
-                    <p>Coletas de dados de ACesso,</br>SCM, SEAC,STFC</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <h3>Semestral</h3>
-                    <p>Conteúdo da Caixa 2</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <h3>Anual</h3>
-                    <p>Conteúdo da Caixa 3</p>
-                </div>
-            </div>
-        
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
+    
         <div class="row">
             <div class="col-md-4">
                 <div class="box">
@@ -48,23 +8,27 @@
                     <p>Coletas de dados de ACesso,</br>SCM, SEAC,STFC</p>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="box">
                     <h3>Semestral</h3>
                     <p>Conteúdo da Caixa 2</p>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="box">
                     <h3>Anual</h3>
                     <p>Conteúdo da Caixa 3</p>
                 </div>
             </div>
+
         </div>
-         <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
        <%= render :partial => 'menu' %>
        <%= render :partial => 'no_data' if @no_configuration_data %>
-   </div>
+      </div>
     </div>
 
 <div class="row">
