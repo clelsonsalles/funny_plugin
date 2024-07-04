@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-4 col-4-custom">
       <!-- Conteúdo da coluna de largura 4 (width: 18%) -->
-      <div class="p-3 mb-2 bg-primary text-white">Coluna 4 com 18% de largura</div>
+      <div class="p-3 mb-2">
+       <%= render :partial => 'menu' %>
+       <%= render :partial => 'no_data' if @no_configuration_data %>
     </div>
     <div class="col-8">
       <!-- Conteúdo da coluna de largura 8 com boxes -->
@@ -10,24 +12,24 @@
         <div class="col-4">
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Título do Box 1</h5>
-              <p class="card-text">Descrição do Box 1</p>
+              <h5 class="card-title">Mensal</h5>
+              <p class="card-text">SCM, SEAC, STFC</p>
             </div>
           </div>
         </div>
         <div class="col-4">
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Título do Box 2</h5>
-              <p class="card-text">Descrição do Box 2</p>
+              <h5 class="card-title">Semestral</h5>
+              <p class="card-text"></p>
             </div>
           </div>
         </div>
         <div class="col-4">
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Título do Box 3</h5>
-              <p class="card-text">Descrição do Box 3</p>
+              <h5 class="card-title">Anual</h5>
+              <p class="card-text"></p>
             </div>
           </div>
         </div>
@@ -79,7 +81,7 @@
       <div class="col-md-8">
           <div class="box">
               <h3><b>Mensal</b></h3>
-              <p>Coletas de dados de ACesso,</br>SCM, SEAC,STFC</p>
+              <p>Coletas de dados de ACesso,</br>SCM, SEAC, STFC</p>
           </div>
         </div>
 
