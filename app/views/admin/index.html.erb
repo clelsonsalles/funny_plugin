@@ -3,8 +3,10 @@
     <div class="col-4 col-4-custom">
       <!-- Conteúdo da coluna de largura 4 (width: 18%) com fundo branco -->
       <div class="p-3 mb-2">
+         <nav class="nav flex-column">
           <%= render :partial => 'menu' %>
        <%= render :partial => 'no_data' if @no_configuration_data %>
+         </nav>
       </div>
     </div>
     <div class="col-8">
