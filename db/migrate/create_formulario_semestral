@@ -1,0 +1,14 @@
+class FormularioSemestral < ActiveRecord::Migration[5.2]
+  def change
+    create_table :formulario_semestral do |t|
+      t.text :razao_social
+      t.string :cnpj
+      t.integer :ano, default: 2024
+      t.string :trimestre
+      t.string :uf
+      t.text :operacao
+      t.float :valor
+      t.reference :tipo_servico
+    end
+  end
+end
