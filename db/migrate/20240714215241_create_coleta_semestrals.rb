@@ -4,6 +4,12 @@ class CreateColetaSemestrals < ActiveRecord::Migration[6.1]
       t.text :razaoSocial
       t.integer :cnpj
       t.integer :ano
+      t.text :trimestre
+      t.text :uf
+      t.text :operacao
+      t.interger :valor
+      t.text :tipoDeServico
+      
     end
   end
 end
