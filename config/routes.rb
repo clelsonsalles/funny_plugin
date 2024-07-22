@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get 'cliente/coletas', :to => 'cliente#index_cliente'
     resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'cliente/mensal', :to => 'cliente#create_coleta_mensal'
+     resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'cliente/analista', :to => 'cliente#index_analista'
 
 
     
