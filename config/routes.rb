@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'cliente/analista', :to => 'cliente#index_analista'
 
+    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'cliente/coleta_semestral', :to => 'cliente#formulario_semestral'
+
     
     
 
