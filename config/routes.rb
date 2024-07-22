@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     match 'cliente/register', :to => 'cliente#register', :via => [:get, :post], :as => 'registrar'
     resources :coleta_mensal, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta', :to => 'coleta_mensal#index'
+    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'coletas', :to => 'cliente#index_cliente'
 
 
     
