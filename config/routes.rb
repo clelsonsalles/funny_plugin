@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'cliente/mensal_seac', :to => 'cliente#formulario_mensal_seac'
 
+    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'cliente/mensal_stfc', :to => 'cliente#formulario_mensal_stfc'
+
     
     
 
