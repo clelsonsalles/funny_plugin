@@ -25,7 +25,13 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="tipoCliente" class="form-label">Tipo de Cliente</label>
-                            <input type="text" class="form-control" id="tipoCliente" placeholder="Digite o tipo de cliente">
+                            <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Pessoa Física</option>
+                                <option value="RJ">Pessoa Jurídica</option>
+                                <option value="RJ">Uso Próprio</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="tipoAtendimento" class="form-label">Tipo de Atendimento</label>
