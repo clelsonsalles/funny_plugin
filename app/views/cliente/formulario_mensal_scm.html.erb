@@ -27,22 +27,35 @@
                             <label for="tipoCliente" class="form-label">Tipo de Cliente</label>
                             <select id="uf" class="form-select">
                                 <option selected>Escolher...</option>
-                                <option value="SP">Pessoa Física</option>
-                                <option value="RJ">Pessoa Jurídica</option>
-                                <option value="RJ">Uso Próprio</option>
+                                <option value="SP">Pessoa Física: PF</option>
+                                <option value="RJ">Pessoa Jurídica: PJ</option>
+                                <option value="RJ">Uso Próprio: UP</option>
                                 <!-- Adicione mais opções conforme necessário -->
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="tipoAtendimento" class="form-label">Tipo de Atendimento</label>
-                            <input type="text" class="form-control" id="tipoAtendimento" placeholder="Digite o tipo de atendimento">
+                            <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">URBANO</option>
+                                <option value="RJ">RURAL</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="tipoMeio" class="form-label">Tipo de Meio</label>
-                            <input type="text" class="form-control" id="tipoMeio" placeholder="Digite o tipo de meio">
+                            <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Cabo_coaxial</option>
+                                <option value="RJ">Cabo_metálico</option>
+                                <option value="RJ">Satelite</option>
+                                <option value="RJ">Radio</option>
+                                <option value="RJ">Fibra</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="tipoTecnologia" class="form-label">Tipo de Tecnologia</label>
@@ -53,7 +66,14 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="tipoProduto" class="form-label">Tipo de Produto</label>
-                            <input type="text" class="form-control" id="tipoProduto" placeholder="Digite o tipo de produto">
+                            <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Internet</option>
+                                <option value="RJ">Linha_dedicada</option>
+                                <option value="RJ">m2m</option>
+                                <option value="RJ">outros</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="velocidade" class="form-label">Velocidade</label>
