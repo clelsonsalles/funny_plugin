@@ -5,6 +5,34 @@
        
             <div class="card-body">
                 <form>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="valor" class="form-label">Razão Social</label>
+                            <input type="text" class="form-control" id="tipoCliente" placeholder="razao_social">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tipoServico" class="form-label">CNPJ</label>
+                            <input type="text" class="form-control" id="tipoAtendimento" placeholder="cnpj">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="valor" class="form-label">Ano</label>
+                            <input type="text" class="form-control" id="tipoCliente" placeholder="ano">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tipoServico" class="form-label">Trimestre</label>
+                             <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Primeiro</option>
+                                <option value="RJ">Segundo</option>
+                                <option value="RJ">Terceiro</option>
+                                <option value="RJ">Quarto</option>
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="uf" class="form-label">UF</label>
