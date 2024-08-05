@@ -50,24 +50,58 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="tipoCliente" class="form-label">Tipo de Cliente</label>
-                            <input type="text" class="form-control" id="tipoCliente" placeholder="Digite o tipo de cliente">
+                             <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Pessoa Física (PF)</option>
+                                <option value="RJ">Pessoa Jurídica (PJ)</option>
+                                <option value="RJ">Uso Próprio(UP)</option>
+                                
+                                
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
                         </div>
                         <div class="col-md-6">
                             <label for="tipoMeio" class="form-label">Tipo de Meio</label>
-                            <input type="text" class="form-control" id="tipoMeio" placeholder="Digite o tipo de meio">
+                             <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Cabo_coaxial</option>
+                                <option value="RJ">Cabo_metálico</option>
+                                <option value="RJ">Satélite</option>
+                                <option value="RJ">Rádio</option>
+                                <option value="RJ">Fibra</option>
+                                
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
+                        </div>
+                    </div>
+
+                     <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="codigoIbge" class="form-label">Tipo de Atendimento</label>
+                            <select id="uf" class="form-select">
+                                <option selected>Escolher...</option>
+                                <option value="SP">Urbano</option>
+                                <option value="RJ">Rural</option>
+                                                     
+                                <!-- Adicione mais opções conforme necessário -->
+                            </select>
+                        </div>
+                         <div class="col-md-6">
+                            <label for="codigoIbge" class="form-label">Código IBGE</label>
+                            <input type="text" class="form-control" id="codigoIbge" placeholder="Digite o código IBGE">
                         </div>
                     </div>
 
                     <div class="row mb-3">
+                       
                         <div class="col-md-6">
-                            <label for="codigoIbge" class="form-label">Código IBGE</label>
-                            <input type="text" class="form-control" id="codigoIbge" placeholder="Digite o código IBGE">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="quantidade" class="form-label">Quantidade</label>
+                            <label for="quantidade" class="form-label">Quantidade de Acessos</label>
                             <input type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade">
                         </div>
                     </div>
+
+                   
+
 
                   
                     <div class="text-end">
