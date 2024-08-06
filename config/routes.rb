@@ -7,34 +7,20 @@ Rails.application.routes.draw do
     get 'clientes', :to => 'cliente#list'
     get 'aguarde', :to => 'cliente#aguarde'
     match 'cliente/register', :to => 'cliente#register', :via => [:get, :post], :as => 'registrar'
+    
     resources :coleta_mensal, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'coleta', :to => 'coleta_mensal#index'
+    get 'coleta/mensal/criar', :to => 'coleta_mensal#criar'
+    get 'coleta/mensal/fazer/scm', :to => 'coleta_mensal#fazer_scm'
+    get 'coleta/mensal/fazer/seac', :to => 'coleta_mensal#fazer_seac'
+    get 'coleta/mensal/fazer/stfc', :to => 'coleta_mensal#fazer_stfc'
     
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/coletas', :to => 'cliente#index_cliente'
+    resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
+    get 'coleta/semestral/fazer', :to => 'coleta_semestral#fazer'
     
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/mensal', :to => 'cliente#create_coleta_mensal'
-   
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/cliente_analista', :to => 'cliente#cliente_analista'
+    resources :coleta_anual, only: [:new, :create, :destroy, :edit, :update, :index]
+    get 'coleta/anual/criar', :to => 'coleta_anual#criar'
+    get 'coleta/anual/fazer', :to => 'coleta_anual#fazer'
 
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/analista', :to => 'cliente#index_analista'
-
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/coleta_semestral', :to => 'cliente#formulario_semestral'
-
-     resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/mensal_scm', :to => 'cliente#formulario_mensal_scm'
-
-      resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/mensal_seac', :to => 'cliente#formulario_mensal_seac'
-
-    resources :clientes, only: [:new, :create, :destroy, :edit, :update, :index]
-    get 'cliente/mensal_stfc', :to => 'cliente#formulario_mensal_stfc'
-
-    
-    
 
 end
