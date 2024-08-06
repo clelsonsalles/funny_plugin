@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     get 'clientes', :to => 'cliente#list'
     get 'aguarde', :to => 'cliente#aguarde'
     match 'cliente/register', :to => 'cliente#register', :via => [:get, :post], :as => 'registrar'
+    get 'cliente/analista', :to => 'cliente#index_analista'
+    get 'cliente/coletas', :to => 'cliente#index_cliente'
     
     resources :coleta_mensal, only: [:new, :create, :destroy, :edit, :update, :index]
+
     get 'coleta/mensal/criar', :to => 'coleta_mensal#criar'
     get 'coleta/mensal/fazer/scm', :to => 'coleta_mensal#fazer_scm'
     get 'coleta/mensal/fazer/seac', :to => 'coleta_mensal#fazer_seac'
