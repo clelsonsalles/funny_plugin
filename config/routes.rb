@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get 'clientes', :to => 'cliente#list'
     get 'aguarde', :to => 'cliente#aguarde'
     match 'cliente/register', :to => 'cliente#register', :via => [:get, :post], :as => 'registrar'
-    get 'cliente/analista', :to => 'cliente#index_analista'
-    get 'cliente/cliente_analista', :to => 'cliente#cliente_analista'
+    get 'analista/clientes', :to => 'analista#index_analista'
+    get 'analista/cliente_analista', :to => 'analista#cliente_analista'
     
     resources :coleta_mensal, only: [:new, :create, :destroy, :edit, :update, :index]
 
