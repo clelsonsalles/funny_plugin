@@ -3,21 +3,22 @@
 <h2><b>Lista de Clientes do Analista</b></h2>
 
  <div class="row justify-content-center">
-<div class="col-md-4">
+
   
   <% for project in @projects %>
      <% if(User.current.member_of?(project)) %>
-       <div class="custom-box">
+         <div class="col-md-4">
+           <div class="custom-box">
                <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
                <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
                <p><b>Responsável: João Carlos</b></p>
                <a href="http://201.76.43.189:88/analista/cliente_analista" class="box-link">ver dados</a>
            </div>
-      
+         </div>
 
      <% end %>
   <% end %>
- </div>
+ 
 </div>
 <% else %>
 <h2><b>Usuário não está conectado</b></h2>
