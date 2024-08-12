@@ -1,31 +1,22 @@
-<h2><b>Início</b></h2>
+<% if User.current.logged? %>
+
+<h2><b>Lista de Clientes do Analista</b></h2>
 
 
+  <% for project in @projects %>
+     <% if(User.current.member_of?(project)) %>
+       <div class="col-md-4">
+           <div class="custom-box">
+               <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
+               <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
+               <p><b>Responsável: João Carlos</b></p>
+               <a href="http://201.76.43.189:88/analista/cliente_analista" class="box-link">ver dados</a>
+           </div>
+       </div>
 
- <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="custom-box">
-                    <div class="box-title">TIM</div>
-                    <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
-                    <p><b>Responsável: João Carlos</b></p>
-                    <a href="http://201.76.43.189:88/analista/cliente_analista" class="box-link">ver dados</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-box">
-                    <div class="box-title">ORGANIZAÇÃO TESTE</div>
-                    <div class="box-description"><span class="badge bg-success">Coleta recebida</span></div>
-                    <p><b>Responsável: Luana Silva</b></p>
-                    <a href="#" class="box-link">ver dados</a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-box">
-                    <div class="box-title">GLOBALCOM</div>
-                    <div class="box-description"><span class="badge bg-success">Coleta recebida</span></div>
-                    <p><b>Responsável: Luana Silva</b></p>
-                    <a href="#" class="box-link">ver dados</a>
-                </div>
-            </div>
-        </div>
-    </div>
+     <% end %>
+  <% end %>
+
+<% else %>
+<h2><b>Usuário não está conectado</b></h2>
+<% end %>
