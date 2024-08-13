@@ -15,7 +15,7 @@
                <% for membresia in project.memberships %>
                   <p><%= membresia.user.name %>
                   <% for roles in membresia.roles %>
-                     <% for papel in roles %>
+                     <% for papel in roles.role %>
                         <%= papel.id %> - <%= papel.name %>
                      <% end %>
                   <% end %>
