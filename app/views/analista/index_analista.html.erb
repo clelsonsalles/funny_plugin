@@ -17,7 +17,11 @@
                   <%= usuario.name %>
 
                   <% for papel in membresia.roles %>
-                     <%= papel.id %> - <%= papel.name %>
+                     <% if papel.id == 5 %>
+                        <% usuario = User.find_by_id(membresia.user_id) %>
+                        <%= usuario.nil? ? 'NÃO DEFINIDO' : usuario.name %>
+                        <%= papel.id %> - <%= papel.name %>
+                     <% end %>
                   <% end %>
                   </p>
                <% end %>
