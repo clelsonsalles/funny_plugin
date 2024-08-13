@@ -5,8 +5,9 @@ class AnalistaController < ApplicationController
   end
 
   def cliente_analista
-    organizacao = Project.find(params[:id_projeto])
-    membros = organizacao.memberships.sorted.to_a
+    @organizacao = Organizacao.initialize(Project.find(params[:id_projeto]))
+
+    
   end
 
   def create
