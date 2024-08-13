@@ -13,7 +13,7 @@
                <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
                <p><b>Responsável: João Carlos</b></p>
                <% for membresia in project.memberships %>
-                  <p><%= membresia.user.name %>
+                  
                   <% for papel in membresia.roles %>
                      <%= papel.id %> - <%= papel.name %>
                   <% end %>
