@@ -1,6 +1,7 @@
 <% if User.current.logged? %>
 
 
+<h2><strong>Clientes do Analista</strong></h2>
 
  <div class="row justify-content-center">
 
@@ -21,7 +22,7 @@
                   </p>
                <% end %>
 
-               <a href="http://201.76.43.189:88/analista/cliente_analista" class="box-link">ver dados</a>
+               <a href="/analista/cliente_analista?id_projeto='<% project.id %>'" class="box-link">ver dados</a>
            </div>
          </div>
 
