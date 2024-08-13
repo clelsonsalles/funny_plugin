@@ -5,7 +5,7 @@ class AnalistaController < ApplicationController
   end
 
   def cliente_analista
-    @organizacao = Organizacao.inicia(Project.find(params[:id_projeto]))
+    @organizacao = Organizacao.new(Project.find(params[:id_projeto]))
 
     
   end
