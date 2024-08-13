@@ -11,14 +11,11 @@
            <div class="custom-box">
                <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
                <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
-               <p><b>Responsável: João Carlos</b></p>
                <% for membresia in project.memberships %>
-
                   <% for papel in membresia.roles %>
                      <% if papel.id == 5 %>
                         <% usuario = User.find_by_id(membresia.user_id) %>
-                        <%= usuario.nil? ? 'NÃO DEFINIDO' : usuario.name %>
-                        <%= papel.id %> - <%= papel.name %>
+                        <p><b>Responsável: </b></p> <%= usuario.nil? ? 'NÃO DEFINIDO' : usuario.name %> </b></p>
                      <% end %>
                   <% end %>
                   </p>
