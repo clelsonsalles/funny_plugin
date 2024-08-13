@@ -13,8 +13,6 @@
                <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
                <p><b>Responsável: João Carlos</b></p>
                <% for membresia in project.memberships %>
-                  <% usuario = User.find_by_id(membresia.user_id) %>
-                  <%= usuario.name %>
 
                   <% for papel in membresia.roles %>
                      <% if papel.id == 5 %>
