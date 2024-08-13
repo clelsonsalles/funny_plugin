@@ -14,7 +14,7 @@
                <p><b>Responsável: João Carlos</b></p>
                <% for membresia in project.memberships %>
                   <p><%= membresia.user.name %>
-                  <% for role in membresia.roles %>
+                  <% for papel in membresia.roles %>
                      <%= papel.id %> - <%= papel.name %>
                   <% end %>
                   </p>
