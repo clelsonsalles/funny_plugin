@@ -5,7 +5,7 @@ class AnalistaController < ApplicationController
   end
 
   def cliente_analista
-    organizacao = Project.find(params[:analista][:id_projeto])
+    organizacao = Project.find(params[:id_projeto])
     membros = organizacao.memberships.sorted.to_a
   end
 
