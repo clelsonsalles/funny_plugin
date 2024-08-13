@@ -12,6 +12,16 @@
                <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
                <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
                <p><b>Responsável: João Carlos</b></p>
+               <% for membresia in project.memberships %>
+                  <p><%= membresia.user.name %>
+                  <% for roles in membresia.roles %>
+                     <% for papel in roles %>
+                        <%= papel.id %> - <%= papel.name %>
+                     <% end %>
+                  <% end %>
+                  </p>
+               <% end %>
+
                <a href="http://201.76.43.189:88/analista/cliente_analista" class="box-link">ver dados</a>
            </div>
          </div>
