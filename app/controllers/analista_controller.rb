@@ -13,10 +13,10 @@ class AnalistaController < ApplicationController
     for membresia in projeto.memberships
       for papel in membresia.roles
          if papel.id == 5 
-           @responsavelEmpresa = new(User.find_by_id(membresia.user_id))
+           @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
          end
          if papel.id == 7 
-           @responsavelPreenchimento = new(User.find_by_id(membresia.user_id) )
+           @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
          end
         
       end 
