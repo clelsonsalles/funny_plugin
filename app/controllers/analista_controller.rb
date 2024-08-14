@@ -18,6 +18,9 @@ class AnalistaController < ApplicationController
          if papel.id == 7 
            @responsavelPreenchimento = User.find_by_id(membresia.user_id) 
          end
+         if custom_value.custom_field.name == 'CNPJ'
+              @responsavelEmpresa.telefone = custom_value.value.to_s
+         end
       end 
     end
 
