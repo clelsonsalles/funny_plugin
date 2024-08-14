@@ -1,4 +1,4 @@
-class ColetaMensal < ActiveRecord::Base
+class Coleta < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 end
