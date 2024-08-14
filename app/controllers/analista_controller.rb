@@ -26,6 +26,27 @@ class AnalistaController < ApplicationController
             if custom_value.custom_field.name == 'CNPJ'
               @organizacao.cnpj = custom_value.value.to_s
             end
+            if custom_value.custom_field.name == 'UF'
+              @organizacao.uf = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Endereço'
+              @organizacao.endereco = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'CEP'
+              @organizacao.cep = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Cidade'
+              @organizacao.cidade = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Telefone'
+              @organizacao.telefone = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Email'
+              @organizacao.email = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Serviços de Telecom'
+              @organizacao.servicos = custom_value.value.to_s
+            end
         end
     end
 
