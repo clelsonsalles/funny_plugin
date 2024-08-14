@@ -7,6 +7,19 @@ class AnalistaController < ApplicationController
   def cliente_analista
     projeto = Project.find(params[:id_projeto])
     @organizacao = Organizacao.new(projeto)
+    @responsavelEmpresa = nil
+    @responsavelPreenchimento = nil
+    
+    for membresia in projeto.memberships
+      for papel in membresia.roles
+         if papel.id == 5 
+           @responsavelEmpresa = User.find_by_id(membresia.user_id) 
+         end
+         if papel.id == 7 
+           @responsavelPreenchimento = User.find_by_id(membresia.user_id) 
+         end
+      end 
+    end
 
     projeto.visible_custom_field_values.each do |custom_value|
         if !custom_value.value.blank? 
