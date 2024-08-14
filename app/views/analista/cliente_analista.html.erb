@@ -9,12 +9,12 @@
             <div class="card-body d-flex">
                 <div class="me-3">
                     <strong>Cnpj:</strong> <%= @organizacao.cnpj %><br/>
-                    <strong>Endereço :</strong> DF<br/>
-                    <strong>Cep:</strong> DF<br/>
-                    <strong>Uf:</strong> DF<br/>
-                    <strong>Telefone:</strong> DF<br/>
-                    <strong>Email:</strong> DF<br/>
-                    <strong>Serviços de Telecom:</strong> SCM - Serviço de Comunicação Multimídia, SEAC - TV por Assinatura, STFC - Serviço Telefônico Fixo Comutado
+                    <strong>Endereço :</strong> <%= @organizacao.endereco %><br/>
+                    <strong>Cep:</strong> <%= @organizacao.cep %><br/>
+                    <strong>Uf:</strong> <%= @organizacao.uf %><br/>
+                    <strong>Telefone:</strong> <%= @organizacao.telefone %><br/>
+                    <strong>Email:</strong> <%= @organizacao.email %><br/>
+                    <strong>Serviços de Telecom:</strong> <%= @organizacao.servico %>
                 </div>
                
                
