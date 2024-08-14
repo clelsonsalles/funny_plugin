@@ -1,34 +1,48 @@
   <div class="container">
     
         <div class="row justify-content-center">
+
+
+<%= form_for @coleta, url: coleta_mensal_criar_path do |f| %>
+<%= f.hidden_field :id_projeto, :value => @projeto.id %>
+
+<div style='float: left; width: 33%'>
+    <div class="form-group">
+        <%= f.label :numero, 'Número do Contrato' %>
+        <%= f.text_field :numero, class: "form-control" %>
+    </div>
+
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">SCM</div>
-                    <div class="box-description">Coleta de dados de acessos:<br/>SCM, SEAC, STFC 
+                    <div class="box-description">Coleta de dados de acessos:
                      <select id="uf" class="form-select">
                                 <option selected>Mês da coleta</option>
-                                <option value="SP">Janeiro</option>
-                                <option value="RJ">Fevereiro</option>
-                                <option value="RJ">Março</option>
-                                <option value="RJ">Abril</option>
-                                <option value="RJ">Maio</option>
-                                <option value="RJ">Junho</option>
-                                <option value="RJ">Julho</option>
-                                <option value="RJ">Agosto</option>
-                                <option value="RJ">Setembro</option>
-                                <option value="RJ">Outubro</option>
-                                <option value="RJ">Novembro</option>
-                                <option value="RJ">Dezembro</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
                               
                                 <!-- Adicione mais opções conforme necessário -->
                             </select>
                     </div>
 
-                     <a href="#" class="box-link">Criar coletas</a>
+                     <a href="#" class="box-link">Criar coleta</a>
                    
                     
                 </div>
             </div>
+  <% end %>
+
+
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">TVpA</div>
