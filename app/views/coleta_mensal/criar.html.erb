@@ -9,23 +9,7 @@
                 <div class="custom-box">
                     <div class="box-title">SCM</div>
                     <div class="box-description">Coleta de dados de acessos:
-                     <select id="mes" class="form-select">
-                                <option selected>Mês da coleta</option>
-                                <option value="1">Janeiro</option>
-                                <option value="2">Fevereiro</option>
-                                <option value="3">Março</option>
-                                <option value="4">Abril</option>
-                                <option value="5">Maio</option>
-                                <option value="6">Junho</option>
-                                <option value="7">Julho</option>
-                                <option value="8">Agosto</option>
-                                <option value="9">Setembro</option>
-                                <option value="10">Outubro</option>
-                                <option value="11">Novembro</option>
-                                <option value="12">Dezembro</option>
-                              
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
+                    <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ] %>
                     </div>
                      <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
 
