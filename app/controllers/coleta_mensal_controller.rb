@@ -4,11 +4,10 @@ class ColetaMensalController < ApplicationController
   end
 
   def inserir
-    valores = params.require(:coleta).permit(:mes)
+    valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
 
     coleta.tituloColeta = "Coleta Mensal"
-    coleta.tipoColeta = params[:tipoColeta]
     coleta.ano = 2024
         
     coleta.responsavelPreenchimento = User.current
