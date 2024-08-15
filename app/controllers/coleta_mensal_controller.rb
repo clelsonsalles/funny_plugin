@@ -3,7 +3,7 @@ class ColetaMensalController < ApplicationController
   def index
   end
 
-  def create
+  def inserir
     redirect_to coleta_mensal_create_path(id_projeto: params[:id_projeto])
   end
 
