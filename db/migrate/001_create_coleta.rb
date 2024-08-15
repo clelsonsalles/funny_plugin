@@ -1,4 +1,4 @@
-class CreateColeta < ActiveRecord::Migration[6.1]
+class CreateColeta < ActiveRecord::Migration
   def change
     create_table :coleta do |t|
       t.text :tituloColeta
