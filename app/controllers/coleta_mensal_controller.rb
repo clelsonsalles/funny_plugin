@@ -4,7 +4,7 @@ class ColetaMensalController < ApplicationController
   end
 
   def inserir
-    redirect_to coleta_mensal_create_path(id_projeto: params[:id_projeto])
+    redirect_to coleta_mensal_criar_path(id_projeto: params[:id_projeto])
   end
 
   def criar
