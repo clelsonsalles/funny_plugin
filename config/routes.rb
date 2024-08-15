@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :coleta_mensal, only: [:new, :create, :destroy, :edit, :update, :index]
 
     get 'coleta/mensal/criar', :to => 'coleta_mensal#criar'
-    post 'coleta/mensal/nova_coleta', :to => 'coleta_mensal#nova_coleta'
+    post 'coleta/mensal/nova', :to => 'coleta_mensal#nova_coleta'
     get 'coleta/mensal/fazer/scm', :to => 'coleta_mensal#fazer_scm'
     get 'coleta/mensal/fazer/seac', :to => 'coleta_mensal#fazer_seac'
     get 'coleta/mensal/fazer/stfc', :to => 'coleta_mensal#fazer_stfc'
