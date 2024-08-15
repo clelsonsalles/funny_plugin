@@ -2,16 +2,8 @@
     
         <div class="row justify-content-center">
 
-
-<%= form_for @coleta, url: coleta_mensal_criar_path do |f| %>
-<%= f.hidden_field :id_projeto, :value => @projeto.id %>
-
-<div style='float: left; width: 33%'>
-    <div class="form-group">
-        <%= f.label :numero, 'Número do Contrato' %>
-        <%= f.text_field :numero, class: "form-control" %>
-    </div>
-
+        <%= form_for @coleta, url: coleta_mensal_create_path do |f| %>
+        <%= f.hidden_field :id_projeto, :value => @projeto.id %>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">SCM</div>
@@ -34,13 +26,12 @@
                                 <!-- Adicione mais opções conforme necessário -->
                             </select>
                     </div>
+                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
 
-                     <a href="#" class="box-link">Criar coleta</a>
-                   
-                    
+                     
                 </div>
             </div>
-  <% end %>
+        <% end %>
 
 
             <div class="col-md-4">
