@@ -8,6 +8,6 @@ class ColetaMensalController < ApplicationController
 
   def criar
     @coleta = Coleta.new
-    projeto = Project.find(params[:id_projeto])
+    @projeto = Project.find(params[:id_projeto])
   end
 end
