@@ -2,7 +2,7 @@
     
         <div class="row justify-content-center">
 
-        <%= form_for @coleta, url: coleta_mensal_nova_path do |f| %>
+        <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
         <%= f.hidden_field :id_projeto, :value => @projeto.id %>
             <div class="col-md-4">
                 <div class="custom-box">
