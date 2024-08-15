@@ -17,7 +17,7 @@ class CreateColeta < ActiveRecord::Migration[6.1]
       t.text :velocidade
       t.integer :quantidadeAcesso
       t.text :dadoInformado
-      t.interger :valor
+      t.integer :valor
       t.text :cn
 
 
