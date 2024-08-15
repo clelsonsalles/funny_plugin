@@ -14,7 +14,7 @@ class ColetaMensalController < ApplicationController
     coleta.project = Project.find(params[:coleta][:id_projeto])
     coleta.save
     
-    redirect_to coleta_mensal_criar_path(id_projeto: params[:coleta][:id_projeto])
+    redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
   end
 
   def criar
