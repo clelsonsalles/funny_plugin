@@ -9,9 +9,9 @@
                 <div class="custom-box">
                     <div class="box-title">SCM</div>
                     <div class="box-description">Coleta de dados de acessos:
-                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ] %></p>
+                    <p> <%= f.select, class:"form-select" :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ] %></p>
                     </div>
-                     <p class="box-link><%= f.submit "Criar coleta", class:" icon icon-add float-right" %></p>
+                    <%= f.submit "Criar coleta", class:"box-link" %>
 
                     </div> 
                 </div>
