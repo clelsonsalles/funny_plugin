@@ -71,19 +71,19 @@
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">MENSAL</div>
-                    <a href="/coleta/mensal/criar?id_projeto=<%= project.id %>" class="box-link">Criar coleta</a>
+                    <a href="/coleta/mensal/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">SEMESTRAL</div>
-                    <a href="http://201.76.43.189:88/coleta/semestral/criar" class="box-link">Criarr coleta</a>
+                    <a href="/coleta/semestral/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criarr coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">ANUAL</div>
-                    <a href="http://201.76.43.189:88//coleta/anual/criar" class="box-link">Criar coleta</a>
+                    <a href="/coleta/anual/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     <td>Julho 2024</td>
                     <td>Mensal</td>
                     <td>SCM</td>
-                    <td><a href="http://201.76.43.189:88/cliente/mensal" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <td><a href="/cliente/mensal?id_projeto=<%= @organizacao.idProject %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
 
                 </tr>
                </td>
