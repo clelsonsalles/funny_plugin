@@ -10,7 +10,7 @@ class ColetaMensalController < ApplicationController
     coleta.tituloColeta = "Coleta Mensal"
     coleta.ano = 2024
         
-    coleta.responsavelPreenchimento = User.current
+    coleta.user = User.current
     coleta.project = Project.find(params[:id_projeto])
     coleta.save
     
