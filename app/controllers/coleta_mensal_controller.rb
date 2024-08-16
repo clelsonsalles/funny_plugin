@@ -17,6 +17,15 @@ class ColetaMensalController < ApplicationController
     redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
   end
 
+  def fazer
+    @coletas = Coleta.where(:project_id => params[:id_projeto])
+    
+  end
+
+  def atualizar
+
+  end
+
   def criar
     @coleta = Coleta.new
     @projeto = Project.find(params[:id_projeto])
