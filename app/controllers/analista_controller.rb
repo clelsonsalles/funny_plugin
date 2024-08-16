@@ -9,6 +9,7 @@ class AnalistaController < ApplicationController
     @organizacao = Organizacao.new(projeto)
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
+    @coletas = Coleta.where(:project_id => params[:id_projeto])
     
     for membresia in projeto.memberships
       for papel in membresia.roles
