@@ -1,4 +1,4 @@
-class AddDatasToColeta < ActiveRecord::Migration[6.1]
+class AlterColumnColeta < ActiveRecord::Migration[6.1]
   def up
     add_column :coleta, :dataCriacao, :datetime
     add_column :coleta, :dataRealizacao, :datetime
