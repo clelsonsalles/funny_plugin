@@ -5,21 +5,21 @@
                 <div class="custom-box">
                     <div class="box-title">MENSAL</div>
                     <div class="box-description">Coleta de dados de acessos</div>
-                    <a href="#" class="box-link">Fazer coletas</a>
+                    <a href="#" class="box-link">Ver coletas</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">SEMESTRAL</div>
                     <div class="box-description">Coleta de dados Econômicos-financeiros e Técnico-operacionais</div>
-                    <a href="#" class="box-link">Fazer coletas</a>
+                    <a href="#" class="box-link">Ver coletas</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">ANUAL</div>
                     <div class="box-description">Coleta de dados de Infraestrutura de Transporte<br/><br/></div>
-                    <a href="#" class="box-link">Fazer coletas</a>
+                    <a href="#" class="box-link">Ver coletas</a>
                 </div>
             </div>
         </div>
@@ -30,43 +30,24 @@
         <table class="table table-custom">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Coleta</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Data</th>
-                    <th scope="col">Data limite</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Formulário</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Ação</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Colteta Mensal</td>
-                    <td><span class="badge bg-danger">Atrasada</span></td>
-                    <td>Maio 2024</td>
-                    <td>01/07/2024</td>
-                    <td><a href="#" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
 
-                </tr>
-               </td>
-                        
-                </tr>
+                <% for coleta in @coletas %>
                 <tr>
-                    <td>Colteta Semestral</td>
-                    <td><span class="badge bg-sucess">À fazer</span></td>
-                    <td>1 semestre 2024</td>
-                    <td>01/07/2024</td>
-                    <td><a href="#" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <td><%= coleta.textoData %></td>
+                    <td><%= coleta.status %></td>
+                    <td><%= coleta.tituloColeta %></td>
+                    <td><%= coleta.tipoColeta %></td>
+                    <td><a href="/cliente/mensal?id_coleta=<%= @coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
                 </tr>
-                </td>
-                </tr>
-                <tr>
-                    <td>Colteta Anual</td>
-                    <td><span class="badge bg-danger">Atrasada</span></td>
-                    <td>Maio 2024</td>
-                    <td>22/09/2024</td>
-                    <td><a href="#" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
-                </tr>
-                </td>
-                </tr>
+                <% end %>
             </tbody>
         </table>
     </div>
