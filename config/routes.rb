@@ -17,17 +17,13 @@ Rails.application.routes.draw do
 
     get 'coleta/mensal/criar', :to => 'coleta_mensal#criar'
     post 'coleta/mensal/inserir', :to => 'coleta_mensal#inserir'
-    get 'coleta/mensal/fazer/scm', :to => 'coleta_mensal#fazer_scm'
-    get 'coleta/mensal/fazer/seac', :to => 'coleta_mensal#fazer_seac'
-    get 'coleta/mensal/fazer/stfc', :to => 'coleta_mensal#fazer_stfc'
-    
+    post 'coleta/mensal/fazer', :to => 'coleta_mensal#fazer'
+        
     resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
     post 'coleta/semestral/inserir', :to => 'coleta_semestral#inserir'
-    get 'coleta/semestral/fazer/scm', :to => 'coleta_semestral#fazer_scm'
-    get 'coleta/semestral/fazer/seac', :to => 'coleta_semestral#fazer_seac'
-    get 'coleta/semestral/fazer/smp', :to => 'coleta_semestral#fazer_smp'
-    
+    post 'coleta/semestral/fazer', :to => 'coleta_semestral#fazer'
+     
     resources :coleta_anual, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/anual/criar', :to => 'coleta_anual#criar'
     get 'coleta/anual/fazer', :to => 'coleta_anual#fazer'
