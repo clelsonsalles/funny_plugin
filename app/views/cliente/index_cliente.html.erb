@@ -45,7 +45,15 @@
                     <td><%= coleta.status %></td>
                     <td><%= coleta.tituloColeta %></td>
                     <td><%= coleta.tipoColeta %></td>
-                    <td><a href="/cliente/mensal?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <% if coleta.tituloColeta == 'Coleta Mensal' %>
+                      <td><a href="/coleta/mensal?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <% end %>
+                    <% if coleta.tituloColeta == 'Coleta Semestral' %>
+                      <td><a href="/coleta/semestral?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <% end %>
+                    <% if coleta.tituloColeta == 'Coleta Anual' %>
+                      <td><a href="/coleta/anual?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <% end %>
                 </tr>
                 <% end %>
             </tbody>
