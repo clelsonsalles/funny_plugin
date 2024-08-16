@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     
     resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
-    post 'coleta/semestral/inserir', :to => 'coleta_mensal#inserir'
+    post 'coleta/semestral/inserir', :to => 'coleta_semestral#inserir'
     get 'coleta/semestral/fazer/scm', :to => 'coleta_semestral#fazer_scm'
     get 'coleta/semestral/fazer/seac', :to => 'coleta_semestral#fazer_seac'
     get 'coleta/semestral/fazer/smp', :to => 'coleta_semestral#fazer_smp'
