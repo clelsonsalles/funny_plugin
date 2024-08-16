@@ -1,5 +1,18 @@
 class ClienteController < ApplicationController
 
+  def index_cliente
+    projects = User.current.projects.to_a
+    @projetoCliente = nil
+    
+   for projeto in projects
+      @projetoCliente = projeto 
+    end
+
+    @coletas = Coleta.where(:project_id => @projetoCliente.id)
+    
+  end
+
+  
   def index
   end
 
