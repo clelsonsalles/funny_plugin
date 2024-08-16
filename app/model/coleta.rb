@@ -7,4 +7,12 @@ class Coleta < ActiveRecord::Base
       numeroMes = self.mes < 12 ? self.mes : 13  
       nomeMeses[numeroMes].to_s + "/" + self.ano.to_s
   end
+
+  def status
+      time = Time.new
+      status = self.ano < time.year ? "Atrasada" : 
+                self.mes < time.month ? "Atrasada" : "Aguardando Coleta"
+
+      status
+  end
 end
