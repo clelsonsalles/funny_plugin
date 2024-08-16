@@ -33,7 +33,7 @@ class AccountController < ApplicationController
       authenticate_user
     else
       if User.current.logged?
-        redirect_back_or_default home_url, :referer => true
+        redirect_back_or_default analista_clientes, :referer => true
       end
     end
   rescue AuthSourceException => e
