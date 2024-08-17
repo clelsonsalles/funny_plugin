@@ -3,7 +3,12 @@
 <h3><strong>Fazer coleta</strong></h3>
 
        
-       
+              <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
+                    <div class="box-title">SCM</div>
+                    <div class="box-description">Coleta de dados de acessos:
+              <% end %>
+
+
             <div class="card-body">
                 <form>
                     <div class="row mb-3">
