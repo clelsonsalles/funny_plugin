@@ -1,16 +1,33 @@
 class ClienteController < ApplicationController
 
   def index_cliente
-    projects = User.current.projects.to_a
-    @projetoCliente = nil
-    
-   for projeto in projects
-      @projetoCliente = projeto 
-    end
+    @coletas = nil
+    @projetoPreenchimento = nil
+    @responsavelEmpresa = nil
+    @responsavelPreenchimento = nil
 
-    @coletas = Coleta.where(:project_id => @projetoCliente.id)
+    if (User.current.nil?)
+      projects = User.current.projects.to_a
+      for projeto in projects
+          for membresia in projeto.memberships
+            if (membresia.user_id == User.current.id)
+              for papel in membresia.roles
+                 if papel.id == 5 
+                     @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
+                     @projetoPreenchimento = projeto 
+                 end
+                 if papel.id == 7 
+                     @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
+                     @projetoPreenchimento = projeto 
+                 end
+              end 
+            end 
+          end 
+        end 
+     end
+      @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
+    end
     
-  end
 
   
   def index
