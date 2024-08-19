@@ -49,14 +49,26 @@
                     <td><%= coleta.status %></td>
                     <td><%= coleta.tituloColeta %></td>
                     <td><%= coleta.tipoColeta %></td>
-                    <% if coleta.tituloColeta == 'Coleta Mensal' %>
-                      <td><a href="/coleta/mensal/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
-                    <% end %>
-                    <% if coleta.tituloColeta == 'Coleta Semestral' %>
-                      <td><a href="/coleta/semestral/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
-                    <% end %>
-                    <% if coleta.tituloColeta == 'Coleta Anual' %>
-                      <td><a href="/coleta/anual/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                    <% if coleta.dataRealizacao.nil? %>
+                        <% if coleta.tituloColeta == 'Coleta Mensal' %>
+                          <td><a href="/coleta/mensal/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                        <% end %>
+                        <% if coleta.tituloColeta == 'Coleta Semestral' %>
+                          <td><a href="/coleta/semestral/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                        <% end %>
+                        <% if coleta.tituloColeta == 'Coleta Anual' %>
+                          <td><a href="/coleta/anual/fazer?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Fazer coleta</a> </td>
+                        <% end %>
+                    <% else %>
+                        <% if coleta.tituloColeta == 'Coleta Mensal' %>
+                          <td><a href="/coleta/mensal/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> </td>
+                        <% end %>
+                        <% if coleta.tituloColeta == 'Coleta Semestral' %>
+                          <td><a href="/coleta/semestral/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> </td>
+                        <% end %>
+                        <% if coleta.tituloColeta == 'Coleta Anual' %>
+                          <td><a href="/coleta/anual/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> </td>
+                        <% end %>
                     <% end %>
                 </tr>
                 <% end %>
