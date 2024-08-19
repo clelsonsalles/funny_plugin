@@ -1,4 +1,8 @@
-  <div class="container">
+<% if  @coletas.nil? %>
+  <h2>Não há coletas para este cliente! </h2>
+<% else %>
+
+<div class="container">
     <h2><b>Início</b></h2>
         <div class="row justify-content-center">
             <div class="col-md-4">
@@ -59,4 +63,7 @@
             </tbody>
         </table>
     </div>
+
+
+<% end %>
 
