@@ -24,8 +24,8 @@ class ClienteController < ApplicationController
             end 
           end 
         end 
+        @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
      end
-      @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
     end
     
 
