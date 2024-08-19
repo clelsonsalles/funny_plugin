@@ -18,9 +18,7 @@ class ColetaMensalController < ApplicationController
   end
 
   def fazer
-   @coletas = Coleta.where(:project_id => params[:id_projeto])
-   @coleta = Coleta.find(params[:coleta][:id_coleta]) 
-    
+   @coleta = Coleta.find(params[:id_coleta])     
   end
 
   def atualizar
