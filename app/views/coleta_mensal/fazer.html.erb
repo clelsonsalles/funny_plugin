@@ -5,10 +5,25 @@
        
               <%= form_for @coleta, url: coleta_mensal_atualizar_path do |f| %>
                     <div class="box-title">SCM</div>
-                    <div class="box-description">Coleta de dados de acessos:
-                    <%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) %>                    
-              <% end %>
+                       <div class="box-description">Coleta de dados de acessos:
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <%= f.label :uf, "Selecione o Estado" %>
+                              <%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) %>
+                            </div>
+                            <div class="col-md-6">
+                               <%= f.label :cidade, "Cidade", class: "form-label" %>
+                               <%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite a cidade" %>
+                          </div>
+                       </div>
+               <% end %>
 
+
+
+
+
+
+  
 
             <div class="card-body">
                 <form>
