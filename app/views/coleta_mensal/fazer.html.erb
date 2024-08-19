@@ -6,6 +6,8 @@
               <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
                     <div class="box-title">SCM</div>
                     <div class="box-description">Coleta de dados de acessos:
+                    <%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'],
+                     ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) %>                    
               <% end %>
 
 
