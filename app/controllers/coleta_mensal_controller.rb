@@ -23,7 +23,7 @@ class ColetaMensalController < ApplicationController
   end
 
   def atualizar
-
+   @coleta = Coleta.new
   end
 
   def criar
