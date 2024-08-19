@@ -27,6 +27,7 @@ class ColetaMensalController < ApplicationController
     @coleta.safe_attributes = params[:coleta]
     if @coleta.save
       redirect_to cliente_cliente_path
+    end
   end
 
   def criar
