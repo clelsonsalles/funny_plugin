@@ -6,7 +6,7 @@ class ClienteController < ApplicationController
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
 
-    if (!User.current.nil?)
+    if !User.current.nil?
       projects = User.current.projects.to_a
       for projeto in projects
           for membresia in projeto.memberships
