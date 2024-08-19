@@ -15,15 +15,16 @@ class ClienteController < ApplicationController
                  if papel.id == 5 
                      @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
                      @projetoPreenchimento = projeto 
+                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
                  end
                  if papel.id == 7 
                      @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
                      @projetoPreenchimento = projeto 
+                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
                  end
               end 
             end 
           end 
-        @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
         end 
      end
     end
