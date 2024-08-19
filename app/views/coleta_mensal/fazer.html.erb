@@ -44,132 +44,35 @@
                           ['WIMAX', ' WIMAX']]) %></p>
                       </div>
                     </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :tipoProduto, "Tipo de Produto", class: "form-label" %></p>
+                          <p><%= f.select :tipoproduto, options_for_select([['Internet', 'Internet'], ['Linha_dedicada', 'Linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']]) %></p>
+                       </div>
+                       <div class="col-md-6">
+                               <p><%= f.label :velocidade, "Velocidade", class: "form-label" %></p>
+                               <p><%= f.text_field :velocidade, class: "form-control", id: "velocidade", placeholder: "Digite a velocidade" %></p>
+                       </div>
+                     </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :quantidade, "Quantidade", class: "form-label" %></p>
+                          <p><%= f.text_field :quantidade, class: "form-control", id: "quantidade", placeholder: "Digite a quantidade" %></p>
+                       </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :codigoIbge, "Código IBGE", class: "form-label" %></p>
+                          <p><%= f.text_field :codigoIbge, class: "form-control", id: "codigoIbge", placeholder: "Código IBGE" %></p>
+                       </div>
+                     </div>
                <% end %>
 
-
+</div>
 
 
 
 
   
 
-            
-                        <div class="col-md-6">
-                            <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="tipoCliente" class="form-label">Tipo de Cliente</label>
-                            <select id="uf" class="form-select">
-                                <option selected>Escolher...</option>
-                                <option value="SP">Pessoa Física: PF</option>
-                                <option value="RJ">Pessoa Jurídica: PJ</option>
-                                <option value="RJ">Uso Próprio: UP</option>
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="tipoAtendimento" class="form-label">Tipo de Atendimento</label>
-                            <select id="uf" class="form-select">
-                                <option selected>Escolher...</option>
-                                <option value="SP">URBANO</option>
-                                <option value="RJ">RURAL</option>
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="tipoMeio" class="form-label">Tipo de Meio</label>
-                            <select id="uf" class="form-select">
-                                <option selected>Escolher...</option>
-                                <option value="SP">Cabo_coaxial</option>
-                                <option value="RJ">Cabo_metálico</option>
-                                <option value="RJ">Satelite</option>
-                                <option value="RJ">Radio</option>
-                                <option value="RJ">Fibra</option>
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="tipoTecnologia" class="form-label">Tipo de Tecnologia</label>
-                            <select id="uf" class="form-select">
-                                <option selected>Escolher...</option>
-                                <option value="adsl">ADSL</option>
-                                <option value="adsl2">ADSL2</option>
-                                <option value="AMPS">AMPS</option>
-                                <option value="ATM	">ATM	</option>
-                                <option value="Cable Modem">Cable Modem</option>
-                                <option value="CDMA IS 95	">CDMA IS 95	</option>
-                                <option value="CDMA2000">CDMA2000</option>
-                                <option value="DTH">DTH</option>
-                                <option value="EDGE">EDGE</option>
-                                <option value="ETHERNET">ETHERNET</option>
-                                <option value="FR">FR</option>
-                                <option value="FTTB">FTTB</option>
-                                <option value="FTTH">FTTH</option>
-                                <option value="GPRS">GPRS</option>
-                                <option value="GSM">GSM</option>
-                                <option value="HDSL">HDSL</option>
-                                <option value="HFC">HFC</option>
-                                <option value="HSDPA">HSDPA</option>
-                                <option value="HSPA+	">HSPA+	</option>
-                                <option value="HSPAP">HSPAP</option>
-                                <option value="HSUPA">HSUPA</option>
-                                <option value="LTE	">LTE</option>
-                                <option value="NR NSA	">NR NSA	</option>
-                                <option value="NR SA	">NR SA	</option>
-                                <option value="OFDMA/TDD	">OFDMA/TDD	</option>
-                                <option value="Acesso livre via satélite">Acesso livre via satélite</option>
-                                <option value="SDH">SDH</option>
-                                <option value="SONET">SONET</option>
-                                <option value="VDSL">VDSL</option>
-                                <option value="VSAT">VSAT</option>
-                                <option value="WCDMA">WCDMA</option>
-                                <option value="Wi-Fi	">Wi-Fi	</option>
-                                <option value="WIMAX">WIMAX</option>
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="tipoProduto" class="form-label">Tipo de Produto</label>
-                            <select id="uf" class="form-select">
-                                <option selected>Escolher...</option>
-                                <option value="SP">Internet</option>
-                                <option value="RJ">Linha_dedicada</option>
-                                <option value="RJ">m2m</option>
-                                <option value="RJ">outros</option>
-                                <!-- Adicione mais opções conforme necessário -->
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="velocidade" class="form-label">Velocidade</label>
-                            <input type="text" class="form-control" id="velocidade" placeholder="Digite a velocidade">
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="quantidade" class="form-label">Quantidade</label>
-                            <input type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="codigoIbge" class="form-label">Código IBGE</label>
-                            <input type="text" class="form-control" id="codigoIbge" placeholder="Digite o código IBGE">
-                        </div>
-                    </div>
-
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Adicionar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+                   
