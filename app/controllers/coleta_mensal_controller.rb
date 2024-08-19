@@ -19,12 +19,14 @@ class ColetaMensalController < ApplicationController
 
   def fazer
    @coletas = Coleta.where(:project_id => params[:id_projeto])
-   @coleta = Coleta.new 
+   @coleta = Coleta.find(params[:coleta][:id_coleta]) 
     
   end
 
   def atualizar
-    @coleta = Coleta.where(:id => params[:id_projeto])
+    @coleta.safe_attributes = params[:coleta]
+    if @coleta.save
+      redirect_to cliente_cliente_path
   end
 
   def criar
