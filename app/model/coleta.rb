@@ -1,4 +1,5 @@
 class Coleta < ActiveRecord::Base
+  include Redmine::SafeAttributes
   belongs_to :user
   belongs_to :project
 
