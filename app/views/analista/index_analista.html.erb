@@ -1,35 +1,31 @@
 <% if User.current.logged? %>
-
-
-<h2><strong>Clientes do Analista</strong></h2>
-
- <div class="row justify-content-center">
-
-  
-  <% for project in @projects %>
-     <% if(User.current.member_of?(project)) %>
-         <div class="col-md-4">
-           <div class="custom-box">
-               <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
-               <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
-               <% for membresia in project.memberships %>
-                  <% for papel in membresia.roles %>
-                     <% if papel.id == 5 %>
-                        <% usuario = User.find_by_id(membresia.user_id) %>
-                        <p><b>Responsável: </b> <%= usuario.nil? ? 'NÃO DEFINIDO' : usuario.name %> </p>
-                     <% end %>
-                  <% end %>
-                  </p>
-               <% end %>
-
-               <a href="/analista/cliente_analista?id_projeto=<%= project.id %>" class="box-link">ver dados</a>
-           </div>
-         </div>
-
-     <% end %>
+  <% !@projects.empty? %>
+     <h2><strong>Clientes do Analista</strong></h2>
+      <div class="row justify-content-center">
+       <% for project in @projects %>
+          <% if(User.current.member_of?(project)) %>
+              <div class="col-md-4">
+                <div class="custom-box">
+                    <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
+                    <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
+                    <% for membresia in project.memberships %>
+                       <% for papel in membresia.roles %>
+                          <% if papel.id == 5 %>
+                             <% usuario = User.find_by_id(membresia.user_id) %>
+                             <p><b>Responsável: </b> <%= usuario.nil? ? 'NÃO DEFINIDO' : usuario.name %> </p>
+                          <% end %>
+                       <% end %>
+                       </p>
+                    <% end %>
+                    <a href="/analista/cliente_analista?id_projeto=<%= project.id %>" class="box-link">ver dados</a>
+                </div>
+              </div>
+          <% end %>
+       <% end %>
+     </div>
+  <% else %>
+     <h2><b>Usuário não é um Analista</b></h2>
   <% end %>
- 
-</div>
 <% else %>
 <h2><b>Usuário não está conectado</b></h2>
 <% end %>
