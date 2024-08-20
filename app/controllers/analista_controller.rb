@@ -6,7 +6,7 @@ class AnalistaController < ApplicationController
     for projeto in projetosUsuario
         for membresia in projeto.memberships
           for papel in membresia.roles
-             if papel.id == 6 
+             if papel.id == 6 && membresia.user_id == User.current.id
                @projects << projeto
              end
           end 
