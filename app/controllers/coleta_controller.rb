@@ -3,6 +3,9 @@ class ColetaController < ApplicationController
   def index
   end
 
+  def update
+  end
+
   def mensalinserir
     valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
