@@ -2,7 +2,7 @@
 <h3><strong>Fazer coleta</strong></h3>
 
 <% if @coleta.tipoColeta == 'SCM' %>
-  <%= render "coleta/coleta_mensal_scm" %>
+  <%= render "coleta/coleta_mensal_scm", @coleta: @coleta %>
 <% end %>
 </div>
 
