@@ -3,7 +3,7 @@ class ColetaController < ApplicationController
   def index
   end
 
-  def mensal_inserir
+  def mensalinserir
     valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
 
@@ -17,11 +17,11 @@ class ColetaController < ApplicationController
     redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
   end
 
-  def mensal_fazer
+  def mensalfazer
    @coleta = Coleta.find(params[:id_coleta])     
   end
 
-  def mensal_atualizar
+  def mensalatualizar
     @coleta.safe_attributes = params[:coleta]
     @coleta.dataRealizacao = Time.current
     if @coleta.save
@@ -29,7 +29,7 @@ class ColetaController < ApplicationController
     end
   end
 
-  def mensal_criar
+  def mensalcriar
     @coleta = Coleta.new
     @projeto = Project.find(params[:id_projeto])
   end
