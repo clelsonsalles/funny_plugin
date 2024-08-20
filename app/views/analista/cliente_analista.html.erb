@@ -71,19 +71,19 @@
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">MENSAL</div>
-                    <a href="/coleta/mensal/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                    <a href="/coleta/mensal_criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">SEMESTRAL</div>
-                    <a href="/coleta/semestral/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                    <a href="/coleta/semestral_criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title">ANUAL</div>
-                    <a href="/coleta/anual/criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                    <a href="/coleta/anual_criar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
                 </div>
             </div>
         </div>
@@ -112,29 +112,29 @@
                     <% else %>
                         <% if coleta.dataInformacaoEnvio.nil? %>
                                 <% if coleta.tituloColeta == 'Coleta Mensal' %>
-                                  <td> <a href="/coleta/mensal/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
-                                  <br /><a href="/coleta/mensal/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
-                                  <br /><a href="/coleta/mensal/informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
+                                  <td> <a href="/coleta/mensal_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
+                                  <br /><a href="/coleta/mensal_gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
+                                  <br /><a href="/coleta/mensal_informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
                                 <% end %>
                                 <% if coleta.tituloColeta == 'Coleta Semestral' %>
-                                  <td> <a href="/coleta/semestral/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
-                                  <br /><a href="/coleta/semestral/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
-                                  <br /><a href="/coleta/semestral/informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
+                                  <td> <a href="/coleta/semestral_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
+                                  <br /><a href="/coleta/semestral_gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
+                                  <br /><a href="/coleta/semestral_informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
                                 <% end %>
                                 <% if coleta.tituloColeta == 'Coleta Anual' %>
-                                  <td> <a href="/coleta/anual/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
-                                  <br /><a href="/coleta/anual/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
-                                  <br /><a href="/coleta/anual/informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
+                                  <td> <a href="/coleta/anual_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
+                                  <br /><a href="/coleta/anual_gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
+                                  <br /><a href="/coleta/anual_informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
                                 <% end %>
                         <% else %>
                                 <% if coleta.tituloColeta == 'Coleta Mensal' %>
-                                  <td> <a href="/coleta/mensal/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> </td>
+                                  <td> <a href="/coleta/mensal_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> </td>
                                 <% end %>
                                 <% if coleta.tituloColeta == 'Coleta Semestral' %>
-                                  <td> <a href="/coleta/semestral/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a>  </td>
+                                  <td> <a href="/coleta/semestral_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a>  </td>
                                 <% end %>
                                 <% if coleta.tituloColeta == 'Coleta Anual' %>
-                                  <td> <a href="/coleta/anual/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a>  </td>
+                                  <td> <a href="/coleta/anual_visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a>  </td>
                                 <% end %>
                         <% end %>
                     <% end %>
