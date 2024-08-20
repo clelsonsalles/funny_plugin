@@ -1,0 +1,57 @@
+<div class="card-body">
+              <%= form_for @coleta, url: coleta_mensalatualizar_path do |f| %>
+                   <%= f.hidden_field :id_coleta, :value => @coleta.id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                       <div class="box-description">Coleta de dados de acessos:
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :uf, "Selecione o Estado" %></p>
+                              <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select' %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
+                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite a cidade" %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
+                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]) %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
+                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']]) %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
+                          <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]) %></p>
+                        </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE" %></p>
+                       </div>
+                     
+                    </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
+                          <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade" %></p>
+                       </div>
+                       
+                     </div>
+          
+                     <%= f.submit "Adicionar", class:" btn btn-primary" %>
+
+
+
+               <% end %>
+
+  </div>
+</div>
