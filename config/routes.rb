@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     get 'analista/clientes', :to => 'analista#index_analista'
     get 'analista/cliente_analista', :to => 'analista#cliente_analista'
     
-    resources :coletaMensal, only: [:new, :create, :destroy, :edit, :update, :index]
+    resources :coletamensal, only: [:new, :create, :destroy, :edit, :update, :index]
 
-    get 'coleta/mensal/criar', :to => 'coletaMensal#criar'
-    post 'coleta/mensal/inserir', :to => 'coletaMensal#inserir'
-    get 'coleta/mensal/fazer', :to => 'coletaMensal#fazer'
-    post 'coleta/mensal/atualizar', :to => 'coletaMensal#atualizar'
+    get 'coleta/mensal/criar', :to => 'coletamensal#criar'
+    post 'coleta/mensal/inserir', :to => 'coletamensal#inserir'
+    get 'coleta/mensal/fazer', :to => 'coletamensal#fazer'
+    post 'coleta/mensal/atualizar', :to => 'coletamensal#atualizar'
         
     resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
