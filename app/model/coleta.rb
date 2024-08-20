@@ -25,13 +25,7 @@ class Coleta < ActiveRecord::Base
       status
   end
 
-  def cnpj
-    Organizacao organizacao = Organizacao.new(self.project)
-    organizacao.cnpj
-  
-  
-  
-  end
+
 
   
 end
