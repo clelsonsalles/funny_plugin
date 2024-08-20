@@ -1,4 +1,4 @@
-class ColetaMensalController < ApplicationController
+class ColetamensalController < ApplicationController
 
   def index
   end
