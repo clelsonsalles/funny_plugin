@@ -4,6 +4,10 @@
 <% if @coleta.tipoColeta == 'SCM' %>
   <%= render "coleta/coleta_mensal_scm" %>
 <% end %>
+
+<% if @coleta.tipoColeta == 'TVPA' %>
+  <%= render "coleta/coleta_mensal_tvpa" %>
+<% end %>
 </div>
 
 
