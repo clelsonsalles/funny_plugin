@@ -1,7 +1,17 @@
 class AnalistaController < ApplicationController
 
   def index_analista
-      @projects = User.current.projects.to_a
+    @projects = []  
+    projetosUsuario = User.current.projects.to_a
+    for projeto in projetosUsuario
+        for membresia in projeto.memberships
+          for papel in membresia.roles
+             if papel.id == 6 
+               @projects << projeto
+             end
+          end 
+        end
+    end
   end
 
   def cliente_analista
