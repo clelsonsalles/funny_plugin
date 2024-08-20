@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     
     resources :coleta, only: [:new, :create, :destroy, :edit, :update, :index]
 
-    get 'coleta/mensal_criar', :to => 'coleta#mensal_criar'
-    post 'coleta/mensal_inserir', :to => 'coleta#mensal_inserir'
-    get 'coleta/mensal_fazer', :to => 'coleta#mensal_fazer'
-    post 'coleta/mensal_atualizar', :to => 'coleta#mensal_atualizar'
+    get 'coleta/mensalcriar', :to => 'coleta#mensalcriar'
+    post 'coleta/mensalinserir', :to => 'coleta#mensalinserir'
+    get 'coleta/mensalfazer', :to => 'coleta#mensalfazer'
+    post 'coleta/mensalatualizar', :to => 'coleta#mensalatualizar'
         
     resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
