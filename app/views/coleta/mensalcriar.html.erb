@@ -4,7 +4,7 @@
 
         <div class="col-md-4">
             <div class="custom-box">
-              <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
+              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
               <%= f.hidden_field :id_projeto, :value => @projeto.id %>
               <%= f.hidden_field :tipoColeta, :value => "SCM" %>
                     <div class="box-title">SCM</div>
@@ -20,7 +20,7 @@
         <div class="col-md-4">
             <div class="custom-box">
   
-              <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
+              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
               <%= f.hidden_field :id_projeto, :value => @projeto.id %>
               <%= f.hidden_field :tipoColeta, :value => "TVpA" %>
                     <div class="box-title">TVpA</div>
@@ -36,7 +36,7 @@
         <div class="col-md-4">
             <div class="custom-box">
 
-              <%= form_for @coleta, url: coleta_mensal_inserir_path do |f| %>
+              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
               <%= f.hidden_field :id_projeto, :value => @projeto.id %>
               <%= f.hidden_field :tipoColeta, :value => "STFC" %>
                     <div class="box-title">STFC</div>
