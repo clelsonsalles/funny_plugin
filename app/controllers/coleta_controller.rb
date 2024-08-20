@@ -4,6 +4,8 @@ class ColetaController < ApplicationController
   end
 
   def update
+    @coleta = Coleta.find(params[:coleta][:id_coleta])     
+
     @coleta.safe_attributes = params[:coleta]
     @coleta.dataRealizacao = Time.current
     if @coleta.save
