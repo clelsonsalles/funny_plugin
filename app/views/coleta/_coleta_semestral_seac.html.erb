@@ -18,8 +18,8 @@
 
                       <div class="row mb-3">
                         <div class="col-md-6">
-                          <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['TR', 1], ['TR', 2], ['TR', 3], ['TR', 4]]) %></p>
+                          <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
+                          <p><%= f.select :trimestre, options_for_select([['TR', 1], ['TR', 2], ['TR', 3], ['TR', 4]]) %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione o Estado" %></p>
@@ -33,23 +33,15 @@
                           <p><%= f.select :dadoInformado, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']])</p>
                         </div>
 
-                      <div class="col-md-6">
-                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE" %></p>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                       <div class="col-md-6">
+                         <div class="col-md-6">
                           <p><%= f.label :valor, "Valores", class: "form-label" %></p>
                           <p><%= f.text_field :valor, class: "form-control", id: "cidade", placeholder: "Valores" %></p>
                         </div>
 
-                      <div class="col-md-6">
-                          <p><%= f.label :cn, "CN", class: "form-label" %></p>
-                          <p><%= f.text_field :cn, class: "form-control", id: "codigoIBGE", placeholder: "CN" %></p>
-                      </div>
+                      
                     </div>
+
+                    
 
                                                       
                      <%= f.submit "Adicionar", class:" btn btn-primary" %>
