@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'analista/clientes', :to => 'analista#index_analista'
     get 'analista/cliente_analista', :to => 'analista#cliente_analista'
     
-    resources :coleta, only: [:new, :create, :destroy, :edit, :update, :index]
+    resources :coleta, only: [:new, :create, :destroy, :edit, :index]
 
     get 'coleta/mensalcriar', :to => 'coleta#mensalcriar'
     get 'coleta/mensalinserir', :to => 'coleta#mensalinserir'
