@@ -12,7 +12,7 @@
                     <p><%= f.label :uf, "Selecione o Estado" %></p>
                     <% listaSelectUf = [] %>
                     <% for uf in @ufs %>
-                         <%= listaSelectUf << [uf.id, uf.sigla + " - " + uf.nome ] %>
+                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.id ] %>
                     <% end %>
 
 
