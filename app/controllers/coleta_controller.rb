@@ -30,7 +30,7 @@ class ColetaController < ApplicationController
       end
     
       if @coleta.nil? || @coleta.empty?  
-          @coleta = @coleta = Coleta.find(params[:coleta][:id_coleta])
+          @coleta = @coleta = Coleta.find(params[:id_coleta])
       else
           idUf = @coleta.uf
           @municipios = []
@@ -55,7 +55,7 @@ class ColetaController < ApplicationController
       external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
 
       if @coleta.nil? || @coleta.empty?  
-          @coleta = Coleta.find(params[:coleta][:id_coleta])
+          @coleta = @coleta = Coleta.find(params[:id_coleta])
       else
           idUf = @coleta.uf
           @municipios = []
