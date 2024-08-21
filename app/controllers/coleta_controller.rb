@@ -36,7 +36,7 @@ class ColetaController < ApplicationController
           @coleta.safe_attributes = params[:coleta]
           
           @municipios = []
-          external_api_url_cidades_completa = external_api_url_cidades + @coleta.uf + "/municipios"
+          external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
           uri = URI(external_api_url_cidades_completa)
           response = Net::HTTP.get(uri)
         
