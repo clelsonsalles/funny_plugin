@@ -1,0 +1,69 @@
+<div class="card-body">
+              <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
+                   <%= f.hidden_field :id_coleta, :value => @coleta.id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                       <div class="box-description">Coleta de dados de acessos:
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "Cidade", class: "form-label" %></p>
+                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :ano, "Cidade", class: "form-label" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "cidade", placeholder: "Digite o ano" %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :idSatelite, "Id Satélite", class: "form-label" %></p>
+                          <p><%= f.text_field :idSatelite, class: "form-control", id: "idSatelite", placeholder: "Id Satélite" %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :frequenciaUplink, "Frequência do Satélite uplink", class: "form-label" %></p>
+                          <p><%= f.text_field :frequenciaUplink, class: "form-control", id: "Frequência do Satélite uplink", placeholder: "Frequência do Satélite uplink" %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :frequenciaDownlink, "Frequência do Satélite uplink", class: "form-label" %></p>
+                          <p><%= f.text_field :frequenciaDownlink, class: "form-control", id: "Frequência do Satélite uplink", placeholder: "Frequência do Satélite uplink" %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :canalUplink, "Largura do canal Uplink", class: "form-label" %></p>
+                          <p><%= f.text_field :canalUplink, class: "form-control", id: "Largura do canal Uplink", placeholder: "Largura do canal Uplink" %></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :capacidadeUplink, "Capacidade do Canal Uplink", class: "form-label" %></p>
+                         <p><%= f.text_field :Capacidade do Canal Uplink, class: "form-control", id: "capacidadeUplink", placeholder: "Capacidade do Canal Uplink" %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :canaldownlink, "Largura do canal downlink", class: "form-label" %></p>
+                          <p><%= f.text_field :canalDownlink, class: "form-control", id: "Largura do canal downlink", placeholder: "Largura do canal downlink" %></p>
+                        </div>
+                    </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :capacidadeDownlink, "Capacidade do Canal Uplink", class: "form-label" %></p>
+                         <p><%= f.text_field :Capacidade do Canal Uplink, class: "form-control", id: "capacidadeDownlink", placeholder: "Largura do canal downlink" %></p>
+                      </div>
+                       
+                    </div>
+
+                    
+                                                                          
+                     <%= f.submit "Adicionar", class:" btn btn-primary" %>
+
+
+
+               <% end %>
+
+  </div>
+</div>
