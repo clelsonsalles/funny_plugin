@@ -53,6 +53,8 @@ class ColetaController < ApplicationController
       # URL da API externa de UFs e cidades
       external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
       external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+      
+      @coleta = params[:coleta]
 
       if @coleta.nil? || @coleta.empty?  
           @coleta = @coleta = Coleta.find(params[:id_coleta])
