@@ -29,8 +29,9 @@ class ColetaController < ApplicationController
           end
       end
     
+      Rails.logger.info "params[:coleta]: #{params[:coleta]}"
       if params[:coleta].nil? || params[:coleta].empty?  
-          @coleta = @coleta = Coleta.find(params[:id_coleta])
+          @coleta = Coleta.find(params[:id_coleta])
       else
           @coleta = Coleta.new
           @coleta.safe_attributes = params[:coleta]
