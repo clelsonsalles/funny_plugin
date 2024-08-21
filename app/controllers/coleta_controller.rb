@@ -4,51 +4,6 @@ class ColetaController < ApplicationController
   end
 
   def mensalvisualizar
-      @ufs = []
-      @municipios = []
-      @coleta = nil
-      require 'net/http'
-      require 'json'
-      
-      # URL da API externa de UFs e cidades
-      external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
-      
-      # Fazendo a requisição para a API externa
-      if @ufs.empty?  
-          uri = URI(external_api_url_ufs)
-          response = Net::HTTP.get(uri)
-          array =  JSON.parse(response)    
-          array.each do |ufJson|
-            # do something with element
-            uf = Uf.new
-            uf.id = ufJson["id"]
-            uf.nome = ufJson["nome"]
-            uf.sigla = ufJson["sigla"]
-            @ufs << uf
-          end
-      end
-    
-      if params[:coleta].nil? || params[:coleta].empty?  
-          @coleta = Coleta.find(params[:id_coleta])
-      else
-          @coleta = Coleta.new
-          @coleta.safe_attributes = params[:coleta]
-          
-          @municipios = []
-          external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
-          uri = URI(external_api_url_cidades_completa)
-          response = Net::HTTP.get(uri)
-        
-          array =  JSON.parse(response)    
-          array.each do |municipioJson|
-            # do something with element
-            municipio = Municipio.new
-            municipio.id = municipioJson["id"]
-            municipio.nome = municipioJson["nome"]
-            @municipios << municipio
-          end        
-      end
   end
 
   def mensalcidadesuf
@@ -89,8 +44,32 @@ class ColetaController < ApplicationController
   end
 
   def mensalfazer
-   @coleta = Coleta.find(params[:id_coleta])     
-  end
+      @coleta = Coleta.find(params[:id_coleta])     
+
+      @ufs = []
+      @municipios = []
+
+      require 'net/http'
+      require 'json'
+      
+      # URL da API externa de UFs e cidades
+      external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+      
+      # Fazendo a requisição para a API externa
+      uri = URI(external_api_url_ufs)
+      response = Net::HTTP.get(uri)
+      array =  JSON.parse(response)    
+      array.each do |ufJson|
+        # do something with element
+        uf = Uf.new
+        uf.id = ufJson["id"]
+        uf.nome = ufJson["nome"]
+        uf.sigla = ufJson["sigla"]
+        @ufs << uf
+      end
+    
+end
 
   def mensalatualizar
     @coleta = Coleta.find(params[:coleta][:id_coleta])     
