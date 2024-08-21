@@ -64,7 +64,7 @@ class ColetaController < ApplicationController
         idUf = @coleta.uf
       end
       @municipios = []
-      external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipio"
+      external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipios"
       Rails.logger.info "external_api_url_cidades_completa: #{external_api_url_cidades_completa}"
       uri = URI(external_api_url_cidades_completa)
       response = Net::HTTP.get(uri)
