@@ -14,7 +14,7 @@
                          <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
                     <% end %>
                     <% for municipio in @municipios %>
-                         <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
+                         <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
                     <% end %>
     
     
