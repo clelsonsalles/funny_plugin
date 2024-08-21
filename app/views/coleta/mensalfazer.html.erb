@@ -25,18 +25,17 @@
              <div class="row mb-3">
                <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select', disabled: true  %></p>
+                      <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true %></p>
                </div>
              </div>
 
              <div class="row mb-3">
                <div class="col-md-6">
                   <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true %></p>
+                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", disabled: true %></p>
                </div>
              </div>
   
-             <%= f.submit "Adicionar", class:" btn btn-primary" %>
 
            </div>
          </div>
