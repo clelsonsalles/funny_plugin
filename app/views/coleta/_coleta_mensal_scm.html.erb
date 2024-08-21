@@ -7,12 +7,12 @@
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :uf, "Selecione o Estado" %></p>
-                              <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select' %></p>
+                              <p><%= f.label :uf, "UF selecionada" %></p>
+                               <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true  %></p>
                          </div>
                          <div class="col-md-6">
-                               <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite a cidade" %></p>
+                               <p><%= f.label :cidade, "Cidade selecionada", class: "form-label" %></p>
+                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true  %></p>
                          </div>
                        </div>
 
