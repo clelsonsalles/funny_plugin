@@ -48,6 +48,31 @@ class ColetaController < ApplicationController
       end
   end
 
+  def mensalcidadesuf
+
+      # URL da API externa de UFs e cidades
+      external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+
+      if @coleta.nil? || @coleta.empty?  
+          @coleta = Coleta.new
+      else
+          idUf = @coleta.uf
+          @municipios = []
+          external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipio"
+          uri = URI(external_api_url_cidades_completa)
+          response = Net::HTTP.get(uri)
+          array =  JSON.parse(response)    
+          array.each do |municipioJson|
+            # do something with element
+            municipio = Municipio.new
+            municipio.id = municipioJson["id"]
+            municipio.nome = municipioJson["nome"]
+            @municipios << municipio
+          end        
+      end
+  end
+
   def recuperaUFsIBGE
       @ufs = []
       require 'net/http'
