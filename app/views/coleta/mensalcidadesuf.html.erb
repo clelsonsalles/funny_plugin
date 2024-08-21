@@ -7,20 +7,14 @@
                
              <div class="row mb-3">
                <div class="col-md-6">
-                    <p><%= f.label :uf, "Selecione o Estado" %></p>
-                    <% listaSelectUf = [] %>
+                    <p><%= f.label :uf, "UF selecionada" %></p>
+                    <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true %></p>
+               </div>
+               <div class="col-md-6">
                     <% listaSelectMunicipio = [] %>
-                    <% for uf in @ufs %>
-                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
-                    <% end %>
                     <% for municipio in @municipios %>
                          <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
                     <% end %>
-    
-    
-                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, class:'form-select' %></p>
-               </div>
-               <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
                      <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select' %></p>
                </div>
