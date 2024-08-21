@@ -29,26 +29,16 @@ class ColetaController < ApplicationController
           end
       end
     
-      Rails.logger.info "params[:coleta]: #{params[:coleta]}"
       if params[:coleta].nil? || params[:coleta].empty?  
           @coleta = Coleta.find(params[:id_coleta])
       else
           @coleta = Coleta.new
           @coleta.safe_attributes = params[:coleta]
           
-          idUf = nil
-          if @coleta.uf.nil? 
-              idUf = 'DF'
-          else
-            idUf = @coleta.uf
-          end
           @municipios = []
-          external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipios"
-          Rails.logger.info "@coleta: #{@coleta}"
-          Rails.logger.info "external_api_url_cidades_completa: #{external_api_url_cidades_completa}"
+          external_api_url_cidades_completa = external_api_url_cidades + @coleta.uf + "/municipios"
           uri = URI(external_api_url_cidades_completa)
           response = Net::HTTP.get(uri)
-          Rails.logger.info "Response: #{response}"
         
           array =  JSON.parse(response)    
           array.each do |municipioJson|
