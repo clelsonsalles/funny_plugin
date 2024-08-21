@@ -15,16 +15,5 @@
   <%= render "coleta/coleta_mensal_tvpa" %>
 <% end %>
 
-<% if @coleta.tipoColeta == 'SCM' %>
-  <%= render "coleta/coleta_semestral_scm" %>
-<% end %>
-
-<% if @coleta.tipoColeta == 'SEAC' %>
-  <%= render "coleta/coleta_semestral_seac" %>
-<% end %>
-
-<% if @coleta.tipoColeta == 'SMP' %>
-  <%= render "coleta/coleta_semestral_smp" %>
-<% end %>
 </div>
 
