@@ -15,7 +15,7 @@ class ColetaController < ApplicationController
       
       # Fazendo a requisição para a API externa
       if @ufs.empty?  
-          uri = URI(external_api_url-ufs)
+          uri = URI(external_api_url_ufs)
           response = Net::HTTP.get(uri)
           array =  JSON.parse(response)    
           array.each do |ufJson|
