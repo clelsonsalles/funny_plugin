@@ -113,7 +113,7 @@ class ColetaController < ApplicationController
   end
 
     def mensalinformar
-      @coleta = Coleta.find(params[:id_coleta])     
+      @coleta = Coleta.find(params[:coleta][:id])     
 
       @coleta.safe_attributes = params[:coleta]
   
