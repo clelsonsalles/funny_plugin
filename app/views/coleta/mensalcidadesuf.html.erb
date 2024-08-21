@@ -41,11 +41,11 @@
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      const selectElement = document.getElementById('selectCidade');
+      const selectElement = document.getElementById('coleta_cidade');
 
       if (selectElement) {
         selectElement.addEventListener('change', (event) => {
-          const form = document.getElementById('coleta_cidade');
+          const form = document.getElementById('formColeta');
           form.submit();
         });
       }
