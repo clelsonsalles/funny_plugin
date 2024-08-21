@@ -115,8 +115,8 @@ class ColetaController < ApplicationController
     
       array =  JSON.parse(response)    
       array.each do |municipioJson|
-        if municipio.nome == params[:coleta][:cidade]
-            @coleta.codigoIBGE = municipio.id
+        if municipioJson["nome"] == params[:coleta][:cidade]
+            @coleta.codigoIBGE = municipioJson["id"]
             break
         end
       end        
