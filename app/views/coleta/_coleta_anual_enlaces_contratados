@@ -1,0 +1,61 @@
+<div class="card-body">
+              <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
+                   <%= f.hidden_field :id_coleta, :value => @coleta.id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                       <div class="box-description">Coleta de dados de acessos:
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "Cidade", class: "form-label" %></p>
+                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :ano, "Cidade", class: "form-label" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "cidade", placeholder: "Digite o ano" %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :idEstacaoOrigem, "Id da estação de origem", class: "form-label" %></p>
+                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem" %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :idEstacaoDestino, "Id da estação de destino", class: "form-label" %></p>
+                          <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "nEstacao", placeholder: "Id da Estação de destino" %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
+                         <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace" %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metálico'], ['radio', 'Rádio'], ['fibra', 'Fibra']])</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :enlaceNominal, "Enlace Nominal", class: "form-label" %></p>
+                         <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal" %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :cnpjEmpresaContratada, "CNPJ da Empresa contratada", class: "form-label" %></p>
+                          <p><%= f.text_field :cnpjEmpresaContratada, class: "form-control", cnpjEmpresaContratada: "CNPJ da Empresa contratada", placeholder: "Digite o CNPJ da Empresa contratada" %></p>
+                        </div>
+                    </div>
+
+                    
+                                                                          
+                     <%= f.submit "Adicionar", class:" btn btn-primary" %>
+
+
+
+               <% end %>
+
+  </div>
+</div>
