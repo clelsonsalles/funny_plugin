@@ -6,12 +6,13 @@ class ColetaController < ApplicationController
   def mensalvisualizar
       @ufs = []
       @municipios = []
+      @coleta = nil
       require 'net/http'
       require 'json'
       
       # URL da API externa de UFs e cidades
       external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
       
       # Fazendo a requisição para a API externa
       if @ufs.empty?  
@@ -28,12 +29,13 @@ class ColetaController < ApplicationController
           end
       end
     
-      if @coleta.empty?  
+      if @coleta.nil? || @coleta.empty?  
           @coleta = Coleta.new
       else
           idUf = @coleta.uf
           @municipios = []
-          uri = URI(external_api_url_cidades)
+          external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipio"
+          uri = URI(external_api_url_cidades_completa)
           response = Net::HTTP.get(uri)
           array =  JSON.parse(response)    
           array.each do |municipioJson|
