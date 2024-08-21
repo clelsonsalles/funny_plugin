@@ -19,7 +19,7 @@
                     <% end %>
     
     
-                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select', id: 'selectUf' %></p>
+                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select' %></p>
                </div>
              </div>
 
@@ -47,7 +47,7 @@
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      const selectElement = document.getElementById('selectUf');
+      const selectElement = document.getElementById('coleta_uf');
 
       if (selectElement) {
         selectElement.addEventListener('change', (event) => {
