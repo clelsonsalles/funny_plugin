@@ -9,6 +9,7 @@
                <div class="col-md-6">
                     <p><%= f.label :uf, "Selecione o Estado" %></p>
                     <% listaSelectUf = [] %>
+                    <% listaSelectUf << ["Selecione", "" ] %>
                     <% listaSelectMunicipio = [] %>
                     <% for uf in @ufs %>
                          <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
