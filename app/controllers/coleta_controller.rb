@@ -30,7 +30,7 @@ class ColetaController < ApplicationController
         @ufs << uf
       end
 
-      @coleta = Coleta.new
+      @coleta = Coleta.find(params[:coleta][:id])     
       @coleta.safe_attributes = params[:coleta]
       
       external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
