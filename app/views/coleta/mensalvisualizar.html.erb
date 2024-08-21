@@ -13,7 +13,7 @@
                     <% listaSelectUf = [] %>
                     <% listaSelectMunicipio = [] %>
                     <% for uf in @ufs %>
-                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.id ] %>
+                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
                     <% end %>
                     <% for municipio in @municipios %>
                          <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
