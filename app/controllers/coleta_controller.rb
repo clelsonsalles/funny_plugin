@@ -80,7 +80,9 @@ class ColetaController < ApplicationController
       end
 
       @coleta = Coleta.find(params[:coleta][:id])     
-      @coleta.safe_attributes = params[:coleta]
+      @coleta.uf = params[:coleta][:uf]
+      @coleta.cidade = params[:coleta][:cidade]
+      @coleta.codigoIBGE = params[:coleta][:codigoIBGE]
       
       external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
       uri = URI(external_api_url_cidades_completa)
