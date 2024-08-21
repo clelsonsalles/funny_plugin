@@ -8,13 +8,28 @@ class ColetaController < ApplicationController
 
   def mensalcidadesuf
 
+      require 'net/http'
+      require 'json'
+      
       # URL da API externa de UFs e cidades
       external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
       external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
-
-
-
-      redirect_to coleta_mensalvisualizar_path
+      @coleta = Coleta.new
+      @coleta.safe_attributes = params[:coleta]
+      
+      @municipios = []
+      external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
+      uri = URI(external_api_url_cidades_completa)
+      response = Net::HTTP.get(uri)
+    
+      array =  JSON.parse(response)    
+      array.each do |municipioJson|
+        # do something with element
+        municipio = Municipio.new
+        municipio.id = municipioJson["id"]
+        municipio.nome = municipioJson["nome"]
+        @municipios << municipio
+      end        
   end
 
   
