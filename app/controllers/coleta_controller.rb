@@ -14,14 +14,45 @@ class ColetaController < ApplicationController
       # Fazendo a requisição para a API externa
       uri = URI(external_api_url)
       response = Net::HTTP.get(uri)
-      
-
-      for ufJson in JSON.parse(response)
-          uf = Uf.new
-          uf.from_json(ufJson)
-          @ufs << uf
+      array =  JSON.parse(response)    
+      array.each do |ufJson|
+        # do something with element
+        uf = Uf.new
+        uf.from_json(ufJson)
+        @ufs << uf
       end
+
+
+
+
+
+
+class TaskImporter
+  def import_tasks_from_api
+    client = ApiClient.new
+    api_data = client.get_data
  
+    api_data.each do |task_data|
+      Task.create(
+        name: task_data['name'],             # Mapeando o campo 'name' da API para o model Task
+        description: task_data['description'], # Mapeando 'description'
+        status: task_data['status']
+      )
+    end
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+    
   end
 
   def recuperaUFsIBGE
