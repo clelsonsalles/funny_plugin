@@ -18,8 +18,8 @@
                     <% for municipio in @municipios %>
                          <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
                     <% end %>
-
-
+    
+    
                     <p><%= f.select :uf, options_for_select(listaSelectUf) {}, class:'form-select' %></p>
                </div>
                <div class="col-md-6">
@@ -27,6 +27,19 @@
                      <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select' %></p>
                </div>
              </div>
+
+             <div class="row mb-3">
+               <div class="col-md-6">
+                  <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE" %></p>
+               </div>
+             </div>
+  
+             <%= f.submit "Adicionar", class:" btn btn-primary" %>
+
+           </div>
+         </div>
+
      <% end %>
 
 <p>UFs:</p><p>
