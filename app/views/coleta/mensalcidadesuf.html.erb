@@ -1,1 +1,43 @@
 
+    <%= form_for @coleta, url: coleta_mensalatualizar_path do |f| %>
+         <%= f.hidden_field :id, :value => @coleta.id %>
+
+          <div class="box-title"><%= @coleta.tipoColeta %></div>
+             <div class="box-description">Coleta de dados de acessos:
+               
+             <div class="row mb-3">
+               <div class="col-md-6">
+                    <p><%= f.label :uf, "Selecione o Estado" %></p>
+                    <% listaSelectUf = [] %>
+                    <% listaSelectMunicipio = [] %>
+                    <% for uf in @ufs %>
+                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
+                    <% end %>
+                    <% for municipio in @municipios %>
+                         <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
+                    <% end %>
+    
+    
+                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, class:'form-select' %></p>
+               </div>
+               <div class="col-md-6">
+                     <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select' %></p>
+               </div>
+             </div>
+
+             <div class="row mb-3">
+               <div class="col-md-6">
+                  <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE" %></p>
+               </div>
+             </div>
+  
+             <%= f.submit "Adicionar", class:" btn btn-primary" %>
+
+           </div>
+         </div>
+
+     <% end %>
+
+  
