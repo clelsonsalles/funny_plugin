@@ -1,5 +1,5 @@
 
-    <%= form_for @coleta, url: coleta_mensalcidadesuf_path do |f| %>
+    <%= form_for @coleta, url: coleta_mensalcidadesuf_path :html => {:id => "formColeta"} do |f| %>
          <%= f.hidden_field :id, :value => @coleta.id %>
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
@@ -18,7 +18,7 @@
                     <% end %>
     
     
-                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, class:'form-select' %></p>
+                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select', id: 'selectUf' %></p>
                </div>
                <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
@@ -42,4 +42,15 @@
 
   
 
-                   
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectElement = document.getElementById('selectUf');
+
+      if (selectElement) {
+        selectElement.addEventListener('change', (event) => {
+          const form = document.getElementById('formColeta');
+          form.submit();
+        });
+      }
+    });
+  </script>                   
