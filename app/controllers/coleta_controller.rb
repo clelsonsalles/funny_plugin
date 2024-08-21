@@ -109,14 +109,13 @@ class ColetaController < ApplicationController
     end
 
   def mensalatualizar
-
-    @coleta = Coleta.new
+    @coleta = Coleta.find(params[:coleta][:id])     
     @coleta.safe_attributes = params[:coleta]
 
-      @coleta.dataRealizacao = Time.current
-      if @coleta.save
-        redirect_to cliente_cliente_path
-      end
+    @coleta.dataRealizacao = Time.current
+    if @coleta.save
+      redirect_to cliente_cliente_path
+    end
   end
     
 
