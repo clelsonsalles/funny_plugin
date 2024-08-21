@@ -20,9 +20,12 @@
     
                     <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select', id: 'selectUf' %></p>
                </div>
+             </div>
+
+             <div class="row mb-3">
                <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select' %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select', disabled: true  %></p>
                </div>
              </div>
 
