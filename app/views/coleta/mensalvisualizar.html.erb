@@ -11,8 +11,12 @@
                <div class="col-md-6">
                     <p><%= f.label :uf, "Selecione o Estado" %></p>
                     <% listaSelectUf = [] %>
+                    <% listaSelectCidade = [] %>
                     <% for uf in @ufs %>
                          <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.id ] %>
+                    <% end %>
+                    <% for cidade in @cidades %>
+                         <% listaSelectCidade << [cidade.nome, cidade.id ] %>
                     <% end %>
 
 
@@ -20,7 +24,7 @@
                </div>
                <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite a cidade" %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectCidade) {}, class:'form-select' %></p>
                </div>
              </div>
      <% end %>
