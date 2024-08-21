@@ -69,8 +69,9 @@ class ColetaController < ApplicationController
         municipio.id = municipioJson["id"]
         municipio.nome = municipioJson["nome"]
         @municipios << municipio
+      end
 
-        redirect_to coleta_mensalvisualizar_path
+      redirect_to coleta_mensalvisualizar_path
   end
 
   def recuperaUFsIBGE
