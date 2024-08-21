@@ -57,11 +57,19 @@ class ColetaController < ApplicationController
       @coleta = Coleta.new
       @coleta.safe_attributes = params[:coleta]
       
-      idUf = @coleta.uf.nil? 'DF' : @coleta.uf
+      idUf = nil
+      if @coleta.uf.nil? 
+          idUf = 'DF'
+      else
+        idUf = @coleta.uf
+      end
       @municipios = []
       external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipio"
+      Rails.logger.info "external_api_url_cidades_completa: #{external_api_url_cidades_completa}"
       uri = URI(external_api_url_cidades_completa)
       response = Net::HTTP.get(uri)
+      Rails.logger.info "Response: #{response}"
+    
       array =  JSON.parse(response)    
       array.each do |municipioJson|
         # do something with element
