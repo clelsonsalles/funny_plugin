@@ -20,7 +20,7 @@
                          <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
                     <% end %>
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select' %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select', id: 'selectCidade'  %></p>
                </div>
              </div>
 
@@ -40,7 +40,7 @@
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      const selectElement = document.getElementById('selectUf');
+      const selectElement = document.getElementById('selectCidade');
 
       if (selectElement) {
         selectElement.addEventListener('change', (event) => {
