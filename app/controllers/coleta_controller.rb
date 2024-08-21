@@ -4,7 +4,7 @@ class ColetaController < ApplicationController
   end
 
   def mensalvisualizar
-      @ufs = nil
+      @ufs = []
       require 'net/http'
       require 'json'
       
@@ -14,10 +14,42 @@ class ColetaController < ApplicationController
       # Fazendo a requisição para a API externa
       uri = URI(external_api_url)
       response = Net::HTTP.get(uri)
-      @ufs = JSON.parse(response)
+      
+
+      for ufJson in JSON.parse(response)
+          uf = Uf.new
+          uf.from_json(ufJson)
+          @ufs << uf
+      end
+ 
+  end
+
+  def recuperaUFsIBGE
+      @ufs = []
+      require 'net/http'
+      require 'json'
+      
+      # URL da API externa de UFs
+      external_api_url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+      
+      # Fazendo a requisição para a API externa
+      uri = URI(external_api_url)
+      response = Net::HTTP.get(uri)
+      
+
+      for ufJson in JSON.parse(response)
+          uf = Uf.new
+          uf.from_json(ufJson)
+          @ufs << uf
+      end
+  
 
   end
 
+  def recuperaMunicipiosIBGE
+
+  end
+  
   def update
     @coleta = Coleta.find(params[:coleta][:id_coleta])     
 
