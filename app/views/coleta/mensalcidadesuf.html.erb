@@ -21,7 +21,7 @@
                          <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
                     <% end %>
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select', id: 'selectCidade'  %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select'  %></p>
                </div>
              </div>
 
@@ -45,7 +45,7 @@
 
       if (selectElement) {
         selectElement.addEventListener('change', (event) => {
-          const form = document.getElementById('formColeta');
+          const form = document.getElementById('coleta_cidade');
           form.submit();
         });
       }
