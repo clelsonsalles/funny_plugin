@@ -1,4 +1,4 @@
-class Muncipio
+class Municipio
   attr_accessor :id, :nome
 
   def codigoIBGEMunicipio
