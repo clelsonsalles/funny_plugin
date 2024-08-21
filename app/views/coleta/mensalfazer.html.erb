@@ -1,5 +1,5 @@
 
-    <%= form_for @coleta, url: coleta_mensalcidadesuf_path :html => {:id => "formColeta"} do |f| %>
+    <%= form_for @coleta, url: coleta_mensalcidadesuf_path, :html => {:id => "formColeta"} do |f| %>
          <%= f.hidden_field :id, :value => @coleta.id %>
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
