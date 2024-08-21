@@ -106,7 +106,10 @@ class ColetaController < ApplicationController
     @coleta = Coleta.new
     @coleta.safe_attributes = params[:coleta]
 
-
+      @coleta.dataRealizacao = Time.current
+      if @coleta.save
+        redirect_to cliente_cliente_path
+      end
   end
 
     def mensalinformar
@@ -114,10 +117,7 @@ class ColetaController < ApplicationController
       @coleta = Coleta.new
       @coleta.safe_attributes = params[:coleta]
   
-      @coleta.dataRealizacao = Time.current
-      if @coleta.save
-        redirect_to cliente_cliente_path
-      end
+
     end
     
 
