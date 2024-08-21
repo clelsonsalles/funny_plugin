@@ -1,4 +1,4 @@
-
+o
     <%= form_for @coleta, url: coleta_mensalinformar_path, :html => {:id => "formColeta"} do |f| %>
          <%= f.hidden_field :id, :value => @coleta.id %>
          <%= f.hidden_field :uf, :value => @coleta.uf %>
@@ -27,7 +27,7 @@
              <div class="row mb-3">
                <div class="col-md-6">
                   <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true %></p>
+                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo Cidade", disabled: true %></p>
                </div>
              </div>
 
