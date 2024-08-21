@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     post 'coleta/mensalinserir', :to => 'coleta#mensalinserir'
     get 'coleta/mensalfazer', :to => 'coleta#mensalfazer'
     post 'coleta/mensalatualizar', :to => 'coleta#mensalatualizar'
-    post 'coleta/mensalvisualizar', :to => 'coleta#mensalvisualizar'
+    get 'coleta/mensalvisualizar', :to => 'coleta#mensalvisualizar'
+    post 'coleta/mensalcidadesuf', :to => 'coleta#mensalcidadesuf'
         
     resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestral/criar', :to => 'coleta_semestral#criar'
