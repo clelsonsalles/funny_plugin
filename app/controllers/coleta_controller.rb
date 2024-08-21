@@ -18,9 +18,9 @@ class ColetaController < ApplicationController
       array.each do |ufJson|
         # do something with element
         uf = Uf.new
-        uf.id(ufJson.id)
-        uf.nome(ufJson.nome)
-        uf.sigla(ufJson.sigla)
+        uf.id = ufJson["id"]
+        uf.nome = ufJson["nome"]
+        uf.sigla = ufJson["sigla"]
         @ufs << uf
       end
    
