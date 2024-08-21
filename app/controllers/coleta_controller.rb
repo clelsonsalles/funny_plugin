@@ -57,7 +57,7 @@ class ColetaController < ApplicationController
       @coleta = Coleta.new
       @coleta.safe_attributes = params[:coleta]
       
-      idUf = @coleta.uf
+      idUf = @coleta.uf.nil? 'DF' : @coleta.uf
       @municipios = []
       external_api_url_cidades_completa = external_api_url_cidades + idUf + "/municipio"
       uri = URI(external_api_url_cidades_completa)
