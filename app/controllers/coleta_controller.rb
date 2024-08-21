@@ -99,17 +99,27 @@ class ColetaController < ApplicationController
         @ufs << uf
       end
     
-end
+  end
 
   def mensalatualizar
-    @coleta = Coleta.find(params[:coleta][:id_coleta])     
 
+    @coleta = Coleta.new
     @coleta.safe_attributes = params[:coleta]
-    @coleta.dataRealizacao = Time.current
-    if @coleta.save
-      redirect_to cliente_cliente_path
-    end
+
+
   end
+
+    def mensalinformar
+
+      @coleta = Coleta.new
+      @coleta.safe_attributes = params[:coleta]
+  
+      @coleta.dataRealizacao = Time.current
+      if @coleta.save
+        redirect_to cliente_cliente_path
+      end
+    end
+    
 
   def mensalcriar
     @coleta = Coleta.new
