@@ -23,6 +23,8 @@ class ColetaController < ApplicationController
         uf.sigla = ufJson["sigla"]
         @ufs << uf
       end
+
+    @coleta = Coleta.new
    
   end
 
