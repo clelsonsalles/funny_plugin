@@ -133,6 +133,26 @@ class ColetaController < ApplicationController
       redirect_to cliente_cliente_path
     end
   end
+
+
+  def semestralcriar
+    @coleta = Coleta.new
+    @projeto = Project.find(params[:id_projeto])
+  end
+
+  def mensalinserir
+    valores = params.require(:coleta).permit(:mes, :tipoColeta)
+    coleta = Coleta.create(valores)
+
+    coleta.tituloColeta = "Coleta Semstral"
+    coleta.ano = 2024
+        
+    coleta.user = User.current
+    coleta.project = Project.find(params[:coleta][:id_projeto])
+    coleta.save
+    
+    redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
+  end
     
 
 
