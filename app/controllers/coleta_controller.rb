@@ -140,11 +140,11 @@ class ColetaController < ApplicationController
     @projeto = Project.find(params[:id_projeto])
   end
 
-  def mensalinserir
+  def semestralinserir
     valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
 
-    coleta.tituloColeta = "Coleta Semstral"
+    coleta.tituloColeta = "Coleta Semestral"
     coleta.ano = 2024
         
     coleta.user = User.current
