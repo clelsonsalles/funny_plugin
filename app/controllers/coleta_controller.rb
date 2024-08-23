@@ -219,6 +219,15 @@ class ColetaController < ApplicationController
     
 
 
+    def gerarcsv
+      coleta = Coleta.find(params[:coleta][:id_coleta])
+    
+      csv_data = Redmine::ExportCSV.export_coleta_to_csv(coleta)
+      
+      send_data csv_data, filename: "coleta-#{coleta.project.name}-#{coleta.tituloColeta}-#{coleta.tipoColeta}-#{coleta.textoData}.csv", type: 'text/csv'
+
+    end
+
  
   
   def updateOLD
