@@ -67,6 +67,116 @@
             </div>
         </div>
 
+         <h5><strong>Dados do Responsável da Empresa</strong></h5>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelEmpresa.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelEmpresa.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelEmpresa.telefone %>
+                </div>
+            </div>
+        </div>
+
+        <h3><strong>Dados do Responsável da Empresa</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelEmpresa.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelEmpresa.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelEmpresa.telefone %>
+                </div>
+            </div>
+        </div>
+
+       <h3><strong>Dados do Responsável pelo Preenchimento dos Formulários</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelPreenchimento.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelPreenchimento.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelPreenchimento.telefone %>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-title">COLETAS <BR/></div>
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="custom-box">
+                    <div class="box-title">MENSAL</div>
+                    <a href="/coleta/mensalcriar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-box">
+                    <div class="box-title">SEMESTRAL</div>
+                    <a href="/coleta/semestralcriar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-box">
+                    <div class="box-title">ANUAL</div>
+                    <a href="/coleta/anualcriar?id_projeto=<%= @organizacao.idProject %>" class="box-link">Criar coleta</a>
+                </div>
+            </div>
+        </div>
+    </div><br/>
+
+        <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Formulário</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for coleta in @coletas %>
+                <tr>
+                    <td><%= coleta.textoData %></td>
+                    <td><%= coleta.status %></td>
+                    <td><%= coleta.tituloColeta %></td>
+                    <td><%= coleta.tipoColeta %></td>
+                    <% if coleta.dataRealizacao.nil? %>
+                            <td><a href="#" class="btn btn-sm btn-custom">Aguardando dados da coleta...</a> </td>
+                    <% else %>
+                            <td> <a href="/coleta/visualizar?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Ver coleta</a> 
+                            <% if coleta.dataInformacaoEnvio.nil? %>
+                                      <br /><a href="/coleta/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
+                                      <br /><a href="/coleta/informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
+                            <% end %>
+                    <% end %>
+
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+
+
+    
+               
+
 
          
      
