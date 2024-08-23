@@ -2,7 +2,7 @@
 require 'csv'
 
 module Redmine
-  module ExportCSV
+  module ExportCsv
     def self.export_coleta_to_csv(coleta)
       CSV.generate(headers: true) do |csv|
         # Adiciona o cabeçalho
