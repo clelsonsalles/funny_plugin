@@ -1,4 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">col-sm-4</div>    
+    <div class="col-sm-8">
 
+      <h2><strong><%= @organizacao.nome %></strong></h2><br/>
+          <h3><strong>Dados da Empresa</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Cnpj:</strong> <%= @organizacao.cnpj %><br/>
+                    <strong>Endereço :</strong> <%= @organizacao.endereco %><br/>
+                    <strong>Cep:</strong> <%= @organizacao.cep %><br/>
+                    <strong>Uf:</strong> <%= @organizacao.uf %><br/>
+                    <strong>Telefone:</strong> <%= @organizacao.telefone %><br/>
+                    <strong>Email:</strong> <%= @organizacao.email %><br/>
+                    <strong>Serviços de Telecom:</strong> <%= @organizacao.servicos %>
+                </div>
+               
+               
+            </div>
+        </div>
+
+       <h3><strong>Dados do Responsável da Empresa</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelEmpresa.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelEmpresa.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelEmpresa.telefone %>
+                </div>
+            </div>
+        </div>
+        <h3><strong>Dados do Responsável pelo Preenchimento dos Formulários</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelPreenchimento.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelPreenchimento.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelPreenchimento.telefone %>
+                </div>
+            </div>
+        </div>
+        <h3><strong>Dados do Responsável pelo Preenchimento dos Formulários</strong></h3>
+        <div class="card">
+            <div class="card-body d-flex">
+                <div class="me-3">
+                    <strong>Nome:</strong> <%= @responsavelPreenchimento.nome %> 
+                </div>
+                
+                <div class="me-3">
+                    <strong>Email:</strong> <%= @responsavelPreenchimento.email %> 
+                </div>
+                <div class="me-3">
+                    <strong>Telefone:</strong> <%= @responsavelPreenchimento.telefone %>
+                </div>
+            </div>
+        </div>
+
+
+         
+     
+
+     </div>
+    
+  </div>
+</div>
 
 
 <h2><strong><%= @organizacao.nome %></strong></h2><br/>
