@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     patch 'coleta/mensalatualizar', :to => 'coleta#mensalatualizar'
     get 'coleta/mensalvisualizar', :to => 'coleta#mensalvisualizar'
         
-    resources :coleta_semestral, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/semestralcriar', :to => 'coleta#semestralcriar'
     post 'coleta/semestralinserir', :to => 'coleta#semestralinserir'
     get 'coleta/semestralfazer', :to => 'coleta#semestralfazer'
@@ -34,7 +33,6 @@ Rails.application.routes.draw do
     get 'coleta/semestralvisualizar', :to => 'coleta#semestralvisualizar'
     
      
-    resources :coleta_anual, only: [:new, :create, :destroy, :edit, :update, :index]
     get 'coleta/anual/criar', :to => 'coleta_anual#criar'
     get 'coleta/anual/fazer', :to => 'coleta_anual#fazer'
 
