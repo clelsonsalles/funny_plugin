@@ -46,6 +46,5 @@ module ExportCsv
         end
       end
     end
-    
-  end
+
 end
