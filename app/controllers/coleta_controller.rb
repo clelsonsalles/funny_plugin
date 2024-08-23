@@ -153,6 +153,69 @@ class ColetaController < ApplicationController
     
     redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
   end
+
+  def semestralfazer
+      @coleta = Coleta.find(params[:id_coleta])     
+
+      @ufs = []
+      @municipios = []
+
+      require 'net/http'
+      require 'json'
+      
+      # URL da API externa de UFs e cidades
+      external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+      
+      # Fazendo a requisição para a API externa
+      uri = URI(external_api_url_ufs)
+      response = Net::HTTP.get(uri)
+      array =  JSON.parse(response)    
+      array.each do |ufJson|
+        # do something with element
+        uf = Uf.new
+        uf.id = ufJson["id"]
+        uf.nome = ufJson["nome"]
+        uf.sigla = ufJson["sigla"]
+        @ufs << uf
+      end
+    
+  end
+
+  def semestralinformar
+      @coleta = Coleta.find(params[:coleta][:id])     
+      @coleta.uf = params[:coleta][:uf]
+      @coleta.cidade = params[:coleta][:cidade]
+
+      require 'net/http'
+      require 'json'
+      
+      # URL da API externa de UFs e cidades
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+      external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
+      uri = URI(external_api_url_cidades_completa)
+      response = Net::HTTP.get(uri)
+    
+      array =  JSON.parse(response)    
+      array.each do |municipioJson|
+        if municipioJson["nome"] == params[:coleta][:cidade]
+            @coleta.codigoIBGE = municipioJson["id"]
+            break
+        end
+      end        
+
+      
+  end
+
+   def semestralatualizar
+    @coleta = Coleta.find(params[:coleta][:id])     
+    @coleta.safe_attributes = params[:coleta]
+
+    @coleta.dataRealizacao = Time.current
+    if @coleta.save
+      redirect_to cliente_cliente_path
+    end
+  end
     
 
 
