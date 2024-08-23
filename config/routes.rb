@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     
     resources :coleta, only: [:new, :create, :destroy, :edit, :index]
 
-
+    get 'coleta/visualizar', :to => 'coleta#visualizar'
     get 'coleta/gerarcsv', :to => 'coleta#gerarcsv'
 
     get 'coleta/mensalcriar', :to => 'coleta#mensalcriar'
