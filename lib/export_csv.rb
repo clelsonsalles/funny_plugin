@@ -10,6 +10,7 @@ module ExportCsv
         # Adiciona a coleta
         csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, coleta.ano, coleta.mes, coleta.trimestre, coleta.uf, coleta.cidade, coleta.codigoIBGE, coleta.tipoCliente, coleta.tipoAtendimento, coleta.tipoMeio, coleta.tipoTecnologia, coleta.tipoProduto, coleta.velocidade, coleta.quantidadeAcesso, coleta.dadoInformado, coleta.valor, coleta.cn]
       end
+    end
 
       class Base < ::CSV
         include Redmine::I18n
@@ -45,6 +46,5 @@ module ExportCsv
           super
         end
       end
-    end
 
 end
