@@ -17,7 +17,7 @@ module ExportCsv
 
         class << self
           def generate(options = {}, &)
-            col_sep = (options[:field_separator].presence || l(:general_csv_separator))
+            col_sep = ";"
             encoding = Encoding.find(options[:encoding]) rescue Encoding.find(l(:general_csv_encoding))
 
             str =
