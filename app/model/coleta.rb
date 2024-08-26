@@ -2,12 +2,25 @@ class Coleta < ActiveRecord::Base
   include Redmine::SafeAttributes
 
 safe_attributes(
-    'identifier',
-    'login',
-    'password',
-    'path_encoding',
-    'log_encoding',
-    'is_default')
+    'id',
+    'tituloColeta',
+    'tipoColeta',
+    'ano',
+    'mes',
+    'trimestre',
+    'uf',
+    'cidade',
+    'codigoIBGE',
+    'tipoCliente',
+    'tipoAtendimento',
+    'tipoMeio',
+    'tipoTecnologia',
+    'tipoProduto',
+    'velocidade',
+    'quantidadeAcesso',
+    'dadoInformado',
+    'valor',
+    'cn')
   
   belongs_to :user
   belongs_to :project
