@@ -1,5 +1,14 @@
 class Coleta < ActiveRecord::Base
   include Redmine::SafeAttributes
+
+safe_attributes(
+    'identifier',
+    'login',
+    'password',
+    'path_encoding',
+    'log_encoding',
+    'is_default')
+  
   belongs_to :user
   belongs_to :project
 
