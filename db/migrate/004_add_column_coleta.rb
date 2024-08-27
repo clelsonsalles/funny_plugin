@@ -7,3 +7,4 @@ class AddColumnColeta < ActiveRecord::Migration[6.1]
   def down
     # no-op
   end
+end
