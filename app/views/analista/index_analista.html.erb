@@ -7,7 +7,7 @@
               <div class="col-md-4">
                 <div class="custom-box">
                     <div class="box-title"><%= link_to_project(project, {}, :class => "icon icon-fav my-project") %></div>
-                    <div class="box-description"><span class="badge bg-danger">Coleta atrasada</span></div>
+                    
                     <% for membresia in project.memberships %>
                        <% for papel in membresia.roles %>
                           <% if papel.id == 5 %>
