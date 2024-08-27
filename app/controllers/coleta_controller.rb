@@ -155,7 +155,7 @@ class ColetaController < ApplicationController
 
     coleta.tituloColeta = "Coleta Semestral"
     coleta.ano = 2024
-    coleta.dataCricao = Time.current
+    coleta.dataCriacao = Time.current
         
     coleta.user = User.current
     #coleta.usuarioCriacao = User.current
