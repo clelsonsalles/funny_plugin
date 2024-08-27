@@ -1,4 +1,4 @@
-class AddColumnColeta < ActiveRecord::Migration[6.1]
+class AddColumnMesinformado < ActiveRecord::Migration[6.1]
   def up
     add_column(:coleta, :mesInformado, :integer) 
     
