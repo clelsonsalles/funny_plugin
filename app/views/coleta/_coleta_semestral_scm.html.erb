@@ -19,7 +19,7 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['TR', 1], ['TR', 2], ['TR', 3], ['TR', 4]]) %></p>
+                          <p><%= f.select :tipoCliente, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]) %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione o Estado" %></p>
@@ -33,10 +33,7 @@
                           <p><%= f.select :tipoCliente, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]) %></p>
                         </div>
 
-                      <div class="col-md-6">
-                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE" %></p>
-                      </div>
+                      
                     </div>
 
                                                       
