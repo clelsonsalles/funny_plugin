@@ -15,7 +15,7 @@ class ColetaController < ApplicationController
 
     coleta.tituloColeta = "Coleta Mensal"
     coleta.ano = 2024
-    coleta.dataCricao = Time.current
+    coleta.dataCriacao = Time.current
         
     coleta.user = User.current
     #coleta.usuarioCriacao = User.current
@@ -173,7 +173,7 @@ class ColetaController < ApplicationController
 
   end
 
-   def semestralatualizar
+  def semestralatualizar
     @coleta = Coleta.find(params[:coleta][:id])     
     @coleta.safe_attributes = params[:coleta]
 
