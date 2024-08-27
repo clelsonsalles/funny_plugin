@@ -17,10 +17,7 @@ class ColetaController < ApplicationController
     coleta.ano = 2024
     coleta.dataCriacao = Time.current
         
-    coleta.user = User.current
-    #coleta.usuarioCriacao = User.current
-    #coleta.usuarioRealizacao = User.current
-    #coleta.usuarioEnvio = User.current
+    coleta.usuarioCriacao = User.current
 
     coleta.project = Project.find(params[:coleta][:id_projeto])
     coleta.save
@@ -133,9 +130,7 @@ class ColetaController < ApplicationController
     @coleta = Coleta.find(params[:coleta][:id])    
     valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
 
-    #@coleta.usuarioCriacao = User.current
-    #@coleta.usuarioRealizacao = User.current
-    #@coleta.usuarioEnvio = User.current
+    @coleta.usuarioRealizacao = User.current
 
     @coleta.dataRealizacao = Time.current
     @coleta.update(valores)
@@ -157,10 +152,7 @@ class ColetaController < ApplicationController
     coleta.ano = 2024
     coleta.dataCriacao = Time.current
         
-    coleta.user = User.current
-    #coleta.usuarioCriacao = User.current
-    #coleta.usuarioRealizacao = User.current
-    #coleta.usuarioEnvio = User.current
+    coleta.usuarioCriacao = User.current
         
     coleta.project = Project.find(params[:coleta][:id_projeto])
     coleta.save
@@ -179,6 +171,8 @@ class ColetaController < ApplicationController
     @coleta.safe_attributes = params[:coleta]
 
     @coleta.dataRealizacao = Time.current
+    @coleta.usuarioRealizacao = User.current
+    
     if @coleta.save
       redirect_to cliente_cliente_path
     end
