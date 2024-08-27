@@ -133,6 +133,10 @@ class ColetaController < ApplicationController
     @coleta = Coleta.find(params[:coleta][:id])    
     valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
 
+    #@coleta.usuarioCriacao = User.current
+    #@coleta.usuarioRealizacao = User.current
+    #@coleta.usuarioEnvio = User.current
+
     @coleta.dataRealizacao = Time.current
     @coleta.update(valores)
 
