@@ -174,7 +174,7 @@ class ColetaController < ApplicationController
   end
 
   def semestralatualizar
-    @coleta = Coleta.find(params[id_coleta])     
+    @coleta = Coleta.find(params[:id_coleta])     
     @coleta.safe_attributes = params[:coleta]
 
     @coleta.dataRealizacao = Time.current
