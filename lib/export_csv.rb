@@ -27,7 +27,7 @@ module ExportCsv
                 (+'').force_encoding(encoding)
               end
 
-            super(str, :col_sep => col_sep, :encoding => encoding, &)
+            super(str, field_separator: ';', :encoding => encoding, &)
           end
         end
 
