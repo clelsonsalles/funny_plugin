@@ -7,12 +7,12 @@
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :cnpj, "Cidade", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                              <p><%= f.label :cnpj, "Cnpj", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
                          </div>
                          <div class="col-md-6">
-                               <p><%= f.label :ano, "Cidade", class: "form-label" %></p>
-                               <p><%= f.text_field :ano, class: "form-control", id: "cidade", placeholder: "Digite o ano" %></p>
+                               <p><%= f.label :ano, "Ano", class: "form-label" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano" %></p>
                          </div>
                        </div>
 
@@ -22,7 +22,7 @@
                           <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]) %></p>
                         </div>
                         <div class="col-md-6">
-                          <p><%= f.label :uf, "Selecione o Estado" %></p>
+                          <p><%= f.label :uf, "Selecione a UF" %></p>
                               <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select' %></p>
                         </div>
                       </div>
@@ -35,7 +35,7 @@
 
                          <div class="col-md-6">
                           <p><%= f.label :valor, "Valores", class: "form-label" %></p>
-                          <p><%= f.text_field :valor, class: "form-control", id: "cidade", placeholder: "Valores" %></p>
+                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores" %></p>
                         </div>
 
                       
