@@ -29,8 +29,12 @@
 
                      <div class="row mb-3">
                        <div class="col-md-6">
-                          <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]) %></p>
+                          <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
+                          <p><%= f.text_field :dadoInformado, class: "form-control", id: "dadoInformado", placeholder: "Dado Informado" %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :valor, "Valores", class: "form-label" %></p>
+                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores" %></p>
                         </div>
 
                       
