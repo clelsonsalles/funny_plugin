@@ -7,6 +7,25 @@
 
                     <div class="box-title"><%= @coleta.tipoColeta %></div>
                        <div class="box-description">Coleta de dados de acessos:
+
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                         </div>
+                      </div>
+
+
+                        <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
+                               <p><%= f.text_field :mesInformado, class: "form-control", id: "mesInformado", placeholder: "Digite o Mês" %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano" %></p>
+                         </div>
+                       </div>
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
