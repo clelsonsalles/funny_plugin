@@ -7,11 +7,11 @@
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :cnpj, "Cidade", class: "form-label" %></p>
+                              <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
                                <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite o CNPJ da Prestadora" %></p>
                          </div>
                          <div class="col-md-6">
-                               <p><%= f.label :ano, "Cidade", class: "form-label" %></p>
+                               <p><%= f.label :ano, "Ano", class: "form-label" %></p>
                                <p><%= f.text_field :ano, class: "form-control", id: "cidade", placeholder: "Digite o ano" %></p>
                          </div>
                        </div>
@@ -44,8 +44,8 @@
                          <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal" %></p>
                       </div>
                        <div class="col-md-6">
-                          <p><%= f.label :cnpjEmpresaContratada, "CNPJ da Empresa contratada", class: "form-label" %></p>
-                          <p><%= f.text_field :cnpjEmpresaContratada, class: "form-control", cnpjEmpresaContratada: "CNPJ da Empresa contratada", placeholder: "Digite o CNPJ da Empresa contratada" %></p>
+                          <p><%= f.label :cnpjContratada, "CNPJ da Empresa contratada", class: "form-label" %></p>
+                          <p><%= f.text_field :cnpjContratada, class: "form-control", cnpjContratada: "CNPJ da Empresa contratada", placeholder: "Digite o CNPJ da Empresa contratada" %></p>
                         </div>
                     </div>
 
