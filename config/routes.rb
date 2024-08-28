@@ -33,8 +33,13 @@ Rails.application.routes.draw do
     get 'coleta/semestralvisualizar', :to => 'coleta#semestralvisualizar'
     
      
-    get 'coleta/anual/criar', :to => 'coleta_anual#criar'
-    get 'coleta/anual/fazer', :to => 'coleta_anual#fazer'
+    get 'coleta/anualcriar', :to => 'coleta#anualcriar'
+    post 'coleta/anualinserir', :to => 'coleta#anualinserir'
+    get 'coleta/anualfazer', :to => 'coleta#anualfazer'
+    patch 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
+    patch 'coleta/anualinformar', :to => 'coleta#anualinformar'
+    patch 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
+    get 'coleta/anualvisualizar', :to => 'coleta#anualvisualizar'
 
 
 end
