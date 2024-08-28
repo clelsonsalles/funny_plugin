@@ -1,0 +1,2 @@
+module ColetaAnualHelper
+end
