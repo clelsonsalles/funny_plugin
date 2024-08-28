@@ -1,0 +1,20 @@
+<div class="container mt-5">
+<h3><strong>Fazer coleta</strong></h3>
+
+<% if @coleta.tipoColeta == 'estacao' %>
+  <%= render "coleta/coleta_anual_estacao" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'enlacesProprio' %>
+  <%= render "coleta/coleta_anual_enlacesProprio" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'encalcesContratados' %>
+  <%= render "coleta/coleta_anual_encalcesContratados" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'encalcesViaSatelite' %>
+  <%= render "coleta/coleta_anual_encalcesViaSatelite" %>
+<% end %>
+
+</div>
