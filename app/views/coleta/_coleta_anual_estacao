@@ -18,11 +18,11 @@
 
                       <div class="row mb-3">
                         <div class="col-md-6">
-                          <p><%= f.label :idEstacao, "Tipo de Cliente", class: "form-label" %></p>
+                          <p><%= f.label :idEstacao, "Id Estação", class: "form-label" %></p>
                           <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", placeholder: "Id da Estação" %></p>
                         </div>
                         <div class="col-md-6">
-                          <p><%= f.label :nEstacao, "Tipo de Cliente", class: "form-label" %></p>
+                          <p><%= f.label :nEstacao, "Número da Estação", class: "form-label" %></p>
                           <p><%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", placeholder: "Número da Estação" %></p>
                         </div>
                       </div>
