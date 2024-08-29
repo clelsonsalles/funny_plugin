@@ -55,8 +55,8 @@
                          <p><%= f.text_field :rua, class: "form-control", rua: "Rua", placeholder: "Cep" %></p>
                       </div>
                        <div class="col-md-6">
-                          <p><%= f.label :numero, "Número", class: "form-label" %></p>
-                          <p><%= f.text_field :cidade, class: "form-control", numero: "Número", placeholder: "Número" %></p>
+                          <p><%= f.label :numeroEndereco, "Número", class: "form-label" %></p>
+                          <p><%= f.text_field :numeroEndereco, class: "form-control", numero: "Número", placeholder: "Número" %></p>
                         </div>
                     </div>
 
