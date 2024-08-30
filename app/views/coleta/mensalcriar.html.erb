@@ -1,4 +1,5 @@
 <div class="container mt-3">
+ <div class="row justify-content-center">
   <div class="row">
     <div class="col-md-3">
       <div class="card">
@@ -8,6 +9,7 @@
               <%= f.hidden_field :id_projeto, :value => @projeto.id %>
               <%= f.hidden_field :tipoColeta, :value => "SCM" %>
                     <div class="box-title">SCM</div>
+                    <br/>
                     <div class="box-description">Coleta de dados de acessos:
                     <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
                     </div>
@@ -50,6 +52,7 @@
       </div>
     </div>
   </div>
+ </div>
 </div>
 
 
@@ -59,58 +62,3 @@
 
 
 
-<div class="container">
-    
-        <div class="row justify-content-center">
-
-        <div class="col-md-4">
-            <div class="custom-box">
-              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
-              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
-              <%= f.hidden_field :tipoColeta, :value => "SCM" %>
-                    <div class="box-title">SCM</div>
-                    <div class="box-description">Coleta de dados de acessos:
-                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
-                    </div>
-                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
-              <% end %>
-            </div>
-        </div>
-
-
-        <div class="col-md-4">
-            <div class="custom-box">
-  
-              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
-              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
-              <%= f.hidden_field :tipoColeta, :value => "TVpA" %>
-                    <div class="box-title">TVpA</div>
-                    <div class="box-description">Coleta de dados Econômicos-financeiros e Técnico-operacionais
-                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
-                    </div>
-                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
-              <% end %>
-            </div>
-        </div>
-
-
-        <div class="col-md-4">
-            <div class="custom-box">
-
-              <%= form_for @coleta, url: coleta_mensalinserir_path do |f| %>
-              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
-              <%= f.hidden_field :tipoColeta, :value => "STFC" %>
-                    <div class="box-title">STFC</div>
-                    <div class="box-description">Coleta de dados de Infraestrutura de Transporte
-                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
-                    </div>
-                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
-              <% end %>
-
-
-            </div>
-        </div>
-
-
-    </div>
-</div>
