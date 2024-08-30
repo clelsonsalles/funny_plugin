@@ -128,12 +128,15 @@ class ColetaController < ApplicationController
 
   def mensalatualizar
     @coleta = Coleta.find(params[:coleta][:id])    
-    valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
+    @coleta.safe_attributes = params[:coleta]
+
+    #valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
 
     #@coleta.usuarioRealizacao = User.current
 
     @coleta.dataRealizacao = Time.current
-    @coleta.update(valores)
+    #@coleta.update(valores)
+    @coleta.save
 
     redirect_to cliente_cliente_path
   end
@@ -263,12 +266,15 @@ class ColetaController < ApplicationController
 
   def anualatualizar
     @coleta = Coleta.find(params[:coleta][:id])    
-    valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
+    @coleta.safe_attributes = params[:coleta]
+
+    #valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
 
     #@coleta.usuarioRealizacao = User.current
 
     @coleta.dataRealizacao = Time.current
-    @coleta.update(valores)
+    #@coleta.update(valores)
+    @coleta.save
 
     redirect_to cliente_cliente_path
   end
