@@ -13,7 +13,7 @@ class ColetaController < ApplicationController
     valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
 
-    coleta.tituloColeta = "Coleta Anual"
+    coleta.tituloColeta = "Coleta Mensal"
     coleta.ano = 2024
     coleta.dataCriacao = Time.current
         
@@ -148,7 +148,7 @@ class ColetaController < ApplicationController
     valores = params.require(:coleta).permit(:mes, :tipoColeta)
     coleta = Coleta.create(valores)
 
-    coleta.tituloColeta = "Coleta Mensal"
+    coleta.tituloColeta = "Coleta Anual"
     coleta.ano = 2024
     coleta.dataCriacao = Time.current
         
