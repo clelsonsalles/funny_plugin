@@ -8,11 +8,11 @@
                        <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :ano, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :ano, class: "form-control", id: "cidade", placeholder: "Digite o ano" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano" %></p>
                          </div>
                        </div>
 
@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :idEstacaoDestino, "Id da estação de destino", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "nEstacao", placeholder: "Id da Estação de destino" %></p>
+                          <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "idEstacaoDestino", placeholder: "Id da Estação de destino" %></p>
                         </div>
                       </div>
 
