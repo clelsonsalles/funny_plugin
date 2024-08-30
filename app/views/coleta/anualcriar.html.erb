@@ -4,7 +4,15 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Box 1</h5>
-          <p class="card-text">Conteúdo do Box 1.</p>
+          <%= form_for @coleta, url: coleta_anualinserir_path do |f| %>
+              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
+              <%= f.hidden_field :tipoColeta, :value => "estacao" %>
+                    <div class="box-title">Estação</div>
+                    <div class="box-description">Coleta de dados de acessos:
+                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
+                    </div>
+                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
+              <% end %>
         </div>
       </div>
     </div>
@@ -12,7 +20,16 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Box 2</h5>
-          <p class="card-text">Conteúdo do Box 2.</p>
+         
+              <%= form_for @coleta, url: coleta_anualinserir_path do |f| %>
+              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
+              <%= f.hidden_field :tipoColeta, :value => "enlacesProprio" %>
+                    <div class="box-title">Enlaces Próprios</div>
+                    <div class="box-description">Coleta de dados Econômicos-financeiros e Técnico-operacionais
+                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
+                    </div>
+                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
+              <% end %>
         </div>
       </div>
     </div>
@@ -20,7 +37,15 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Box 3</h5>
-          <p class="card-text">Conteúdo do Box 3.</p>
+           <%= form_for @coleta, url: coleta_anualinserir_path do |f| %>
+              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
+              <%= f.hidden_field :tipoColeta, :value => "enlacesContratados" %>
+                    <div class="box-title">Encalces Contratados</div>
+                    <div class="box-description">Coleta de dados de Infraestrutura de Transporte
+                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
+                    </div>
+                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
+              <% end %>
         </div>
       </div>
     </div>
@@ -28,7 +53,15 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Box 4</h5>
-          <p class="card-text">Conteúdo do Box 4.</p>
+           <%= form_for @coleta, url: coleta_anualinserir_path do |f| %>
+              <%= f.hidden_field :id_projeto, :value => @projeto.id %>
+              <%= f.hidden_field :tipoColeta, :value => "encalcesViaSatelite" %>
+                    <div class="box-title">Encalces Via Satélite</div>
+                    <div class="box-description">Coleta de dados de Infraestrutura de Transporte
+                    <p> <%= f.select :mes, [['Janeiro', 1], ['Fevereiro', 2], ['Março', 3], ['Abril', 4],  ['Maio', 5],  ['Junho', 6],  ['Julho', 7],  ['Agosto', 8],  ['Setembro', 9],  ['Outubro', 10],  ['Novembro', 11],  ['Dezembro', 12] ], class: "selecao" %></p>
+                    </div>
+                     <%= f.submit "Criar coleta", class:" icon icon-add float-right" %>
+              <% end %>
         </div>
       </div>
     </div>
