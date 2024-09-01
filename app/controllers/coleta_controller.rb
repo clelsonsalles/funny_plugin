@@ -167,30 +167,34 @@ class ColetaController < ApplicationController
 
 
   def anualfazer
-      @coleta = Coleta.find(params[:id_coleta])     
-
+      @coleta = Coleta.find(params[:id_coleta])   
       @ufs = []
       @municipios = []
-
       require 'net/http'
       require 'json'
-      
-      # URL da API externa de UFs e cidades
-      external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
-      
-      # Fazendo a requisição para a API externa
-      uri = URI(external_api_url_ufs)
-      response = Net::HTTP.get(uri)
-      array =  JSON.parse(response)    
-      array.each do |ufJson|
-        # do something with element
-        uf = Uf.new
-        uf.id = ufJson["id"]
-        uf.nome = ufJson["nome"]
-        uf.sigla = ufJson["sigla"]
-        @ufs << uf
+
+      if (@coleta.tipoColeta == 'estacao')
+        # URL da API externa de UFs e cidades
+        external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+        external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+        
+        # Fazendo a requisição para a API externa
+        uri = URI(external_api_url_ufs)
+        response = Net::HTTP.get(uri)
+        array =  JSON.parse(response)    
+        array.each do |ufJson|
+          # do something with element
+          uf = Uf.new
+          uf.id = ufJson["id"]
+          uf.nome = ufJson["nome"]
+          uf.sigla = ufJson["sigla"]
+          @ufs << uf
+        end
+
+
       end
+
+      
     
   end
 
