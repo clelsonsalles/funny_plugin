@@ -7,8 +7,8 @@
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
-                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                              <p><%= f.label :cnpjPrestadora, "CNPJ", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpjPrestadora, class: "form-control", id: "cnpjPrestadora", placeholder: "Digite o CNPJ da Prestadora" %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :ano, "Ano", class: "form-label" %></p>
@@ -39,10 +39,6 @@
                     </div>
 
                     <div class="row mb-3">
-                      <div class="col-md-6">
-                         <p><%= f.label :enlaceNominal, "Enlace Nominal", class: "form-label" %></p>
-                         <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal" %></p>
-                      </div>
                        <div class="col-md-6">
                           <p><%= f.label :cnpjContratada, "CNPJ da Empresa contratada", class: "form-label" %></p>
                           <p><%= f.text_field :cnpjContratada, class: "form-control", id: "cnpjContratada", placeholder: "Digite o CNPJ da Empresa contratada" %></p>
