@@ -1,4 +1,21 @@
-  <%= form_for @coleta, url: coleta_anualcidadesuf_path, :html => {:id => "formColeta"} do |f| %>
+
+        <% if @coleta.tipoColeta == 'enlacesProprio' %>
+          <%= render "coleta/coleta_anual_enlaces_proprios" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'encalcesContratados' %>
+          <%= render "coleta/coleta_anual_encalces_contratados" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'encalcesViaSatelite' %>
+          <%= render "coleta/coleta_anual_encalces_via_satelite" %>
+        <% end %>
+
+
+
+  <% if @coleta.tipoColeta == 'estacao' %>
+
+    <%= form_for @coleta, url: coleta_anualcidadesuf_path, :html => {:id => "formColeta"} do |f| %>
          <%= f.hidden_field :id, :value => @coleta.id %>
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
@@ -6,7 +23,7 @@
                
              <div class="row mb-3">
                <div class="col-md-6">
-                    <p><%= f.label :uf, "Selecione o Estado" %></p>
+                    <p><%= f.label :uf, "Selecione a UF" %></p>
                     <% listaSelectUf = [] %>
                     <% listaSelectUf << ["Selecione", "" ] %>
                     <% listaSelectMunicipio = [] %>
@@ -35,13 +52,10 @@
                   <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
                </div>
              </div>
-  
-
            </div>
          </div>
-
      <% end %>
-
+  <% end %>
   
 
   <script type="text/javascript">
