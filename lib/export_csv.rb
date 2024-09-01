@@ -69,24 +69,24 @@ module ExportCsv
               case coleta.tipoColeta
                   when "estacao"
                         # Adiciona o cabeçalho
-                        csv << ['cnpjPrestadora', 'ano', 'idEstacao', 'nEstacao', 'codigoIBGE', 'abertura', 'cep', 'cidade', 'rua', 'numeroEndereco', 'latitude', 'longitude']
+                        csv << ['cnpj', 'ano', 'idEstacao', 'nEstacao', 'codigoIBGE', 'abertura', 'cep', 'cidade', 'rua', 'numeroEndereco', 'latitude', 'longitude']
                         # Adiciona a coleta
-                        csv << [coleta.cnpjPrestadora, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.codigoIBGE, coleta.abertura, coleta.cep, coleta.cidade, coleta.rua, coleta.numeroEndereco, coleta.latitude, coleta.longitude]
+                        csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.codigoIBGE, coleta.abertura, coleta.cep, coleta.cidade, coleta.rua, coleta.numeroEndereco, coleta.latitude, coleta.longitude]
                   when "enlacesProprios"
                         # Adiciona o cabeçalho
-                        csv << ['cnpjPrestadora', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'enlaceNominal', 'enlaceSwap', 'geometriaWkt', 'srid']
+                        csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'enlaceNominal', 'enlaceSwap', 'geometriaWkt', 'srid']
                         # Adiciona a coleta
-                        csv << [coleta.cnpjPrestadora, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.enlaceNominal, coleta.enlaceSwap, coleta.geometriaWkt, coleta.srid]
+                        csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.enlaceNominal, coleta.enlaceSwap, coleta.geometriaWkt, coleta.srid]
                   when "encalcesContratados"
                         # Adiciona o cabeçalho
-                        csv << ['cnpjPrestadora', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'cnpjContratada']
+                        csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'cnpjContratada']
                         # Adiciona a coleta
-                        csv << [coleta.cnpjPrestadora, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.cnpjContratada]
+                        csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.cnpjContratada]
                   when "encalcesViaSatelite"
                         # Adiciona o cabeçalho
-                        csv << ['cnpjPrestadora', 'ano', 'idEstacaoOrigem', 'idSatelite', 'codigoSatelite', 'freqUplink', 'freqDownlink', 'largCanalUplink', 'capCanalUplink', 'largCanalDownlink', 'capCanalDownlink']
+                        csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idSatelite', 'codigoSatelite', 'freqUplink', 'freqDownlink', 'largCanalUplink', 'capCanalUplink', 'largCanalDownlink', 'capCanalDownlink']
                         # Adiciona a coleta
-                        csv << [coleta.cnpjPrestadora, coleta.ano, coleta.idEstacaoOrigem, coleta.idSatelite, coleta.codigoSatelite, coleta.freqUplink, coleta.freqDownlink, coleta.largCanalUplink, coleta.capCanalUplink, coleta.largCanalDownlink, coleta.capCanalDownlink]
+                        csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idSatelite, coleta.codigoSatelite, coleta.freqUplink, coleta.freqDownlink, coleta.largCanalUplink, coleta.capCanalUplink, coleta.largCanalDownlink, coleta.capCanalDownlink]
                   else
                       csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
               end
