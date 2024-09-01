@@ -2,25 +2,20 @@ class Coleta < ActiveRecord::Base
   include Redmine::SafeAttributes
 
 safe_attributes(
-    'id',
-    'tituloColeta',
-    'tipoColeta',
-    'ano',
-    'mes',
-    'trimestre',
-    'uf',
-    'cidade',
-    'codigoIBGE',
-    'tipoCliente',
-    'tipoAtendimento',
-    'tipoMeio',
-    'tipoTecnologia',
-    'tipoProduto',
-    'velocidade',
-    'quantidadeAcesso',
-    'dadoInformado',
-    'valor',
-    'cn')
+      'tituloColeta',       'tipoColeta',      'ano',                  'mes',                    'trimestre',          'uf',
+      'cidade',             'codigoIBGE',      'tipoCliente',          'tipoAtendimento',        'tipoMeio',           'tipoTecnologia',
+      'tipoProduto',        'velocidade',      'quantidadeAcesso',     'dadoInformado',          'valor',              'cn',
+                                                                        'cnpj',                   'anoInformado',       'mesInformado', 
+      'idEstacao',          'nEstacao',        'abertura',             'rua',                    'numeroEndereco',     'latitude',  
+      'longitude',          'enlaceMeio',      'enlaceNominal',        'enlaceSwap',             'geometriaWkt',       'srid',  
+      'largCanalUplink',    'capCanalUplink',  'largCanalDownlink',    'capCanalDownlink',       'cnpjContratada',     'idEstacaoOrigem', 
+      'idEstacaoDestino',   'idEnlace',        'codigoSatelite',        'freqUplink',            'freqDownlink',        'cep', 
+      'idSatelite')
+
+
+
+
+
   
   belongs_to :user
   belongs_to :project
