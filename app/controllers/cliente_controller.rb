@@ -5,6 +5,7 @@ class ClienteController < ApplicationController
     @projetoPreenchimento = nil
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
+    @organizacao = nil
 
     if !User.current.nil?
       projects = User.current.projects.to_a
@@ -16,11 +17,13 @@ class ClienteController < ApplicationController
                      @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
                      @projetoPreenchimento = projeto 
                      @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
+                     @organizacao = projeto
                  end
                  if papel.id == 7 
                      @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
                      @projetoPreenchimento = projeto 
                      @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
+                     @organizacao = projeto
                  end
               end 
             end 
