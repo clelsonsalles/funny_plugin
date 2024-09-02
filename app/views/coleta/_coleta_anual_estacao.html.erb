@@ -11,66 +11,66 @@
                        <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :cnpj, "CNPJ da Prestadora", class: "form-label" %></p>
-                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :ano, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano", required: true %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :idEstacao, "Id Estação", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", placeholder: "Id da Estação" %></p>
+                          <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", placeholder: "Id da Estação", required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :nEstacao, "Número da Estação", class: "form-label" %></p>
-                          <p><%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", placeholder: "Número da Estação" %></p>
+                          <p><%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", placeholder: "Número da Estação", required: true %></p>
                         </div>
                       </div>
 
                      <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                         <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true %></p>
+                         <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :abertura, "Abertura", class: "form-label" %></p>
-                          <p><%= f.select :abertura, options_for_select([['s', 'S(SIM)'], ['n', 'N(NÃO)']]) %></p>
+                          <p><%= f.select :abertura, options_for_select([['s', 'S(SIM)'], ['n', 'N(NÃO)']]), required: true %></p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :cep, "Cep", class: "form-label" %></p>
-                         <p><%= f.text_field :cep, class: "form-control", id: "cep", placeholder: "Cep" %></p>
+                         <p><%= f.text_field :cep, class: "form-control", id: "cep", placeholder: "Cep", required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                          <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade" %></p>
+                          <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade", required: true %></p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :rua, "Rua", class: "form-label" %></p>
-                         <p><%= f.text_field :rua, class: "form-control", rua: "Rua", placeholder: "Rua" %></p>
+                         <p><%= f.text_field :rua, class: "form-control", rua: "Rua", placeholder: "Rua", required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :numeroEndereco, "Número", class: "form-label" %></p>
-                          <p><%= f.text_field :numeroEndereco, class: "form-control", numero: "Número", placeholder: "Número" %></p>
+                          <p><%= f.text_field :numeroEndereco, class: "form-control", numero: "Número", placeholder: "Número", required: true %></p>
                         </div>
                     </div>
 
                      <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :latitude, "Latitude", class: "form-label" %></p>
-                         <p><%= f.text_field :latitude, class: "form-control", latitude: "Latitude", placeholder: "Latitude" %></p>
+                         <p><%= f.text_field :latitude, class: "form-control", latitude: "Latitude", placeholder: "Latitude", required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :longitude, "Longitude", class: "form-label" %></p>
-                          <p><%= f.text_field :longitude, class: "form-control", longitude: "Longitude", placeholder: "Longitude" %></p>
+                          <p><%= f.text_field :longitude, class: "form-control", longitude: "Longitude", placeholder: "Longitude", required: true %></p>
                         </div>
                     </div>
 
