@@ -12,30 +12,30 @@
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano" %></p>
+                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
-                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]) %></p>
+                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]), required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione a UF" %></p>
-                              <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select' %></p>
+                              <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select' required: true %></p>
                         </div>
                       </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
-                          <p><%= f.select :dadoInformado, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]) %></p>
+                          <p><%= f.select :dadoInformado, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]), required: true %></p>
                         </div>
 
                          <div class="col-md-6">
                           <p><%= f.label :valor, "Valores", class: "form-label" %></p>
-                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores" %></p>
+                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
                         </div>
 
                       
@@ -44,7 +44,7 @@
                     <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :cn, "CN", class: "form-label" %></p>
-                          <p><%= f.text_field :cn, class: "form-control", id: "cn", placeholder: "CN" %></p>
+                          <p><%= f.text_field :cn, class: "form-control", id: "cn", placeholder: "CN", required: true %></p>
                         </div>
 
                        
