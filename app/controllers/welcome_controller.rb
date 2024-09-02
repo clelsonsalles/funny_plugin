@@ -30,9 +30,8 @@ class WelcomeController < ApplicationController
 
     @projetos =  Project.where(parent_id: nil).reorder(:name => :asc)
 
-    membership = Member.find(User.current.id)
-    Rails.logger.info(membership)
-    for papel in membership.member_roles
+    Rails.logger.info(User.current.roles)
+    for papel in User.current.roles
        Rails.logger.info(papel)
        Rails.logger.info(papel.id)
 
