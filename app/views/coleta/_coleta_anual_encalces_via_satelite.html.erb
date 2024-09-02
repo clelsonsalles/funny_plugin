@@ -8,62 +8,62 @@
                        <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :cnpj, "CNPJ da Prestadora", class: "form-label" %></p>
-                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :ano, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano", required: true %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :idEstacaoOrigem, "Id da Estação de Origem", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem" %></p>
+                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem", required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :idSatelite, "Id Satélite", class: "form-label" %></p>
-                          <p><%= f.text_field :idSatelite, class: "form-control", id: "idSatelite", placeholder: "Id Satélite" %></p>
+                          <p><%= f.text_field :idSatelite, class: "form-control", id: "idSatelite", placeholder: "Id Satélite", required: true %></p>
                         </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :codigoSatelite, "Código do Satélite", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoSatelite, class: "form-control", id: "codigoSatelite", placeholder: "Código do Satélite" %></p>
+                          <p><%= f.text_field :codigoSatelite, class: "form-control", id: "codigoSatelite", placeholder: "Código do Satélite", required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :freqUplink, "Frequência do Satélite uplink", class: "form-label" %></p>
-                          <p><%= f.text_field :freqUplink, class: "form-control", id: "freqUplink", placeholder: "Frequência do Satélite uplink" %></p>
+                          <p><%= f.text_field :freqUplink, class: "form-control", id: "freqUplink", placeholder: "Frequência do Satélite uplink", required: true %></p>
                         </div>
                       </div>
 
                      <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :freqDownlink, "Frequência do Satélite Downlink", class: "form-label" %></p>
-                          <p><%= f.text_field :freqDownlink, class: "form-control", id: "freqDownlink", placeholder: "Frequência do Satélite Downlink" %></p>
+                          <p><%= f.text_field :freqDownlink, class: "form-control", id: "freqDownlink", placeholder: "Frequência do Satélite Downlink", required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :largCanalUplink, "Largura do canal Uplink", class: "form-label" %></p>
-                          <p><%= f.text_field :largCanalUplink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal Uplink" %></p>
+                          <p><%= f.text_field :largCanalUplink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal Uplink", required: true %></p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :capCanalUplink, "Capacidade do Canal Uplink", class: "form-label" %></p>
-                         <p><%= f.text_field :capCanalUplink, class: "form-control", id: "capCanalUplink", placeholder: "Capacidade do Canal Uplink" %></p>
+                         <p><%= f.text_field :capCanalUplink, class: "form-control", id: "capCanalUplink", placeholder: "Capacidade do Canal Uplink", required: true %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :largCanalDownlink, "Largura do canal downlink", class: "form-label" %></p>
-                          <p><%= f.text_field :largCanalDownlink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal downlink" %></p>
+                          <p><%= f.text_field :largCanalDownlink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal downlink", required: true %></p>
                         </div>
                     </div>
 
                      <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :capCanalDownlink, "Capacidade do Canal Downlink", class: "form-label" %></p>
-                         <p><%= f.text_field :capCanalDownlink, class: "form-control", id: "capCanalDownlink", placeholder: "Capacidade do Canal Downlink" %></p>
+                         <p><%= f.text_field :capCanalDownlink, class: "form-control", id: "capCanalDownlink", placeholder: "Capacidade do Canal Downlink", required: true %></p>
                       </div>
                        
                     </div>
