@@ -12,7 +12,7 @@
                       <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
-                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
                          </div>
                       </div>
 
@@ -20,40 +20,40 @@
                         <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
-                               <p><%= f.text_field :mesInformado, class: "form-control", id: "mesInformado", placeholder: "Digite o Mês" %></p>
+                               <p><%= f.text_field :mesInformado, class: "form-control", id: "mesInformado", placeholder: "Digite o Mês", required: true %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano" %></p>
+                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
                          </div>
                        </div>
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
                               <p><%= f.label :uf, "UF selecionada" %></p>
-                               <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true  %></p>
+                               <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true, required: true  %></p>
                          </div>
                          <div class="col-md-6">
                                <p><%= f.label :cidade, "Cidade selecionada", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true  %></p>
+                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true, required: true  %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]) %></p>
+                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]), required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
-                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']]) %></p>
+                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']]), required: true %></p>
                         </div>
                       </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                          <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]) %></p>
+                          <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), required: true %></p>
                         </div>
 
                       <div class="col-md-6">
@@ -62,29 +62,29 @@
                           ['DTH', 'DTH'], ['EDGE', 'EDGE'], ['ETHERNET', 'ETHERNET'], ['FR', 'FR'], ['FTTB', 'FTTB'], ['FTTH', 'FTTH'], ['GPRS', 'GPRS'], ['GSM', 'GSM'], ['HDSL', 'HDSL'],  ['HDSL', 'HDSL'],
                           ['HFS', 'HFS'], ['HSDPA', 'HSDPA'], ['HSPA+', 'HSPA+'], ['HSPAP', 'HSPAP'], ['HSUPA', 'HSUPA'], ['LTE', 'LTE'], ['NR_NSA', 'NR NSA'], ['NR_SA', 'NR SA'], ['OFDMA_TDD', 'OFDMA/TDD'],
                           ['Acesso_livre_via_satElite', 'Acesso livre via satélite'], ['SDH', 'SDH'], ['SONET', 'SONET'], ['VDSL', 'VDSL'], ['VSAT', 'VSAT'], [' WCDMA', ' WCDMA'], ['Wi-Fi', ' Wi-Fi'],
-                          ['WIMAX', ' WIMAX']]) %></p>
+                          ['WIMAX', ' WIMAX']]), required: true %></p>
                       </div>
                     </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :tipoProduto, "Tipo de Produto", class: "form-label" %></p>
-                          <p><%= f.select :tipoProduto, options_for_select([['Internet', 'Internet'], ['Linha_dedicada', 'Linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']]) %></p>
+                          <p><%= f.select :tipoProduto, options_for_select([['Internet', 'Internet'], ['Linha_dedicada', 'Linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']]), required: true %></p>
                        </div>
                        <div class="col-md-6">
                                <p><%= f.label :velocidade, "Velocidade", class: "form-label" %></p>
-                               <p><%= f.text_field :velocidade, class: "form-control", id: "velocidade", placeholder: "Digite a velocidade" %></p>
+                               <p><%= f.text_field :velocidade, class: "form-control", id: "velocidade", placeholder: "Digite a velocidade", required: true %></p>
                        </div>
                      </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
-                          <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade" %></p>
+                          <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade", required: true %></p>
                        </div>
                        <div class="col-md-6">
                           <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true %></p>
+                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
                        </div>
                      </div>
           
