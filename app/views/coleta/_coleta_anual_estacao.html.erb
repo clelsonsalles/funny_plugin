@@ -1,6 +1,9 @@
 <div class="card-body">
               <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
                    <%= f.hidden_field :id, :value => @coleta.id %>
+                   <%= f.hidden_field :uf, :value => @coleta.uf %>
+                   <%= f.hidden_field :cidade, :value => @coleta.cidade %>
+                   <%= f.hidden_field :codigoIBGE, :value => @coleta.codigoIBGE %>
 
                     <div class="box-title"><%= @coleta.tipoColeta %></div>
                        <div class="box-description">Coleta de dados de acessos:
