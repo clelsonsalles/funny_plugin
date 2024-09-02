@@ -26,19 +26,13 @@ class WelcomeController < ApplicationController
 
   def index
     @news = News.latest User.current
-    # @monitoramentoProjeto = nil
-
     @projetos =  Project.where(parent_id: nil).reorder(:name => :asc)
 
-    Rails.logger.info(User.current.roles)
     if User.current.admin?
       redirect_to admin_path
     end
       
     for papel in User.current.roles
-       Rails.logger.info(papel)
-       Rails.logger.info(papel.id)
-
        if papel.id == 6
           redirect_to analista_clientes_path
        end
