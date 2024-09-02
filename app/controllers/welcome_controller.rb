@@ -30,19 +30,16 @@ class WelcomeController < ApplicationController
 
     @projetos =  Project.where(parent_id: nil).reorder(:name => :asc)
 
-    @membership = Member.find(User.current.id)
-    for membresia in @membership
-      for papel in membresia.roles
-         if papel.id == 6
-            redirect_to analista_clientes_path
-         end
-         if papel.id == 7 
-           redirect_to analista_clientes_path
-         end
-      end 
-    end
-
-   
+    membership = Member.find(User.current.id)
+    for papel in membership.member_roles
+       if papel.id == 6
+          redirect_to analista_clientes_path
+       end
+       if papel.id == 7 
+         redirect_to analista_clientes_path
+       end
+    end 
+ 
   end
 
   def robots
