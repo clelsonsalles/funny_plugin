@@ -33,6 +33,7 @@ class WelcomeController < ApplicationController
     Rails.logger.info(User.current.roles)
     if User.current.admin?
       redirect_to admin_path
+    end
       
     for papel in User.current.roles
        Rails.logger.info(papel)
