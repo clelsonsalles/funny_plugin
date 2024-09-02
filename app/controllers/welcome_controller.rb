@@ -31,6 +31,9 @@ class WelcomeController < ApplicationController
     @projetos =  Project.where(parent_id: nil).reorder(:name => :asc)
 
     Rails.logger.info(User.current.roles)
+    if User.current.admin?
+      redirect_to admin_path
+      
     for papel in User.current.roles
        Rails.logger.info(papel)
        Rails.logger.info(papel.id)
