@@ -15,7 +15,10 @@
     <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
   <% end %>
   </p>
-  <p><%= f.password_field :password_confirmation, :size => 25, :required => true %></p>
+  <p>
+    <%= custom_field_label :user, value %>
+    <%= f.password_field :password_confirmation, :size => 25, :required => true %>
+  </p>
  
 <% end %>
 
