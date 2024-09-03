@@ -16,7 +16,7 @@
   <% end %>
   </p>
   <p>
-    <%= custom_field_label :user, value %>
+    <%= custom_field_label :user, @user.custom_field_values.first %>
     <%= f.password_field :password_confirmation, :size => 25, :required => true %>
   </p>
  
@@ -42,9 +42,7 @@
 
 
 <% @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| %>
- <p> 
-  <%= custom_field_label :user, @user.custom_field_values.first %>
-  <%= custom_field_tag :user, @user.custom_field_values.first %>
+ <p> <p><%= custom_field_tag :user, value %></p>
 <% end %>
 
 
