@@ -42,8 +42,9 @@
 
 
 <% @user.custom_field_values.select {|v| (Setting.show_custom_fields_on_registration? && v.editable?) || v.required?}.each do |value| %>
-  <p><%= custom_field_tag :user, value %></p>
-
+ <p> 
+  <%= custom_field_label :user, @user.custom_field_values.first %>
+  <%= custom_field_tag :user, @user.custom_field_values.first %>
 <% end %>
 
 
