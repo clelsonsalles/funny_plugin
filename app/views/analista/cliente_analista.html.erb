@@ -108,8 +108,8 @@
                             <td><a href="#" class="btn btn-sm btn-custom">Aguardando dados da coleta...</a> </td>
                     <% else %>
                             <td><% if coleta.dataInformacaoEnvio.nil? %>
-                                      <br /><a href="/coleta/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">GERAR CSV</a> 
-                                      <br /><a href="/coleta/informarEnvio?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Informar Envio</a> </td>
+                                      <br /><a href="/coleta/gerarcsv?id_coleta=<%= coleta.id %>" class="btn btn-sm btn-custom">Gerar Csv</a> 
+                                      <br /><a href="/coleta/informarEnvio?id_coleta=<%= coleta.id %>">Informar Envio</a> </td>
                             <% end %>
                     <% end %>
 
