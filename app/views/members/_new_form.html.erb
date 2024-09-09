@@ -12,7 +12,7 @@
     <% User.current.managed_roles(@project).each do |role| %>
       <% if role.id != 6 %>
         <label><%= check_box_tag 'membership[role_ids][]', role.id, false, :id => nil %> <%= role %></label>
-      <% end %
+      <% end %>
     <% end %>
   </div>
 </fieldset>
