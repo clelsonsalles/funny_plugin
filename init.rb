@@ -27,5 +27,14 @@ Redmine::Plugin.register :funny_plugin do
   delete_menu_item :admin_menu, :auth_sources
   delete_menu_item :admin_menu, :plugins
   delete_menu_item :admin_menu, :info
+
+  delete_menu_item :project_menu, :overview
+  delete_menu_item :project_menu, :activity
+  delete_menu_item :project_menu, :issues_calendar
+  delete_menu_item :project_menu, :issues_gantt
+  delete_menu_item :project_menu, :time_entries
+  delete_menu_item :project_menu, :issues
+  delete_menu_item :project_menu, :news
+  
 end
 
