@@ -30,8 +30,8 @@ Redmine::Plugin.register :funny_plugin do
 
   delete_menu_item :project_menu, :overview
   delete_menu_item :project_menu, :activity
-  delete_menu_item :project_menu, :issues_calendar
-  delete_menu_item :project_menu, :issues_gantt
+  delete_menu_item :project_menu, :calendar
+  delete_menu_item :project_menu, :gantt
   delete_menu_item :project_menu, :time_entries
   delete_menu_item :project_menu, :issues
   delete_menu_item :project_menu, :news
@@ -41,8 +41,8 @@ Redmine::Plugin.register :funny_plugin do
   delete_menu_item :application_menu, :activity
   delete_menu_item :application_menu, :issues
   delete_menu_item :application_menu, :time_entries
-  delete_menu_item :application_menu, :issues_gantt
-  delete_menu_item :application_menu, :issues_calendar
+  delete_menu_item :application_menu, :gantt
+  delete_menu_item :application_menu, :calendar
   delete_menu_item :application_menu, :news
 
   menu :admin_menu, :cadastrarCliente, { :controller => 'cliente', :action => 'register' }, :caption => 'Novo Analista', :before => :settings
