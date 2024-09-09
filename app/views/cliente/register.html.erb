@@ -1,9 +1,10 @@
-<h3>Cadastrar Analista</h3>
+<h2>Cadastrar Analista</h2>
 
 <%= labelled_form_for @user, :url => register_path do |f| %>
 <%= error_messages_for 'user' %>
 
-<div class="box tabular">
+<div class="card-body">
+
 <br/>
 <h3>Dados do Usuário Analista</h3>
 <% if @user.auth_source_id.nil? %>
