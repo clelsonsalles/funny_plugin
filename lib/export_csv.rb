@@ -3,7 +3,7 @@ require 'csv'
 
 module ExportCsv
     def self.export_coleta_to_csv(coleta)
-      CSV.generate(headers: true, col_sep: ';') do |csv|
+      csv_string = "\uFEFF" + CSV.generate(headers: true, col_sep: ';', encoding: "UTF-8", row_sep: "\r\n") do |csv|
 
         case coleta.tituloColeta
             when "Coleta Mensal"
@@ -94,6 +94,8 @@ module ExportCsv
               csv << [coleta.id, coleta.tituloColeta, "TÍTULO DE COLETA NÃO DEFINIDO"]
         end          
       end
+
+      csv_string
     end
 
 
