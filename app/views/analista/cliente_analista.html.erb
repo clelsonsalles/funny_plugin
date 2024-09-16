@@ -60,13 +60,17 @@
 
 
 <div class="container mt-5">
-     <div class="box-title">COLETAS <BR/></div>
+     <div class="box-title">COLETAS 2024 <BR/></div>
 <br/>
-<div class="btn-group" role="group">
-  <%= link_to 'Mensal', planos_path(plano: 'Mensal'), class: "btn #{ 'btn-success' if @plano_selecionado == 'Mensal' } #{ 'btn-secondary' if @plano_selecionado != 'Mensal' }" %>
-  <%= link_to 'Semestral', planos_path(plano: 'Semestral'), class: "btn #{ 'btn-success' if @plano_selecionado == 'Semestral' } #{ 'btn-secondary' if @plano_selecionado != 'Semestral' }" %>
-  <%= link_to 'Anual', planos_path(plano: 'Anual'), class: "btn #{ 'btn-success' if @plano_selecionado == 'Anual' } #{ 'btn-secondary' if @plano_selecionado != 'Anual' }" %>
-</div>
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" id="mensal" onclick="setActive('mensal')">Mensal</button>
+        <button type="button" class="btn btn-secondary" id="semestral" onclick="setActive('semestral')">Semestral</button>
+        <button type="button" class="btn btn-secondary" id="anual" onclick="setActive('anual')">Anual</button>
+      </div>
+    </div>
+  </div>
 
 
 
