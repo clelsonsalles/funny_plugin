@@ -80,7 +80,10 @@
                 <% for coleta in @coletas %>
                 <tr>
                     <td><%= coleta.textoData %></td>
-                    <td><span class="badge bg-success"><%= coleta.status %></span></td>
+                   <td> <span class="badge <%= coleta.status == 'Atrasado' ? 'bg-danger' : coleta.status == 'Realizada' ? 'bg-success' : 'bg-secondary' %>">
+  <%= coleta.status %></td>
+</span>
+
                     <td><%= coleta.tituloColeta %></td>
                     <td><%= coleta.tipoColeta %></td>
                     <% if coleta.dataRealizacao.nil? %>
