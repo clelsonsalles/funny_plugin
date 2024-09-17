@@ -20,7 +20,7 @@ class AnalistaController < ApplicationController
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
     
-    @coletas = nil
+    @coletas = []
 
     @tituloColeta = params[:titulo_coleta]
 
