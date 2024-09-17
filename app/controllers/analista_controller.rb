@@ -34,11 +34,11 @@ class AnalistaController < ApplicationController
     end
           
     case @tituloColeta
-      when 'Coleta Mensal'
+      when "Coleta Mensal"
         @coletas = montaColetasMensais(servicosTelecom)
-      when 'Coleta Semestral'
+      when "Coleta Semestral"
         @coletas = montaColetasSemestrais(servicosTelecom)
-      when 'Coleta Anual'
+      when "Coleta Anual"
         @coletas = montaColetasAnuais(servicosTelecom)
       else
         @coletas = montaColetasMensais(servicosTelecom)
