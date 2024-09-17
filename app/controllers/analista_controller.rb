@@ -23,16 +23,6 @@ class AnalistaController < ApplicationController
     @coletas = nil
 
     @tituloColeta = params[:titulo_coleta]
-    hoje = Time.current
-    dataMesPassado = Time.current - 1.month
-    
-    anoAtual = hoje.year
-    mesAtual = hoje.month
-    mesAtualNome = hoje.strftime("%B")
-
-    anoAnterior = dataMesPassado.year
-    mesAnterior = dataMesPassado.month
-    mesAnteriorNome = dataMesPassado.strftime("%B")
 
     servicosTelecom = nil
     projeto.visible_custom_field_values.each do |custom_value|
@@ -116,6 +106,17 @@ class AnalistaController < ApplicationController
   end
 
   def montaColetasMensais (servicosTelecom)
+        hoje = Time.current
+        dataMesPassado = Time.current - 1.month
+        
+        anoAtual = hoje.year
+        mesAtual = hoje.month
+        mesAtualNome = hoje.strftime("%B")
+    
+        anoAnterior = dataMesPassado.year
+        mesAnterior = dataMesPassado.month
+        mesAnteriorNome = dataMesPassado.strftime("%B")
+    
         coletaMesAnteriorSCM = nil
         coletaMesAnteriorTvPA = nil
         coletaMesAnteriorSTFC = nil
