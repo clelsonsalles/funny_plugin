@@ -20,7 +20,55 @@ class AnalistaController < ApplicationController
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
     @coletas = Coleta.where(:project_id => params[:id_projeto])
+
+    @coletasMensais = nil
+    @coletasSemestrais = nil
+    @coletasAnuais = nil
     
+    @tituloColeta = params[:titulo_coleta]
+    hoje = Time.current
+    dataMesPassado = Time.current - 1.month
+    
+    anoAtual = hoje.year
+    mesAtual = hoje.month
+    mesAtualNome = hoje.strftime("%B")
+
+    anoAnterior = dataMesPassado.year
+    mesAnterior = dataMesPassado.month
+    mesAnteriorNome = dataMesPassado.strftime("%B")
+    
+    case @tituloColeta
+      when 'Coleta Mensal'
+        coletaMesAnterior = Coleta.where(:mes => mesAnterior, :ano => anoAnterior, :tituloColeta => 'Coleta Mensal', :project_id => params[:id_projeto])
+        if coletaMesAnterior.nil?
+            coletaMesAnterior = Coleta.new
+            coletaMesAnterior.mes = mesAnterior
+            coletaMesAnterior.ano = anoAnterior
+            coletaMesAnterior.tituloColeta =  'Coleta Mensal'
+            coletaMesAnterior.project_id = params[:id_projeto]
+        end
+        coletaMesAtual = Coleta.where(:mes => mesAtual, :ano => anoAtual, :tituloColeta => 'Coleta Mensal', :project_id => params[:id_projeto])
+        if coletaMesAtual.nil?
+            coletaMesAtual = Coleta.new
+            coletaMesAtual.mes = mesAtual
+            coletaMesAtual.ano = anoAtual
+            coletaMesAtual.tituloColeta =  'Coleta Mensal'
+            coletaMesAtual.project_id = params[:id_projeto]
+        end
+        @coletasMensais = [coletaMesAnterior, coletaMesAtual]
+
+      when 'Coleta Semestral'
+        @coletasSemestrais = nil
+
+      when 'Coleta Anual'
+        @coletasAnuais = nil
+
+      else
+        @coletasMensais = nil
+      
+    end
+    
+
     for membresia in projeto.memberships
       for papel in membresia.roles
          if papel.id == 5 
