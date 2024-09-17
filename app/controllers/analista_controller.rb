@@ -168,15 +168,17 @@ class AnalistaController < ApplicationController
 
   end
 
-  def montaColeta (coletaGravada)
+  def montaColeta (coletasGravadas)
+    for coletaGravada in coletasGravadas
       coleta = Coleta.new
       coleta.mes = coletaGravada.mes
       coleta.ano = coletaGravada.ano
       coleta.tituloColeta =  coletaGravada.tituloColeta
       coleta.tipoColeta = coletaGravada.tipoColeta
       coleta.project_id = coletaGravada.project.id
+    end
 
-      coleta
+    coleta
 
   end
   
