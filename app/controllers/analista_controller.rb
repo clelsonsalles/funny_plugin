@@ -19,12 +19,9 @@ class AnalistaController < ApplicationController
     @organizacao = Organizacao.new(projeto)
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
-    @coletas = Coleta.where(:project_id => params[:id_projeto])
-
-    @coletasMensais = nil
-    @coletasSemestrais = nil
-    @coletasAnuais = nil
     
+    @coletas = nil
+
     @tituloColeta = params[:titulo_coleta]
     hoje = Time.current
     dataMesPassado = Time.current - 1.month
@@ -48,14 +45,13 @@ class AnalistaController < ApplicationController
           
     case @tituloColeta
       when 'Coleta Mensal'
-        montaColetasMensais(servicosTelecom)
+        @coletas = montaColetasMensais(servicosTelecom)
       when 'Coleta Semestral'
-        montaColetasSemestrais(servicosTelecom)
+        @coletas = montaColetasSemestrais(servicosTelecom)
       when 'Coleta Anual'
-        montaColetasAnuais(servicosTelecom)
+        @coletas = montaColetasAnuais(servicosTelecom)
       else
-        montaColetasMensais(servicosTelecom)
-      
+        @coletas = montaColetasMensais(servicosTelecom)
     end
     
 
