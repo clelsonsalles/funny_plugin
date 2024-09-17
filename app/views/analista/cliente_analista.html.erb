@@ -64,7 +64,7 @@
 <div class="container mt-5">
    <div class="d-flex justify-content-center">
       <div class="btn-group" role="group">
-        <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaMensal>" class="badge <%= @tituloColeta == 'Coleta Mensal' ? 'bg-success': 'bg-secondary' %> rounded-pill mx-1" >Mensal</a>
+        <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaMensal>" class="badge <%= @tituloColeta == 'ColetaMensal' ? 'bg-success': 'bg-secondary' %> rounded-pill mx-1" >Mensal</a>
         <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaSemestral" class="badge bg-secondary rounded-pill mx-1">Semestral</a>
         <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaAnual" class="badge bg-secondary rounded-pill mx-1">Anual</a>
       </div>
