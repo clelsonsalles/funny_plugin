@@ -7,10 +7,11 @@ Redmine::Plugin.register :funny_plugin do
   author_url 'http://example.com/about'
 
   settings :default => {
-    :projetoId_inicial => "projetoId_inicial",
-    :objetivoId_inicial => "objetivoId_inicial",
-    :krId_inicial => "krId_inicial"
-  }, :partial => 'cti_plugin/configuracao_plugin'
+    :limiteColetaMensal => 15,
+    :limiteColetaAnual => nil,
+    :limiteColetaSemestralPrim => nil,
+    :limiteColetaSemestralSeg => nil
+  }, :partial => 'funny_plugin/configuracao_plugin'
 
 
   delete_menu_item :top_menu, :my_page
