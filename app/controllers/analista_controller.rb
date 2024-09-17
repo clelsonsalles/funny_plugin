@@ -168,10 +168,16 @@ class AnalistaController < ApplicationController
 
   def montaColetasSemestrais (servicosTelecom)
 
+    coletasSemestrais = []
+    coletasSemestrais
+
   end
   
   def montaColetasAnuais (servicosTelecom)
 
+    coletasAnuais = []
+    coletasAnuais
+    
   end
   
 end
