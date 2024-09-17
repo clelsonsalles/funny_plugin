@@ -174,7 +174,7 @@ class AnalistaController < ApplicationController
       coleta.ano = coletaGravada.ano
       coleta.tituloColeta =  coletaGravada.tituloColeta
       coleta.tipoColeta = coletaGravada.tipoColeta
-      coleta.project_id = coletaGravada.id_projeto
+      coleta.project_id = coletaGravada.projeto.id
 
       coleta
 
