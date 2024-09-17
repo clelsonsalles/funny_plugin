@@ -1,4 +1,6 @@
- <div class="mb-3">
+
+<div class="container mt-4">
+<div class="mb-3">
     <%= f.label :tipo_servico, "Tipo de Serviço", class: "form-label" %>
     <%= f.select :tipo_servico, [['Opção 1', 'opcao_1'], ['Opção 2', 'opcao_2'], ['Opção 3', 'opcao_3']], {}, class: "form-select" %>
   </div>
@@ -16,3 +18,4 @@
   <div class="mb-3">
     <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
   </div>
+</div>
