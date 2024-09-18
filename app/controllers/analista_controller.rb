@@ -181,6 +181,8 @@ class AnalistaController < ApplicationController
     
         coletaSemestralPrimSCM = coletaSemestralSegSCM = coletaSemestralPrimSEAC = coletaSemestralSegSEAC = coletaSemestralPrimSMP = coletaSemestralSegSMP = nil
       
+
+
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Semestral - SCM'
             coletaSemestralPrimSCM = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
