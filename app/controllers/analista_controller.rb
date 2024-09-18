@@ -107,34 +107,43 @@ class AnalistaController < ApplicationController
         mesAnteriorNome = dataMesPassado.strftime("%B")
     
         coletaMesAnteriorSCM = coletaMesAnteriorTvPA = coletaMesAnteriorSTFC = coletaMesAtualSCM = coletaMesAtualTvPA = coletaMesAtualSTFC = nil
-      
+        coletasMensais = [ ]
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Mensal - SCM'
             coletaMesAnteriorSCM = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
             coletaMesAtualSCM = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
+            coletaMesAnteriorSCM = coletaMesAnteriorSCM.nil? ? 
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAnteriorSCM
+            coletaMesAtualSCM = coletaMesAtualSCM.nil? ? 
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAtualSCM
+
+            coletasMensais << coletaMesAnteriorSCM
+            coletasMensais << coletaMesAtualSCM
           end
           if servicosTelecom.include? 'Mensal - TvPA'
             coletaMesAnteriorTvPA = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:id_projeto]))
             coletaMesAtualTvPA = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:id_projeto]))
+            coletaMesAnteriorTvPA = coletaMesAnteriorTvPA.nil? ? 
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAnteriorTvPA
+            coletaMesAtualTvPA = coletaMesAtualTvPA.nil? ? 
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAtualTvPA
+
+            coletasMensais << coletaMesAnteriorTvPA
+            coletasMensais << coletaMesAtualTvPA
           end
           if servicosTelecom.include? 'Mensal - STFC'
             coletaMesAnteriorSTFC = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:id_projeto]))
             coletaMesAtualSTFC = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:id_projeto]))
+            coletaMesAnteriorSTFC = coletaMesAnteriorSTFC.nil? ? 
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAnteriorSTFC
+            coletaMesAtualSTFC = coletaMesAtualSTFC.nil? ? 
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAtualSTFC
+
+            coletasMensais << coletaMesAnteriorSTFC
+            coletasMensais << coletaMesAtualSTFC
           end
         end
 
-        coletaMesAnteriorSCM = coletaMesAnteriorSCM.nil? ? 
-            montaColeta(mesAnterior, anoAnterior, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAnteriorSCM
-        coletaMesAtualSCM = coletaMesAtualSCM.nil? ? 
-            montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAtualSCM
-        coletaMesAnteriorTvPA = coletaMesAnteriorTvPA.nil? ? 
-            montaColeta(mesAnterior, anoAnterior, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAnteriorTvPA
-        coletaMesAtualTvPA = coletaMesAtualTvPA.nil? ? 
-            montaColeta(mesAtual, anoAtual, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAtualTvPA
-        coletaMesAnteriorSTFC = coletaMesAnteriorSTFC.nil? ? 
-            montaColeta(mesAnterior, anoAnterior, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAnteriorSTFC
-        coletaMesAtualSTFC = coletaMesAtualSTFC.nil? ? 
-            montaColeta(mesAtual, anoAtual, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAtualSTFC
 
         coletasMensais = [ coletaMesAnteriorSCM, coletaMesAnteriorTvPA, coletaMesAnteriorSTFC, coletaMesAtualSCM, coletaMesAtualTvPA, coletaMesAtualSTFC ]
 
