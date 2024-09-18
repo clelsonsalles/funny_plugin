@@ -144,9 +144,6 @@ class AnalistaController < ApplicationController
           end
         end
 
-
-        coletasMensais = [ coletaMesAnteriorSCM, coletaMesAnteriorTvPA, coletaMesAnteriorSTFC, coletaMesAtualSCM, coletaMesAtualTvPA, coletaMesAtualSTFC ]
-
         coletasMensais
   end
 
