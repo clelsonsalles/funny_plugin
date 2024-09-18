@@ -30,7 +30,8 @@
                 <% for coleta in @coletas %>
                 <tr>
                     <td><%= coleta.textoData %></td>
-                    <td><%= coleta.status %></td>
+                    <td> <span class="badge rounded-pill <%= coleta.status == 'Coleta Atrasada' ? 'bg-danger' : coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-secondary' %>">
+                   
                     <td><%= coleta.tituloColeta %></td>
                     <td><%= coleta.tipoColeta %></td>
                     <% if coleta.dataRealizacao.nil? %>
