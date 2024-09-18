@@ -29,3 +29,35 @@
 </p>
 
 <br />
+
+                 <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :settings_limiteColetaMensal, "Dia limite da coleta mensal", class: "form-label" %></p>
+                          <input type="number" id="settings_limiteColetaMensal" value="<%= settings['limiteColetaMensal'] %>" name="settings[limiteColetaMensal]" required style="width:90%"/>
+                       </div>
+                       
+                     </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :limiteColetaAnual, "Data limite da Coleta Anual", class: "form-label" %></p>
+                          <input type="date" id="limiteColetaAnual " value="<%= settings['limiteColetaAnual '] %>" name="settings[limiteColetaAnual ]" required style="width:90%"/>
+                       </div>
+                       
+                     </div>
+
+                        <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :limiteColetaSemestralPrim, "Data limite da Coleta Semestral - 1º semestre", class: "form-label" %></p>
+                          <input type="date" id="limiteColetaSemestralPrim " value="<%= settings['limiteColetaSemestralPrim '] %>" name="settings[limiteColetaSemestralPrim ]" required style="width:90%"/>
+                       </div>
+                       
+                     </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :limiteColetaSemestralSeg, "Data limite da Coleta Semestral - 2º semestre", class: "form-label" %></p>
+                          <input type="date" id="limiteColetaSemestralSeg " value="<%= settings['limiteColetaSemestralSeg '] %>" name="settings[limiteColetaSemestralSeg ]" required style="width:90%"/>
+                       </div>
+                       
+                     </div>
