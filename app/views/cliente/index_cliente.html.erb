@@ -28,7 +28,32 @@
             </div>
         </div>
     </div>
-            
+
+
+<div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="custom-box">
+                 <div class="box-title">Mensal</div>
+                  <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaMensal" class="btn <%= @tituloColeta == 'ColetaMensal' ? 'btn-success  ': 'btn-secondary ' %> btn-primary  text-white" >Filtrar Coleta</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-box">
+                <div class="box-title">Semestral</div>
+                    <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaSemestral" class="btn <%= @tituloColeta == 'ColetaSemestral' ? 'btn-success ': 'btn-secondary ' %> btn-primary   text-white">Filtrar Coleta</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-box">
+                    <div class="box-title">Anual</div>
+                    <a href="/analista/cliente_analista?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaAnual" class="btn <%= @tituloColeta == 'ColetaAnual' ? 'btn-success ': 'btn-secondary ' %> btn-primary   text-white">Filtrar Coleta</a>
+                </div>
+            </div>
+        </div>
+
+
+
+<br/><br/>
             
        
     
