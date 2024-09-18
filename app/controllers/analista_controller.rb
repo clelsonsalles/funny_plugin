@@ -180,8 +180,7 @@ class AnalistaController < ApplicationController
         mesAtualNome = Time.current.strftime("%B")
     
         coletaSemestralPrimSCM = coletaSemestralSegSCM = coletaSemestralPrimSEAC = coletaSemestralSegSEAC = coletaSemestralPrimSMP = coletaSemestralSegSMP = nil
-      
-
+        coletasSemestrais = []
 
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Semestral - SCM'
@@ -191,6 +190,9 @@ class AnalistaController < ApplicationController
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto]) : coletaSemestralPrimSCM
             coletaSemestralSegSCM = coletaSemestralSegSCM.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto]) : coletaSemestralSegSCM
+
+            coletasSemestrais << coletaSemestralPrimSCM
+            coletasSemestrais << coletaSemestralSegSCM
           end
           if servicosTelecom.include? 'Semestral - SEAC'
             coletaSemestralPrimSEAC = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:id_projeto]))
@@ -199,6 +201,9 @@ class AnalistaController < ApplicationController
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto]) : coletaSemestralPrimSEAC
             coletaSemestralSegSEAC = coletaSemestralSegSEAC.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto]) : coletaSemestralSegSEAC
+
+            coletasSemestrais << coletaSemestralPrimSEAC
+            coletasSemestrais << coletaSemestralSegSEAC
           end
           if servicosTelecom.include? 'Semestral - SMP'
             coletaSemestralPrimSMP = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:id_projeto]))
@@ -207,11 +212,11 @@ class AnalistaController < ApplicationController
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto]) : coletaSemestralPrimSMP
             coletaSemestralSegSMP = coletaSemestralSegSMP.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto]) : coletaSemestralSegSMP
+
+            coletasSemestrais << coletaSemestralPrimSMP
+            coletasSemestrais << coletaSemestralSegSMP
           end
         end
-
-
-        coletasSemestrais = [ coletaSemestralPrimSCM, coletaSemestralSegSCM, coletaSemestralPrimSEAC, coletaSemestralSegSEAC, coletaSemestralPrimSMP, coletaSemestralSegSMP ]
 
         coletasSemestrais
   end
