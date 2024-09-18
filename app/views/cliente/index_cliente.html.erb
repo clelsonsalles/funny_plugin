@@ -36,10 +36,10 @@
                     <td><%= coleta.tipoColeta %></td>
                     <% if coleta.dataRealizacao.nil? %>
                         <% if coleta.tituloColeta == 'Coleta Mensal' %>
-                          <td><a href="/coleta/mensalfazer?id_coleta=<%= coleta.id %>" >Fazer coleta</a> </td>
+                          <td><a href="/coleta/mensalfazer?id_coleta=<%= coleta.id %>" class="btn btn-outline-secondary" >Fazer coleta</a> </td>
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Semestral' %>
-                          <td><a href="/coleta/semestralfazer?id_coleta=<%= coleta.id %>" >Fazer coleta</a> </td>
+                          <td><a href="/coleta/semestralfazer?id_coleta=<%= coleta.id %>" class="btn btn-outline-secondary" >Fazer coleta</a> </td>
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Anual' %>
                           <td><a href="/coleta/anualfazer?id_coleta=<%= coleta.id %>" class="btn btn-outline-secondary" >Fazer coleta</a> </td>
