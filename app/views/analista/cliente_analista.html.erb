@@ -90,12 +90,9 @@
                 <% for coleta in @coletas %>
                 <tr>
                     <td><%= coleta.textoData %></td>
-                   <td> <span class="badge rounded-pill <%= coleta.status == 'Coleta Atrasada' ? 'bg-danger' : coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-secondary' %>">
-  <%= coleta.status %></span></td>
-
-
-                    <td><%= coleta.tituloColeta %></td>
-                    <td><%= coleta.tipoColeta %></td>
+                   <td> <span class="badge rounded-pill <%= coleta.status == 'Coleta Atrasada' ? 'bg-danger' : coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-secondary' %>"></span></td>
+                   <td><%= coleta.tituloColeta %></td>
+                   <td><%= coleta.tipoColeta %></td>
                     <% if coleta.dataRealizacao.nil? %>
                             <td><a href="#" class="btn btn-sm btn-custom">Aguardando dados da coleta...</a> </td>
                     <% else %>
