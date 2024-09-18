@@ -28,7 +28,7 @@ safe_attributes(
 
   def status
       time = Time.new
-      diaLimite = Setting['funny_plugin'][:limiteColetaMensal]
+      diaLimite = Setting['default'][:limiteColetaMensal]
       if self.dataRealizacao.nil?
           status = self.ano < time.year ? "Coleta Atrasada" : 
                     self.mes < time.month && time.day > diaLimite ? "Coleta Atrasada" : "Aguardando Coleta"
