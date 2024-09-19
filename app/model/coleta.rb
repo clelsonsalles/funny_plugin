@@ -42,7 +42,7 @@ safe_attributes(
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
       dataMesPassado = Time.current - 1.month
       if self.dataRealizacao.nil?
-          status =  "Aguardando Coleta => " + diaLimite
+          status =  "Aguardando Coleta => #{diaLimite}"
           if self.ano < time.year
               status = "Coleta Atrasada"
           else 
