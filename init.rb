@@ -8,7 +8,6 @@ Redmine::Plugin.register :funny_plugin do
 
   settings :default => {
     :limiteColetaMensal => 15,
-    :limiteColetaAnualmente => '30/12/2024',
     :limiteColetaAnual => nil,
     :limiteColetaSemestralPrim => nil,
     :limiteColetaSemestralSeg => nil
