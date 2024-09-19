@@ -57,11 +57,11 @@ safe_attributes(
                 if self.semestre == 2 && time > limiteSegundoSemestreSetting
                   status = "Coleta Atrasada" 
                 end
-              when Coleta.anual
-                if time > limiteAnualSetting
-                  status = "Coleta Atrasada" 
-                end
-            end
+           when Coleta.anual
+    if time.present? && limiteAnualSetting.present? && time > limiteAnualSetting
+      status = "Coleta Atrasada"
+    end
+end
 
           end
       else 
