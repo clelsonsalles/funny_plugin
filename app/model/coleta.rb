@@ -35,9 +35,9 @@ safe_attributes(
   def status
       time = Time.new
       limiteSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      limitePrimeiroSemestreSetting = Setting.plugin_funny_plugin['limiteColetaSemestralPrim'] 
-      limiteSegundoSemestreSetting = Setting['plugin_funny_plugin']['limiteColetaSemestralSeg']
-      limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaAnual]
+      Date.parse(limitePrimeiroSemestreSetting) = Setting.plugin_funny_plugin['limiteColetaSemestralPrim'] 
+      Date.parse(limiteSegundoSemestreSetting) = Setting['plugin_funny_plugin']['limiteColetaSemestralSeg']
+      Date.parse(limiteAnualSetting) = Setting['plugin_funny_plugin'][:limiteColetaAnual]
     
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
       dataMesPassado = Time.current - 1.month
@@ -48,7 +48,7 @@ safe_attributes(
           else 
             case self.tituloColeta
               when Coleta.mensal
-                if self.mes == dataMesPassado.month && time.day < diaLimite 
+                if self.mes == dataMesPassado.month && time.day > diaLimite 
                   status = "Coleta Atrasada" 
                 end
                 if self.mes < dataMesPassado.month
@@ -62,8 +62,8 @@ safe_attributes(
                   status = "Coleta Atrasada" 
                 end
            when Coleta.anual
-                if  true
-                  status = "Coleta Atrasada? " + Date.today.to_s + "-" + limiteAnualSetting.to_s
+                if  Date.today > limiteAnualSetting
+                  status = "Coleta Atrasada? " 
                 end
          end
 
