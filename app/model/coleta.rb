@@ -35,9 +35,9 @@ safe_attributes(
   def status
       time = Time.new
       limiteSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      Date.parse(limitePrimeiroSemestreSetting) = Setting.plugin_funny_plugin['limiteColetaSemestralPrim'] 
-      Date.parse(limiteSegundoSemestreSetting) = Setting['plugin_funny_plugin']['limiteColetaSemestralSeg']
-      Date.parse(limiteAnualSetting) = Setting['plugin_funny_plugin'][:limiteColetaAnual]
+      limitePrimeiroSemestreSetting = Date.parse(Setting.plugin_funny_plugin['limiteColetaSemestralPrim'])
+      limiteSegundoSemestreSetting = Date.parse(Setting['plugin_funny_plugin']['limiteColetaSemestralSeg'])
+      limiteAnualSetting = Date.parse(Setting['plugin_funny_plugin'][:limiteColetaAnual])
     
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
       dataMesPassado = Time.current - 1.month
