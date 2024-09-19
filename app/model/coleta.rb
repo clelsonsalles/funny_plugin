@@ -12,9 +12,15 @@ safe_attributes(
       'idEstacaoDestino',   'idEnlace',        'codigoSatelite',        'freqUplink',            'freqDownlink',        'cep', 
       'idSatelite')
 
-
-
-
+  def self.mensal
+     "Coleta Mensal"
+  end
+  def self.semestral
+    "Coleta Semestral"
+  end
+  def self.anual
+    "Coleta Anual"
+  end
 
   
   belongs_to :user
@@ -29,10 +35,35 @@ safe_attributes(
   def status
       time = Time.new
       limiteSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
+      limitePrimeiroSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
+      limiteSegundoSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
+      limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
+    
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
       if self.dataRealizacao.nil?
-          status = self.ano < time.year ? "Coleta Atrasada" : 
-                    self.mes < time.month && time.day > diaLimite ? "Coleta Atrasada" : "Aguardando Coleta"
+          status =  "Aguardando Coleta"
+          if self.ano < time.year
+              status = "Coleta Atrasada"
+          else 
+            case self.tipoColeta
+              when self.mensal
+                if self.mes < time.month && time.day > diaLimite 
+                  status = "Coleta Atrasada" 
+                end
+              when self.semestral
+                if self.semestre == 1 && time > limitePrimeiroSemestreSetting
+                  status = "Coleta Atrasada" 
+                end
+                if self.semestre == 2 && time > limiteSegundoSemestreSetting
+                  status = "Coleta Atrasada" 
+                end
+              when self.anual
+                if time > limiteAnualSetting
+                  status = "Coleta Atrasada" 
+                end
+            end
+
+          end
       else 
         if self.dataInformacaoEnvio.nil?
             status = "Coleta Realizada"
