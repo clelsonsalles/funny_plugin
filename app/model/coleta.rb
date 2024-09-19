@@ -47,10 +47,10 @@ safe_attributes(
           else 
             case self.tituloColeta
               when Coleta.mensal
-                if self.mes == time.month -1 && time.day < diaLimite 
+                if self.mes == (time.month -1) && time.day < diaLimite 
                   status = "Coleta Atrasada" 
                 end
-                if self.mes < time.month -1
+                if self.mes < (time.month -1)
                    status = "Coleta Atrasada" 
                 end
               when Coleta.semestral
