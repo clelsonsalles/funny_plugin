@@ -29,7 +29,14 @@ safe_attributes(
   def textoData      
       nomeMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "NÃO DEFINIDO"]
       numeroMes = self.mes < 12 ? self.mes : 13  
-      nomeMeses[numeroMes -1].to_s + "/" + self.ano.to_s
+      
+      textoDataFormatada = nomeMeses[numeroMes -1].to_s + "/" + self.ano.to_s
+
+      if self.tituloColeta == Coleta.semestral
+          textoDataFormatada = self.semestral + "º Semestre"
+      end
+    
+      textoDataFormatada
   end
 
   def status
