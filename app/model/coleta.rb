@@ -61,8 +61,8 @@ safe_attributes(
                   status = "Coleta Atrasada" 
                 end
            when Coleta.anual
-                if  Date.today > limiteAnualSetting
-                  status = "Coleta Atrasada"
+                if  true
+                  status = "Coleta Atrasada? " + Date.today +'-' + limiteAnualSetting
                 end
          end
 
