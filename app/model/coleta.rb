@@ -40,6 +40,7 @@ safe_attributes(
       limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaAnual]
     
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
+      dataMesPassado = Time.current - 1.month
       if self.dataRealizacao.nil?
           status =  "Aguardando Coleta"
           if self.ano < time.year
@@ -47,10 +48,10 @@ safe_attributes(
           else 
             case self.tituloColeta
               when Coleta.mensal
-                if self.mes == (time.month -1) && time.day < diaLimite 
+                if self.mes == dataMesPassado.month && time.day < diaLimite 
                   status = "Coleta Atrasada" 
                 end
-                if self.mes < (time.month -1)
+                if self.mes < dataMesPassado.month
                    status = "Coleta Atrasada" 
                 end
               when Coleta.semestral
