@@ -46,18 +46,18 @@ safe_attributes(
               status = "Coleta Atrasada"
           else 
             case self.tipoColeta
-              when self.mensal
+              when Coleta.mensal
                 if self.mes < time.month && time.day > diaLimite 
                   status = "Coleta Atrasada" 
                 end
-              when self.semestral
+              when Coleta.semestral
                 if self.semestre == 1 && time > limitePrimeiroSemestreSetting
                   status = "Coleta Atrasada" 
                 end
                 if self.semestre == 2 && time > limiteSegundoSemestreSetting
                   status = "Coleta Atrasada" 
                 end
-              when self.anual
+              when Coleta.anual
                 if time > limiteAnualSetting
                   status = "Coleta Atrasada" 
                 end
