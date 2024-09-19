@@ -35,6 +35,9 @@ safe_attributes(
       if self.tituloColeta == Coleta.semestral
           textoDataFormatada = self.semestre.to_s + "º Semestre"
       end
+      if self.tituloColeta == Coleta.anual
+          textoDataFormatada = self.ano
+      end
     
       textoDataFormatada
   end
