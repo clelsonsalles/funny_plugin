@@ -159,7 +159,7 @@ class AnalistaController < ApplicationController
 
   end
 
-  def montaColeta (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto, semestre)
+  def montaColetaSemestral (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto, semestre)
       coleta = Coleta.new
       coleta.mes = mesAnterior
       coleta.ano = anoAnterior
@@ -200,9 +200,9 @@ class AnalistaController < ApplicationController
             coletaSemestralPrimSCM = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
             coletaSemestralSegSCM = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
             coletaSemestralPrimSCM = coletaSemestralPrimSCM.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 1) : coletaSemestralPrimSCM
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 1) : coletaSemestralPrimSCM
             coletaSemestralSegSCM = coletaSemestralSegSCM.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 2) : coletaSemestralSegSCM
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 2) : coletaSemestralSegSCM
 
             coletasSemestrais << coletaSemestralPrimSCM
             coletasSemestrais << coletaSemestralSegSCM
@@ -211,9 +211,9 @@ class AnalistaController < ApplicationController
             coletaSemestralPrimSEAC = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:id_projeto]))
             coletaSemestralSegSEAC = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:id_projeto]))
             coletaSemestralPrimSEAC = coletaSemestralPrimSEAC.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 1) : coletaSemestralPrimSEAC
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 1) : coletaSemestralPrimSEAC
             coletaSemestralSegSEAC = coletaSemestralSegSEAC.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 2) : coletaSemestralSegSEAC
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 2) : coletaSemestralSegSEAC
 
             coletasSemestrais << coletaSemestralPrimSEAC
             coletasSemestrais << coletaSemestralSegSEAC
@@ -222,9 +222,9 @@ class AnalistaController < ApplicationController
             coletaSemestralPrimSMP = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:id_projeto]))
             coletaSemestralSegSMP = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:id_projeto]))
             coletaSemestralPrimSMP = coletaSemestralPrimSMP.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 1) : coletaSemestralPrimSMP
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 1) : coletaSemestralPrimSMP
             coletaSemestralSegSMP = coletaSemestralSegSMP.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 2) : coletaSemestralSegSMP
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 2) : coletaSemestralSegSMP
 
             coletasSemestrais << coletaSemestralPrimSMP
             coletasSemestrais << coletaSemestralSegSMP
