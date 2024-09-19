@@ -33,7 +33,7 @@ safe_attributes(
       textoDataFormatada = nomeMeses[numeroMes -1].to_s + "/" + self.ano.to_s
 
       if self.tituloColeta == Coleta.semestral
-          textoDataFormatada = self.semestre + "º Semestre"
+          textoDataFormatada = self.semestre.to_s + "º Semestre"
       end
     
       textoDataFormatada
