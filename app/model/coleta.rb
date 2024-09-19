@@ -35,9 +35,9 @@ safe_attributes(
   def status
       time = Time.new
       limiteSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      limitePrimeiroSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      limiteSegundoSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
+      limitePrimeiroSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaSemestralPrim]
+      limiteSegundoSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaSemestralSeg]
+      limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaAnual]
     
       diaLimite = Integer(limiteSetting.nil? ? 0 : limiteSetting)
       if self.dataRealizacao.nil?
