@@ -35,7 +35,7 @@ safe_attributes(
   def status
       time = Time.new
       limiteSetting = Setting['plugin_funny_plugin'][:limiteColetaMensal]
-      limitePrimeiroSemestreSetting = settings['limiteColetaSemestralPrim'] 
+      limitePrimeiroSemestreSetting = Setting.plugin_funny_plugin['limiteColetaSemestralPrim'] 
       limiteSegundoSemestreSetting = Setting['plugin_funny_plugin'][:limiteColetaSemestralSeg]
       limiteAnualSetting = Setting['plugin_funny_plugin'][:limiteColetaAnual]
     
