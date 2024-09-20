@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     get 'coleta/mensalcriar', :to => 'coleta#mensalcriar'
     post 'coleta/mensalinserir', :to => 'coleta#mensalinserir'
-    get 'coleta/mensalfazer', :to => 'coleta#mensalfazer'
+    post 'coleta/mensalfazer', :to => 'coleta#mensalfazer'
     patch 'coleta/mensalcidadesuf', :to => 'coleta#mensalcidadesuf'
     patch 'coleta/mensalinformar', :to => 'coleta#mensalinformar'
     patch 'coleta/mensalatualizar', :to => 'coleta#mensalatualizar'
@@ -28,14 +28,14 @@ Rails.application.routes.draw do
         
     get 'coleta/semestralcriar', :to => 'coleta#semestralcriar'
     post 'coleta/semestralinserir', :to => 'coleta#semestralinserir'
-    get 'coleta/semestralfazer', :to => 'coleta#semestralfazer'
+    post 'coleta/semestralfazer', :to => 'coleta#semestralfazer'
     patch 'coleta/semestralatualizar', :to => 'coleta#semestralatualizar'
     get 'coleta/semestralvisualizar', :to => 'coleta#semestralvisualizar'
     
      
     get 'coleta/anualcriar', :to => 'coleta#anualcriar'
     post 'coleta/anualinserir', :to => 'coleta#anualinserir'
-    get 'coleta/anualfazer', :to => 'coleta#anualfazer'
+    post 'coleta/anualfazer', :to => 'coleta#anualfazer'
     patch 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
     patch 'coleta/anualinformar', :to => 'coleta#anualinformar'
     patch 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
