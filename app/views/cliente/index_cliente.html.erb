@@ -97,11 +97,31 @@
                           </td>
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Semestral' %>
-                          <td><a href="/coleta/semestralfazer?id_coleta=<%= coleta.id %>" class="btn btn-outline-secondary" >Fazer coleta</a> </td>
+                           <td>
+                              <%= form_for coleta, url: coleta_semestralfazer_path do |f| %>
+                                   <%= f.hidden_field :mes, :value => coleta.mes %>
+                                   <%= f.hidden_field :ano, :value => coleta.ano %>
+                                   <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
+                                   <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
+                                   <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                   <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                                   <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                            <% end %>
+                          </td>
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Anual' %>
-                          <td><a href="/coleta/anualfazer?id_coleta=<%= coleta.id %>" class="btn btn-outline-secondary" >Fazer coleta</a> </td>
-                        <% end %>
+                           <td>
+                              <%= form_for coleta, url: coleta_anualfazer_path do |f| %>
+                                   <%= f.hidden_field :mes, :value => coleta.mes %>
+                                   <%= f.hidden_field :ano, :value => coleta.ano %>
+                                   <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
+                                   <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
+                                   <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                   <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                                   <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                            <% end %>
+                          </td>
+                       <% end %>
                     <% else %>
                         <td>Enviada para o Analista</td>
                     <% end %>
