@@ -2,7 +2,7 @@ module ColetaHelper
 
 
 
-  def montaColetasMensais (servicosTelecom)
+  def self.montaColetasMensais (servicosTelecom)
         tituloColeta = Coleta.mensal
         anoAtual = Time.current.year
         mesAtual = Time.current.month
@@ -93,7 +93,7 @@ module ColetaHelper
 
   end
   
-  def montaColetasSemestrais (servicosTelecom)
+  def self.montaColetasSemestrais (servicosTelecom)
         tituloColeta = Coleta.semestral
         anoAtual = Time.current.year
         mesAtual = Time.current.month
@@ -141,7 +141,7 @@ module ColetaHelper
         coletasSemestrais
   end
   
-  def montaColetasAnuais (servicosTelecom)
+  def self.montaColetasAnuais (servicosTelecom)
         tituloColeta = Coleta.anual
         anoAtual = Time.current.year
         mesAtual = Time.current.month
