@@ -6,31 +6,74 @@ class ClienteController < ApplicationController
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
     @organizacao = nil
+    @coletas = []
 
-    if !User.current.nil?
-      projects = User.current.projects.to_a
-      for projeto in projects
-          for membresia in projeto.memberships
-            if (membresia.user_id == User.current.id)
-              for papel in membresia.roles
-                 if papel.id == 5 
-                     @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
-                     @projetoPreenchimento = projeto 
-                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
-                     @organizacao = Organizacao.new(projeto)
-                 end
-                 if papel.id == 7 
-                     @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
-                     @projetoPreenchimento = projeto 
-                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
-                     @organizacao = Organizacao.new(projeto)
-                 end
-              end 
-            end 
-          end 
-        end 
-     end
+    @tituloColeta = params[:titulo_coleta]
+
+    servicosTelecom = nil
+    projeto.visible_custom_field_values.each do |custom_value|
+      if !custom_value.value.blank? 
+          if custom_value.custom_field.name == 'Serviços de Telecom'
+            servicosTelecom = custom_value.value.to_s
+          end
+      end
     end
+          
+    case @tituloColeta
+      when "ColetaMensal"
+        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
+      when "ColetaSemestral"
+        @coletas = ColetaHelper.montaColetasSemestrais(servicosTelecom, params)
+      when "ColetaAnual"
+        @coletas = ColetaHelper.montaColetasAnuais(servicosTelecom, params)
+      else
+        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
+    end
+    
+
+    for membresia in projeto.memberships
+      for papel in membresia.roles
+         if papel.id == 5 
+           @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
+         end
+         if papel.id == 7 
+           @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
+         end
+        
+      end 
+    end
+
+    
+    projeto.visible_custom_field_values.each do |custom_value|
+        if !custom_value.value.blank? 
+            if custom_value.custom_field.name == 'CNPJ'
+              @organizacao.cnpj = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'UF'
+              @organizacao.uf = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Endereço'
+              @organizacao.endereco = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'CEP'
+              @organizacao.cep = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Cidade'
+              @organizacao.cidade = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Telefone'
+              @organizacao.telefone = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Email'
+              @organizacao.email = custom_value.value.to_s
+            end
+            if custom_value.custom_field.name == 'Serviços de Telecom'
+              @organizacao.servicos = custom_value.value.to_s
+            end
+        end
+    end
+
+  end
     
 
   
