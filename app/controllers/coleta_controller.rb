@@ -19,17 +19,18 @@ class ColetaController < ApplicationController
         
     #coleta.usuarioCriacao = User.current
 
-    coleta.project = Project.find(params[:coleta][:id_projeto])
+    coleta.project = Project.find(params[:coleta][:project_id])
     coleta.save
     
-    redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:id_projeto])
+    redirect_to analista_cliente_analista_path(id_projeto: params[:coleta][:project_id])
   end
 
 
 
 
   def mensalfazer
-      @coleta = Coleta.find(params[:id_coleta])     
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
 
       @ufs = []
       @municipios = []
@@ -58,6 +59,9 @@ class ColetaController < ApplicationController
 
 
   def mensalcidadesuf
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
+
       @ufs = []
       @municipios = []
 
@@ -81,11 +85,6 @@ class ColetaController < ApplicationController
         @ufs << uf
       end
 
-      @coleta = Coleta.find(params[:coleta][:id])     
-      @coleta.uf = params[:coleta][:uf]
-      @coleta.cidade = params[:coleta][:cidade]
-      @coleta.codigoIBGE = params[:coleta][:codigoIBGE]
-      
       external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
       uri = URI(external_api_url_cidades_completa)
       response = Net::HTTP.get(uri)
@@ -102,10 +101,9 @@ class ColetaController < ApplicationController
 
   
     def mensalinformar
-      @coleta = Coleta.find(params[:coleta][:id])     
-      @coleta.uf = params[:coleta][:uf]
-      @coleta.cidade = params[:coleta][:cidade]
-
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
+      
       require 'net/http'
       require 'json'
       
@@ -123,26 +121,21 @@ class ColetaController < ApplicationController
         end
       end        
 
-      
   end
 
   def mensalatualizar
-    @coleta = Coleta.find(params[:coleta][:id])    
+    @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
 
-    #valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
-
-    #@coleta.usuarioRealizacao = User.current
-
     @coleta.dataRealizacao = Time.current
-    #@coleta.update(valores)
+
     @coleta.save
 
     redirect_to cliente_cliente_path
   end
 
 
-   def anualcriar
+  def anualcriar
     @coleta = Coleta.new
     @projeto = Project.find(params[:id_projeto])
   end
@@ -155,8 +148,6 @@ class ColetaController < ApplicationController
     coleta.ano = 2024
     coleta.dataCriacao = Time.current
         
-    #coleta.usuarioCriacao = User.current
-
     coleta.project = Project.find(params[:coleta][:id_projeto])
     coleta.save
     
@@ -167,7 +158,8 @@ class ColetaController < ApplicationController
 
 
   def anualfazer
-      @coleta = Coleta.find(params[:id_coleta])   
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
       @ufs = []
       @municipios = []
       require 'net/http'
@@ -200,6 +192,9 @@ class ColetaController < ApplicationController
 
 
   def anualcidadesuf
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
+
       @ufs = []
       @municipios = []
 
@@ -223,11 +218,6 @@ class ColetaController < ApplicationController
         @ufs << uf
       end
 
-      @coleta = Coleta.find(params[:coleta][:id])     
-      @coleta.uf = params[:coleta][:uf]
-      @coleta.cidade = params[:coleta][:cidade]
-      @coleta.codigoIBGE = params[:coleta][:codigoIBGE]
-      
       external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
       uri = URI(external_api_url_cidades_completa)
       response = Net::HTTP.get(uri)
@@ -244,9 +234,8 @@ class ColetaController < ApplicationController
 
   
     def anualinformar
-      @coleta = Coleta.find(params[:coleta][:id])     
-      @coleta.uf = params[:coleta][:uf]
-      @coleta.cidade = params[:coleta][:cidade]
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
 
       require 'net/http'
       require 'json'
@@ -269,15 +258,11 @@ class ColetaController < ApplicationController
   end
 
   def anualatualizar
-    @coleta = Coleta.find(params[:coleta][:id])    
+    @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
 
-    #valores = params.require(:coleta).permit(:tituloColeta, :tipoColeta, :ano, :mes, :trimestre, :uf, :cidade, :codigoIBGE, :tipoCliente, :tipoAtendimento, :tipoMeio, :tipoTecnologia, :tipoProduto, :velocidade, :quantidadeAcesso, :dadoInformado, :valor, :cn)
-
-    #@coleta.usuarioRealizacao = User.current
-
     @coleta.dataRealizacao = Time.current
-    #@coleta.update(valores)
+
     @coleta.save
 
     redirect_to cliente_cliente_path
@@ -306,17 +291,16 @@ class ColetaController < ApplicationController
   end
 
   def semestralfazer
-      @coleta = Coleta.find(params[:id_coleta])     
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
 
   end
 
   def semestralatualizar
-    @coleta = Coleta.find(params[:coleta][:id])    
-
+    @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
 
     @coleta.dataRealizacao = Time.current
-    #@coleta.usuarioRealizacao = User.current
     
     if @coleta.save
       redirect_to cliente_cliente_path
@@ -336,17 +320,6 @@ class ColetaController < ApplicationController
 
  
   
-  def updateOLD
-    @coleta = Coleta.find(params[:coleta][:id_coleta])     
-
-    @coleta.safe_attributes = params[:coleta]
-    @coleta.dataRealizacao = Time.current
-    if @coleta.save
-      redirect_to cliente_cliente_path
-    end
-  end
-
- 
   def mensalvisualizar
   end
 
