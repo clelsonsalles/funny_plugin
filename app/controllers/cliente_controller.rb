@@ -2,11 +2,12 @@ class ClienteController < ApplicationController
   include ColetaHelper
 
   def index_cliente
-    @coletas = nil
-    @projetoPreenchimento = nil
+    projeto = Project.find(params[:id_projeto])
+    @organizacao = Organizacao.new(projeto)
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
-    @organizacao = nil
+
+    @projetoPreenchimento = nil
     @coletas = []
 
     @tituloColeta = params[:titulo_coleta]
