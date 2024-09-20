@@ -37,13 +37,13 @@ class AnalistaController < ApplicationController
           
     case @tituloColeta
       when "ColetaMensal"
-        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, param)
+        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
       when "ColetaSemestral"
-        @coletas = ColetaHelper.montaColetasSemestrais(servicosTelecom, param)
+        @coletas = ColetaHelper.montaColetasSemestrais(servicosTelecom, params)
       when "ColetaAnual"
-        @coletas = ColetaHelper.montaColetasAnuais(servicosTelecom, param)
+        @coletas = ColetaHelper.montaColetasAnuais(servicosTelecom, params)
       else
-        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, param)
+        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
     end
     
 
