@@ -54,7 +54,7 @@ module ColetaHelper
         coletasMensais
   end
 
-  def montaColeta (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto)
+  def self.montaColeta (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto)
       coleta = Coleta.new
       coleta.mes = mesAnterior
       coleta.ano = anoAnterior
@@ -66,7 +66,7 @@ module ColetaHelper
 
   end
 
-  def montaColetaSemestral (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto, semestre)
+  def self.montaColetaSemestral (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto, semestre)
       coleta = Coleta.new
       coleta.mes = mesAnterior
       coleta.ano = anoAnterior
@@ -79,7 +79,7 @@ module ColetaHelper
 
   end  
 
-  def montaColetasGravadas (coletasGravadas)
+  def self.montaColetasGravadas (coletasGravadas)
     for coletaGravada in coletasGravadas
       coleta = Coleta.new
       coleta.mes = coletaGravada.mes
