@@ -96,7 +96,7 @@ class AnalistaController < ApplicationController
 
 
   def montaColetasMensais (servicosTelecom)
-        tituloColeta = 'Coleta Mensal'
+        tituloColeta = Coleta.mensal
         anoAtual = Time.current.year
         mesAtual = Time.current.month
         mesAtualNome = Time.current.strftime("%B")
@@ -187,7 +187,7 @@ class AnalistaController < ApplicationController
   end
   
   def montaColetasSemestrais (servicosTelecom)
-        tituloColeta = 'Coleta Semestral'
+        tituloColeta = Coleta.semestral
         anoAtual = Time.current.year
         mesAtual = Time.current.month
         mesAtualNome = Time.current.strftime("%B")
@@ -235,7 +235,7 @@ class AnalistaController < ApplicationController
   end
   
   def montaColetasAnuais (servicosTelecom)
-        tituloColeta = 'Coleta Anual'
+        tituloColeta = Coleta.anual
         anoAtual = Time.current.year
         mesAtual = Time.current.month
         mesAtualNome = Time.current.strftime("%B")
