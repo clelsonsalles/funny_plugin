@@ -2,14 +2,37 @@ class ClienteController < ApplicationController
   include ColetaHelper
 
   def index_cliente
-    projeto = Project.find(params[:id_projeto])
-    @organizacao = Organizacao.new(projeto)
     @responsavelEmpresa = nil
     @responsavelPreenchimento = nil
-
     @projetoPreenchimento = nil
-    @coletas = []
 
+    if !User.current.nil?
+      projects = User.current.projects.to_a
+      for projeto in projects
+          for membresia in projeto.memberships
+            if (membresia.user_id == User.current.id)
+              for papel in membresia.roles
+                 if papel.id == 5 
+                     @responsavelEmpresa = Usuario.new(User.find_by_id(membresia.user_id))
+                     @projetoPreenchimento = projeto 
+                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
+                     @organizacao = Organizacao.new(projeto)
+                 end
+                 if papel.id == 7 
+                     @responsavelPreenchimento = Usuario.new(User.find_by_id(membresia.user_id) )
+                     @projetoPreenchimento = projeto 
+                     @coletas = Coleta.where(:project_id => @projetoPreenchimento.id)
+                     @organizacao = Organizacao.new(projeto)
+                 end
+              end 
+            end 
+          end 
+        end 
+     end
+    projeto = @projetoPreenchimento
+    
+    @organizacao = Organizacao.new(projeto)
+    @coletas = []
     @tituloColeta = params[:titulo_coleta]
 
     servicosTelecom = nil
