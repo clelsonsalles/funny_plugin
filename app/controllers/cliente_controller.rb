@@ -1,4 +1,5 @@
 class ClienteController < ApplicationController
+  include ColetaHelper
 
   def index_cliente
     @coletas = nil
