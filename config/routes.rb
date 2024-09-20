@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get 'coleta/mensalcriar', :to => 'coleta#mensalcriar'
     post 'coleta/mensalinserir', :to => 'coleta#mensalinserir'
     post 'coleta/mensalfazer', :to => 'coleta#mensalfazer'
-    patch 'coleta/mensalcidadesuf', :to => 'coleta#mensalcidadesuf'
+    post 'coleta/mensalcidadesuf', :to => 'coleta#mensalcidadesuf'
     patch 'coleta/mensalinformar', :to => 'coleta#mensalinformar'
     patch 'coleta/mensalatualizar', :to => 'coleta#mensalatualizar'
     get 'coleta/mensalvisualizar', :to => 'coleta#mensalvisualizar'
