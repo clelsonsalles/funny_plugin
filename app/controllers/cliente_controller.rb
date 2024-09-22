@@ -37,13 +37,13 @@ class ClienteController < ApplicationController
 
     case @tituloColeta
       when "ColetaMensal"
-        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento, params)
+        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento)
       when "ColetaSemestral"
-        @coletas = ColetaHelper.montaColetasSemestrais(@projetoPreenchimento, params)
+        @coletas = ColetaHelper.montaColetasSemestrais(@projetoPreenchimento)
       when "ColetaAnual"
-        @coletas = ColetaHelper.montaColetasAnuais(@projetoPreenchimento, params)
+        @coletas = ColetaHelper.montaColetasAnuais(@projetoPreenchimento)
       else
-        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento, params)
+        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento)
     end
     
 
