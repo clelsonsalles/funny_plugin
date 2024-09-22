@@ -34,7 +34,7 @@ class ClienteController < ApplicationController
     @organizacao = Organizacao.new(projeto)
     @coletas = []
     @tituloColeta = params[:titulo_coleta]
-    @tituloColeta = @tituloColeta.nil? ? "" : @tituloColeta;
+    @tituloColeta = @tituloColeta.nil? ? "ColetaMensal" : @tituloColeta;
 
     case @tituloColeta
       when "ColetaMensal"
