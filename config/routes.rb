@@ -1,5 +1,5 @@
 # Plugin's routes
-# See: http://guides.rubyonrails.org/routing.html
+# See: http://guides.rubyonrails.org/routing.htmlEstação
 
 
 Rails.application.routes.draw do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     post 'coleta/anualfazer', :to => 'coleta#anualfazer'
     patch 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
     patch 'coleta/anualinformar', :to => 'coleta#anualinformar'
-    patch 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
+    post 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
     get 'coleta/anualvisualizar', :to => 'coleta#anualvisualizar'
 
 
