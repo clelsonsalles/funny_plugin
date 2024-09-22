@@ -1,19 +1,19 @@
 <div class="container mt-5">
 <h3><strong>Fazer coleta</strong></h3>
 
-<% if @coleta.tipoColeta == 'estacao' %>
+<% if @coleta.tipoColeta == 'Estação' %>
   <%= render "coleta/coleta_anual_estacao" %>
 <% end %>
 
-<% if @coleta.tipoColeta == 'enlacesProprios' %>
+<% if @coleta.tipoColeta == 'Enlaces próprios' %>
   <%= render "coleta/coleta_anual_enlaces_proprios" %>
 <% end %>
 
-<% if @coleta.tipoColeta == 'encalcesContratados' %>
+<% if @coleta.tipoColeta == 'Encalces contratados' %>
   <%= render "coleta/coleta_anual_encalces_contratados" %>
 <% end %>
 
-<% if @coleta.tipoColeta == 'encalcesViaSatelite' %>
+<% if @coleta.tipoColeta == 'Encalces via satélite' %>
   <%= render "coleta/coleta_anual_encalces_via_satelite" %>
 <% end %>
 
