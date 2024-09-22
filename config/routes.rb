@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get 'coleta/anualcriar', :to => 'coleta#anualcriar'
     post 'coleta/anualinserir', :to => 'coleta#anualinserir'
     post 'coleta/anualfazer', :to => 'coleta#anualfazer'
-    patch 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
+    post 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
     patch 'coleta/anualinformar', :to => 'coleta#anualinformar'
     post 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
     get 'coleta/anualvisualizar', :to => 'coleta#anualvisualizar'
