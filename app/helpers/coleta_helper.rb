@@ -96,6 +96,7 @@ module ColetaHelper
       coleta.tituloColeta =  coletaGravada.tituloColeta
       coleta.tipoColeta = coletaGravada.tipoColeta
       coleta.project_id = coletaGravada.project.id
+      coleta.dataRealizacao = coletaGravada.dataRealizacao
     end
 
     coleta
