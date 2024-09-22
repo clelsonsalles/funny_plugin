@@ -29,7 +29,7 @@
                          <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
                     <% end %>
                      <p><%= f.label :cidade, "Cidade" %></p>
-                     <p><%= f.select :cidade, id: "cidade", options_for_select(listaSelectMunicipio) {}, class:'form-select'  %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select'  %></p>
                </div>
              </div>
 
