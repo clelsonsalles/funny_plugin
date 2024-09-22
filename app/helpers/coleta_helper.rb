@@ -91,6 +91,7 @@ module ColetaHelper
   def self.montaColetasGravadas (coletasGravadas)
     for coletaGravada in coletasGravadas
       coleta = Coleta.new
+      coleta.id = coletaGravada.id
       coleta.mes = coletaGravada.mes
       coleta.ano = coletaGravada.ano
       coleta.tituloColeta =  coletaGravada.tituloColeta
