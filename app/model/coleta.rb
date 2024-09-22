@@ -10,7 +10,7 @@ safe_attributes(
       'longitude',          'enlaceMeio',      'enlaceNominal',        'enlaceSwap',             'geometriaWkt',       'srid',  
       'largCanalUplink',    'capCanalUplink',  'largCanalDownlink',    'capCanalDownlink',       'cnpjContratada',     'idEstacaoOrigem', 
       'idEstacaoDestino',   'idEnlace',        'codigoSatelite',        'freqUplink',            'freqDownlink',        'cep', 
-      'idSatelite',         'semestre')
+      'idSatelite',         'semestre', 'project_id')
 
   def self.mensal
      "Coleta Mensal"
