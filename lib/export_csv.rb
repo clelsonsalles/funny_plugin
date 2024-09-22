@@ -67,22 +67,22 @@ module ExportCsv
 
             when Coleta.anual
               case coleta.tipoColeta
-                  when "estacao"
+                  when "Estação"
                         # Adiciona o cabeçalho
                         csv << ['cnpj', 'ano', 'idEstacao', 'nEstacao', 'codigoIBGE', 'abertura', 'cep', 'cidade', 'rua', 'numeroEndereco', 'latitude', 'longitude']
                         # Adiciona a coleta
                         csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.codigoIBGE, coleta.abertura, coleta.cep, coleta.cidade, coleta.rua, coleta.numeroEndereco, coleta.latitude, coleta.longitude]
-                  when "enlacesProprios"
+                  when "Enlaces próprios"
                         # Adiciona o cabeçalho
                         csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'enlaceNominal', 'enlaceSwap', 'geometriaWkt', 'srid']
                         # Adiciona a coleta
                         csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.enlaceNominal, coleta.enlaceSwap, coleta.geometriaWkt, coleta.srid]
-                  when "encalcesContratados"
+                  when "Encalces contratados"
                         # Adiciona o cabeçalho
                         csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idEstacaoDestino', 'idEnlace', 'enlaceMeio', 'cnpjContratada']
                         # Adiciona a coleta
                         csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.cnpjContratada]
-                  when "encalcesViaSatelite"
+                  when "Encalces via satélite"
                         # Adiciona o cabeçalho
                         csv << ['cnpj', 'ano', 'idEstacaoOrigem', 'idSatelite', 'codigoSatelite', 'freqUplink', 'freqDownlink', 'largCanalUplink', 'capCanalUplink', 'largCanalDownlink', 'capCanalDownlink']
                         # Adiciona a coleta
