@@ -165,7 +165,7 @@ class ColetaController < ApplicationController
       require 'net/http'
       require 'json'
 
-      if (@coleta.tipoColeta == 'estacao')
+      if (@coleta.tipoColeta == 'Estação')
         # URL da API externa de UFs e cidades
         external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
         external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
