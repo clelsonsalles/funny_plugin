@@ -6,7 +6,7 @@ module ExportCsv
       csv_string = "\uFEFF" + CSV.generate(headers: true, col_sep: ';', encoding: "UTF-8", row_sep: "\r\n") do |csv|
 
         case coleta.tituloColeta
-            when "Coleta Mensal"
+            when Coleta.mensal
               case coleta.tipoColeta
                   when "SCM"
                         #MENSAL_SCM
@@ -15,7 +15,7 @@ module ExportCsv
                         csv << ['cnpj prestadora', 'ano', 'mês', 'uf', 'cidade', 'tipoCliente', 'tipoAtendimento', 'tipoMeio', 'tipoTecnologia', 'tipoProduto', 'velocidade', 'quantidadeAcesso', 'codigoIBGE']
                         # Adiciona a coleta
                         csv << [coleta.cnpj, coleta.anoInformado, coleta.mesInformado, coleta.uf, coleta.cidade, coleta.tipoCliente, coleta.tipoAtendimento, coleta.tipoMeio, coleta.tipoTecnologia, coleta.tipoProduto, coleta.velocidade, coleta.quantidadeAcesso, coleta.codigoIBGE]
-                  when "TVpA"
+                  when "TvPA"
                         #MENSAL_TVPA
                         #cnpj prestadora	ano	mês	uf	cidade	tipoCliente	tipoAtendimento	tipoMeio	codigoIBGE	quantidadeAcesso
                         # Adiciona o cabeçalho
@@ -35,7 +35,7 @@ module ExportCsv
                       csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
               end
             
-            when "Coleta Semestral"
+            when Coleta.semestral
               case coleta.tipoColeta
                   when "SCM"
                         #SEMESTRAL_SCM
@@ -65,7 +65,7 @@ module ExportCsv
                       csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
               end
 
-            when "Coleta Anual"
+            when Coleta.anual
               case coleta.tipoColeta
                   when "estacao"
                         # Adiciona o cabeçalho
