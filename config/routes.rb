@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'coleta/semestralcriar', :to => 'coleta#semestralcriar'
     post 'coleta/semestralinserir', :to => 'coleta#semestralinserir'
     post 'coleta/semestralfazer', :to => 'coleta#semestralfazer'
-    get 'coleta/semestralatualizar', :to => 'coleta#semestralatualizar'
+    post 'coleta/semestralatualizar', :to => 'coleta#semestralatualizar'
     get 'coleta/semestralvisualizar', :to => 'coleta#semestralvisualizar'
     
      
