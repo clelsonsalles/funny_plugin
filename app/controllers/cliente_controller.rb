@@ -35,24 +35,15 @@ class ClienteController < ApplicationController
     @coletas = []
     @tituloColeta = params[:titulo_coleta]
 
-    servicosTelecom = nil
-    projeto.visible_custom_field_values.each do |custom_value|
-      if !custom_value.value.blank? 
-          if custom_value.custom_field.name == 'Serviços de Telecom'
-            servicosTelecom = custom_value.value.to_s
-          end
-      end
-    end
-          
     case @tituloColeta
       when "ColetaMensal"
-        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
+        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento, params)
       when "ColetaSemestral"
-        @coletas = ColetaHelper.montaColetasSemestrais(servicosTelecom, params)
+        @coletas = ColetaHelper.montaColetasSemestrais(@projetoPreenchimento, params)
       when "ColetaAnual"
-        @coletas = ColetaHelper.montaColetasAnuais(servicosTelecom, params)
+        @coletas = ColetaHelper.montaColetasAnuais(@projetoPreenchimento, params)
       else
-        @coletas = ColetaHelper.montaColetasMensais(servicosTelecom, params)
+        @coletas = ColetaHelper.montaColetasMensais(@projetoPreenchimento, params)
     end
     
 
