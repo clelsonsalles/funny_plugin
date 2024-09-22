@@ -17,34 +17,34 @@ module ColetaHelper
         coletasMensais = [ ]
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Mensal - SCM'
-            coletaMesAnteriorSCM = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
-            coletaMesAtualSCM = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
+            coletaMesAnteriorSCM = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:project_id]))
+            coletaMesAtualSCM = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:project_id]))
             coletaMesAnteriorSCM = coletaMesAnteriorSCM.nil? ? 
-                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAnteriorSCM
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'SCM', params[:project_id]) : coletaMesAnteriorSCM
             coletaMesAtualSCM = coletaMesAtualSCM.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto]) : coletaMesAtualSCM
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'SCM', params[:project_id]) : coletaMesAtualSCM
 
             coletasMensais << coletaMesAnteriorSCM
             coletasMensais << coletaMesAtualSCM
           end
           if servicosTelecom.include? 'Mensal - TvPA'
-            coletaMesAnteriorTvPA = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:id_projeto]))
-            coletaMesAtualTvPA = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:id_projeto]))
+            coletaMesAnteriorTvPA = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:project_id]))
+            coletaMesAtualTvPA = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'TvPA', :project_id => params[:project_id]))
             coletaMesAnteriorTvPA = coletaMesAnteriorTvPA.nil? ? 
-                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAnteriorTvPA
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'TvPA', params[:project_id]) : coletaMesAnteriorTvPA
             coletaMesAtualTvPA = coletaMesAtualTvPA.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'TvPA', params[:id_projeto]) : coletaMesAtualTvPA
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'TvPA', params[:project_id]) : coletaMesAtualTvPA
 
             coletasMensais << coletaMesAnteriorTvPA
             coletasMensais << coletaMesAtualTvPA
           end
           if servicosTelecom.include? 'Mensal - STFC'
-            coletaMesAnteriorSTFC = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:id_projeto]))
-            coletaMesAtualSTFC = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:id_projeto]))
+            coletaMesAnteriorSTFC = montaColetasGravadas (Coleta.where(mes: mesAnterior, ano: anoAnterior,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:project_id]))
+            coletaMesAtualSTFC = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'STFC', :project_id => params[:project_id]))
             coletaMesAnteriorSTFC = coletaMesAnteriorSTFC.nil? ? 
-                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAnteriorSTFC
+                montaColeta(mesAnterior, anoAnterior, tituloColeta, 'STFC', params[:project_id]) : coletaMesAnteriorSTFC
             coletaMesAtualSTFC = coletaMesAtualSTFC.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'STFC', params[:id_projeto]) : coletaMesAtualSTFC
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'STFC', params[:project_id]) : coletaMesAtualSTFC
 
             coletasMensais << coletaMesAnteriorSTFC
             coletasMensais << coletaMesAtualSTFC
@@ -54,25 +54,25 @@ module ColetaHelper
         coletasMensais
   end
 
-  def self.montaColeta (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto)
+  def self.montaColeta (mesAnterior, anoAnterior, tituloColeta, tipoColeta, project_id)
       coleta = Coleta.new
       coleta.mes = mesAnterior
       coleta.ano = anoAnterior
       coleta.tituloColeta =  tituloColeta
       coleta.tipoColeta = tipoColeta
-      coleta.project_id = id_projeto
+      coleta.project_id = project_id
 
       coleta
 
   end
 
-  def self.montaColetaSemestral (mesAnterior, anoAnterior, tituloColeta, tipoColeta, id_projeto, semestre)
+  def self.montaColetaSemestral (mesAnterior, anoAnterior, tituloColeta, tipoColeta, project_id, semestre)
       coleta = Coleta.new
       coleta.mes = mesAnterior
       coleta.ano = anoAnterior
       coleta.tituloColeta =  tituloColeta
       coleta.tipoColeta = tipoColeta
-      coleta.project_id = id_projeto
+      coleta.project_id = project_id
       coleta.semestre = semestre
 
       coleta
@@ -104,34 +104,34 @@ module ColetaHelper
 
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Semestral - SCM'
-            coletaSemestralPrimSCM = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
-            coletaSemestralSegSCM = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:id_projeto]))
+            coletaSemestralPrimSCM = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:project_id]))
+            coletaSemestralSegSCM = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SCM', :project_id => params[:project_id]))
             coletaSemestralPrimSCM = coletaSemestralPrimSCM.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 1) : coletaSemestralPrimSCM
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:project_id], 1) : coletaSemestralPrimSCM
             coletaSemestralSegSCM = coletaSemestralSegSCM.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:id_projeto], 2) : coletaSemestralSegSCM
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SCM', params[:project_id], 2) : coletaSemestralSegSCM
 
             coletasSemestrais << coletaSemestralPrimSCM
             coletasSemestrais << coletaSemestralSegSCM
           end
           if servicosTelecom.include? 'Semestral - SEAC'
-            coletaSemestralPrimSEAC = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:id_projeto]))
-            coletaSemestralSegSEAC = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:id_projeto]))
+            coletaSemestralPrimSEAC = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:project_id]))
+            coletaSemestralSegSEAC = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SEAC', :project_id => params[:project_id]))
             coletaSemestralPrimSEAC = coletaSemestralPrimSEAC.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 1) : coletaSemestralPrimSEAC
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:project_id], 1) : coletaSemestralPrimSEAC
             coletaSemestralSegSEAC = coletaSemestralSegSEAC.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:id_projeto], 2) : coletaSemestralSegSEAC
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SEAC', params[:project_id], 2) : coletaSemestralSegSEAC
 
             coletasSemestrais << coletaSemestralPrimSEAC
             coletasSemestrais << coletaSemestralSegSEAC
           end
           if servicosTelecom.include? 'Semestral - SMP'
-            coletaSemestralPrimSMP = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:id_projeto]))
-            coletaSemestralSegSMP = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:id_projeto]))
+            coletaSemestralPrimSMP = montaColetasGravadas (Coleta.where(semestre: 1, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:project_id]))
+            coletaSemestralSegSMP = montaColetasGravadas (Coleta.where(semestre: 2, mes: mesAtual, ano: anoAtual,  tituloColeta: tituloColeta, tipoColeta: 'SMP', :project_id => params[:project_id]))
             coletaSemestralPrimSMP = coletaSemestralPrimSMP.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 1) : coletaSemestralPrimSMP
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:project_id], 1) : coletaSemestralPrimSMP
             coletaSemestralSegSMP = coletaSemestralSegSMP.nil? ? 
-                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:id_projeto], 2) : coletaSemestralSegSMP
+                montaColetaSemestral(mesAtual, anoAtual, tituloColeta, 'SMP', params[:project_id], 2) : coletaSemestralSegSMP
 
             coletasSemestrais << coletaSemestralPrimSMP
             coletasSemestrais << coletaSemestralSegSMP
@@ -152,30 +152,30 @@ module ColetaHelper
 
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Anual - Estação'
-            coletaAnualESTACAO = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Estação', :project_id => params[:id_projeto]))
+            coletaAnualESTACAO = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Estação', :project_id => params[:project_id]))
             coletaAnualESTACAO = coletaAnualESTACAO.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'Estação', params[:id_projeto]) : coletaAnualESTACAO
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'Estação', params[:project_id]) : coletaAnualESTACAO
 
             coletasAnuais << coletaAnualESTACAO
           end
           if servicosTelecom.include? 'Anual - Enlaces próprios'
-            coletaAnualENLACESPROPRIOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Enlaces próprios', :project_id => params[:id_projeto]))
+            coletaAnualENLACESPROPRIOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Enlaces próprios', :project_id => params[:project_id]))
             coletaAnualENLACESPROPRIOS = coletaAnualENLACESPROPRIOS.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'Enlaces próprios', params[:id_projeto]) : coletaAnualENLACESPROPRIOS
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'Enlaces próprios', params[:project_id]) : coletaAnualENLACESPROPRIOS
 
             coletasAnuais << coletaAnualENLACESPROPRIOS
           end
           if servicosTelecom.include? 'Anual - Encalces contratados'
-            coletaAnualENCALCESCONTRATADOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces contratados', :project_id => params[:id_projeto]))
+            coletaAnualENCALCESCONTRATADOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces contratados', :project_id => params[:project_id]))
             coletaAnualENCALCESCONTRATADOS = coletaAnualENCALCESCONTRATADOS.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces contratados', params[:id_projeto]) : coletaAnualENCALCESCONTRATADOS
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces contratados', params[:project_id]) : coletaAnualENCALCESCONTRATADOS
 
             coletasAnuais << coletaAnualENCALCESCONTRATADOS
           end
           if servicosTelecom.include? 'Anual - Encalces via satélite'
-            coletaAnualENCALCESVIASATELITE = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces via satélite', :project_id => params[:id_projeto]))
+            coletaAnualENCALCESVIASATELITE = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces via satélite', :project_id => params[:project_id]))
             coletaAnualENCALCESVIASATELITE = coletaAnualENCALCESVIASATELITE.nil? ? 
-                montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces via satélite', params[:id_projeto]) : coletaAnualENCALCESVIASATELITE
+                montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces via satélite', params[:project_id]) : coletaAnualENCALCESVIASATELITE
 
             coletasAnuais << coletaAnualENCALCESVIASATELITE
           end
