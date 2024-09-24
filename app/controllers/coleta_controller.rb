@@ -165,6 +165,8 @@ class ColetaController < ApplicationController
       require 'net/http'
       require 'json'
 
+      @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
+
       if (@coleta.tipoColeta == 'Estação')
         # URL da API externa de UFs e cidades
         external_api_url_ufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
