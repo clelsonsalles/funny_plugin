@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="container">
               <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
                    <%= f.hidden_field :mes, :value => @coleta.mes %>
                    <%= f.hidden_field :ano, :value => @coleta.ano %>
@@ -69,7 +69,13 @@
                <% end %>
 
   </div>
-   <br/><br/>
+  
+
+</div>
+
+ <br/><br/>
+
+<div class="container">
     <table class="table table-custom">
             <thead class="thead-light">
                 <tr>
@@ -87,5 +93,4 @@
                
             </tbody>
         </table>
-
 </div>
