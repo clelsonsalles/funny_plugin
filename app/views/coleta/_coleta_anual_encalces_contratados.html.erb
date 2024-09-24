@@ -91,13 +91,15 @@
             </thead>
             <tbody>
              <% for coleta in @coletas %>
-                <tr> <td><%= coleta.cnpj %></td> </tr>
-                <tr> <td><%= coleta.ano %></td> </tr>
-                <tr> <td><%= coleta.idEstacaoOrigem %></td> </tr>
-                <tr> <td><%= coleta.idEstacaoDestino %></td> </tr>
-                <tr> <td><%= coleta.idEnlace %></td> </tr>
-                <tr> <td><%= coleta.enlaceMeio %></td> </tr>
-                <tr> <td><%= coleta.cnpjContratada %></td> </tr>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.ano %></td>
+                     <td><%= coleta.idEstacaoOrigem %></td>
+                     <td><%= coleta.idEstacaoDestino %></td>
+                     <td><%= coleta.idEnlace %></td>
+                     <td><%= coleta.enlaceMeio %></td>
+                     <td><%= coleta.cnpjContratada %></td> 
+                </tr>
             <% end %>
               
                
