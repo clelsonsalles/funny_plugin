@@ -160,6 +160,11 @@ class ColetaController < ApplicationController
   def anualfazer
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
+
+      if ( !id_coleta.nil? )
+        @coleta = Coleta.where(:id => id_coleta)
+      end
+    
       @ufs = []
       @municipios = []
       require 'net/http'
@@ -232,9 +237,11 @@ class ColetaController < ApplicationController
 
   
     def anualinformar
-      @coleta = Coleta.new    
-      @coleta.safe_attributes = params[:coleta]
-
+      if (@coleta.nil?)
+        @coleta = Coleta.new    
+        @coleta.safe_attributes = params[:coleta]
+      end
+      
       require 'net/http'
       require 'json'
       
@@ -264,7 +271,7 @@ class ColetaController < ApplicationController
     @coleta.save
 
 
-    redirect_to coleta_anualfazer_path(params: params)
+    redirect_to coleta_anualfazer_path(@coleta)
       
 
 
