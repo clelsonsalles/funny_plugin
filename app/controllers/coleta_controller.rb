@@ -267,7 +267,6 @@ class ColetaController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_anualfazer_path
   end
 
 
