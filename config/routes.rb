@@ -35,7 +35,7 @@ Rails.application.routes.draw do
      
     get 'coleta/anualcriar', :to => 'coleta#anualcriar'
     post 'coleta/anualinserir', :to => 'coleta#anualinserir'
-    get 'coleta/anualfazer', :to => 'coleta#anualfazer'
+    match 'coleta/anualfazer', :to => 'coleta#anualfazer', via: [:get, :post]
     post 'coleta/anualcidadesuf', :to => 'coleta#anualcidadesuf'
     post 'coleta/anualinformar', :to => 'coleta#anualinformar'
     post 'coleta/anualatualizar', :to => 'coleta#anualatualizar'
