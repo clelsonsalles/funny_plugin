@@ -42,8 +42,8 @@ Rails.application.routes.draw do
     get 'coleta/anualvisualizar', :to => 'coleta#anualvisualizar'
 
 
-    post 'coleta/anual/fazerencalcescontratados', :to => 'coletaAnual#fazerEncalcesContratados'
-    post 'coleta/anual/atualizarencalcescontratados', :to => 'coletaAnual#atualizarEncalcesContratados'
+    post 'coleta/anual/fazerencalcescontratados', :to => 'coletaanual#fazerEncalcesContratados'
+    post 'coleta/anual/atualizarencalcescontratados', :to => 'coletaanual#atualizarEncalcesContratados'
 
 
 end
