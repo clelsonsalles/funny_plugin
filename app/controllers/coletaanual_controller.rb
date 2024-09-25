@@ -1,11 +1,9 @@
 class ColetaanualController < ApplicationController
-  @id_coleta = nil 
+  
 
   def fazerEncalcesContratados
     
-    if params[:coleta].nil?
-      @coleta = Coleta.find(@id_coleta)
-    else
+    if @coleta.nil?
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
     end
@@ -25,7 +23,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
 
-    redirect_to :back, :@id_coleta => @coleta.id
+    redirect_to :back, :@coleta => @coleta
 
   
  end
