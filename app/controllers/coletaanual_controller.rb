@@ -1,9 +1,15 @@
 class ColetaanualController < ApplicationController
 
   def fazerEncalcesContratados
-    @coleta = Coleta.new    
-    @coleta.safe_attributes = params[:coleta]
-      
+    @id_coleta = nil 
+    
+    if params[:coleta].empty?
+      @coleta = Coleta.find(@id_coleta)
+    else
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
+    end
+    
     @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
   
   end
@@ -19,7 +25,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
 
-    redirect_to :back
+    redirect_to :back, :@id_coleta => @coleta.id
 
   
  end
