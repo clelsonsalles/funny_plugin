@@ -4,6 +4,7 @@ class ColetaanualController < ApplicationController
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
       
+    @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
   
   end
 
