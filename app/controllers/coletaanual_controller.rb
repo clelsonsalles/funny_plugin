@@ -1,7 +1,7 @@
 class ColetaanualController < ApplicationController
+  @id_coleta = nil 
 
   def fazerEncalcesContratados
-    @id_coleta = nil 
     
     if params[:coleta].nil?
       @coleta = Coleta.find(@id_coleta)
