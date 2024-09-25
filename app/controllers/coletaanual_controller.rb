@@ -4,10 +4,16 @@ class ColetaanualController < ApplicationController
   ano = nil
 
   def fazerEncalcesContratados
-    custom_data = session[:custom_data]
-    tipoColeta = custom_data[:tipoColeta]
-    project_id = custom_data[:project_id]
-    ano = custom_data[:ano]
+    tipoColeta = nil
+    project_id = nil
+    ano = nil
+
+    if !session[:custom_data].nil?
+      custom_data = session[:custom_data]
+      tipoColeta = custom_data[:tipoColeta]
+      project_id = custom_data[:project_id]
+      ano = custom_data[:ano]
+    end
     
     Rails.logger.info "Conferindo: #{tipoColeta} - #{project_id} - #{ano}" 
 
