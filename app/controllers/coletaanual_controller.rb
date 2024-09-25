@@ -8,7 +8,7 @@ class ColetaanualController < ApplicationController
     project_id = params[:project_id]
     ano = params[:ano]
     
-    Rails.logger.info "Params: #{tipoColeta} - #{project_id} - #{ano}" 
+    Rails.logger.info "Conferindo: #{tipoColeta} - #{project_id} - #{ano}" 
 
     if params.nil?
       Rails.logger.info "Params: NULO" 
