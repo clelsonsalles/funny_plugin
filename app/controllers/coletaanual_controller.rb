@@ -1,5 +1,7 @@
 class ColetaanualController < ApplicationController
-  
+  tipoColeta = nil
+  project_id = nil  
+  ano = nil
 
   def fazerEncalcesContratados
     if params[:coleta].nil?
