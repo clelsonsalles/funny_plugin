@@ -17,7 +17,7 @@ class ColetaanualController < ApplicationController
     Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
 
    
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, mes:, ano: @coleta.ano  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
   
   end
 
@@ -30,7 +30,7 @@ class ColetaanualController < ApplicationController
     @coleta.save
 
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, mes:, ano: @coleta.ano  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
     redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", coleta: :@coleta
 
