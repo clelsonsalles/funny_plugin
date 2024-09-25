@@ -71,12 +71,11 @@ safe_attributes(
                 if self.semestre == 2 && Date.today > limiteSegundoSemestreSetting
                   status = "Coleta Atrasada" 
                 end
-           when Coleta.anual
+             when Coleta.anual
                 if  Date.today > limiteAnualSetting
                   status = "Coleta Atrasada" 
                 end
-         end
-
+             end
           end
       else 
         if self.dataInformacaoEnvio.nil?
