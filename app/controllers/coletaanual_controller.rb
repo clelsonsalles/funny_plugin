@@ -3,7 +3,7 @@ class ColetaanualController < ApplicationController
   def fazerEncalcesContratados
     @id_coleta = nil 
     
-    if params[:coleta].empty?
+    if params[:coleta].nil?
       @coleta = Coleta.find(@id_coleta)
     else
       @coleta = Coleta.new    
