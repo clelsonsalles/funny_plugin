@@ -269,7 +269,6 @@ class ColetaController < ApplicationController
     @coleta.save
 
 
-    # redirect_to coleta_anualfazer_path(@coleta)
     @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
   end
 
