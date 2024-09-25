@@ -10,15 +10,13 @@ class ColetaanualController < ApplicationController
 
     if @coleta.nil?
       Rails.logger.info "coleta: NULO"
-    else
-      Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
-    end
-    
-    if @coleta.present?
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
     end
     
+    Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
+
+   
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, mes:, ano: @coleta.ano  )
   
   end
