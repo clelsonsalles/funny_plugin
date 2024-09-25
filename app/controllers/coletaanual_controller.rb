@@ -4,12 +4,14 @@ class ColetaanualController < ApplicationController
   def fazerEncalcesContratados
     if params[:coleta].nil?
       Rails.logger.info "Params: NULO" 
+      Rails.logger.info "Params: #{params}" 
     else
       Rails.logger.info "Params: #{params}" 
     end
 
     if @coleta.nil?
       Rails.logger.info "coleta: NULO"
+      Rails.logger.info "Parâmetros: #{tipoColeta}, #{project_id}, #{ano}" 
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
     end
@@ -32,8 +34,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
-    redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", :@coleta => @coleta
-
+    redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano
   
  end
   
