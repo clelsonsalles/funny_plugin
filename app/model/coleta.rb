@@ -27,16 +27,17 @@ safe_attributes(
   belongs_to :project
 
   def textoData      
-      nomeMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "NÃO DEFINIDO"]
-      numeroMes = self.mes < 12 ? self.mes : 13  
-      
-      textoDataFormatada = nomeMeses[numeroMes -1].to_s + "/" + self.ano.to_s
-
-      if self.tituloColeta == Coleta.semestral
+      case self.tituloColeta
+        when Coleta.mensal
+          nomeMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "NÃO DEFINIDO"]
+          numeroMes = self.mes < 12 ? self.mes : 13  
+          textoDataFormatada = nomeMeses[numeroMes -1].to_s + "/" + self.ano.to_s
+        when Coleta.semestral
           textoDataFormatada = self.semestre.to_s + "º Semestre"
-      end
-      if self.tituloColeta == Coleta.anual
+        when Coleta.anual
           textoDataFormatada = self.ano
+        else
+          textoDataFormatada = "Tipo de Coleta NÃO DEFINIDA"
       end
     
       textoDataFormatada
