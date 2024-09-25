@@ -2,24 +2,24 @@ class ColetaanualController < ApplicationController
   
 
   def fazerEncalcesContratados
-    if params.nil?
+    if params[:coleta].nil?
       Rails.logger.info "Params: NULO" 
     else
-      Rails.logger.info "Params: " + #{params} 
+      Rails.logger.info "Params: #{params}" 
     end
 
     if @coleta.nil?
       Rails.logger.info "coleta: NULO"
     else
-      Rails.logger.info "coleta: "  + @coleta.tipoColeta +  @coleta.project_id.to_s +  @coleta.mes.to_s + @coleta.ano.to_s 
+      Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
     end
     
-    if @coleta.nil?
+    if @coleta.present?
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
     end
     
-    @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, mes:, ano: @coleta.ano  )
   
   end
 
@@ -32,9 +32,9 @@ class ColetaanualController < ApplicationController
     @coleta.save
 
 
-    @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, mes:, ano: @coleta.ano  )
 
-    redirect_to :back, :@coleta => @coleta
+    redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", coleta: :@coleta
 
   
  end
