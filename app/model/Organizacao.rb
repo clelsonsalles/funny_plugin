@@ -1,8 +1,9 @@
 class Organizacao
-  attr_accessor :nome, :cnpj, :uf, :endereco, :cep, :cidade, :telefone, :email, :servicos, :userResponsavel, :userPreenchimento, :idProject
+  attr_accessor :nome, :cnpj, :uf, :endereco, :cep, :cidade, :telefone, :email, :servicos, :userResponsavel, :userPreenchimento, :idProject, :projeto
 
 
   def initialize(projeto)
+    self.projeto = projeto
     self.nome = projeto.name
     self.idProject = projeto.id
 
