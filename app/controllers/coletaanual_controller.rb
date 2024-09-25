@@ -9,10 +9,13 @@ class ColetaanualController < ApplicationController
     @coletas = nil
     if !paramsColeta.nil?
       @coleta.safe_attributes = paramsColeta
-      @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
     else
-      @coletas = Coleta.where(tipoColeta:  tipoColeta, project_id:  project_id, ano: ano  )
+      @coleta.tipoColeta = tipoColeta
+      @coleta.project_id = project_id
+      @coleta.ano = ano
     end
+
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
   end
 
  def atualizarEncalcesContratados
