@@ -1,5 +1,5 @@
 class ColetaanualController < ApplicationController
-  def fazerEncalcesContratados
+  def fazer
     tipoColeta = params[:tipoColeta]
     project_id = params[:project_id]
     ano = params[:ano]
@@ -19,7 +19,7 @@ class ColetaanualController < ApplicationController
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
   end
 
- def atualizarEncalcesContratados
+ def atualizar
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
 
