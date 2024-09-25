@@ -34,7 +34,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
-    #redirect_to coleta_anual_fazerencalcescontratados_path(@coleta)
+    redirect_to coleta_anual_fazerencalcescontratados_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano)
 
   
  end
