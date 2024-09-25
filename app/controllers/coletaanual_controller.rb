@@ -4,9 +4,10 @@ class ColetaanualController < ApplicationController
   ano = nil
 
   def fazerEncalcesContratados
-    tipoColeta = params[:tipoColeta]
-    project_id = params[:project_id]
-    ano = params[:ano]
+    custom_data = session[:custom_data]
+    tipoColeta = custom_data[:tipoColeta]
+    project_id = custom_data[:project_id]
+    ano = custom_data[:ano]
     
     Rails.logger.info "Conferindo: #{tipoColeta} - #{project_id} - #{ano}" 
 
@@ -41,8 +42,9 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
-    redirect_to coleta_anual_fazerencalcescontratados_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano)
+   session[:custom_data] = {tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano}
 
+    redirect_to coleta_anual_fazerencalcescontratados_path
   
  end
   
