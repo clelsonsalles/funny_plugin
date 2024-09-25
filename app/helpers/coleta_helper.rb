@@ -181,28 +181,28 @@ module ColetaHelper
 
         if !servicosTelecom.nil? 
           if servicosTelecom.include? 'Anual - Estação'
-            coletaAnualESTACAO = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Estação', :project_id => projeto.id))
+            coletaAnualESTACAO = montaColetasGravadas (Coleta.where(ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Estação', :project_id => projeto.id))
             coletaAnualESTACAO = coletaAnualESTACAO.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'Estação', projeto.id) : coletaAnualESTACAO
 
             coletasAnuais << coletaAnualESTACAO
           end
           if servicosTelecom.include? 'Anual - Enlaces próprios'
-            coletaAnualENLACESPROPRIOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Enlaces próprios', :project_id => projeto.id))
+            coletaAnualENLACESPROPRIOS = montaColetasGravadas (Coleta.where(ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Enlaces próprios', :project_id => projeto.id))
             coletaAnualENLACESPROPRIOS = coletaAnualENLACESPROPRIOS.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'Enlaces próprios', projeto.id) : coletaAnualENLACESPROPRIOS
 
             coletasAnuais << coletaAnualENLACESPROPRIOS
           end
           if servicosTelecom.include? 'Anual - Encalces contratados'
-            coletaAnualENCALCESCONTRATADOS = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces contratados', :project_id => projeto.id))
+            coletaAnualENCALCESCONTRATADOS = montaColetasGravadas (Coleta.where(ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces contratados', :project_id => projeto.id))
             coletaAnualENCALCESCONTRATADOS = coletaAnualENCALCESCONTRATADOS.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces contratados', projeto.id) : coletaAnualENCALCESCONTRATADOS
 
             coletasAnuais << coletaAnualENCALCESCONTRATADOS
           end
           if servicosTelecom.include? 'Anual - Encalces via satélite'
-            coletaAnualENCALCESVIASATELITE = montaColetasGravadas (Coleta.where(mes: mesAtual, ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces via satélite', :project_id => projeto.id))
+            coletaAnualENCALCESVIASATELITE = montaColetasGravadas (Coleta.where(ano: anoAtual, tituloColeta: tituloColeta, tipoColeta: 'Encalces via satélite', :project_id => projeto.id))
             coletaAnualENCALCESVIASATELITE = coletaAnualENCALCESVIASATELITE.nil? ? 
                 montaColeta(mesAtual, anoAtual, tituloColeta, 'Encalces via satélite', projeto.id) : coletaAnualENCALCESVIASATELITE
 
