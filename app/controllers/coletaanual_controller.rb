@@ -32,7 +32,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
-    redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", coleta: :@coleta
+    redirect_back fallback_location: root_path, notice: "Coleta incluída com sucesso", @coleta: :@coleta
 
   
  end
