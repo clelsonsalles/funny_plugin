@@ -1,20 +1,9 @@
 class ColetaanualController < ApplicationController
-  tipoColeta = nil
-  project_id = nil  
-  ano = nil
-
   def fazerEncalcesContratados
     tipoColeta = nil
     project_id = nil
     ano = nil
 
-    if !session[:custom_data].nil?
-      custom_data = session[:custom_data]
-      tipoColeta = custom_data[:tipoColeta]
-      project_id = custom_data[:project_id]
-      ano = custom_data[:ano]
-    end
-    
     Rails.logger.info "Conferindo: #{tipoColeta} - #{project_id} - #{ano}" 
 
     if params.nil?
@@ -48,7 +37,7 @@ class ColetaanualController < ApplicationController
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
 
-   session[:custom_data] = {tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano}
+    Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
 
   
  end
