@@ -1,7 +1,7 @@
 
 require 'csv'
 
-module ExportCs
+module ExportCsv
     def self.export_coleta_to_csv(tipoColeta, coletas)
       csv_string = "\uFEFF" + CSV.generate(headers: true, col_sep: ';', encoding: "UTF-8", row_sep: "\r\n") do |csv|
         case tipoColeta
