@@ -1,14 +1,11 @@
 <div class="container">
               <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
-                   <%= f.hidden_field :mes, :value => @coleta.mes %>
                    <%= f.hidden_field :ano, :value => @coleta.ano %>
                    <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
                    <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
                    <%= f.hidden_field :project_id, :value => @coleta.project_id %>
-                   <%= f.hidden_field :semestre, :value => @coleta.semestre %>
 
                     <div class="box-title"><%= @coleta.tipoColeta %></div>
-                   <%=  @coleta.mes.to_s + '-' + @coleta.ano.to_s + '-' + @coleta.tituloColeta + '-' + @coleta.tipoColeta + '-' + @coleta.project_id.to_s + '-' + @coleta.semestre.to_s %>
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
