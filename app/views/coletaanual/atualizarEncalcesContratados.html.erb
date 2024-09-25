@@ -1,0 +1,103 @@
+<div class="container">
+              <%= form_for @coleta, url: coleta_anualatualizar_path do |f| %>
+                   <%= f.hidden_field :ano, :value => @coleta.ano %>
+                   <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
+                   <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
+                   <%= f.hidden_field :project_id, :value => @coleta.project_id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "CNPJ da Prestadora", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :ano, "Ano", class: "form-label" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano", required: true %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :idEstacaoOrigem, "Id da estação de origem", class: "form-label" %></p>
+                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem", required: true %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :idEstacaoDestino, "Id da estação de destino", class: "form-label" %></p>
+                          <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "idEstacaoDestino", placeholder: "Id da Estação de destino", required: true %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
+                         <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace", required: true %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metálico'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), required: true %></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :cnpjContratada, "CNPJ da Empresa contratada", class: "form-label" %></p>
+                          <p><%= f.text_field :cnpjContratada, class: "form-control", id: "cnpjContratada", placeholder: "Digite o CNPJ da Empresa contratada", required: true %></p>
+                        </div>
+                    </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
+                        </div>
+                       
+
+                        <div class="col-md-6">
+                          <%= f.submit "Concluir", class:" btn btn-primary" %>
+                        </div>
+                       </div>
+                    
+                                                                          
+                    
+
+
+
+               <% end %>
+
+  </div>
+  
+
+ <br/><br/>
+
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Id da estação de origem</th>
+                    <th scope="col">Id da estação de destino</th>
+                    <th scope="col">Id Enlace</th>
+                    <th scope="col">Enlace Meio</th>
+                    <th scope="col">CNPJ da Empresa contratada</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.ano %></td>
+                     <td><%= coleta.idEstacaoOrigem %></td>
+                     <td><%= coleta.idEstacaoDestino %></td>
+                     <td><%= coleta.idEnlace %></td>
+                     <td><%= coleta.enlaceMeio %></td>
+                     <td><%= coleta.cnpjContratada %></td> 
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
+</div>
