@@ -158,10 +158,8 @@ class ColetaController < ApplicationController
 
 
   def anualfazer
-      if (@coleta.nil?)
-        @coleta = Coleta.new    
-        @coleta.safe_attributes = params[:coleta]
-      end
+      @coleta = Coleta.new    
+      @coleta.safe_attributes = params[:coleta]
     
       @ufs = []
       @municipios = []
