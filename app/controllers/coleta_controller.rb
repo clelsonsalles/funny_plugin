@@ -269,7 +269,7 @@ class ColetaController < ApplicationController
 
     @coletas = Coleta.where(:tipoColeta =>  @coleta.tipoColeta, :project_id =>  @coleta.project_id, :mes => @coleta.mes, :ano => @coleta.ano  )
 
-    redirect_to :back, :params => @params
+    redirect_to :back, :id_coleta => @coleta.id, :coleta => @coleta
   end
 
 
