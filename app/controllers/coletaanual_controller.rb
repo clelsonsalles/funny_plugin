@@ -3,7 +3,7 @@ class ColetaanualController < ApplicationController
 
   def fazerEncalcesContratados
     Rails.logger.info "Params: " + params.nil? ? + "nil" : #{params}
-    Rails.logger.info "@coleta: " + @coleta.nil? ? + "nil" : #{@coleta}
+    Rails.logger.info "coleta: " + @coleta.nil? ? + "nil" : #{@coleta}
     
     if @coleta.nil?
       @coleta = Coleta.new    
