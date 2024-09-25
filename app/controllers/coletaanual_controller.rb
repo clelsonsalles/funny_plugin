@@ -1,12 +1,9 @@
 class ColetaanualController < ApplicationController
 
   def fazerEncalcesContratados
-    if (id_coleta.nil?)
-          @coleta = Coleta.new    
-          @coleta.safe_attributes = params[:coleta]
-      else
-          @coleta = Coleta.where(:id => id_coleta)
-      end
+    @coleta = Coleta.new    
+    @coleta.safe_attributes = params[:coleta]
+      
   
   end
 
