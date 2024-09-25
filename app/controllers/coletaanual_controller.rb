@@ -7,6 +7,7 @@ class ColetaanualController < ApplicationController
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
+    
     if !paramsColeta.nil?
       @coleta.safe_attributes = paramsColeta
     else
@@ -23,13 +24,10 @@ class ColetaanualController < ApplicationController
     @coleta.safe_attributes = params[:coleta]
 
     @coleta.dataRealizacao = Time.current
+    @coleta.dataCriacao = Time.current
+
 
     @coleta.save
-
-
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano  )
-
-    Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
 
     redirect_to coleta_anual_fazerencalcescontratados_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano)
  end
