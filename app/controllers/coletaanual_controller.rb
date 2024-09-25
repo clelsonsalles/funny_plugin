@@ -4,6 +4,12 @@ class ColetaanualController < ApplicationController
   ano = nil
 
   def fazerEncalcesContratados
+    tipoColeta = params[:tipoColeta]
+    project_id = params[:project_id]
+    ano = params[:ano]
+    
+    Rails.logger.info "Params: #{tipoColeta} - #{project_id} - #{ano}" 
+
     if params.nil?
       Rails.logger.info "Params: NULO" 
     else
@@ -12,6 +18,7 @@ class ColetaanualController < ApplicationController
 
     if @coleta.nil?
       Rails.logger.info "coleta: NULO"
+      Rails.logger.info "Params: #{params.inspect}" 
       @coleta = Coleta.new    
       @coleta.safe_attributes = params[:coleta]
     end
