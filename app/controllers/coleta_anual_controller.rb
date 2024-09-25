@@ -1,4 +1,4 @@
-class ColetaanualController < ApplicationController
+class ColetaAnualController < ApplicationController
 
   def fazerEncalcesContratados
     @coleta = Coleta.new    
