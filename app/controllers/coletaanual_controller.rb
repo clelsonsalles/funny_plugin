@@ -16,7 +16,6 @@ class ColetaanualController < ApplicationController
       @coleta.safe_attributes = params[:coleta]
     end
     
-    Rails.logger.info "Parâmetros: #{tipoColeta}, #{project_id}, #{ano}" 
     Rails.logger.info "coleta: #{@coleta.tipoColeta} #{@coleta.project_id} #{@coleta.mes} #{@coleta.ano}" 
 
    
