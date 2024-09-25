@@ -50,7 +50,6 @@ class ColetaanualController < ApplicationController
 
    session[:custom_data] = {tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano}
 
-    redirect_to coleta_anual_fazerencalcescontratados_path
   
  end
   
