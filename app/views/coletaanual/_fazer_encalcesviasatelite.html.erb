@@ -1,0 +1,133 @@
+<div class="container">
+              <%= form_for @coleta, url: coleta_anual_atualizar_path do |f| %>
+                   <%= f.hidden_field :ano, :value => @coleta.ano %>
+                   <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
+                   <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
+                   <%= f.hidden_field :project_id, :value => @coleta.project_id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                         
+                      <div class="box-description">Coleta de dados de acessos:
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "CNPJ da Prestadora", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
+                         </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :ano, "Ano", class: "form-label" %></p>
+                               <p><%= f.text_field :ano, class: "form-control", id: "ano", placeholder: "Digite o ano", required: true %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :idEstacaoOrigem, "Id da Estação de Origem", class: "form-label" %></p>
+                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem", required: true %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :idSatelite, "Id Satélite", class: "form-label" %></p>
+                          <p><%= f.text_field :idSatelite, class: "form-control", id: "idSatelite", placeholder: "Id Satélite", required: true %></p>
+                        </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :codigoSatelite, "Código do Satélite", class: "form-label" %></p>
+                          <p><%= f.text_field :codigoSatelite, class: "form-control", id: "codigoSatelite", placeholder: "Código do Satélite", required: true %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :freqUplink, "Frequência do Satélite uplink", class: "form-label" %></p>
+                          <p><%= f.text_field :freqUplink, class: "form-control", id: "freqUplink", placeholder: "Frequência do Satélite uplink", required: true %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :freqDownlink, "Frequência do Satélite Downlink", class: "form-label" %></p>
+                          <p><%= f.text_field :freqDownlink, class: "form-control", id: "freqDownlink", placeholder: "Frequência do Satélite Downlink", required: true %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :largCanalUplink, "Largura do canal Uplink", class: "form-label" %></p>
+                          <p><%= f.text_field :largCanalUplink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal Uplink", required: true %></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :capCanalUplink, "Capacidade do Canal Uplink", class: "form-label" %></p>
+                         <p><%= f.text_field :capCanalUplink, class: "form-control", id: "capCanalUplink", placeholder: "Capacidade do Canal Uplink", required: true %></p>
+                      </div>
+                       <div class="col-md-6">
+                          <p><%= f.label :largCanalDownlink, "Largura do canal downlink", class: "form-label" %></p>
+                          <p><%= f.text_field :largCanalDownlink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal downlink", required: true %></p>
+                        </div>
+                    </div>
+
+                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :capCanalDownlink, "Capacidade do Canal Downlink", class: "form-label" %></p>
+                         <p><%= f.text_field :capCanalDownlink, class: "form-control", id: "capCanalDownlink", placeholder: "Capacidade do Canal Downlink", required: true %></p>
+                      </div>
+                       
+                    </div>
+
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-primary' %>
+
+                        </div>
+                       </div>
+                       
+               <% end %>
+
+                    
+
+  </div>
+  
+
+ <br/><br/>
+
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">CNPJ da Prestadora</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Id da estação de origem</th>
+                    <th scope="col">Id Satélite</th>
+                    <th scope="col">Código do Satélite</th>
+                    <th scope="col">Frequência do Satélite uplink</th>
+                    <th scope="col">Frequência do Satélite Downlink</th>
+                    <th scope="col">Largura do canal Uplink</th>
+                    <th scope="col">Capacidade do Canal Uplink</th>
+                    <th scope="col">Largura do canal downlink</th>
+                    <th scope="col">Capacidade do Canal Downlink</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.ano %></td>
+                     <td><%= coleta.idEstacaoOrigem %></td>
+                     <td><%= coleta.idSatelite %></td>
+                     <td><%= coleta.codigoSatelite %></td>
+                     <td><%= coleta.freqUplink %></td>
+                     <td><%= coleta.freqDownlink %></td> 
+                     <td><%= coleta.largCanalUplink %></td>
+                     <td><%= coleta.capCanalUplink %></td>
+                     <td><%= coleta.largCanalDownlink %></td>
+                     <td><%= coleta.capCanalDownlink %></td>
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
+</div>
