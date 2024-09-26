@@ -102,7 +102,7 @@
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Semestral' %>
                            <td>
-                              <%= form_for coleta, url: coleta_semestralfazer_path do |f| %>
+                              <%= form_for coleta, url: coleta_semestral_fazer_path do |f| %>
                                    <%= f.hidden_field :mes, :value => coleta.mes %>
                                    <%= f.hidden_field :ano, :value => coleta.ano %>
                                    <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
