@@ -31,7 +31,7 @@ class ColetasemestralController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre  )
+    redirect_to coleta_semestral_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre  )
  end
   
 end
