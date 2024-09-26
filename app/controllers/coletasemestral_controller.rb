@@ -20,7 +20,7 @@ class ColetasemestralController < ApplicationController
       @coleta.titulo = titulo
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, titulo: @coleta.titulo  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre )
   end
 
  def atualizar
