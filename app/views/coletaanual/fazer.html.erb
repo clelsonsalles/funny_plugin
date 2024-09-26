@@ -1,0 +1,11 @@
+        <% if @coleta.tipoColeta == 'Enlaces próprios' %>
+          <%= render "coletaanual/fazer_enlacesproprios" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'Encalces contratados' %>
+          <%= render "coletaanual/fazer_encalcescontratados" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'Encalces via satélite' %>
+          <%= render "coletaanual/fazer_encalcesviasatelite" %>
+        <% end %>
