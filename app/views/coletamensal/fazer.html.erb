@@ -1,0 +1,12 @@
+
+<% if @coleta.tipoColeta == 'SCM' %>
+  <%= render "coletamensal/fazer_scm" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'TvPA' %>
+  <%= render "coletamensal/fazer_tvpa" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'STFC' %>
+  <%= render "coletamensal/fazer_stfc" %>
+<% end %>
