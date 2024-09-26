@@ -1,0 +1,57 @@
+    <%= form_for @coleta, url: coleta_mensal_atualizar_path, :html => {:id => "formColeta"} do |f| %>
+         <%= f.hidden_field :id, :value => @coleta.id %>
+         <%= f.hidden_field :uf, :value => @coleta.uf %>
+         <%= f.hidden_field :mes, :value => @coleta.mes %>
+         <%= f.hidden_field :ano, :value => @coleta.ano %>
+         <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
+         <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
+         <%= f.hidden_field :project_id, :value => @coleta.project_id %>
+
+          <div class="box-title"><%= @coleta.tipoColeta %></div>
+             <div class="box-description">Coleta de dados de acessos:
+               
+             <div class="row mb-3">
+               <div class="col-md-6">
+                    <p><%= f.label :uf, "UF selecionada" %></p>
+                    <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true %></p>
+               </div>
+             </div>
+
+             <div class="row mb-3">
+               <div class="col-md-6">
+                    <% listaSelectMunicipio = [] %>
+                    <% listaSelectMunicipio << ["Selecione", "" ] %>
+                    <% for municipio in @municipios %>
+                         <% listaSelectMunicipio << [municipio.nome, municipio.nome ] %>
+                    <% end %>
+                     <p><%= f.label :cidade, "Cidade" %></p>
+                     <p><%= f.select :cidade, options_for_select(listaSelectMunicipio) {}, class:'form-select'  %></p>
+               </div>
+             </div>
+
+             <div class="row mb-3">
+               <div class="col-md-6">
+                  <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo Cidade", disabled: true %></p>
+               </div>
+             </div>
+
+            </div>
+         </div>
+
+     <% end %>
+
+    
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectElement = document.getElementById('coleta_cidade');
+
+      if (selectElement) {
+        selectElement.addEventListener('change', (event) => {
+          const form = document.getElementById('formColeta');
+          form.submit();
+        });
+      }
+    });
+  </script>                
