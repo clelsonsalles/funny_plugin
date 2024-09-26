@@ -4,6 +4,7 @@ class ColetasemestralController < ApplicationController
     project_id = params[:project_id]
     ano = params[:ano]
     semestre = params[:semestre]
+    titulo = params[:titulo]
 
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
@@ -16,9 +17,10 @@ class ColetasemestralController < ApplicationController
       @coleta.project_id = project_id
       @coleta.ano = ano
       @coleta.semestre = semestre
+      @coleta.titulo = titulo
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, titulo: @coleta.titulo  )
   end
 
  def atualizar
@@ -31,7 +33,7 @@ class ColetasemestralController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_semestral_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre  )
+    redirect_to coleta_semestral_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, titulo: @coleta.titulo  )
  end
   
 end
