@@ -1,4 +1,4 @@
-class ColetaSemestralController < ApplicationController
+class ColetasemestralController < ApplicationController
 
   def index
   end
