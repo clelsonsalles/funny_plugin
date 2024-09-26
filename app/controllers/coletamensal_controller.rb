@@ -1,5 +1,6 @@
 class ColetamensalController < ApplicationController
   def fazer
+    titulo = params[:tituloColeta]
     tipoColeta = params[:tipoColeta]
     project_id = params[:project_id]
     ano = params[:ano]
