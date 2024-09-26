@@ -1,0 +1,11 @@
+<% if @coleta.tipoColeta == 'SCM' %>
+  <%= render "coletasemestral/coleta_semestral_scm" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'SEAC' %>
+  <%= render "coletasemestral/coleta_semestral_seac" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'SMP' %>
+  <%= render "coletasemestral/coleta_semestral_smp" %>
+<% end %>
