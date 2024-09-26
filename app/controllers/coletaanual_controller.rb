@@ -18,7 +18,7 @@ class ColetaanualController < ApplicationController
       @coleta.titulo - titulo
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, titulo: @coleta.titulo  )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano )
   end
 
  def atualizar
@@ -31,7 +31,7 @@ class ColetaanualController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, titulo: @coleta.titulo)
+    redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano)
  end
   
 end
