@@ -1,0 +1,94 @@
+<div class="container">
+              <%= form_for @coleta, url: coleta_semestral_atualizar_path do |f| %>
+                   <%= f.hidden_field :ano, :value => @coleta.ano %>
+                   <%= f.hidden_field :semestre, :value => @coleta.semestre %>
+                   <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
+                   <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
+                   <%= f.hidden_field :project_id, :value => @coleta.project_id %>
+
+                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                         
+                       <div class="row mb-3">
+                         <div class="col-md-6">
+                              <p><%= f.label :cnpj, "Cnpj", class: "form-label" %></p>
+                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true %></p>
+                          </div>
+                         <div class="col-md-6">
+                               <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
+                         </div>
+                       </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
+                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]), required: true %></p>
+                        </div>
+                        <div class="col-md-6">
+                          <p><%= f.label :uf, "Selecione a UF" %></p>
+                              <p><%= f.select :uf, options_for_select([['AC', 'AC'], ['AL', 'AL'], ['AP', 'AP'], ['AM', 'AM'], ['BA', 'BA'], ['CE', 'CE'], ['DF', 'DF'], ['ES', 'ES'], ['GO', 'GO'], ['MA', 'MA'], ['MT', 'MT'],['MS', 'MS'], ['MG', 'MG'], ['PA', 'PA'], ['PB', 'PB'], ['PR', 'PR'], ['PE', 'PE'], ['PI', 'PI'], ['RJ', 'RJ'], ['RN', 'RN'], ['RS', 'RS'], ['RO', 'RO'], ['RR', 'RR'], ['SC', 'SC'], ['SP', 'SP'], ['SE', 'SE'], ['TO', 'TO']]) {}, class:'form-select', required: true %></p>
+                        </div>
+                      </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
+                          <p><%= f.select :dadoInformado, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]), required: true %></p>
+                        </div>
+
+                         <div class="col-md-6">
+                          <p><%= f.label :valor, "Valores", class: "form-label" %></p>
+                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
+                        </div>
+
+                      
+                    </div>
+
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-primary' %>
+
+                        </div>
+                       </div>
+                       
+               <% end %>
+
+                    
+
+  </div>
+  
+
+ <br/><br/>
+
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Trimestre</th>
+                    <th scope="col">UF</th>
+                    <th scope="col">Dado Informado</th>
+                    <th scope="col">Valores</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.anoInformado %></td>
+                     <td><%= coleta.trimestre %></td>
+                     <td><%= coleta.uf %></td>
+                     <td><%= coleta.dadoInformado %></td>
+                     <td><%= coleta.valor %></td>
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
+</div>
