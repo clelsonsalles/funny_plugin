@@ -1,4 +1,4 @@
-class ColetasemetralController < ApplicationController
+class ColetasemestralController < ApplicationController
   def fazer
     tipoColeta = params[:tipoColeta]
     project_id = params[:project_id]
