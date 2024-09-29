@@ -3,7 +3,7 @@ class ColetaController < ApplicationController
     def gerarcsv
       coleta = Coleta.find(params[:id_coleta])
       coletas = Coleta.where(
-          tituloColeta: coleta.tituloColeta, tipoColeta: coleta.tituloColeta,
+          tituloColeta: coleta.tituloColeta, tipoColeta: coleta.tipoColeta,
           ano: coleta.ano, mes: coleta.mes, semestre: coleta.semestre, 
           project_id:  coleta.project_id
       )
