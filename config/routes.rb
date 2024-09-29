@@ -50,6 +50,6 @@ Rails.application.routes.draw do
     match 'coleta/mensal/fazeruf', :to => 'coletamensal#fazeruf', via: [:get, :post]
     match 'coleta/mensal/fazercidadesuf', :to => 'coletamensal#fazercidadesuf', via: [:get, :post]
     match 'coleta/mensal/fazer', :to => 'coletamensal#fazer', via: [:get, :post]
-    match 'coleta/mensal/atualizar', :to => 'coletamensal#atualizar', via: [:get, :post]
+    match 'coleta/mensal/atualizar', :to => 'coletamensal#atualizar', via: [:get, :post, :patch]
 
 end
