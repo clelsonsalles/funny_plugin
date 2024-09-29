@@ -1,6 +1,6 @@
 
 
-    <%= form_for @coleta, url: coletamensal_fazercidadesuf_path, :html => {:id => "formColeta"} do |f| %>
+    <%= form_for @coleta, url: coleta_mensal_fazercidadesuf_path, :html => {:id => "formColeta"} do |f| %>
         <%= f.hidden_field :mes, :value => @coleta.mes %>
          <%= f.hidden_field :ano, :value => @coleta.ano %>
          <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
