@@ -1,5 +1,5 @@
 <div class="container">
-              <%= form_for @coleta, url: coleta_mensalatualizar_path do |f| %>
+              <%= form_for @coleta, url: coletamensal_atualizar_path do |f| %>
                    <%= f.hidden_field :id, :value => @coleta.id %>
                    <%= f.hidden_field :uf, :value => @coleta.uf %>
                    <%= f.hidden_field :cidade, :value => @coleta.cidade %>
@@ -76,7 +76,17 @@
                        
                      </div>
           
-                     <%= f.submit "Adicionar", class:" btn btn-primary" %>
+          
+                     <div class="row mb-3">
+                       <div class="col-md-6">
+                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-primary' %>
+
+                        </div>
+                      </div>
+
 
 
 
