@@ -4,7 +4,7 @@ class ColetaController < ApplicationController
       coleta = Coleta.find(params[:id_coleta])
       coletas = Coleta.where(
           tituloColeta: coleta.tituloColeta, tipoColeta: coleta.tituloColeta,
-          ano: coleta.ano, mes: coleta.mes, semestre: coleta.semeste, 
+          ano: coleta.ano, mes: coleta.mes, semestre: coleta.semestre, 
           project_id:  coleta.project_id
       )
       csv_data = ExportCsv.export_coleta_to_csv(coleta.tipoColeta, coletas)
