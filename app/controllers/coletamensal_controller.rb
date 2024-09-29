@@ -109,7 +109,7 @@ class ColetamensalController < ApplicationController
       @coleta.mes = params[:mes]
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
   end
 
@@ -123,7 +123,7 @@ class ColetamensalController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_mensal_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes  )
+    redirect_to coleta_mensal_fazer_path(titulo: @coleta.tituloColeta, tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes  )
    end
   
 end
