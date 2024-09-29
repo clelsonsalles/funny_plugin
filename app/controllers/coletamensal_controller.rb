@@ -112,8 +112,9 @@ class ColetamensalController < ApplicationController
     else
       @coleta.tipoColeta = params[:tipoColeta]
       @coleta.project_id = params[:project_id]
+      @coleta.tituloColeta - params[:titulo]
       @coleta.ano = params[:ano]
-      @coleta.titulo - params[:titulo]
+      @coleta.mes = params[:mes]
     end
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano )
