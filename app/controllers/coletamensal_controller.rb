@@ -4,10 +4,6 @@ class ColetamensalController < ApplicationController
     @coleta = Coleta.new    
     @coletas = nil
     @coleta.safe_attributes = paramsColeta
-    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
-    Rails.logger.info "CSR params: #{params}" 
-    Rails.logger.info "CSR coleta: #{@coleta}" 
-
 
     @ufs = []
     @municipios = []
@@ -41,9 +37,6 @@ class ColetamensalController < ApplicationController
       @coleta = Coleta.new    
       @coletas = nil
       @coleta.safe_attributes = paramsColeta
-    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
-    Rails.logger.info "CSR params: #{params}" 
-    Rails.logger.info "CSR coleta: #{@coleta}" 
 
       @ufs = []
       @municipios = []
@@ -88,9 +81,6 @@ class ColetamensalController < ApplicationController
     @coleta = Coleta.new    
     @coletas = nil
     @coleta.safe_attributes = paramsColeta
-    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
-    Rails.logger.info "CSR params: #{params}" 
-    Rails.logger.info "CSR coleta: #{@coleta}" 
     
     require 'net/http'
     require 'json'
@@ -117,17 +107,13 @@ class ColetamensalController < ApplicationController
   def atualizar
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
-    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
-    Rails.logger.info "CSR params: #{params}" 
-    Rails.logger.info "CSR coleta: #{@coleta}" 
 
     @coleta.dataRealizacao = Time.current
     @coleta.dataCriacao = Time.current
 
-
     @coleta.save
 
-    redirect_to coleta_mensal_fazer_path(titulo: @coleta.tituloColeta, tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes  )
+    redirect_to coleta_mensal_fazer_path(coleta: @coleta)
    end
   
 end
