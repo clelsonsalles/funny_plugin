@@ -1,5 +1,5 @@
 class ColetamensalController < ApplicationController
-  def fazer
+  def fazeruf
     titulo = params[:tituloColeta]
     tipoColeta = params[:tipoColeta]
     project_id = params[:project_id]
@@ -99,6 +99,24 @@ class ColetamensalController < ApplicationController
         municipio.nome = municipioJson["nome"]
         @municipios << municipio
       end        
+
+  end
+
+  def fazer
+    paramsColeta = params[:coleta]
+    @coleta = Coleta.new    
+    @coletas = nil
+    
+    if !paramsColeta.nil?
+      @coleta.safe_attributes = paramsColeta
+    else
+      @coleta.tipoColeta = params[:tipoColeta]
+      @coleta.project_id = params[:project_id]
+      @coleta.ano = params[:ano]
+      @coleta.titulo - params[:titulo]
+    end
+
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano )
 
   end
 
