@@ -119,7 +119,7 @@ class ColetamensalController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_mensal_fazer_path(id_coleta: @coleta.id)
+    redirect_to coleta_mensal_fazeruf_path(id_coleta: @coleta.id)
    end
   
 end
