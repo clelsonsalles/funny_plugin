@@ -115,22 +115,36 @@
     <table class="table table-custom">
             <thead class="thead-light">
                 <tr>
+                   <th scope="col">Cnpj</th>
                     <th scope="col">Mês</th>
                     <th scope="col">Ano<th>
-                    <th scope="col">Tipo</th>
                     <th scope="col">UF</th>
-                    <th scope="col">Município</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Tipo de Cliente</th>
+                    <th scope="col">Tipo de Atendimento</th>
+                    <th scope="col">Tipo Meio</th>
+                    <th scope="col">Tipo de Tecnologia</th>
+                    <th scope="col">Tipo de Produto</th>
+                    <th scope="col">Velocidade</th>
+                    <th scope="col">Quantidade de Acessos</th>
                     <th scope="col">Codigo IBGE</th>
                 </tr>
             </thead>
             <tbody>
              <% for coleta in @coletas %>
                 <tr> 
-                     <td><%= coleta.mes %></td>
-                     <td><%= coleta.ano %></td>
-                     <td><%= coleta.tipoColeta %></td>
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.mesInformado %></td>
+                     <td><%= coleta.anoInformado %></td>
                      <td><%= coleta.uf %></td>
                      <td><%= coleta.cidade%></td>
+                     <td><%= coleta.tipoCliente%></td>
+                     <td><%= coleta.tipoAtendimento%></td>
+                     <td><%= coleta.tipoMeio%></td>
+                     <td><%= coleta.tipoTecnologia%></td> 
+                     <td><%= coleta.tipoProduto%></td>
+                     <td><%= coleta.velocidade%></td>
+                     <td><%= coleta.quantidadedeAcesso%></td>
                      <td><%= coleta.codigoIBGE%></td>
                 </tr>
             <% end %>
