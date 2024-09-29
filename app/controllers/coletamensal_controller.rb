@@ -3,7 +3,9 @@ class ColetamensalController < ApplicationController
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
-    
+    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
+    Rails.logger.info "CSR params: #{params}" 
+
     if !paramsColeta.nil?
       @coleta.safe_attributes = paramsColeta
     else
@@ -45,6 +47,8 @@ class ColetamensalController < ApplicationController
       paramsColeta = params[:coleta]
       @coleta = Coleta.new    
       @coletas = nil
+    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
+    Rails.logger.info "CSR params: #{params}" 
       
       if !paramsColeta.nil?
         @coleta.safe_attributes = paramsColeta
@@ -98,6 +102,8 @@ class ColetamensalController < ApplicationController
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
+    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
+    Rails.logger.info "CSR params: #{params}" 
     
     if !paramsColeta.nil?
       @coleta.safe_attributes = paramsColeta
@@ -116,6 +122,8 @@ class ColetamensalController < ApplicationController
   def atualizar
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
+    Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
+    Rails.logger.info "CSR params: #{params}" 
 
     @coleta.dataRealizacao = Time.current
     @coleta.dataCriacao = Time.current
