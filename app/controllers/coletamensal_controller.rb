@@ -77,26 +77,32 @@ class ColetamensalController < ApplicationController
   end
 
   def fazer
-    paramsColeta = params[:coleta]
-    @coleta = Coleta.new    
-    @coletas = nil
-    @coleta.safe_attributes = paramsColeta
-    
-    require 'net/http'
-    require 'json'
-    
-    # URL da API externa de UFs e cidades
-    external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
-    external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
-    uri = URI(external_api_url_cidades_completa)
-    response = Net::HTTP.get(uri)
-  
-    array =  JSON.parse(response)    
-    array.each do |municipioJson|
-      if municipioJson["nome"] == params[:coleta][:cidade]
-          @coleta.codigoIBGE = municipioJson["id"]
-          break
-      end
+    id_coleta = params[:id_coleta]
+    if (id_coleta.nil?)
+        paramsColeta = params[:coleta]
+        @coleta = Coleta.new    
+        @coletas = nil
+        @coleta.safe_attributes = paramsColeta
+        
+        require 'net/http'
+        require 'json'
+        
+        # URL da API externa de UFs e cidades
+        external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+        external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
+        uri = URI(external_api_url_cidades_completa)
+        response = Net::HTTP.get(uri)
+      
+        array =  JSON.parse(response)    
+        array.each do |municipioJson|
+          if municipioJson["nome"] == params[:coleta][:cidade]
+              @coleta.codigoIBGE = municipioJson["id"]
+              break
+          end
+        end        
+    else
+        @coleta = Coleta.find(id_coleta)
+        @coleta.id = nil
     end        
 
     
@@ -113,7 +119,7 @@ class ColetamensalController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_mensal_fazer_path(coleta: @coleta)
+    redirect_to coleta_mensal_fazer_path(id_coleta: @coleta.id)
    end
   
 end
