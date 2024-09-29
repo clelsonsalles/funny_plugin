@@ -1,9 +1,16 @@
 class ColetamensalController < ApplicationController
   def fazeruf
-    paramsColeta = params[:coleta]
-    @coleta = Coleta.new    
-    @coletas = nil
-    @coleta.safe_attributes = paramsColeta
+    id_coleta = params[:id_coleta]
+    if (id_coleta.nil?)
+      paramsColeta = params[:coleta]
+      @coleta = Coleta.new    
+      @coletas = nil
+      @coleta.safe_attributes = paramsColeta
+    else
+        @coleta = Coleta.find(id_coleta)
+        @coleta.id = nil
+    end        
+
 
     @ufs = []
     @municipios = []
@@ -77,36 +84,29 @@ class ColetamensalController < ApplicationController
   end
 
   def fazer
-    id_coleta = params[:id_coleta]
-    if (id_coleta.nil?)
-        paramsColeta = params[:coleta]
-        @coleta = Coleta.new    
-        @coletas = nil
-        @coleta.safe_attributes = paramsColeta
-        
-        require 'net/http'
-        require 'json'
-        
-        # URL da API externa de UFs e cidades
-        external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
-        external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
-        uri = URI(external_api_url_cidades_completa)
-        response = Net::HTTP.get(uri)
+      paramsColeta = params[:coleta]
+      @coleta = Coleta.new    
+      @coletas = nil
+      @coleta.safe_attributes = paramsColeta
       
-        array =  JSON.parse(response)    
-        array.each do |municipioJson|
-          if municipioJson["nome"] == params[:coleta][:cidade]
-              @coleta.codigoIBGE = municipioJson["id"]
-              break
-          end
-        end        
-    else
-        @coleta = Coleta.find(id_coleta)
-        @coleta.id = nil
-    end        
-
+      require 'net/http'
+      require 'json'
+      
+      # URL da API externa de UFs e cidades
+      external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+      external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
+      uri = URI(external_api_url_cidades_completa)
+      response = Net::HTTP.get(uri)
     
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
+      array =  JSON.parse(response)    
+      array.each do |municipioJson|
+        if municipioJson["nome"] == params[:coleta][:cidade]
+            @coleta.codigoIBGE = municipioJson["id"]
+            break
+        end
+      end        
+  
+      @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
   end
 
