@@ -1,11 +1,5 @@
 class ColetamensalController < ApplicationController
   def fazeruf
-    titulo = params[:tituloColeta]
-    tipoColeta = params[:tipoColeta]
-    project_id = params[:project_id]
-    ano = params[:ano]
-    mes = params[:mes]
-
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
@@ -13,10 +7,11 @@ class ColetamensalController < ApplicationController
     if !paramsColeta.nil?
       @coleta.safe_attributes = paramsColeta
     else
-      @coleta.tipoColeta = tipoColeta
-      @coleta.project_id = project_id
-      @coleta.ano = ano
-      @coleta.mes = mes
+      @coleta.tipoColeta = params[:tipoColeta]
+      @coleta.project_id = params[:project_id]
+      @coleta.tituloColeta - params[:titulo]
+      @coleta.ano = params[:ano]
+      @coleta.mes = params[:mes]
     end
 
     @ufs = []
@@ -46,10 +41,6 @@ class ColetamensalController < ApplicationController
   end
 
   def fazercidadesuf
-      tipoColeta = params[:tipoColeta]
-      project_id = params[:project_id]
-      ano = params[:ano]
-      mes = params[:mes]
   
       paramsColeta = params[:coleta]
       @coleta = Coleta.new    
@@ -58,10 +49,11 @@ class ColetamensalController < ApplicationController
       if !paramsColeta.nil?
         @coleta.safe_attributes = paramsColeta
       else
-        @coleta.tipoColeta = tipoColeta
-        @coleta.project_id = project_id
-        @coleta.ano = ano
-        @coleta.mes = mes
+        @coleta.tipoColeta = params[:tipoColeta]
+        @coleta.project_id = params[:project_id]
+        @coleta.tituloColeta - params[:titulo]
+        @coleta.ano = params[:ano]
+        @coleta.mes = params[:mes]
       end
 
       @ufs = []
