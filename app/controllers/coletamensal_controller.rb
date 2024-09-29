@@ -3,18 +3,11 @@ class ColetamensalController < ApplicationController
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
+    @coleta.safe_attributes = paramsColeta
     Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
     Rails.logger.info "CSR params: #{params}" 
+    Rails.logger.info "CSR coleta: #{@coleta}" 
 
-    if !paramsColeta.nil?
-      @coleta.safe_attributes = paramsColeta
-    else
-      @coleta.tipoColeta = params[:tipoColeta]
-      @coleta.project_id = params[:project_id]
-      @coleta.tituloColeta - params[:titulo]
-      @coleta.ano = params[:ano]
-      @coleta.mes = params[:mes]
-    end
 
     @ufs = []
     @municipios = []
@@ -47,18 +40,10 @@ class ColetamensalController < ApplicationController
       paramsColeta = params[:coleta]
       @coleta = Coleta.new    
       @coletas = nil
+      @coleta.safe_attributes = paramsColeta
     Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
     Rails.logger.info "CSR params: #{params}" 
-      
-      if !paramsColeta.nil?
-        @coleta.safe_attributes = paramsColeta
-      else
-        @coleta.tipoColeta = params[:tipoColeta]
-        @coleta.project_id = params[:project_id]
-        @coleta.tituloColeta - params[:titulo]
-        @coleta.ano = params[:ano]
-        @coleta.mes = params[:mes]
-      end
+    Rails.logger.info "CSR coleta: #{@coleta}" 
 
       @ufs = []
       @municipios = []
@@ -102,19 +87,29 @@ class ColetamensalController < ApplicationController
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
     @coletas = nil
+    @coleta.safe_attributes = paramsColeta
     Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
     Rails.logger.info "CSR params: #{params}" 
+    Rails.logger.info "CSR coleta: #{@coleta}" 
     
-    if !paramsColeta.nil?
-      @coleta.safe_attributes = paramsColeta
-    else
-      @coleta.tipoColeta = params[:tipoColeta]
-      @coleta.project_id = params[:project_id]
-      @coleta.tituloColeta - params[:titulo]
-      @coleta.ano = params[:ano]
-      @coleta.mes = params[:mes]
-    end
+    require 'net/http'
+    require 'json'
+    
+    # URL da API externa de UFs e cidades
+    external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
+    external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
+    uri = URI(external_api_url_cidades_completa)
+    response = Net::HTTP.get(uri)
+  
+    array =  JSON.parse(response)    
+    array.each do |municipioJson|
+      if municipioJson["nome"] == params[:coleta][:cidade]
+          @coleta.codigoIBGE = municipioJson["id"]
+          break
+      end
+    end        
 
+    
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
   end
@@ -124,6 +119,7 @@ class ColetamensalController < ApplicationController
     @coleta.safe_attributes = params[:coleta]
     Rails.logger.info "CSR paramsColeta: #{paramsColeta}" 
     Rails.logger.info "CSR params: #{params}" 
+    Rails.logger.info "CSR coleta: #{@coleta}" 
 
     @coleta.dataRealizacao = Time.current
     @coleta.dataCriacao = Time.current
