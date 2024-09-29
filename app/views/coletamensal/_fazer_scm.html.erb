@@ -105,5 +105,36 @@
 
                <% end %>
 
-  </div>
+</div>
+
+ <br/><br/>
+
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Mês</th>
+                    <th scope="col">Ano<th>
+                    <th scope="col">Tipo</th>
+                    <th scope="c/ol">UF</th>
+                    <th scope="col">Município</th>
+                    <th scope="col">Codigo IBGE</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.mes %></td>
+                     <td><%= coleta.ano %></td>
+                     <td><%= coleta.tipo %></td>
+                     <td><%= coleta.uf %></td>
+                     <td><%= coleta.municipio %></td>
+                     <td><%= coleta.codigoIbge %></td>
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
 </div>
