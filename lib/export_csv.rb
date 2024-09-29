@@ -2,11 +2,11 @@
 require 'csv'
 
 module ExportCsv
-    def self.export_coleta_to_csv(tipoColeta, coletas)
+    def self.export_coleta_to_csv(tituloColeta, tipoColeta, coletas)
       csv_string = "\uFEFF" + CSV.generate(headers: true, col_sep: ';', encoding: "UTF-8", row_sep: "\r\n") do |csv|
-        case tipoColeta
+        case tituloColeta
             when Coleta.mensal
-              case coleta.tipoColeta
+              case tipoColeta
                   when "SCM"
                         #MENSAL_SCM
                         #cnpj prestadora	ano	mês	uf	cidade	tipoCliente	tipoAtendimento	tipoMeio	tipoTecnologia	tipoProduto	velocidade	quantidadeAcesso	codigoIBGE
@@ -41,7 +41,7 @@ module ExportCsv
               end
             
             when Coleta.semestral
-              case coleta.tipoColeta
+              case tipoColeta
                   when "SCM"
                         #SEMESTRAL_SCM
                         #cnpj	anoInformado	trimestre	uf	dadoInformado	valor
@@ -77,7 +77,7 @@ module ExportCsv
               end
 
             when Coleta.anual
-              case coleta.tipoColeta
+              case tipoColeta
                   when "Estação"
                         # Adiciona o cabeçalho
                         csv << ['cnpj', 'ano', 'idEstacao', 'nEstacao', 'codigoIBGE', 'abertura', 'cep', 'cidade', 'rua', 'numeroEndereco', 'latitude', 'longitude']
@@ -107,10 +107,10 @@ module ExportCsv
                            csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idSatelite, coleta.codigoSatelite, coleta.freqUplink, coleta.freqDownlink, coleta.largCanalUplink, coleta.capCanalUplink, coleta.largCanalDownlink, coleta.capCanalDownlink]
                         end
                   else
-                      csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
+                      csv << [tituloColeta, tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
               end
             else
-              csv << [coleta.id, coleta.tituloColeta, "TÍTULO DE COLETA NÃO DEFINIDO"]
+              csv << [tituloColeta, tipoColeta, "TÍTULO DE COLETA NÃO DEFINIDO"]
         end          
       end
 
