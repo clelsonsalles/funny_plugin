@@ -4,7 +4,7 @@ class ColetasemestralController < ApplicationController
     project_id = params[:project_id]
     ano = params[:ano]
     semestre = params[:semestre]
-    titulo = params[:titulo]
+    tituloColeta = params[:tituloColeta]
 
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
