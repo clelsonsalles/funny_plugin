@@ -10,7 +10,7 @@ class ColetaanualController < ApplicationController
     @coleta.tipoColeta = tipoColeta
     @coleta.project_id = project_id
     @coleta.ano = ano
-    @coleta.tituloColeta - tituloColeta
+    @coleta.tituloColeta = tituloColeta
 
     @ufs = []
     @municipios = []
