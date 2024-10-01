@@ -8,6 +8,43 @@
          <%= f.hidden_field :project_id, :value => @coleta.project_id %>
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
+
+
+           <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                     <p><%= f.label :uf, "Selecione a UF" %></p>
+                    <% listaSelectUf = [] %>
+                    <% listaSelectUf << ["Selecione", "" ] %>
+                    <% listaSelectMunicipio = [] %>
+                    <% for uf in @ufs %>
+                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
+                    <% end %>
+                    <% for municipio in @municipios %>
+                         <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
+                    <% end %>
+    
+    
+                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select' %></p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
+                     <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                     <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                     <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
             
                
              <div class="row mb-3">
@@ -63,28 +100,7 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="input1">Input 1</label>
-        <input type="text" class="form-control" id="input1" placeholder="Digite algo">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="input2">Input 2</label>
-        <input type="text" class="form-control" id="input2" placeholder="Digite algo">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="input3">Input 3</label>
-        <input type="text" class="form-control" id="input3" placeholder="Digite algo">
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
   <script type="text/javascript">
