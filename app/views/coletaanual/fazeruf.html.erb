@@ -1,4 +1,4 @@
-
+<div class="container-md">
   <% if @coleta.tipoColeta == 'Estação' %>
 
     <%= form_for @coleta, url: coleta_anual_fazercidadesuf_path, :html => {:id => "formColeta"} do |f| %>
@@ -9,7 +9,7 @@
 
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
-             <div class="box-description">Coleta de dados de acessos:
+            
                
              <div class="row mb-3">
                <div class="col-md-6">
@@ -27,13 +27,11 @@
     
                     <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select' %></p>
                </div>
-             </div>
-
-             <div class="row mb-3">
                <div class="col-md-6">
                      <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
                       <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
                </div>
+             
              </div>
 
              <div class="row mb-3">
@@ -42,7 +40,13 @@
                   <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
                </div>
              </div>
-           </div>
+             <div class="col-md-6">
+               <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
+
+            </div>
+
+
+
          </div>
      <% end %>
   <% end %>
