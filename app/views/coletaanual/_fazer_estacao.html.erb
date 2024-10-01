@@ -89,7 +89,7 @@
                <% end %>
 
   </div>
-
+</div>
 
  <br/><br/>
 
@@ -102,9 +102,15 @@
                     <th scope="col">Ano</th>
                     <th scope="col">Id da estação de origem</th>
                     <th scope="col">Id da estação de destino</th>
-                    <th scope="col">Id Enlace</th>
-                    <th scope="col">Enlace Meio</th>
-                    <th scope="col">CNPJ da Empresa contratada</th>
+                    <th scope="col">Número da Estação</th>
+                    <th scope="col">Código IBGE</th>
+                    <th scope="col">Abertura</th>
+                    <th scope="col">Cep</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Número</th> 
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
                 </tr>
             </thead>
             <tbody>
@@ -114,9 +120,16 @@
                      <td><%= coleta.ano %></td>
                      <td><%= coleta.idEstacaoOrigem %></td>
                      <td><%= coleta.idEstacaoDestino %></td>
-                     <td><%= coleta.idEnlace %></td>
-                     <td><%= coleta.enlaceMeio %></td>
-                     <td><%= coleta.cnpjContratada %></td> 
+                     <td><%= coleta.nEstacao %></td>
+                     <td><%= coleta.codigoIBGE %></td>
+                     <td><%= coleta.abertura %></td>
+                     <td><%= coleta.cep %></td>
+                     <td><%= coleta.cidade %></td>
+                     <td><%= coleta.rua %></td>
+                     <td><%= coleta.numeroEndereco %></td>
+                     <td><%= coleta.latitude %></td>
+                     <td><%= coleta.longitude %></td>
+                      
                 </tr>
             <% end %>
               
