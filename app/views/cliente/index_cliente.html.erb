@@ -115,7 +115,12 @@
                         <% end %>
                         <% if coleta.tituloColeta == 'Coleta Anual' %>
                            <td>
-                              <%= form_for coleta, url: coleta_anual_fazer_path do |f| %>
+                              <% if coleta.tipoColeta == "Estação" %>
+                                  <% urlAnual = "coleta_anual_fazeruf_path" %>
+                              <% else %>
+                                  <% urlAnual = "coleta_anual_fazer_path" %>
+                            <% end %>
+                              <%= form_for coleta, url: #{urlAnual} do |f| %>
                                    <%= f.hidden_field :mes, :value => coleta.mes %>
                                    <%= f.hidden_field :ano, :value => coleta.ano %>
                                    <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
