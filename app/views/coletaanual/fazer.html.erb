@@ -1,3 +1,7 @@
+        <% if @coleta.tipoColeta == 'Estação' %>
+          <%= render "coletaanual/fazer_estacao" %>
+        <% end %>
+
         <% if @coleta.tipoColeta == 'Enlaces próprios' %>
           <%= render "coletaanual/fazer_enlacesproprios" %>
         <% end %>
