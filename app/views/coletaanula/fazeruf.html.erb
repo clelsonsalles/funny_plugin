@@ -1,22 +1,7 @@
 
-        <% if @coleta.tipoColeta == 'Enlaces próprios' %>
-          <%= render "coleta/coleta_anual_enlaces_proprios" %>
-        <% end %>
-        
-        <% if @coleta.tipoColeta == 'Encalces contratados' %>
-          <%= render "coleta/coleta_anual_encalces_contratados" %>
-        <% end %>
-        
-        <% if @coleta.tipoColeta == 'Encalces via satélite' %>
-          <%= render "coleta/coleta_anual_encalces_via_satelite" %>
-        <% end %>
-
-
-
-
   <% if @coleta.tipoColeta == 'Estação' %>
 
-    <%= form_for @coleta, url: coleta_anualcidadesuf_path, :html => {:id => "formColeta"} do |f| %>
+    <%= form_for @coleta, url: coleta_anual_fazercidadesuf_path, :html => {:id => "formColeta"} do |f| %>
          <%= f.hidden_field :mes, :value => @coleta.mes %>
          <%= f.hidden_field :ano, :value => @coleta.ano %>
          <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
