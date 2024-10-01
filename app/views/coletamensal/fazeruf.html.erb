@@ -55,49 +55,7 @@
            
             
                
-             <div class="row mb-3">
-               <div class="col-md-6">
-                   
-                    <p><%= f.label :uf, "Selecione a UF" %></p>
-                    <% listaSelectUf = [] %>
-                    <% listaSelectUf << ["Selecione", "" ] %>
-                    <% listaSelectMunicipio = [] %>
-                    <% for uf in @ufs %>
-                         <% listaSelectUf << [uf.sigla + " - " + uf.nome, uf.sigla ] %>
-                    <% end %>
-                    <% for municipio in @municipios %>
-                         <% listaSelectMunicipio << [municipio.nome, municipio.id ] %>
-                    <% end %>
-    
-    
-                    <p><%= f.select :uf, options_for_select(listaSelectUf) {}, {:selected => "Selecione uma UF"}, class:'form-select' %></p>
-               </div>
-               <div class="col-md-6">
-                     <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                     <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
-               </div>
-                
-             </div>
-
-              <div class="row mb-3">
-               <div class="col-md-6">
-                  <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                  <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %></p>
-               </div>
-             </div>
-
-                <div class="row mb-3">
-                       
-                        <div class="col-md-6">
-                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg text-white' %>
-
-
-                        </div>
-                      </div>
-  
-
-           </div>
-         </div>
+        
 
       
        
