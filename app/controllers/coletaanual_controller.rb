@@ -1,16 +1,16 @@
 class ColetaanualController < ApplicationController
   def fazeruf
-    id_coleta = params[:id_coleta]
-    if (id_coleta.nil?)
-      paramsColeta = params[:coleta]
-      @coleta = Coleta.new    
-      @coletas = nil
-      @coleta.safe_attributes = paramsColeta
-    else
-        @coleta = Coleta.find(id_coleta)
-        @coleta.id = nil
-    end        
+    
+    tipoColeta = params[:tipoColeta]
+    project_id = params[:project_id]
+    ano = params[:ano]
+    tituloColeta = params[:titulo]
 
+    @coleta = Coleta.new    
+    @coleta.tipoColeta = tipoColeta
+    @coleta.project_id = project_id
+    @coleta.ano = ano
+    @coleta.tituloColeta - tituloColeta
 
     @ufs = []
     @municipios = []
@@ -35,7 +35,6 @@ class ColetaanualController < ApplicationController
         @ufs << uf
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes  )
   end
 
   def fazercidadesuf
@@ -99,10 +98,10 @@ class ColetaanualController < ApplicationController
       @coleta.tipoColeta = tipoColeta
       @coleta.project_id = project_id
       @coleta.ano = ano
-      @coleta.titulo - titulo
+      @coleta.tituloColeta - titulo
     end
 
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano )
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta )
   end
 
  def atualizar
@@ -115,7 +114,11 @@ class ColetaanualController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano)
+    if @coleta.tipoColeta == "Estação"
+        redirect_to coleta_anual_fazeruf_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta)
+    else
+        redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta)
+    end
  end
   
 end
