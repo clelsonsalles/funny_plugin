@@ -116,19 +116,26 @@
                         <% if coleta.tituloColeta == 'Coleta Anual' %>
                            <td>
                               <% if coleta.tipoColeta == "Estação" %>
-                                  <% urlAnual = "coleta_anual_fazeruf_path" %>
+                                  <%= form_for coleta, url: coleta_anual_fazeruf_path do |f| %>
+                                       <%= f.hidden_field :mes, :value => coleta.mes %>
+                                       <%= f.hidden_field :ano, :value => coleta.ano %>
+                                       <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
+                                       <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
+                                       <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                       <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                                       <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                                  <% end %>
                               <% else %>
-                                  <% urlAnual = "coleta_anual_fazer_path" %>
-                            <% end %>
-                              <%= form_for coleta, url: #{urlAnual} do |f| %>
-                                   <%= f.hidden_field :mes, :value => coleta.mes %>
-                                   <%= f.hidden_field :ano, :value => coleta.ano %>
-                                   <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
-                                   <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
-                                   <%= f.hidden_field :project_id, :value => coleta.project_id %>
-                                   <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                   <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
-                            <% end %>
+                                  <%= form_for coleta, url: coleta_anual_fazer_path do |f| %>
+                                       <%= f.hidden_field :mes, :value => coleta.mes %>
+                                       <%= f.hidden_field :ano, :value => coleta.ano %>
+                                       <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
+                                       <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
+                                       <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                       <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                                       <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                                  <% end %>
+                              <% end %>
                           </td>
                        <% end %>
                     <% else %>
