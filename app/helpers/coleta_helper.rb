@@ -105,6 +105,7 @@ module ColetaHelper
       coleta.id = coletaGravada.id
       coleta.mes = coletaGravada.mes
       coleta.ano = coletaGravada.ano
+      coleta.semestre = coletaGravada.semestre
       coleta.tituloColeta =  coletaGravada.tituloColeta
       coleta.tipoColeta = coletaGravada.tipoColeta
       coleta.project_id = coletaGravada.project.id
