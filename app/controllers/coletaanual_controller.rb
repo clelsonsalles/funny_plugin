@@ -5,7 +5,7 @@ class ColetaanualController < ApplicationController
         tipoColeta = params[:tipoColeta]
         project_id = params[:project_id]
         ano = params[:ano]
-        tituloColeta = params[:titulo]
+        tituloColeta = params[:tituloColeta]
     
         @coleta = Coleta.new    
         @coleta.tipoColeta = tipoColeta
@@ -92,6 +92,7 @@ class ColetaanualController < ApplicationController
     project_id = params[:project_id]
     ano = params[:ano]
     titulo = params[:titulo]
+    tituloColeta = params[:tituloColeta]
 
     paramsColeta = params[:coleta]
     @coleta = Coleta.new    
@@ -103,7 +104,7 @@ class ColetaanualController < ApplicationController
       @coleta.tipoColeta = tipoColeta
       @coleta.project_id = project_id
       @coleta.ano = ano
-      @coleta.tituloColeta - titulo
+      @coleta.tituloColeta = tituloColeta
     end
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta )
