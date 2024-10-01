@@ -2,12 +2,10 @@
   <% if @coleta.tipoColeta == 'Estação' %>
 
     <%= form_for @coleta, url: coleta_anual_fazercidadesuf_path, :html => {:id => "formColeta"} do |f| %>
-         <%= f.hidden_field :mes, :value => @coleta.mes %>
          <%= f.hidden_field :ano, :value => @coleta.ano %>
          <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
          <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
          <%= f.hidden_field :project_id, :value => @coleta.project_id %>
-         <%= f.hidden_field :semestre, :value => @coleta.semestre %>
 
 
           <div class="box-title"><%= @coleta.tipoColeta %></div>
