@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-md">
               <%= form_for @coleta, url: coleta_semestral_atualizar_path do |f| %>
                    <%= f.hidden_field :ano, :value => @coleta.ano %>
                    <%= f.hidden_field :semestre, :value => @coleta.semestre %>
@@ -49,7 +49,7 @@
                           <%= f.submit "Adicionar", class:" btn btn-primary" %>
                         </div>
                         <div class="col-md-6">
-                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-primary' %>
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
 
                         </div>
                        </div>
