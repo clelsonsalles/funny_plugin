@@ -1,17 +1,22 @@
 class ColetaanualController < ApplicationController
   def fazeruf
+    paramsColeta = params[:coleta]
+    if paramsColeta.nil?
+        tipoColeta = params[:tipoColeta]
+        project_id = params[:project_id]
+        ano = params[:ano]
+        tituloColeta = params[:titulo]
     
-    tipoColeta = params[:tipoColeta]
-    project_id = params[:project_id]
-    ano = params[:ano]
-    tituloColeta = params[:titulo]
-
-    @coleta = Coleta.new    
-    @coleta.tipoColeta = tipoColeta
-    @coleta.project_id = project_id
-    @coleta.ano = ano
-    @coleta.tituloColeta = tituloColeta
-
+        @coleta = Coleta.new    
+        @coleta.tipoColeta = tipoColeta
+        @coleta.project_id = project_id
+        @coleta.ano = ano
+        @coleta.tituloColeta = tituloColeta
+    else
+        @coleta = Coleta.new    
+        @coleta.safe_attributes = paramsColeta
+    end
+    
     @ufs = []
     @municipios = []
 
