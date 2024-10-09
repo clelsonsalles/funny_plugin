@@ -95,7 +95,8 @@ class ColetamensalController < ApplicationController
           @coleta.id = nil
       end
       projeto = Project.find(@coleta.project_id)
-      @organizacao = Organizacao.new(projeto)
+      organizacao = Organizacao.new(projeto)
+      @coleta.cnpj = organizacao.cnpj
 
       require 'net/http'
       require 'json'
