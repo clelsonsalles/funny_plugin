@@ -88,10 +88,18 @@ class ColetamensalController < ApplicationController
       @coleta = Coleta.new    
       @coletas = nil
       @coleta.safe_attributes = paramsColeta
-      
+
+      coleta = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes).last
+      if (!coleta.nil?)
+          @coleta = coleta
+          @coleta.id = nil
+      end
+      projeto = Project.find(@coleta.project_id)
+      @organizacao = Organizacao.new(projeto)
+
       require 'net/http'
       require 'json'
-      
+
       # URL da API externa de UFs e cidades
       external_api_url_cidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'
       external_api_url_cidades_completa = external_api_url_cidades + params[:coleta][:uf] + "/municipios"
@@ -105,6 +113,7 @@ class ColetamensalController < ApplicationController
             break
         end
       end        
+
   
       @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
