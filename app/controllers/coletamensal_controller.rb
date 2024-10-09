@@ -114,6 +114,8 @@ class ColetamensalController < ApplicationController
             break
         end
       end        
+      @coleta.uf = params[:coleta][:uf]
+      @coleta.cidade = params[:coleta][:cidade]
 
   
       @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
