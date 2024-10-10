@@ -122,6 +122,18 @@ class ColetamensalController < ApplicationController
 
   end
 
+  def ver
+      paramsColeta = params[:coleta]
+      @coleta = Coleta.new    
+      @coletas = nil
+      @coleta.safe_attributes = paramsColeta
+
+  
+      @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
+
+  end
+
+  
   def atualizar
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
