@@ -86,57 +86,86 @@
                      <td><span class="badge rounded-pill <%= coleta.status == 'Aguardando Coleta' ? 'bg-secondary' : coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-danger' %>"><%= coleta.status %></span></td>
                     <td><%= coleta.tituloColeta %></td>
                     <td><%= coleta.tipoColeta %></td>
-                    <% if coleta.dataRealizacao.nil? %>
-                        <% if coleta.tituloColeta == 'Coleta Mensal' %>
+                    <% case coleta.tituloColeta %>
+                        <% when 'Coleta Mensal' %>
                           <td>
-                              <%= form_for coleta, url: coleta_mensal_fazeruf_path do |f| %>
+                              <% if coleta.dataRealizacao.nil? %>
+                                <%= form_for coleta, url: coleta_mensal_fazeruf_path do |f| %>
+                              <% else %>
+                                <%= form_for coleta, url: coleta_mensal_ver_path do |f| %>
+                              <% end %>
                                    <%= f.hidden_field :mes, :value => coleta.mes %>
                                    <%= f.hidden_field :ano, :value => coleta.ano %>
                                    <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
                                    <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                    <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                    <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                              <% if coleta.dataRealizacao.nil? %>
                                   <p><%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %> </p>
+                              <% else %>
+                                  <p><%= f.submit "Visualizar coleta", class:"btn btn-outline-secondary" %> </p>
+                              <% end %>
                             <% end %>
                           </td>
-                        <% end %>
-                        <% if coleta.tituloColeta == 'Coleta Semestral' %>
+                        <% when 'Coleta Semestral' %>
                            <td>
-                              <%= form_for coleta, url: coleta_semestral_fazer_path do |f| %>
+                              <% if coleta.dataRealizacao.nil? %>
+                                <%= form_for coleta, url: coleta_semestral_fazer_path do |f| %>
+                              <% else %>
+                                <%= form_for coleta, url: coleta_semestral_ver_path do |f| %>
+                              <% end %>
                                    <%= f.hidden_field :mes, :value => coleta.mes %>
                                    <%= f.hidden_field :ano, :value => coleta.ano %>
                                    <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
                                    <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                    <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                    <%= f.hidden_field :semestre, :value => coleta.semestre %>
+                              <% if coleta.dataRealizacao.nil? %>
                                    <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                              <% else %>
+                                   <%= f.submit "Visualizar coleta", class:"btn btn-outline-secondary" %>
+                              <% end %>
                             <% end %>
                           </td>
-                        <% end %>
-                        <% if coleta.tituloColeta == 'Coleta Anual' %>
+                        <% when 'Coleta Anual' %>
                            <td>
                               <% if coleta.tipoColeta == "Estação" %>
-                                  <%= form_for coleta, url: coleta_anual_fazeruf_path do |f| %>
+                                <% if coleta.dataRealizacao.nil? %>
+                                    <%= form_for coleta, url: coleta_anual_fazeruf_path do |f| %>
+                                <% else %>
+                                    <%= form_for coleta, url: coleta_anual_ver_path do |f| %>
+                                <% end %>
                                        <%= f.hidden_field :ano, :value => coleta.ano %>
                                        <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
                                        <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                        <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                <% if coleta.dataRealizacao.nil? %>
                                        <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
-                                  <% end %>
+                                <% else %>
+                                     <%= f.submit "Visualizar coleta", class:"btn btn-outline-secondary" %>
+                                <% end %>
+                                <% end %>
                               <% else %>
-                                  <%= form_for coleta, url: coleta_anual_fazer_path do |f| %>
-                                       <%= f.hidden_field :ano, :value => coleta.ano %>
-                                       <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
-                                       <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
-                                       <%= f.hidden_field :project_id, :value => coleta.project_id %>
-                                       <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                                  <% if coleta.dataRealizacao.nil? %>
+                                    <%= form_for coleta, url: coleta_anual_fazer_path do |f| %>
+                                  <% else %>
+                                    <%= form_for coleta, url: coleta_anual_ver_path do |f| %>
+                                  <% end %>
+                                         <%= f.hidden_field :ano, :value => coleta.ano %>
+                                         <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
+                                         <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
+                                         <%= f.hidden_field :project_id, :value => coleta.project_id %>
+                                  <% if coleta.dataRealizacao.nil? %>
+                                         <%= f.submit "Fazer coleta", class:"btn btn-outline-secondary" %>
+                                  <% else %>
+                                       <%= f.submit "Visualizar coleta", class:"btn btn-outline-secondary" %>
+                                  <% end %>
                                   <% end %>
                               <% end %>
                           </td>
-                       <% end %>
-                    <% else %>
-                        <td>Enviada para o Analista</td>
+
                     <% end %>
+
                 </tr>
                 <% end %>
             </tbody>
