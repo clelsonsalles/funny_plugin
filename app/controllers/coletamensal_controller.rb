@@ -96,7 +96,7 @@ class ColetamensalController < ApplicationController
       end
       projeto = Project.find(@coleta.project_id)
       organizacao = Organizacao.new(projeto)
-      @coleta.cnpj = organizacao.cnpj
+      @coleta.cnpj = organizacao.cnpj.tr('^0-9', '')
 
       require 'net/http'
       require 'json'
