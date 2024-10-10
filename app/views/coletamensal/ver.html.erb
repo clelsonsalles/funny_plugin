@@ -1,0 +1,12 @@
+
+<% if @coleta.tipoColeta == 'SCM' %>
+  <%= render "coletamensal/ver_scm" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'TvPA' %>
+  <%= render "coletamensal/ver_tvpa" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'STFC' %>
+  <%= render "coletamensal/ver_stfc" %>
+<% end %>
