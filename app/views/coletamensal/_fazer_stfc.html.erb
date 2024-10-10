@@ -21,7 +21,7 @@
                               <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", 
                                       placeholder: "Digite o CNPJ da Prestadora", required: true,
                                       maxlength: 14,  
-                                      onload: "this.value = this.value.replace(/[^0-9]/g, '')",
+                                      onblur: "this.value = this.value.replace(/[^0-9]/g, '')",
                                       oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %></p>
                          </div>
                       </div>
