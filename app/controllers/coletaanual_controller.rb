@@ -143,6 +143,30 @@ class ColetaanualController < ApplicationController
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta )
   end
 
+
+  def ver
+    tipoColeta = params[:tipoColeta]
+    project_id = params[:project_id]
+    ano = params[:ano]
+    titulo = params[:titulo]
+    tituloColeta = params[:tituloColeta]
+
+    paramsColeta = params[:coleta]
+    @coleta = Coleta.new    
+    @coletas = nil
+    
+    if !paramsColeta.nil?
+      @coleta.safe_attributes = paramsColeta
+    else
+      @coleta.tipoColeta = tipoColeta
+      @coleta.project_id = project_id
+      @coleta.ano = ano
+      @coleta.tituloColeta = tituloColeta
+    end
+    
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta )
+  end
+  
  def atualizar
     @coleta = Coleta.new    
     @coleta.safe_attributes = params[:coleta]
