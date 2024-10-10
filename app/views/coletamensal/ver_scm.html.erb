@@ -1,0 +1,44 @@
+
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                   <th scope="col">Cnpj</th>
+                    <th scope="col">Mês</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">UF</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Tipo de Cliente</th>
+                    <th scope="col">Tipo de Atendimento</th>
+                    <th scope="col">Tipo Meio</th>
+                    <th scope="col">Tipo de Tecnologia</th>
+                    <th scope="col">Tipo de Produto</th>
+                    <th scope="col">Velocidade</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Código IBGE</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.mesInformado %></td>
+                     <td><%= coleta.anoInformado %></td>
+                     <td><%= coleta.uf %></td>
+                     <td><%= coleta.cidade %></td>
+                     <td><%= coleta.tipoCliente %></td>
+                     <td><%= coleta.tipoAtendimento %></td>
+                     <td><%= coleta.tipoMeio %></td>
+                     <td><%= coleta.tipoTecnologia %></td> 
+                     <td><%= coleta.tipoProduto %></td>
+                     <td><%= coleta.velocidade %></td>
+                     <td><%= coleta.quantidadeAcesso %></td>
+                     <td><%= coleta.codigoIBGE %></td>
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
+</div>
