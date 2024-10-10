@@ -20,6 +20,17 @@ class ColetasemestralController < ApplicationController
       @coleta.tituloColeta = tituloColeta
     end
 
+    # Recupera a última coleta
+    coleta = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, tituloColeta: @coleta.tituloColeta ).last
+    if (!coleta.nil?)
+        @coleta = coleta
+        @coleta.id = nil
+    end
+    # Recupera o CNPJ da Organização
+    projeto = Project.find(@coleta.project_id)
+    organizacao = Organizacao.new(projeto)
+    @coleta.cnpj = organizacao.cnpj.tr('^0-9', '')
+
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, tituloColeta: @coleta.tituloColeta )
   end
 
