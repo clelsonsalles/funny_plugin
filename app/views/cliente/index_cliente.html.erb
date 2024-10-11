@@ -97,7 +97,7 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                    <p><%= f.submit "Fazer coleta", class:"btn btn-outline-secondary btn-sm" %> </p>
+                                    <p><%= f.submit "Fazer coleta", class:"btn btn-secondary btn-sm" %> </p>
                                   <% end %>
                               <% else %>
                                   <%= form_for coleta, url: coleta_mensal_ver_path do |f| %>
@@ -107,7 +107,7 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                    <p><%= f.submit "Visualizar coleta", class:"btn btn-outline-secondary btn-sm" %> </p>
+                                    <p><%= f.submit "Visualizar coleta", class:"btn btn-secondary btn-sm" %> </p>
                                   <% end %>
                             <% end %>
                           </td>
