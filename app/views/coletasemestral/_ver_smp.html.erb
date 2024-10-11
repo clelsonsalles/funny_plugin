@@ -1,0 +1,31 @@
+<div class="container">
+  <h4> Lista de Coletas</h4>
+    <table class="table table-custom">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Trimestre</th>
+                    <th scope="col">UF</th>
+                    <th scope="col">Dado Informado</th>
+                    <th scope="col">Valores</th>
+                    <th scope="col">CN</th>
+                </tr>
+            </thead>
+            <tbody>
+             <% for coleta in @coletas %>
+                <tr> 
+                     <td><%= coleta.cnpj %></td>
+                     <td><%= coleta.anoInformado %></td>
+                     <td><%= coleta.trimestre %></td>
+                     <td><%= coleta.uf %></td>
+                     <td><%= coleta.dadoInformado %></td>
+                     <td><%= coleta.valor %></td>
+                     <td><%= coleta.cn %></td>
+                </tr>
+            <% end %>
+              
+               
+            </tbody>
+        </table>
+</div>
