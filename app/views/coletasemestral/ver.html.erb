@@ -16,7 +16,6 @@
                    <td><span class="badge rounded-pill <%= @coleta.status == 'Aguardando Coleta' ? 'bg-secondary' : @coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-danger' %>"><%= @coleta.status %></span></td>
                   <td><%= @coleta.tituloColeta %></td>
                   <td><%= @coleta.tipoColeta %></td>
-                  <% case @coleta.tituloColeta %>
               </tr>
           </tbody>
       </table>
