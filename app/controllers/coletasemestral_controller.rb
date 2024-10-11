@@ -35,26 +35,13 @@ class ColetasemestralController < ApplicationController
   end
 
   def ver
-    tipoColeta = params[:tipoColeta]
-    project_id = params[:project_id]
-    ano = params[:ano]
-    semestre = params[:semestre]
-    tituloColeta = params[:tituloColeta]
 
     paramsColeta = params[:coleta]
-    @coleta = Coleta.new    
-    @coletas = nil
+    coleta = Coleta.new    
+    coletas = nil
     
-    if !paramsColeta.nil?
-      @coleta.safe_attributes = paramsColeta
-    else
-      @coleta.tipoColeta = tipoColeta
-      @coleta.project_id = project_id
-      @coleta.ano = ano
-      @coleta.semestre = semestre
-      @coleta.tituloColeta = tituloColeta
-    end
-
+    coleta.safe_attributes = paramsColeta
+    @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, semestre: coleta.semestre, tituloColeta: coleta.tituloColeta ).last
 
     @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, tituloColeta: @coleta.tituloColeta )
   end
