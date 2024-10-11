@@ -1,0 +1,42 @@
+<div class="container">
+      
+      <table class="table table-custom">
+          <thead class="thead-light">
+              <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Formulário</th>
+                  <th scope="col">Tipo</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><%= @coleta.textoData %></td>
+                  
+                   <td><span class="badge rounded-pill <%= @coleta.status == 'Aguardando Coleta' ? 'bg-secondary' : @coleta.status == 'Coleta Realizada' ? 'bg-success' : 'bg-danger' %>"><%= @coleta.status %></span></td>
+                  <td><%= @coleta.tituloColeta %></td>
+                  <td><%= @coleta.tipoColeta %></td>
+                  <% case @coleta.tituloColeta %>
+              </tr>
+          </tbody>
+      </table>
+      
+      
+      <% if @coleta.tipoColeta == 'SCM' %>
+        <%= render "coletasemestral/ver_scm" %>
+      <% end %>
+      
+      <% if @coleta.tipoColeta == 'SEAC' %>
+        <%= render "coletasemestral/ver_seac" %>
+      <% end %>
+      
+      <% if @coleta.tipoColeta == 'SMP' %>
+        <%= render "coletasemestral/ver_smp" %>
+      <% end %>
+
+      <div class="row mb-3">
+          <div class="col-md-6">
+            <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
+          </div>
+      </div>
+</div>
