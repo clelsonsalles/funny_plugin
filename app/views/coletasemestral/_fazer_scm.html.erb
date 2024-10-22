@@ -15,9 +15,11 @@
                                       placeholder: "Digite o CNPJ da Prestadora", required: true,
                                       maxlength: 14, oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %></p>
                          </div>
+                          <div class="row mb-3">
+                       
                          <div class="col-md-6">
-                               <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
+                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
                          </div>
                        </div>
 
