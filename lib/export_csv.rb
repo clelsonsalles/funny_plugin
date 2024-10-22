@@ -59,7 +59,7 @@ module ExportCsv
                         csv << ['DADO_INFORMADO', 'SERVICO', 'UF', 'VALORES', 'CNPJ']
                         # Adiciona as coletas
                         for coleta in coletas
-                           csv << [coleta.dadoInformado, coleta.tipoColeta coleta.uf, coleta.valor, coleta.cnpj]
+                           csv << [coleta.dadoInformado, coleta.tipoColeta, coleta.uf, coleta.valor, coleta.cnpj]
                         end
 
                   when "SMP"
@@ -72,8 +72,8 @@ module ExportCsv
                            csv << [coleta.cn, coleta.dadoInformado, coleta.tipoColeta, coleta.uf, coleta.valor, coleta.cnpj]
                         end
 
-                  else
-                      csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
+                        else
+                           csv << [coleta.id, coleta.tituloColeta, coleta.tipoColeta, "TIPO DE COLETA NÃO DEFINIDO"]
               end
 
             when Coleta.anual
