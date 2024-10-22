@@ -101,7 +101,7 @@ module ExportCsv
                         end
                   when "Encalces via satélite"
                         # Adiciona o cabeçalho
-                        csv << ['CNPJ', 'ANO', 'ESTACAO_A_ID', 'ENLACES_SATELITE_ID', 'ENLACES_SATELITES_COD_SATELITE, 'ENLACES_SATELITES_FREQ_CENTRAL_CANAL_UPLINK_MHZ', 'ENLACES_SATELITES_FREQ_CENTRAL_CANAL_DOWNLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_UPLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_UPLINK_MBPS' 'ENLACES_SATELITES_CAP_USO_CANAL_DOWNLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_DOWNLINK_MBPS']
+                        csv << ['CNPJ', 'ANO', 'ESTACAO_A_ID', 'ENLACES_SATELITE_ID', 'ENLACES_SATELITES_COD_SATELITE', 'ENLACES_SATELITES_FREQ_CENTRAL_CANAL_UPLINK_MHZ', 'ENLACES_SATELITES_FREQ_CENTRAL_CANAL_DOWNLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_UPLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_UPLINK_MBPS', 'ENLACES_SATELITES_CAP_USO_CANAL_DOWNLINK_MHZ', 'ENLACES_SATELITES_CAP_USO_CANAL_DOWNLINK_MBPS']
                         # Adiciona as coletas
                         for coleta in coletas
                            csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idSatelite, coleta.codigoSatelite, coleta.freqUplink, coleta.freqDownlink, coleta.largCanalUplink, coleta.capCanalUplink, coleta.largCanalDownlink, coleta.capCanalDownlink]
