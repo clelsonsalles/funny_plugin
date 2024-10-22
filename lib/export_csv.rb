@@ -11,10 +11,10 @@ module ExportCsv
                         #MENSAL_SCM
                         #CNPJ	ANO 	MES  COD_IBGE TIPO_CLIENTE TIPO_ATENDIMENTO TIPO_MEIO TIPO_PRODUTO TIPO_TECNOLOGIA VELOCIDADE ACESSOS
                         # Adiciona o cabeçalho
-                        csv << ['cnpj prestadora', 'ano', 'mês', 'codigoIBGE', 'tipoCliente', 'tipoAtendimento', 'tipoMeio', 'tipoProduto', 'tipoTecnologia', 'velocidade', 'quantidadeAcesso']
+                        csv << ['CNPJ', 'ANO', 'MES', 'COD_IBGE', 'TIPO_CLIENTE', 'TIPO_ATENDIMENTO', 'TIPO_MEIO', 'TIPO_PRODUTO', 'TIPO_TECNOLOGIA', 'VELOCIDADE', 'ACESSOS']
                         # Adiciona as coletas
                         for coleta in coletas
-                            csv << [coleta.cnpj, coleta.anoInformado, coleta.mesInformado, coleta.uf, coleta.cidade, coleta.tipoCliente, coleta.tipoAtendimento, coleta.tipoMeio, coleta.tipoTecnologia, coleta.tipoProduto, coleta.velocidade, coleta.quantidadeAcesso, coleta.codigoIBGE]
+                            csv << [coleta.cnpj, coleta.anoInformado, coleta.mesInformado,  coleta.codigoIBGE, coleta.tipoCliente, coleta.tipoAtendimento,  coleta.tipoMeio, coleta.tipoProduto, coleta.tipoTecnologia, coleta.velocidade, coleta.quantidadeAcesso]
                         end
                   when "TvPA"
                         #MENSAL_TVPA
