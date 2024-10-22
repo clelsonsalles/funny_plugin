@@ -26,13 +26,16 @@
 
                         <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
-                               <p><%= f.text_field :mesInformado, class: "form-control", id: "mesInformado", placeholder: "Digite o Mês", required: true %></p>
+                          <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
+                          <p><%= f.select :mesInformado, options_for_select([['Janeiro', '1'], ['Fevereiro', '2'], ['Março', '3'], ['Abril', '4'], ['Maio', '5'], ['Junho', '6'],
+                          ['Julho', '7'], ['Agosto', '8'], ['Setembro', '9'], ['Outubro', '10'], ['Novembro', '11'], ['Dezembro', '12']]), required: true %></p>
                          </div>
+
                          <div class="col-md-6">
-                               <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
+                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
                          </div>
+                    
                        </div>
                          
                        <div class="row mb-3">
@@ -51,10 +54,14 @@
                           <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]), required: true %></p>
                         </div>
                         <div class="col-md-6">
-                          <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
-                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']]), required: true %></p>
-                        </div>
+                          <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
+                          <p><%= f.select :tipoTecnologia, options_for_select([['ADSL', 'ADSL'], ['ADSL2', 'ADSL2'], ['AMPS', 'AMPS'], ['ATM', 'ATM'], ['Cable Modem', 'Cable Modem'], ['CDMA_IS_95	', 'CDMA IS 95	'],
+                          ['DTH', 'DTH'], ['EDGE', 'EDGE'], ['ETHERNET', 'ETHERNET'], ['FR', 'FR'], ['FTTB', 'FTTB'], ['FTTH', 'FTTH'], ['GPRS', 'GPRS'], ['GSM', 'GSM'], ['HDSL', 'HDSL'],  ['HDSL', 'HDSL'],
+                          ['HFS', 'HFS'], ['HSDPA', 'HSDPA'], ['HSPA+', 'HSPA+'], ['HSPAP', 'HSPAP'], ['HSUPA', 'HSUPA'], ['LTE', 'LTE'], ['NR_NSA', 'NR NSA'], ['NR_SA', 'NR SA'], ['OFDMA_TDD', 'OFDMA/TDD'],
+                          ['Acesso_livre_via_satElite', 'Acesso livre via satélite'], ['SDH', 'SDH'], ['SONET', 'SONET'], ['VDSL', 'VDSL'], ['VSAT', 'VSAT'], [' WCDMA', ' WCDMA'], ['Wi-Fi', ' Wi-Fi'],
+                          ['WIMAX', ' WIMAX']]), required: true %></p>
                       </div>
+                    </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
@@ -69,7 +76,7 @@
                     </div>
 
                      <div class="row mb-3">
-                                            <div class="col-md-6">
+                        <div class="col-md-6">
                           <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
                           <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade", required: true %></p>
                        </div>
