@@ -46,7 +46,7 @@ module ExportCsv
                         #SEMESTRAL_SCM
                         #DADO_INFORMADO SERVICO UF VALORES CNPJ
                         # Adiciona o cabeçalho
-                        csv << ['DADO_INFORMADO' 'SERVICO' 'UF' 'VALORES' 'CNPJ']
+                        csv << ['DADO_INFORMADO', 'SERVICO', 'UF', 'VALORES', 'CNPJ']
                         # Adiciona as coletas
                         for coleta in coletas
                            csv << [coleta.dadoInformado, coleta.tipoColeta, coleta.uf, coleta.valor, coleta.cnpj]
