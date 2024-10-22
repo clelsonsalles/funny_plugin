@@ -26,13 +26,16 @@
 
 
                         <div class="row mb-3">
+                       
                          <div class="col-md-6">
-                              <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
-                               <p><%= f.text_field :mesInformado, class: "form-control", id: "mesInformado", placeholder: "Digite o Mês", required: true %></p>
+                          <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
+                          <p><%= f.select :mesInformado, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],
+                          ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12']]), required: true %></p>
                          </div>
+
                          <div class="col-md-6">
-                               <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                               <p><%= f.text_field :anoInformado, class: "form-control", id: "anoInformado", placeholder: "Digite o ano", required: true %></p>
+                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
                          </div>
                        </div>
                          
