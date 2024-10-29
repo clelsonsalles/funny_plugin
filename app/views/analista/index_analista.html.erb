@@ -1,6 +1,6 @@
 <% if User.current.logged? %>
   <% if !@projects.empty? %>
-     <h2><strong>Clientes do Analista</strong></h2>
+     <h2><strong>Organizações do Analista</strong></h2>
       <div class="row justify-content-center">
        <% for project in @projects %>
           <% if(User.current.member_of?(project)) %>
