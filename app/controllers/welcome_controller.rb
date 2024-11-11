@@ -30,14 +30,17 @@ class WelcomeController < ApplicationController
 
     if User.current.admin?
       redirect_to admin_path
+      return
     end
       
     for papel in User.current.roles
        if papel.id == 6
           redirect_to analista_clientes_path
+         return
        end
        if papel.id == 7 
          redirect_to cliente_cliente_path
+         return
        end
     end 
  
