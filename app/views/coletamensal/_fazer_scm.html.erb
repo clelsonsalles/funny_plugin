@@ -64,12 +64,12 @@
                     <div class="row mb-3">
                       <div class="col-md-6">
                         <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                        <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), { required: true }, { id: "tipoMeio" } %></p>
+                        <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), { required: true }, { id: 'tipoMeio' } %></p>
                       </div>
 
                      <div class="col-md-6">
                       <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
-                      <p><%= f.select :tipoTecnologia, [], { required: true }, { id: "tipoTecnologia" } %></p>
+                      <p><%= f.select :tipoTecnologia, [], { required: true }, { id: 'tipoTecnologia' } %></p>
                     </div>
                   </div>
 
@@ -159,8 +159,8 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  const tipoMeioSelect = document.getElementById("tipoMeio");
-  const tipoTecnologiaSelect = document.getElementById("tipoTecnologia");
+  const tipoMeioSelect = document.getElementById('tipoMeio');
+  const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
 
   // Opções de tecnologia para cada tipo de meio
   const opcoesTecnologia = {
