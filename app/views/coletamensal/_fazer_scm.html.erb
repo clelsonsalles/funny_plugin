@@ -159,54 +159,54 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const tipoMeioSelect = document.getElementById("tipoMeio");
-    const tipoTecnologiaSelect = document.getElementById("tipoTecnologia");
+  const tipoMeioSelect = document.getElementById("tipoMeio");
+  const tipoTecnologiaSelect = document.getElementById("tipoTecnologia");
 
-    // Opções de tecnologia para cada tipo de meio
-    const opcoesTecnologia = {
-      cabo_coaxial: [
-        { value: 'Cable Modem', text: 'Cable Modem' },
-        { value: 'HFC', text: 'HFC' }
-      ],
-      cabo_metalico: [
-        { value: 'XDSL', text: 'XDSL' },
-        { value: 'PLC', text: 'PLC' }
-        { value: 'ETHERNET', text: 'ETHERNET' }
-      ],
-      
-      radio: [
-        { value: 'LTE/4G', text: 'LTE/4G' },
-        { value: 'Wi-Fi', text: 'Wi-Fi' }
-        { value: 'WFA', text: 'WFA' }
-      ],
-      fibra: [
-        { value: 'FTTH', text: 'FTTH' },
-        { value: 'ETHERNET', text: 'ETHERNET' }
-      ]
-    };
+  // Opções de tecnologia para cada tipo de meio
+  const opcoesTecnologia = {
+    cabo_coaxial: [
+      { value: 'Cable Modem', text: 'Cable Modem' },
+      { value: 'HFC', text: 'HFC' }
+    ],
+    cabo_metalico: [
+      { value: 'XDSL', text: 'XDSL' },
+      { value: 'PLC', text: 'PLC' },
+      { value: 'ETHERNET', text: 'ETHERNET' }
+    ],
+    radio: [
+      { value: 'LTE/4G', text: 'LTE/4G' },
+      { value: 'Wi-Fi', text: 'Wi-Fi' },
+      { value: 'WFA', text: 'WFA' }
+    ],
+    fibra: [
+      { value: 'FTTH', text: 'FTTH' },
+      { value: 'ETHERNET', text: 'ETHERNET' }
+    ]
+  };
 
-    // Função para atualizar as opções de tecnologia
-    function atualizarOpcoesTecnologia() {
-      const tipoMeio = tipoMeioSelect.value;
-      const tecnologias = opcoesTecnologia[tipoMeio] || [];
+  // Função para atualizar as opções de tecnologia
+  function atualizarOpcoesTecnologia() {
+    const tipoMeio = tipoMeioSelect.value;
+    const tecnologias = opcoesTecnologia[tipoMeio] || [];
 
-      // Limpa as opções existentes em tipoTecnologia
-      tipoTecnologiaSelect.innerHTML = "";
+    // Limpa as opções existentes em tipoTecnologia
+    tipoTecnologiaSelect.innerHTML = "";
 
-      // Adiciona as novas opções com base no tipoMeio selecionado
-      tecnologias.forEach(function(tecnologia) {
-        const option = document.createElement("option");
-        option.value = tecnologia.value;
-        option.text = tecnologia.text;
-        tipoTecnologiaSelect.appendChild(option);
-      });
-    }
+    // Adiciona as novas opções com base no tipoMeio selecionado
+    tecnologias.forEach(function(tecnologia) {
+      const option = document.createElement("option");
+      option.value = tecnologia.value;
+      option.textContent = tecnologia.text;
+      tipoTecnologiaSelect.appendChild(option);
+    });
+  }
 
-    // Evento para atualizar quando o tipoMeio muda
-    tipoMeioSelect.addEventListener("change", atualizarOpcoesTecnologia);
+  // Evento para atualizar quando o tipoMeio muda
+  tipoMeioSelect.addEventListener("change", atualizarOpcoesTecnologia);
 
-    // Chama a função uma vez para carregar as opções iniciais, se necessário
-    atualizarOpcoesTecnologia();
-  });
+  // Carrega as opções iniciais no carregamento da página
+  atualizarOpcoesTecnologia();
+});
+
 </script>
 
