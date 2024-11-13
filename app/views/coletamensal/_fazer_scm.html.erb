@@ -159,10 +159,9 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  const tipoMeioSelect = document.getElementById('tipoMeio');
-  const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
+  const tipoMeioSelect = document.getElementById("tipoMeio");
+  const tipoTecnologiaSelect = document.getElementById("tipoTecnologia");
 
-  // Opções de tecnologia para cada tipo de meio
   const opcoesTecnologia = {
     cabo_coaxial: [
       { value: 'Cable Modem', text: 'Cable Modem' },
@@ -184,29 +183,16 @@
     ]
   };
 
-  // Função para atualizar as opções de tecnologia
   function atualizarOpcoesTecnologia() {
-    const tipoMeio = tipoMeioSelect.value;
-    const tecnologias = opcoesTecnologia[tipoMeio] || [];
-
-    // Limpa as opções existentes em tipoTecnologia
-    tipoTecnologiaSelect.innerHTML = "";
-
-    // Adiciona as novas opções com base no tipoMeio selecionado
-    tecnologias.forEach(function(tecnologia) {
-      const option = document.createElement("option");
-      option.value = tecnologia.value;
-      option.textContent = tecnologia.text;
-      tipoTecnologiaSelect.appendChild(option);
-    });
+    const tecnologias = opcoesTecnologia[tipoMeioSelect.value] || [];
+    tipoTecnologiaSelect.innerHTML = tecnologias.map(tec => `<option value="${tec.value}">${tec.text}</option>`).join('');
   }
 
-  // Evento para atualizar quando o tipoMeio muda
   tipoMeioSelect.addEventListener("change", atualizarOpcoesTecnologia);
 
-  // Carrega as opções iniciais no carregamento da página
-  atualizarOpcoesTecnologia();
+  atualizarOpcoesTecnologia(); // Carrega as opções iniciais
 });
+
 
 </script>
 
