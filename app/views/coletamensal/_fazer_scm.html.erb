@@ -64,12 +64,22 @@
                     <div class="row mb-3">
                       <div class="col-md-6">
                         <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                        <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), { required: true }, { id: 'tipoMeio' } %></p>
+                         <p><%= f.select :tipoMeio, 
+                    options_for_select([['cabo_coaxial', 'Cabo_coaxial'], 
+                                        ['cabo_metalico', 'Cabo_metálico'], 
+                                        ['satelite', 'Satélite'], 
+                                        ['radio', 'Rádio'], 
+                                        ['fibra', 'Fibra']]), 
+                    { required: true }, 
+                    { id: 'tipoMeio' } %></p>
                       </div>
 
                      <div class="col-md-6">
                       <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
-                      <p><%= f.select :tipoTecnologia, [], { required: true }, { id: 'tipoTecnologia' } %></p>
+                       <p><%= f.select :tipoTecnologia, 
+                    options_for_select([]), 
+                    { required: true }, 
+                    { id: 'tipoTecnologia' } %></p>
                     </div>
                   </div>
 
@@ -158,41 +168,34 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  const tipoMeioSelect = document.getElementById("tipoMeio");
-  const tipoTecnologiaSelect = document.getElementById("tipoTecnologia");
-
-  const opcoesTecnologia = {
-    cabo_coaxial: [
-      { value: 'Cable Modem', text: 'Cable Modem' },
-      { value: 'HFC', text: 'HFC' }
-    ],
-    cabo_metalico: [
-      { value: 'XDSL', text: 'XDSL' },
-      { value: 'PLC', text: 'PLC' },
-      { value: 'ETHERNET', text: 'ETHERNET' }
-    ],
-    radio: [
-      { value: 'LTE/4G', text: 'LTE/4G' },
-      { value: 'Wi-Fi', text: 'Wi-Fi' },
-      { value: 'WFA', text: 'WFA' }
-    ],
-    fibra: [
-      { value: 'FTTH', text: 'FTTH' },
-      { value: 'ETHERNET', text: 'ETHERNET' }
-    ]
+  // Mapeamento entre Tipo de Meio e Tecnologias correspondentes
+  const tecnologiaPorMeio = {
+    cabo_coaxial: ['Cable Modem', 'HFC'],
+    cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
+    radio: ['LTE/4G', 'Wi-Fi', 'WFA'],
+    fibra: ['FTTH', 'Ethernet']
   };
 
-  function atualizarOpcoesTecnologia() {
-    const tecnologias = opcoesTecnologia[tipoMeioSelect.value] || [];
-    tipoTecnologiaSelect.innerHTML = tecnologias.map(tec => `<option value="${tec.value}">${tec.text}</option>`).join('');
-  }
+  // Referências aos campos
+  const tipoMeioSelect = document.getElementById('tipoMeio');
+  const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
 
-  tipoMeioSelect.addEventListener("change", atualizarOpcoesTecnologia);
+  // Evento para atualizar tecnologias quando o meio for alterado
+  tipoMeioSelect.addEventListener('change', (event) => {
+    const meioSelecionado = event.target.value;
 
-  atualizarOpcoesTecnologia(); // Carrega as opções iniciais
-});
+    // Limpar opções do select de tecnologia
+    tipoTecnologiaSelect.innerHTML = '';
 
-
+    // Adicionar opções baseadas no meio selecionado
+    if (tecnologiaPorMeio[meioSelecionado]) {
+      tecnologiaPorMeio[meioSelecionado].forEach(tecnologia => {
+        const option = document.createElement('option');
+        option.value = tecnologia;
+        option.textContent = tecnologia;
+        tipoTecnologiaSelect.appendChild(option);
+      });
+    }
+  });
 </script>
 
