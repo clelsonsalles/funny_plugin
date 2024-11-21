@@ -149,9 +149,8 @@ class ColetamensalController < ApplicationController
 
   
   def editar
-    valores = params[:coleta]
-    coleta = Coleta.find( valores.id )
-    coleta.update( valores )
+    id_coleta = params[:id_coleta]
+    @coleta = Coleta.find( id_coleta)
     
   end
 
