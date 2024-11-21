@@ -173,5 +173,14 @@ class ColetaanualController < ApplicationController
         redirect_to coleta_anual_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, tituloColeta: @coleta.tituloColeta)
     end
  end
+
+  def editar
+
+  end
+
+  
+  def excluir
+
+  end
   
 end
