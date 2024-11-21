@@ -169,33 +169,44 @@
 
 <script>
   // Mapeamento entre Tipo de Meio e Tecnologias correspondentes
-  const tecnologiaPorMeio = {
-    cabo_coaxial: ['Cable Modem', 'HFC'],
-    cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
-    radio: ['LTE/4G', 'Wi-Fi', 'WFA'],
-    fibra: ['FTTH', 'Ethernet']
-  };
+ const tecnologiaPorMeio = {
+  cabo_coaxial: ['Cable Modem', 'HFC'],
+  cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
+  radio: ['LTE/4G', 'Wi-Fi', 'WFA'],
+  fibra: ['FTTH', 'Ethernet']
+};
 
-  // Referências aos campos
-  const tipoMeioSelect = document.getElementById('tipoMeio');
-  const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
+const tipoMeioSelect = document.getElementById('tipoMeio');
+const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
 
-  // Evento para atualizar tecnologias quando o meio for alterado
-  tipoMeioSelect.addEventListener('change', (event) => {
-    const meioSelecionado = event.target.value;
+// Atualizar opções quando o meio for alterado
+tipoMeioSelect.addEventListener('change', (event) => {
+  const meioSelecionado = event.target.value;
 
-    // Limpar opções do select de tecnologia
-    tipoTecnologiaSelect.innerHTML = '';
+  // Limpar opções do select de tecnologia
+  tipoTecnologiaSelect.innerHTML = '<option value="">Selecione uma tecnologia</option>';
 
-    // Adicionar opções baseadas no meio selecionado
-    if (tecnologiaPorMeio[meioSelecionado]) {
-      tecnologiaPorMeio[meioSelecionado].forEach(tecnologia => {
-        const option = document.createElement('option');
-        option.value = tecnologia;
-        option.textContent = tecnologia;
-        tipoTecnologiaSelect.appendChild(option);
-      });
-    }
+  // Adicionar opções baseadas no meio selecionado
+  if (tecnologiaPorMeio[meioSelecionado]) {
+    tecnologiaPorMeio[meioSelecionado].forEach(tecnologia => {
+      const option = document.createElement('option');
+      option.value = tecnologia;
+      option.textContent = tecnologia;
+      tipoTecnologiaSelect.appendChild(option);
+    });
+  }
+});
+
+// Inicializar opções com base no valor atual de tipoMeio
+const meioAtual = tipoMeioSelect.value;
+if (meioAtual && tecnologiaPorMeio[meioAtual]) {
+  tecnologiaPorMeio[meioAtual].forEach(tecnologia => {
+    const option = document.createElement('option');
+    option.value = tecnologia;
+    option.textContent = tecnologia;
+    tipoTecnologiaSelect.appendChild(option);
   });
+}
+
 </script>
 
