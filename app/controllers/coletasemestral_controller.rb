@@ -60,5 +60,15 @@ class ColetasemestralController < ApplicationController
 
     redirect_to coleta_semestral_fazer_path(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, semestre: @coleta.semestre, tituloColeta: @coleta.tituloColeta  )
  end
+
+
+  def editar
+
+  end
+
+  
+  def excluir
+
+  end
   
 end
