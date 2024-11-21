@@ -21,8 +21,9 @@
   <% if Setting.autologin? %>
     <label for="autologin"><%= check_box_tag 'autologin', 1, false, :tabindex => 4 %> <%= l(:label_stay_logged_in) %></label>
   <% end %>
-  
-  <input type="submit" name="login" value="<%=l(:button_login)%>" tabindex="5" id="login-submit" />
+
+ <input type="submit" name="login" value="<%=l(:button_login)%>" tabindex="5" id="login-submit" class="btn btn-primary" />
+ 
   <% end %>
 <center><p>É novo por aqui? <a href="http://191.252.196.83:81/account/register">Criar conta</a></p></center>
 </div>
