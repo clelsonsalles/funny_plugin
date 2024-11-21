@@ -156,8 +156,10 @@ class ColetamensalController < ApplicationController
 
   
   def excluir
-    id_coleta = params[:coleta].id_coleta
+    id_coleta = params[:coleta][:id_coleta]
     Coleta.destroy id_coleta
+    
+    redirect_to cliente_cliente_path
 
 
   end
