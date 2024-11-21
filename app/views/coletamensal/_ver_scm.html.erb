@@ -46,7 +46,8 @@
             <td class="text-center">
               <%= form_for coleta, url: coleta_mensal_excluir_path do |f| %>
                 <%= f.hidden_field :id_coleta, :value => coleta.id %>
-                <%= f.submit 'Excluir', class: 'btn btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+                <%= button_tag 'Enviar', type: 'submit', class: 'btn btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+                
               <% end %>
 
 
