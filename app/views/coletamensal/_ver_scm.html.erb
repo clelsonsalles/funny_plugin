@@ -44,7 +44,7 @@
               <% end %>
             </td>
             <td class="text-center">
-              <%= form_for coleta do |f| %>
+              <%= form_for coleta, url: coleta_mensal_excluir_path do |f| %>
                 <%= f.submit 'Excluir', class: 'btn btn-sm btn-danger' %>
               <% end %>
 
