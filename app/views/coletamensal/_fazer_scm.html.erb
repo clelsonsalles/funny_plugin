@@ -169,6 +169,7 @@
 
 <script>
   // Mapeamento entre Tipo de Meio e Tecnologias correspondentes
+document.addEventListener('DOMContentLoaded', () => {
  const tecnologiaPorMeio = {
   cabo_coaxial: ['Cable Modem', 'HFC'],
   cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
@@ -206,7 +207,8 @@ if (meioAtual && tecnologiaPorMeio[meioAtual]) {
     option.textContent = tecnologia;
     tipoTecnologiaSelect.appendChild(option);
   });
-}
+ }
+});
 
 </script>
 
