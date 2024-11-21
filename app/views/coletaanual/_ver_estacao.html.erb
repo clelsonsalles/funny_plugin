@@ -1,44 +1,49 @@
-
-
-<div class="container">
-  <h4> Lista de Coletas</h4>
-    <table class="table table-custom">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">CNPJ</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Id da estação</th>
-                    <th scope="col">Número da Estação</th>
-                    <th scope="col">Código IBGE</th>
-                    <th scope="col">Abertura</th>
-                    <th scope="col">Cep</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Rua</th>
-                    <th scope="col">Número</th> 
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                </tr>
-            </thead>
-            <tbody>
-             <% for coleta in @coletas %>
-                <tr> 
-                     <td><%= coleta.cnpj %></td>
-                     <td><%= coleta.ano %></td>
-                     <td><%= coleta.idEstacao %></td>
-                     <td><%= coleta.nEstacao %></td>
-                     <td><%= coleta.codigoIBGE %></td>
-                     <td><%= coleta.abertura %></td>
-                     <td><%= coleta.cep %></td>
-                     <td><%= coleta.cidade %></td>
-                     <td><%= coleta.rua %></td>
-                     <td><%= coleta.numeroEndereco %></td>
-                     <td><%= coleta.latitude %></td>
-                     <td><%= coleta.longitude %></td>
-                      
-                </tr>
-            <% end %>
-              
-               
-            </tbody>
-        </table>
+<div class="container mt-4">
+  <h4 class="mb-3">Lista de Coletas</h4>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Ano</th>
+          <th scope="col">Id da estação</th>
+          <th scope="col">Número da Estação</th>
+          <th scope="col">Código IBGE</th>
+          <th scope="col">Abertura</th>
+          <th scope="col">Cep</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Rua</th>
+          <th scope="col">Número</th> 
+          <th scope="col">Latitude</th>
+          <th scope="col">Longitude</th>
+          <th scope="col" colspan="2" class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @coletas.each do |coleta| %>
+          <tr>
+            <td><%= coleta.cnpj %></td>
+            <td><%= coleta.ano %></td>
+            <td><%= coleta.idEstacao %></td>
+            <td><%= coleta.nEstacao %></td>
+            <td><%= coleta.codigoIBGE %></td>
+            <td><%= coleta.abertura %></td>
+            <td><%= coleta.cep %></td>
+            <td><%= coleta.cidade %></td>
+            <td><%= coleta.rua %></td>
+            <td><%= coleta.numeroEndereco %></td>
+            <td><%= coleta.latitude %></td>
+            <td><%= coleta.longitude %></td>
+            <td class="text-center">
+              <%= link_to 'Editar', cliente_cliente_path, class: 'btn btn-sm btn-success text-white' %>
+            </td>
+            <td class="text-center">
+              <%= link_to 'Excluir', cliente_cliente_path, class: 'btn btn-sm btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
+
