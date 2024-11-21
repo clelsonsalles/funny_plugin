@@ -99,7 +99,9 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                    <p><%= f.submit "Fazer coleta", class: 'btn btn-sm btn-success text-white' %> </p>
+                                    <%= form_with(model: @model_name, url: your_path, method: :post) do |f| %>
+                                      <%= f.submit "Fazer coleta", class: 'btn btn-sm btn-success text-white' %>
+                                    <% end %>
                                   <% end %>
                               <% else %>
                                   <%= form_for coleta, url: coleta_mensal_ver_path do |f| %>
