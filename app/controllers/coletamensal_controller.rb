@@ -146,5 +146,16 @@ class ColetamensalController < ApplicationController
 
     redirect_to coleta_mensal_fazeruf_path(id_coleta: @coleta.id)
    end
+
+  
+  def editar
+
+  end
+
+  
+  def excluir
+
+  end
+  
   
 end
