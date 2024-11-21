@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @coletas.each do |coleta| %>
+          <% @coletas.each do |coleta| %>
           <tr>
             <td><%= coleta.cnpj %></td>
             <td><%= coleta.mesInformado %></td>
@@ -38,10 +38,17 @@
             <td><%= coleta.quantidadeAcesso %></td>
             <td><%= coleta.codigoIBGE %></td>
             <td class="text-center">
-              <%= link_to 'Editar', cliente_cliente_path, class: 'btn btn-sm btn-success text-white' %>
+              <%= form_for coleta, url: coleta_mensal_editar_path do |f| %>
+                <%= f.hidden_field :id_coleta, :value => coleta.id %>
+                <%= f.submit 'Editar', class: 'btn btn-sm btn-success text-white' %>
+              <% end %>
             </td>
             <td class="text-center">
-              <%= link_to 'Excluir', cliente_cliente_path, class: 'btn btn-sm btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+              <%= form_for coleta, url: coleta_mensal_excluir_path do |f| %>
+                <%= f.hidden_field :id_coleta, :value => coleta.id %>
+                <%= f.submit 'Excluir', class: 'btn btn-sm btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+              <% end %>
+
             </td>
           </tr>
         <% end %>
