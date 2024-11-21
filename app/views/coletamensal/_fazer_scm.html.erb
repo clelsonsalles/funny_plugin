@@ -66,10 +66,10 @@
                         <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
                          <p><%= f.select :tipoMeio, 
                     options_for_select([['Selecione um meio', 'Selecione um meio'],
-                                        ['cabo_coaxial', 'Cabo_coaxial'], 
-                                        ['cabo_metalico', 'Cabo_metálico'], 
-                                        ['radio', 'Rádio'], 
-                                        ['fibra', 'Fibra']]), 
+                                        ['cabo_coaxial', 'cabo_coaxial'], 
+                                        ['cabo_metalico', 'cabo_metalico'], 
+                                        ['radio', 'radio'], 
+                                        ['fibra', 'fibra']]), 
                     { required: true }, 
                     { id: 'tipoMeio' } %></p>
                       </div>
@@ -184,8 +184,6 @@ const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
 tipoMeioSelect.addEventListener('change', (event) => {
   const meioSelecionado = event.target.value;
 
-  // Limpar opções do select de tecnologia
-  tipoTecnologiaSelect.innerHTML = '<option value="">Selecione uma tecnologia</option>';
 
   // Adicionar opções baseadas no meio selecionado
   var opcoesSelect = ['', 'Selecione uma tecnologia'];
@@ -206,10 +204,15 @@ tipoMeioSelect.addEventListener('change', (event) => {
       break;
 
     default:
-      opcoesSelect = ['', 'Selecione uma tecnologia'];
+      opcoesSelect = ['Selecione uma tecnologia'];
 
   }
-  tipoTecnologiaSelect.innerHTML = '<option value="' + opcoesSelect[0] +'">'+ opcoesSelect[1] +'</option>';
+  // Limpar opções do select de tecnologia
+  tipoTecnologiaSelect.innerHTML = '<option value="">Selecione uma tecnologia</option>';
+  // Carregar as opções de teconologia conforme o meio selecionado
+  for (var cont = 0; cont < opcoesSelect.length; cont++){
+    tipoTecnologiaSelect.innerHTML += '<option value="' + opcoesSelect[cont] +'">'+ opcoesSelect[cont] +'</option>';
+  }
 
 
 });
