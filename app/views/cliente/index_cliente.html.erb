@@ -99,7 +99,7 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                    <%= f.submit "Visualizar coleta", class: 'btn btn-sm btn-success text-white' %>
+                                    <%= f.submit "Fazer coleta", class: 'btn btn-sm btn-success text-white' %>
                                   <% end %>
                               <% else %>
                                   <%= form_for coleta, url: coleta_mensal_ver_path do |f| %>
@@ -109,7 +109,7 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                    <p><%= f.submit "Visualizar coleta", class: 'btn btn-sm btn-success text-white' %> </p>
+                                     <%= f.submit "Visualizar coleta", class: 'btn btn-sm btn-success text-white' %>
                                   <% end %>
                             <% end %>
                           </td>
@@ -133,7 +133,7 @@
                                      <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                      <%= f.hidden_field :project_id, :value => coleta.project_id %>
                                      <%= f.hidden_field :semestre, :value => coleta.semestre %>
-                                   <p><%= f.submit "Visualizar coleta", class:"btn btn-success btn-sm" %> </p>
+                                   <%= f.submit "Visualizar coleta", class:"btn btn-success btn-sm" %>
                                 <% end %>
                             <% end %>
                           </td>
@@ -172,7 +172,7 @@
                                            <%= f.hidden_field :tituloColeta, :value => coleta.tituloColeta %>
                                            <%= f.hidden_field :tipoColeta, :value => coleta.tipoColeta %>
                                            <%= f.hidden_field :project_id, :value => coleta.project_id %>
-                                          <p><%= f.submit "Visualizar coleta", class:"btn btn-success btn-sm" %> </p>
+                                           <%= f.submit "Visualizar coleta", class:"btn btn-success btn-sm" %>
                                       <% end %>
                                   <% end %>
                               <% end %>
