@@ -40,7 +40,7 @@
             <td class="text-center">
               <%= form_for coleta, url: coleta_mensal_editar_path do |f| %>
                 <%= f.hidden_field :id_coleta, :value => coleta.id %>
-                <%= f.submit 'Editar', class: 'btn btn-sm btn-success text-white' %>
+                <%= button_tag 'Editar', type: 'submit', class: 'btn btn-danger text-white'%>
               <% end %>
             </td>
             <td class="text-center">
