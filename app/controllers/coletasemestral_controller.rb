@@ -83,8 +83,7 @@ class ColetasemestralController < ApplicationController
     end
 
   end
-
-  def salvar
+ def salvar
     id_coleta = params[:coleta][:id]
     @coleta = Coleta.find(id_coleta)   
     @coleta.safe_attributes = params[:coleta]
@@ -92,4 +91,7 @@ class ColetasemestralController < ApplicationController
     @coleta.save
 
     redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
-  end
+   end
+  
+  
+end
