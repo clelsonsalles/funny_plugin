@@ -1,0 +1,11 @@
+<% if @coleta.tipoColeta == 'SCM' %>
+  <%= render "coletasemestral/salvar_scm" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'SEAC' %>
+  <%= render "coletasemestral/salvar_seac" %>
+<% end %>
+
+<% if @coleta.tipoColeta == 'SMP' %>
+  <%= render "coletasemestral/salvar_smp" %>
+<% end %>
