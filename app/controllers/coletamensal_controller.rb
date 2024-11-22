@@ -132,8 +132,8 @@ class ColetamensalController < ApplicationController
       else
         coleta = Coleta.find(id_coleta)
       end
+
       @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
-  
       @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
   end
@@ -166,7 +166,6 @@ class ColetamensalController < ApplicationController
     Coleta.destroy id_coleta
     
     @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
     if @coleta.nil?
         redirect_to cliente_cliente_path
     else
