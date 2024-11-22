@@ -79,7 +79,7 @@ class ColetasemestralController < ApplicationController
     if @coleta.nil?
         redirect_to cliente_cliente_path
     else
-        redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+        redirect_to coleta_semestral_ver_path(id_coleta: @coleta.id)
     end
 
   end
@@ -90,7 +90,7 @@ class ColetasemestralController < ApplicationController
 
     @coleta.save
 
-    redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+    redirect_to coleta_semestral_ver_path(id_coleta: @coleta.id)
    end
   
   
