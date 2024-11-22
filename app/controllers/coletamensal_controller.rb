@@ -176,10 +176,8 @@ class ColetamensalController < ApplicationController
 
   def salvar
     id_coleta = params[:coleta][:id]
-    coleta = Coleta.find(id_coleta)   
+    @coleta = Coleta.find(id_coleta)   
     @coleta.safe_attributes = params[:coleta]
-
-    
 
     @coleta.save
 
