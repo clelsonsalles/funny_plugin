@@ -25,14 +25,14 @@ Rails.application.routes.draw do
     match 'coleta/anual/editar', :to => 'coletaanual#editar', via: [:get, :post, :patch]
     match 'coleta/anual/excluir', :to => 'coletaanual#excluir', via: [:get, :post, :patch]
     match 'coleta/anual/ver', :to => 'coletaanual#ver', via: [:get, :post, :patch]
-    match 'coleta/anual/salvar', :to => 'coletamensal#salvar', via: [:get, :post, :patch]
+    match 'coleta/anual/salvar', :to => 'coletaanual#salvar', via: [:get, :post, :patch]
 
     match 'coleta/semestral/fazer', :to => 'coletasemestral#fazer', via: [:get, :post]
     match 'coleta/semestral/atualizar', :to => 'coletasemestral#atualizar', via: [:get, :post, :patch]
     match 'coleta/semestral/editar', :to => 'coletasemestral#editar', via: [:get, :post, :patch]
     match 'coleta/semestral/excluir', :to => 'coletasemestral#excluir', via: [:get, :post, :patch]
     match 'coleta/semestral/ver', :to => 'coletasemestral#ver', via: [:get, :post, :patch]
-    match 'coleta/semestral/salvar', :to => 'coletamensal#salvar', via: [:get, :post, :patch]
+    match 'coleta/semestral/salvar', :to => 'coletasemestral#salvar', via: [:get, :post, :patch]
 
     match 'coleta/mensal/fazeruf', :to => 'coletamensal#fazeruf', via: [:get, :post]
     match 'coleta/mensal/fazercidadesuf', :to => 'coletamensal#fazercidadesuf', via: [:get, :post, :patch]
