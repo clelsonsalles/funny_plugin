@@ -77,9 +77,9 @@
                      <div class="col-md-6">
                       <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
                        <p><%= f.select :tipoTecnologia, 
-                    options_for_select([]), 
-                    { required: true }, 
-                    { id: 'tipoTecnologia' }, :selected_value => @coleta.tipoTecnologia %></p>
+                            options_for_select([]), 
+                            required: true , 
+                            :selected_value => @coleta.tipoTecnologia %></p>
                     </div>
                   </div>
 
