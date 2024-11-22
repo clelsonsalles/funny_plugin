@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
-                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']]), required: true %></p>
+                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']], @coleta.tipoAtendimento), required: true %></p>
                         </div>
                       </div>
 
@@ -69,14 +69,14 @@
                                         ['cabo_coaxial', 'cabo_coaxial'], 
                                         ['cabo_metalico', 'cabo_metalico'], 
                                         ['radio', 'radio'], 
-                                        ['fibra', 'fibra']], @coleta.tipoMeio), 
+                                        ['fibra', 'fibra']]), 
                                     {required: true}, {id: 'tipoMeio'}  %></p>
                       </div>
 
                      <div class="col-md-6">
                       <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
                        <p><%= f.select :tipoTecnologia, 
-                            options_for_select([], @coleta.tipoTecnologia), 
+                            options_for_select([]), 
                             {required: true}, {id: 'tipoTecnologia'}  %></p>
                     </div>
                   </div>
