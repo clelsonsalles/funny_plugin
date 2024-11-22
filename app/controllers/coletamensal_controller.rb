@@ -123,11 +123,15 @@ class ColetamensalController < ApplicationController
   end
 
   def ver
-      paramsColeta = params[:coleta]
-      coleta = Coleta.new    
-      coletas = nil
-      coleta.safe_attributes = paramsColeta
-
+      id_coleta = params[:id_coleta]
+      if id_coleta.nil?
+        paramsColeta = params[:coleta]
+        coleta = Coleta.new    
+        coletas = nil
+        coleta.safe_attributes = paramsColeta
+      else
+        coleta = Coleta.find(id_coleta)
+      end
       @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
   
       @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
@@ -158,14 +162,16 @@ class ColetamensalController < ApplicationController
   def excluir
     id_coleta = params[:coleta][:id_coleta]
     coleta = Coleta.find(id_coleta)
-    @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
-    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
 
-    
     Coleta.destroy id_coleta
     
-    redirect_to coleta_mensal_ver_path
-
+    @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
+    @coletas = Coleta.where(tipoColeta:  @coleta.tipoColeta, project_id:  @coleta.project_id, ano: @coleta.ano, mes: @coleta.mes)
+    if @coleta.nil?
+        redirect_to cliente_cliente_path
+    else
+        redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+    end
 
   end
   
