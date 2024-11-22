@@ -32,14 +32,14 @@
             <td><%= coleta.capCanalUplink %></td>
             <td><%= coleta.largCanalDownlink %></td>
             <td><%= coleta.capCanalDownlink %></td>
-            <td class="text-center">
-              <%= form_for coleta, url: coleta_mensal_editar_path do |f| %>
+           <td class="text-center">
+              <%= form_for coleta, url: coleta_anual_editar_path do |f| %>
                 <%= f.hidden_field :id_coleta, :value => coleta.id %>
                 <%= button_tag 'Editar', type: 'submit', class: 'btn btn-danger text-white'%>
               <% end %>
             </td>
             <td class="text-center">
-              <%= form_for coleta, url: coleta_mensal_excluir_path do |f| %>
+              <%= form_for coleta, url: coleta_anual_excluir_path do |f| %>
                 <%= f.hidden_field :id_coleta, :value => coleta.id %>
                 <%= button_tag 'Excluir', type: 'submit', class: 'btn btn-danger text-white', data: { confirm: 'Tem certeza que deseja excluir?' } %>
                 
