@@ -174,13 +174,37 @@ class ColetaanualController < ApplicationController
     end
  end
 
+ 
   def editar
-
+    id_coleta = params[:coleta][:id_coleta]
+    @coleta = Coleta.find( id_coleta)
+    
   end
 
   
   def excluir
+    id_coleta = params[:coleta][:id_coleta]
+    coleta = Coleta.find(id_coleta)
+
+    Coleta.destroy id_coleta
+    
+    @coleta = Coleta.where(tipoColeta:  coleta.tipoColeta, project_id:  coleta.project_id, ano: coleta.ano, mes: coleta.mes).last
+    if @coleta.nil?
+        redirect_to cliente_cliente_path
+    else
+        redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+    end
 
   end
+
+  def salvar
+    id_coleta = params[:coleta][:id]
+    @coleta = Coleta.find(id_coleta)   
+    @coleta.safe_attributes = params[:coleta]
+
+    @coleta.save
+
+    redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+   end
   
 end
