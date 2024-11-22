@@ -1,0 +1,15 @@
+        <% if @coleta.tipoColeta == 'Estação' %>
+          <%= render "coletaanual/salvar_estacao" %>
+        <% end %>
+
+        <% if @coleta.tipoColeta == 'Enlaces próprios' %>
+          <%= render "coletaanual/salvar_enlacesproprios" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'Encalces contratados' %>
+          <%= render "coletaanual/salvar_encalcescontratados" %>
+        <% end %>
+        
+        <% if @coleta.tipoColeta == 'Encalces via satélite' %>
+          <%= render "coletaanual/salvar_encalcesviasatelite" %>
+        <% end %>
