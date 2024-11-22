@@ -30,12 +30,12 @@
                          <div class="col-md-6">
                           <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
                           <p><%= f.select :mesInformado, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],
-                          ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12']]), required: true, :selected_value => @coleta.mesInformado %></p>
+                          ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12']], @coleta.mesInformado), required: true %></p>
                          </div>
 
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true, :selected_value => @coleta.anoInformado %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado ), required: true%></p>
                          </div>
                        </div>
                          
@@ -53,7 +53,7 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]), required: true, :selected_value => @coleta.tipoCliente %></p>
+                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']], @coleta.tipoCliente), required: true%></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
@@ -69,24 +69,22 @@
                                         ['cabo_coaxial', 'cabo_coaxial'], 
                                         ['cabo_metalico', 'cabo_metalico'], 
                                         ['radio', 'radio'], 
-                                        ['fibra', 'fibra']]), 
-                                    required: true , 
-                                    :selected_value => @coleta.tipoMeio %></p>
+                                        ['fibra', 'fibra']], @coleta.tipoMeio), 
+                                    required: true  %></p>
                       </div>
 
                      <div class="col-md-6">
                       <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
                        <p><%= f.select :tipoTecnologia, 
-                            options_for_select([]), 
-                            required: true , 
-                            :selected_value => @coleta.tipoTecnologia %></p>
+                            options_for_select([], @coleta.tipoTecnologia), 
+                            required: true  %></p>
                     </div>
                   </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :tipoProduto, "Tipo de Produto", class: "form-label" %></p>
-                          <p><%= f.select :tipoProduto, options_for_select([['Internet', 'Internet'], ['Linha_dedicada', 'Linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']]), required: true, :selected_value => @coleta.tipoProduto %></p>
+                          <p><%= f.select :tipoProduto, options_for_select([['Internet', 'Internet'], ['Linha_dedicada', 'Linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']], @coleta.tipoProduto), required: true %></p>
                        </div>
                        <div class="col-md-6">
                                <p><%= f.label :velocidade, "Velocidade", class: "form-label" %></p>
