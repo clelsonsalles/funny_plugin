@@ -173,6 +173,18 @@ class ColetamensalController < ApplicationController
     end
 
   end
+
+  def salvar
+    id_coleta = params[:coleta][:id_coleta]
+    coleta = Coleta.find(id_coleta)   
+    @coleta.safe_attributes = params[:coleta]
+
+    
+
+    @coleta.save
+
+    redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
+   end
   
   
 end
