@@ -92,4 +92,4 @@ class ColetasemestralController < ApplicationController
     @coleta.save
 
     redirect_to coleta_mensal_ver_path(id_coleta: @coleta.id)
-   end
+  end
