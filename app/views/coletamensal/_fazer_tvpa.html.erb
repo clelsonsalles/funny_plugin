@@ -32,7 +32,7 @@
                            <%= f.select :mesInformado, 
                                    options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], 
                                    ['6', '6'], ['7', '7'], ['7', '8'], ['9', '9'], ['10', '10'], 
-                                   ['11', '11'], ['12', '12']]), 
+                                   ['11', '11'], ['12', '12']], @coleta.mesInformado), 
                                    {}, # Hash de opções adicionais para a tag <select>
                                    { class: 'form-control', required: true } # Hash de atributos HTML
                             %>
@@ -46,7 +46,7 @@
 
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
                          </div>
                     
                        </div>
@@ -64,37 +64,57 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']]), required: true %></p>
+                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'Pessoa Jurídica'], ['UP', 'Uso Próprio']], @coleta.tipoCliente), required: true %></p>
                         </div>
                         <div class="col-md-6">
-                         
-                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                         <p><%= f.select :tipoMeio, 
-                            options_for_select([['Selecione um meio', 'Selecione um meio'],
-                                                ['cabo_coaxial', 'cabo_coaxial'], 
-                                                ['cabo_metalico', 'cabo_metalico'], 
-                                                ['radio', 'radio'], 
-                                                ['fibra', 'fibra']]), 
-                            { required: true }, 
-                            { id: 'tipoMeio' } %></p>
-                      </div>
+                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
+                       </div>
+                        
                       
                     </div>
 
                      <div class="row mb-3">
-                       <div class="col-md-6">
-                         <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
-                       <p><%= f.select :tipoTecnologia, 
-                        options_for_select([]), 
-                        { required: true }, 
-                        { id: 'tipoTecnologia' } %></p>
-                        </div>
+                       <% if @coleta.tipoMeio.nil? %>
                       <div class="col-md-6">
-                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
-                       </div>
+                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
                       
+                        <p><%= f.select :tipoMeio, 
+                              options_for_select([['Selecione um meio', 'Selecione um meio'],
+                                        ['cabo_coaxial', 'cabo_coaxial'], 
+                                        ['cabo_metalico', 'cabo_metalico'], 
+                                        ['radio', 'radio'], 
+                                        ['fibra', 'fibra']]), 
+                                    {required: true}, {id: 'tipoMeio'}  %></p>
+                      </div>
+
+                     <div class="col-md-6">
+                      <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
+                       <p><%= f.select :tipoTecnologia, 
+                            options_for_select([]), 
+                            {required: true}, {id: 'tipoTecnologia'}  %></p>
                     </div>
+                  <% else %>
+                  <div class="col-md-6">
+                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
+                      
+                        <p><%= f.select :tipoMeio, 
+                              options_for_select([['Selecione um meio', 'Selecione um meio'],
+                                        ['cabo_coaxial', 'cabo_coaxial'], 
+                                        ['cabo_metalico', 'cabo_metalico'], 
+                                        ['radio', 'radio'], 
+                                        ['fibra', 'fibra']], @coleta.tipoMeio), 
+                                    {required: true}, {id: 'tipoMeio'}  %></p>
+                      </div>
+
+                     <div class="col-md-6">
+                      <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
+                       <p><%= f.select :tipoTecnologia, 
+                            options_for_select([[@coleta.tipoTecnologia, @coleta.tipoTecnologia]], @coleta.tipoTecnologia), 
+                            {required: true}, {id: 'tipoTecnologia'}  %></p>
+                    </div>
+                  <% end %>
+                  </div>
 
                      <div class="row mb-3">
                         <div class="col-md-6">
