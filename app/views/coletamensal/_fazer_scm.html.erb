@@ -62,10 +62,12 @@
                       </div>
 
                     <div class="row mb-3">
+                    <% if @coleta.tipoMeio.nil? %>
                       <div class="col-md-6">
                         <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                         <p><%= f.select :tipoMeio, 
-                    options_for_select([['Selecione um meio', 'Selecione um meio'],
+                      
+                        <p><%= f.select :tipoMeio, 
+                              options_for_select([['Selecione um meio', 'Selecione um meio'],
                                         ['cabo_coaxial', 'cabo_coaxial'], 
                                         ['cabo_metalico', 'cabo_metalico'], 
                                         ['radio', 'radio'], 
@@ -79,6 +81,26 @@
                             options_for_select([]), 
                             {required: true}, {id: 'tipoTecnologia'}  %></p>
                     </div>
+                  <% else %>
+                  <div class="col-md-6">
+                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
+                      
+                        <p><%= f.select :tipoMeio, 
+                              options_for_select([['Selecione um meio', 'Selecione um meio'],
+                                        ['cabo_coaxial', 'cabo_coaxial'], 
+                                        ['cabo_metalico', 'cabo_metalico'], 
+                                        ['radio', 'radio'], 
+                                        ['fibra', 'fibra']], @coleta.tipoMeio), 
+                                    {required: true}, {id: 'tipoMeio'}  %></p>
+                      </div>
+
+                     <div class="col-md-6">
+                      <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
+                       <p><%= f.select :tipoTecnologia, 
+                            options_for_select([[@coleta.tipoTecnologia, @coleta.tipoTecnologia]], @coleta.tipoTecnologia), 
+                            {required: true}, {id: 'tipoTecnologia'}  %></p>
+                    </div>
+                  <% end %>
                   </div>
 
                      <div class="row mb-3">
