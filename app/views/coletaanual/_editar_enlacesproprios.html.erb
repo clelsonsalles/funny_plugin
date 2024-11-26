@@ -1,5 +1,5 @@
 <div class="container-md">
-              <%= form_for @coleta, url: coleta_editar_salvar_path do |f| %>
+              <%= form_for @coleta, url: coleta_anual_salvar_path do |f| %>
                    <%= f.hidden_field :id, :value => @coleta.id %>
                    <%= f.hidden_field :ano, :value => @coleta.ano %>
                    <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
