@@ -23,7 +23,7 @@
 
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
                          </div>
                        </div>
 
@@ -45,7 +45,7 @@
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :abertura, "Abertura", class: "form-label" %></p>
-                          <p><%= f.select :abertura, options_for_select([['s', 'S(SIM)'], ['n', 'N(NÃO)']]), required: true %></p>
+                          <p><%= f.select :abertura, options_for_select([['s', 'S(SIM)'], ['n', 'N(NÃO)']], @coleta.abertura), required: true %></p>
                         </div>
                     </div>
 
