@@ -24,14 +24,14 @@
         <div class="card">
             <div class="card-body d-flex">
                 <div class="me-3">
-                    <strong>Nome:</strong> <%= @responsavelEmpresa.nome %> 
+                    <strong>Nome:</strong> <%= @responsavelEmpresa.nil? ? '': @responsavelEmpresa.nome %> 
                 </div>
                 
                 <div class="me-3">
-                    <strong>Email:</strong> <%= @responsavelEmpresa.email %> 
+                    <strong>Email:</strong> <%= @responsavelEmpresa.nil? ? '': @responsavelEmpresa.email %> 
                 </div>
                 <div class="me-3">
-                    <strong>Telefone:</strong> <%= @responsavelEmpresa.telefone %>
+                    <strong>Telefone:</strong> <%= @responsavelEmpresa.nil? ? '': @responsavelEmpresa.telefone %>
                 </div>
             </div>
         </div>
