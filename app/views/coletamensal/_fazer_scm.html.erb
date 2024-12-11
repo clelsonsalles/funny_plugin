@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
-                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']], @coleta.tipoAtendimento), required: true %></p>
+                          <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'rural'], ['urbano', 'urbano']], @coleta.tipoAtendimento), required: true %></p>
                         </div>
                       </div>
 
