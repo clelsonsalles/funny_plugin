@@ -26,7 +26,7 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
-                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]), required: true %></p>
+                          <p><%= f.select :trimestre, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4]]), required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione a UF" %></p>
@@ -36,9 +36,9 @@
 
                      <div class="row mb-3">
                        <div class="col-md-6">
-                          <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
-                          <p><%= f.text_field :dadoInformado, class: "form-control", id: "dadoInformado", placeholder: "Dado Informado", required: true %></p>
-                        </div>
+                           <p><%= f.label :dadoInformado, "Dado Informado" %></p>
+                           <p><%= f.select :uf, options_for_select([['Receita_Operacional_Líquida_ROL', 'Receita_Operacional_Líquida_ROL'], ['Capital_Expenditure_CAPEX', 'Capital_Expenditure_CAPEX'], ['Tráfego_Dados_Total_MB', 'Tráfego_Dados_Total_MB'], ['Tráfego_Voz_Minutos', 'Tráfego_Voz_Minutos']]) {}, class:'form-select', required: true %></p>
+                       </div>
                         <div class="col-md-6">
                           <p><%= f.label :valor, "Valores", class: "form-label" %></p>
                           <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
