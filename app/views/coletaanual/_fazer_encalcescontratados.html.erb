@@ -39,7 +39,7 @@
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
-                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metálico'], ['radio', 'Rádio'], ['fibra', 'Fibra']], @coleta.enalaceMeio), required: true %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.enalaceMeio), required: true %></p>
                         </div>
                     </div>
 
