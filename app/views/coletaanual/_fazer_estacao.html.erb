@@ -74,11 +74,11 @@
                      <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :latitude, "Latitude", class: "form-label" %></p>
-                         <p><%= f.text_field :latitude, class: "form-control", latitude: "Latitude", placeholder: "Latitude", required: true %></p>
+                         <p><%= f.text_field :latitude, class: "form-control", placeholder: "Latitude", required: true, pattern: "-?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)" %></p>
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :longitude, "Longitude", class: "form-label" %></p>
-                          <p><%= f.text_field :longitude, class: "form-control", longitude: "Longitude", placeholder: "Longitude", required: true %></p>
+                          <p><%= f.text_field :longitude, class: "form-control", placeholder: "Longitude", required: true, pattern: "-?((1[0-7]\\d)|\\d{1,2})(\\.\\d+)?|180(\\.0+)?" %></p>
                         </div>
                     </div>
 
@@ -143,3 +143,22 @@
             </tbody>
         </table>
 </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  const latitudeInput = document.querySelector('input[name="latitude"]');
+  const longitudeInput = document.querySelector('input[name="longitude"]');
+
+  const isValidLatitude = (value) => /^-?([1-8]?\d(\.\d+)?|90(\.0+)?)$/.test(value);
+  const isValidLongitude = (value) => /^-?((1[0-7]\d)|(\d{1,2}))(\.\d+)?|180(\.0+)?$/.test(value);
+
+  latitudeInput.addEventListener("input", () => {
+    latitudeInput.setCustomValidity(isValidLatitude(latitudeInput.value) ? "" : "Latitude inválida!");
+  });
+
+  longitudeInput.addEventListener("input", () => {
+    longitudeInput.setCustomValidity(isValidLongitude(longitudeInput.value) ? "" : "Longitude inválida!");
+  });
+});
+</script>
