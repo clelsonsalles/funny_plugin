@@ -37,9 +37,9 @@
                          <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
                          <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace", required: true %></p>
                       </div>
-                       <div class="col-md-6">
+                      <div class="col-md-6">
                           <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
-                          <p><%= f.select :enlaceMeio, options_for_select([['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.enalaceMeio), required: true %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metálico'], ['radio', 'Rádio'], ['fibra', 'Fibra']], @coleta.enlaceMeio), required: true %></p>
                         </div>
                     </div>
 
