@@ -38,19 +38,19 @@
 <br/><br/>
             <div class="col-md-4">
                 <div class="custom-box">
-                 <div class="box-title">Mensal</div>
+                 <div class="box-title">Coleta Mensal</div>
                   <a href="/cliente/cliente?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaMensal" class="btn <%= @tituloColeta == 'ColetaMensal' ? 'btn-success  ': 'btn-secondary ' %> btn-primary  text-white" >Filtrar Coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
-                <div class="box-title">Semestral</div>
+                <div class="box-title">Coleta Semestral</div>
                     <a href="/cliente/cliente?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaSemestral" class="btn <%= @tituloColeta == 'ColetaSemestral' ? 'btn-success ': 'btn-secondary ' %> btn-primary   text-white">Filtrar Coleta</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="custom-box">
-                    <div class="box-title">Anual</div>
+                    <div class="box-title">Coleta Anual</div>
                     <a href="/cliente/cliente?id_projeto=<%= @organizacao.idProject  %>&titulo_coleta=ColetaAnual" class="btn <%= @tituloColeta == 'ColetaAnual' ? 'btn-success ': 'btn-secondary ' %> btn-primary   text-white">Filtrar Coleta</a>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                     <th scope="col">Data</th>
                     <th scope="col">Status</th>
                     <th scope="col">Formulário</th>
-                    <th scope="col">Tipo</th>
+                    <th scope="col">Serviço</th>
                     <th scope="col">Ação</th>
                 </tr>
             </thead>
