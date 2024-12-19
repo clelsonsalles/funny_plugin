@@ -51,7 +51,7 @@
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :enlaceSwap, "Enlace Swap", class: "form-label" %></p>
-                          <p><%= f.select :enlaceSwap, options_for_select([['escolher', 'Escolher...'],['s', 'S(SIM)'], ['n', 'N(NÃO)']], @coleta.enlaceSwap), required: true %></p>
+                          <p><%= f.select :enlaceSwap, options_for_select([['escolher', 'Escolher...'],['S', 'S'], ['N', 'N']], @coleta.enlaceSwap), required: true %></p>
                         </div>
                     </div>
 
