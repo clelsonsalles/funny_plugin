@@ -5,12 +5,12 @@ safe_attributes(
       'tituloColeta',       'tipoColeta',      'ano',                  'mes',                    'trimestre',          'uf',
       'cidade',             'codigoIBGE',      'tipoCliente',          'tipoAtendimento',        'tipoMeio',           'tipoTecnologia',
       'tipoProduto',        'velocidade',      'quantidadeAcesso',     'dadoInformado',          'valor',              'cn',
-                            'dataCriacao',     'dataRealizacao',      'cnpj',                   'anoInformado',         'mesInformado', 
+                            'dataCriacao',     'dataRealizacao',       'cnpj',                   'anoInformado',         'mesInformado', 
       'idEstacao',          'nEstacao',        'abertura',             'rua',                    'numeroEndereco',     'latitude',  
       'longitude',          'enlaceMeio',      'enlaceNominal',        'enlaceSwap',             'geometriaWkt',       'srid',  
       'largCanalUplink',    'capCanalUplink',  'largCanalDownlink',    'capCanalDownlink',       'cnpjContratada',     'idEstacaoOrigem', 
-      'idEstacaoDestino',   'idEnlace',        'codigoSatelite',        'freqUplink',            'freqDownlink',        'cep', 
-      'idSatelite',         'semestre', 'project_id')
+      'idEstacaoDestino',   'idEnlace',        'codigoSatelite',       'freqUplink',            'freqDownlink',        'cep', 
+      'idSatelite',         'semestre',        'project_id',           'tpEstacao')
 
   def self.mensal
      "Coleta Mensal"
