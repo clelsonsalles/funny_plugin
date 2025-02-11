@@ -80,10 +80,10 @@ module ExportCsv
               case tipoColeta
                   when "Estação"
                         # Adiciona o cabeçalho
-                        csv << ['CNPJ', 'ANO', 'ID', 'NUMESTACAO', 'LAT', 'LONG', 'COD_IBGE', 'ENDERECO', 'ABERTURA']
+                        csv << ['CNPJ', 'ANO', 'ID', 'NUMESTACAO', 'LAT', 'LONG', 'COD_IBGE', 'ENDERECO', 'ABERTURA', 'TP_ESTACAO']
                         # Adiciona as coletas
                         for coleta in coletas
-                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.latitude, coleta.longitude, coleta.codigoIBGE, coleta.numeroEndereco, coleta.abertura]
+                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.latitude, coleta.longitude, coleta.codigoIBGE, coleta.numeroEndereco, coleta.abertura, coleta.tpEstacao]
                         end
                   when "Enlaces próprios"
                         # Adiciona o cabeçalho
