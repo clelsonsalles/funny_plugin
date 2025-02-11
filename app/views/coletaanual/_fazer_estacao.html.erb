@@ -54,7 +54,7 @@
                     <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :tpEstacao, "Tipo de Estação", class: "form-label" %></p>
-                         <p><%= f.select :anoInformado, options_for_select([['propria', 'propria'], ['terceiro', 'terceiro'], ['nuvem', 'nuvem']], @coleta.tpEstacao), required: true %></p>
+                         <p><%= f.select :tpEstacao, options_for_select([['propria', 'propria'], ['terceiro', 'terceiro'], ['nuvem', 'nuvem']], @coleta.tpEstacao), required: true %></p>
                       </div>
                       <div class="col-md-6">
                          <p><%= f.label :cep, "Cep", class: "form-label" %></p>
