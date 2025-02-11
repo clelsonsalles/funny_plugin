@@ -48,28 +48,39 @@
                           <p><%= f.select :abertura, options_for_select([['S', 'S'], ['N', 'N']], @coleta.abertura), required: true %></p>
                         </div>
                     </div>
+ <div class="row mb-3">
+                      
 
                     <div class="row mb-3">
+                      <div class="col-md-6">
+                         <p><%= f.label :tpEstacao, "Tipo de Estação", class: "form-label" %></p>
+                         <p><%= f.select :anoInformado, options_for_select([['propria', 'propria'], ['terceiro', 'terceiro'], ['nuvem', 'nuvem']], @coleta.tpEstacao), required: true %></p>
+                      </div>
                       <div class="col-md-6">
                          <p><%= f.label :cep, "Cep", class: "form-label" %></p>
                          <p><%= f.text_field :cep, class: "form-control", id: "cep", placeholder: "Cep", required: true %></p>
                       </div>
+                      
+                    </div>
+
+                    <div class="row mb-3">
+
                        <div class="col-md-6">
                           <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
                           <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade", disabled: true, required: true %></p>
                         </div>
-                    </div>
-
-                    <div class="row mb-3">
                       <div class="col-md-6">
                          <p><%= f.label :rua, "Rua", class: "form-label" %></p>
                          <p><%= f.text_field :rua, class: "form-control", rua: "Rua", placeholder: "Rua", required: true %></p>
                       </div>
-                       <div class="col-md-6">
+                       
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
                           <p><%= f.label :numeroEndereco, "Número", class: "form-label" %></p>
                           <p><%= f.text_field :numeroEndereco, class: "form-control", numero: "Número", placeholder: "Número", required: true %></p>
                         </div>
-                    </div>
+                     </div>
 
                     <div class="row mb-3">
                       <div class="col-md-6">
