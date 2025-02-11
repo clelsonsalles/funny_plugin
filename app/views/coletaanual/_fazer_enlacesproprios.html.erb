@@ -39,7 +39,7 @@
                          <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace", required: true %></p>
                       </div>
                        <div class="col-md-6">
-                          <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
+                          <p><%= f.label :enlaceMeio, "Meio Transporte", class: "form-label" %></p>
                           <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.enlaceMeio), required: true %></p>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                     <th scope="col">Id da estação de origem</th>
                     <th scope="col">Id da estação de destino</th>
                     <th scope="col">Id Enlace</th>
-                    <th scope="col">Enlace Meio</th>
+                    <th scope="col">Tipo Meio Transporte</th>
                     <th scope="col">Enlace Nominal</th>
                     <th scope="col">Enlace Swap</th>
                     <th scope="col">Geometria WKT</th>
