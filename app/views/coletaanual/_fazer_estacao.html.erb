@@ -88,8 +88,8 @@
                          <p><%= f.select :tpEstacao, options_for_select([['propria', 'propria'], ['terceiro', 'terceiro'], ['nuvem', 'nuvem']], @coleta.tpEstacao), required: true %></p>
                       </div>
                       <div class="col-md-6">
-                         <p><%= f.label :largCanalUplink, "SN Enlace Próprio", class: "form-label" %></p>
-                        <p><%= f.text_field :largCanalUplink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal Uplink", required: true %></p>
+                        <p><%= f.label :largCanalUplink, "SN Enlace Próprio", class: "form-label" %></p>
+                          <p><%= f.select :largCanalUplink, options_for_select([['S', 'S'], ['N', 'N']], @coleta.largCanalUplink), required: true %></p>
                       </div>
                       
                     </div>
@@ -97,10 +97,13 @@
                     <div class="row mb-3">
 
                        <div class="col-md-6">
-                          <p><%= f.label :cidade, "Cidade", class: "form-label" %></p>
-                          <p><%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Cidade", disabled: true, required: true %></p>
-                        </div>
+                         <p><%= f.label :capCanalDownlink, "SN Enlace Contratado", class: "form-label" %></p>
+                         <p><%= f.select :capCanalDownlink, options_for_select([['S', 'S'], ['N', 'N']], @coleta.capCanalDownlink), required: true %></p>
+                      </div>
+                        
                       <div class="col-md-6">
+                        <p><%= f.label :capCanalUplink, "SN Enlace Satélite", class: "form-label" %></p>
+                        <p><%= f.select :ccapCanalUplink, options_for_select([['S', 'S'], ['N', 'N']], @coleta.capCanalUplink), required: true %></p>
                          
                       </div>
                        
@@ -125,8 +128,7 @@
                       </div>
 
 
-                          <p><%= f.label :largCanalUplink, "Largura do canal Uplink", class: "form-label" %></p>
-                          <p><%= f.text_field :largCanalUplink, class: "form-control", id: "largCanalUplink", placeholder: "Largura do canal Uplink", required: true %></p>
+                          
 
 
 
@@ -146,16 +148,19 @@
                     <th scope="col">Ano</th>
                     <th scope="col">Id da estação</th>
                     <th scope="col">Número da Estação</th>
-                    <th scope="col">Código IBGE</th>
-                    <th scope="col">Abertura</th>
-                    <th scope="col">Tipo de Estação</th>
-                    <th scope="col">Cep</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Rua</th>
-                    <th scope="col">Número</th> 
                     <th scope="col">Latitude</th>
                     <th scope="col">Longitude</th>
-                </tr>
+                    <th scope="col">Código IBGE</th>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Cep</th>
+                    <th scope="col">Abertura</th>
+                    <th scope="col">Tipo de Estação</th>
+                    <th scope="col">SN Enlace Próprio/th>
+                    <th scope="col">SN Enlace Contratado</th>
+                    <th scope="col">SN Enlace Satélite</th>
+                  </tr>
             </thead>
             <tbody>
              <% for coleta in @coletas %>
@@ -164,15 +169,22 @@
                      <td><%= coleta.ano %></td>
                      <td><%= coleta.idEstacao %></td>
                      <td><%= coleta.nEstacao %></td>
-                     <td><%= coleta.codigoIBGE %></td>
-                     <td><%= coleta.abertura %></td>
-                     <td><%= coleta.tpEstacao %></td>
-                     <td><%= coleta.cep %></td>
-                     <td><%= coleta.cidade %></td>
-                     <td><%= coleta.rua %></td>
-                     <td><%= coleta.numeroEndereco %></td>
                      <td><%= coleta.latitude %></td>
                      <td><%= coleta.longitude %></td>
+                     <td><%= coleta.codigoIBGE %></td>
+                     <td><%= coleta.rua %></td>
+                     <td><%= coleta.numeroEndereco %></td>
+                     <td><%= coleta.cidade %></td>
+                     <td><%= coleta.cep %></td>
+                     <td><%= coleta.abertura %></td>
+                     <td><%= coleta.tpEstacao %></td>
+                     <td><%= coleta.largCanalUplink %></td>
+                     <td><%= coleta.capCanalDownlink %></td>
+                     <td><%= coleta.capCanalUplink %></td>
+                     
+                     
+                     
+                     
                       
                 </tr>
             <% end %>
