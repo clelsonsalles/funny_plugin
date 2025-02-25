@@ -84,7 +84,7 @@ module ExportCsv
                         # Adiciona as coletas
                         for coleta in coletas
                            endereco_completo = "#{coleta.rua} #{coleta.numeroEndereco} #{coleta.cidade} #{coleta.cep}"
-                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.latitude, coleta.longitude, coleta.codigoIBGE, endereco_completo, coleta.abertura, coleta.tpEstacao, lcoleta.largCanalUplink, coleta.capCanalDownlink, coleta.capCanalUplink]
+                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacao, coleta.nEstacao, coleta.latitude, coleta.longitude, coleta.codigoIBGE, endereco_completo, coleta.abertura, coleta.tpEstacao, coleta.largCanalUplink, coleta.capCanalDownlink, coleta.capCanalUplink]
                         end
                   when "Enlaces próprios"
                         # Adiciona o cabeçalho
