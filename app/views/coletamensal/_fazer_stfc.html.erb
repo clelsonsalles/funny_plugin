@@ -1,10 +1,7 @@
 <div class="container-md">
               <%= form_for @coleta, url: coleta_mensal_atualizar_path do |f| %>
                    <%= f.hidden_field :id, :value => @coleta.id %>
-                   <%= f.hidden_field :uf, :value => @coleta.uf %>
-                   <%= f.hidden_field :cidade, :value => @coleta.cidade %>
                    <%= f.hidden_field :codigoIBGE, :value => @coleta.codigoIBGE %>
-
                    <%= f.hidden_field :mes, :value => @coleta.mes %>
                    <%= f.hidden_field :ano, :value => @coleta.ano %>
                    <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
@@ -27,52 +24,42 @@
 
 
                         <div class="row mb-3">
-                          
+                                 
+                         <div class="col-md-6">
+                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
+                         </div>
+                        
                          <div class="col-md-6">
                           <p><%= f.label :mesInformado, "Mês", class: "form-label" %></p>
                           <p><%= f.select :mesInformado, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],
                           ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12']],@coleta.mesInformado), required: true %></p>
                          </div>
-
-                         <div class="col-md-6">
-                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
-                         </div>
-                       </div>
+                      </div>
+ 
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
-                              <p><%= f.label :uf, "UF selecionada" %></p>
-                               <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true, required: true  %></p>
+                              <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
+                              <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
                          </div>
                          <div class="col-md-6">
-                               <p><%= f.label :cidade, "Cidade selecionada", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true, required: true  %></p>
+                               <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
+                               <p><%= f.select :tipoCliente, options_for_select([['PF', 'PF'], ['PJ', 'PJ'], ['UP', 'UP']], @coleta.tipoCliente), required: true%></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
-                          <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'PF'], ['PJ', 'PJ'], ['UP', 'UP']], @coleta.tipoCliente), required: true%></p>
-                        </div>
-                        <div class="col-md-6">
                           <p><%= f.label :tipoAtendimento, "Tipo de Atendimento", class: "form-label" %></p>
                           <p><%= f.select :tipoAtendimento, options_for_select([['rural', 'Rural'], ['urbano', 'Urbano']], @coleta.tipoAtendimento), required: true %></p>
                         </div>
-                      </div>
 
-                     <div class="row mb-3">
-                       <div class="col-md-6">
+                        <div class="col-md-6">
                           <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
                           <p><%= f.select :tipoMeio, options_for_select([['cabo_coaxial', 'Cabo_coaxial'], ['cabo_metalico', 'Cabo_metálico'], ['satelite', 'Satélite'], ['radio', 'Rádio'], ['fibra', 'Fibra']], @coleta.tipoMeio), required: true %></p>
                         </div>
-                       <div class="col-md-6">
-                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
-                       </div>
-                     
-                    </div>
+                      </div>
 
                      <div class="row mb-3">
                        <div class="col-md-6">
@@ -109,14 +96,12 @@
             <thead class="thead-light">
                 <tr>
                    <th scope="col">Cnpj</th>
-                    <th scope="col">Mês</th>
                     <th scope="col">Ano</th>
-                    <th scope="col">UF</th>
-                    <th scope="col">Cidade</th>
+                    <th scope="col">Mês</th>
+                    <th scope="col">Codigo IBGE</th>
                     <th scope="col">Tipo de Cliente</th>
                     <th scope="col">Tipo de Atendimento</th>
                     <th scope="col">Tipo Meio</th>
-                    <th scope="col">Codigo IBGE</th>
                     <th scope="col">Quantidade</th>
                     
                 </tr>
@@ -125,14 +110,12 @@
              <% for coleta in @coletas %>
                 <tr> 
                      <td><%= coleta.cnpj %></td>
-                     <td><%= coleta.mesInformado %></td>
                      <td><%= coleta.anoInformado %></td>
-                     <td><%= coleta.uf %></td>
-                     <td><%= coleta.cidade%></td>
+                     <td><%= coleta.mesInformado %></td>
+                     <td><%= coleta.codigoIBGE%></td>
                      <td><%= coleta.tipoCliente%></td>
                      <td><%= coleta.tipoAtendimento%></td>
                      <td><%= coleta.tipoMeio%></td>
-                     <td><%= coleta.codigoIBGE%></td>
                      <td><%= coleta.quantidadeAcesso%></td>
                      
                 </tr>
