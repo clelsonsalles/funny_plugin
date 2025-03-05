@@ -95,7 +95,7 @@ module ExportCsv
                         end
                   when "Encalces contratados"
                         # Adiciona o cabeçalho
-                        csv << ['CNPJ', 'ANO', 'ESTACAO_A_ID', 'ESTACAO_B_ID', 'ENLACES_CONTRATADOS_ID', 'ENLACES_CONTRATADOS_MEIO', 'ENLACES_CONTRATADOS_PRESTADORA']
+                        csv << ['CNPJ', 'ANO', 'ID_ESTACAO_A', 'ID_ESTACAO_B', 'ID_ENLACE', 'TP_MEIO_TRANSPORTE', 'CNPJ_FORNECEDORA_ENLACE']
                         # Adiciona as coletas
                         for coleta in coletas
                            csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.cnpjContratada]
