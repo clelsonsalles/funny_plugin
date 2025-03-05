@@ -18,7 +18,7 @@
                         
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
                          </div>
                        </div>
 
@@ -38,9 +38,9 @@
                          <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
                          <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace", required: true %></p>
                       </div>
-                       <div class="col-md-6">
-                          <p><%= f.label :enlaceMeio, "Enlace Meio", class: "form-label" %></p>
-                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metálico'], ['radio', 'Rádio'], ['fibra', 'Fibra']]), required: true %></p>
+                      <div class="col-md-6">
+                          <p><%= f.label :enlaceMeio, "Meio Transporte", class: "form-label" %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'], ['cabo_coaxial', 'cabo_coaxial'], ['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra'], ['satelite', 'satelite']], @coleta.enlaceMeio), required: true %></p>
                         </div>
                     </div>
 
@@ -59,11 +59,13 @@
                        <div class="col-md-6">
                           <%= f.submit "Salvar", class:" btn btn-primary" %>
                         </div>
-                        
+                        <div class="col-md-6">
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
+
+                        </div>
                        </div>
                        
                <% end %>
-
                     
 
   </div>
