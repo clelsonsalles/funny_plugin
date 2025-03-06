@@ -6,7 +6,7 @@
                    <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
                    <%= f.hidden_field :project_id, :value => @coleta.project_id %>
 
-                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                     <div class="box-title"><%= @coleta.tipoColeta %></div>
                          
                       <div class="row mb-3">
                          <div class="col-md-6">
@@ -19,17 +19,17 @@
 
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']]), required: true %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['escolher', 'Escolher...'],['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
-                          <p><%= f.label :idEstacaoOrigem, "Id da estação de origem", class: "form-label" %></p>
+                          <p><%= f.label :idEstacaoOrigem, "Id da estação A", class: "form-label" %></p>
                           <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem", required: true %></p>
                         </div>
                         <div class="col-md-6">
-                          <p><%= f.label :idEstacaoDestino, "Id da estação de destino", class: "form-label" %></p>
+                          <p><%= f.label :idEstacaoDestino, "Id da estação B", class: "form-label" %></p>
                           <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "idEstacaoDestino", placeholder: "Id da Estação de destino", required: true %></p>
                         </div>
                       </div>
@@ -41,18 +41,18 @@
                       </div>
                        <div class="col-md-6">
                           <p><%= f.label :enlaceMeio, "Meio Transporte", class: "form-label" %></p>
-                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']]), required: true %></p>
+                          <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.enlaceMeio), required: true %></p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                       <div class="col-md-6">
-                         <p><%= f.label :enlaceNominal, "Enlace Nominal", class: "form-label" %></p>
+                         <p><%= f.label :enlaceNominal, "Capacidade Nominal", class: "form-label" %></p>
                          <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal", required: true %></p>
                       </div>
                        <div class="col-md-6">
-                          <p><%= f.label :enlaceSwap, "Enlace Swap", class: "form-label" %></p>
-                          <p><%= f.select :enlaceSwap, options_for_select([['escolher', 'Escolher...'],['s', 'S(SIM)'], ['n', 'N(NÃO)']]), required: true %></p>
+                          <p><%= f.label :enlaceSwap, "SN Swap", class: "form-label" %></p>
+                          <p><%= f.select :enlaceSwap, options_for_select([['escolher', 'Escolher...'],['S', 'S'], ['N', 'N']], @coleta.enlaceSwap), required: true %></p>
                         </div>
                     </div>
 
@@ -69,9 +69,12 @@
 
                      <div class="row mb-3">
                        <div class="col-md-6">
-                          <%= f.submit "Salvar", class:" btn btn-primary" %>
+                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
                         </div>
-                        
+                        <div class="col-md-6">
+                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
+
+                        </div>
                        </div>
                        
                <% end %>
