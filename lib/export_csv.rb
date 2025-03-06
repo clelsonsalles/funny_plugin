@@ -88,10 +88,10 @@ module ExportCsv
                         end
                   when "Enlaces próprios"
                         # Adiciona o cabeçalho
-                        csv << ['CNPJ', 'ANO', 'ESTACAO_A_ID', 'ESTACAO_B_ID', 'ENLACE_PROPRIOS_TERRESTRES_ID', 'ENLACES_PROPRIOS_TERRESTRES_MEIO', 'ENLACES_CONTRATADOS_PRESTADORA']
+                        csv << ['CNPJ', 'ANO', 'ID_ESTACAO_A', 'ID_ESTACAO_B', 'ID_ENLACE', 'TP_MEIO_TRANSPORTE', 'CAPACIDADE_NOMINAL', SN_SWAP, GEOMETRIA_WKT, SRID]
                         # Adiciona as coletas
                         for coleta in coletas
-                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.cnpj]
+                           csv << [coleta.cnpj, coleta.ano, coleta.idEstacaoOrigem, coleta.idEstacaoDestino, coleta.idEnlace, coleta.enlaceMeio, coleta.enlaceNominal, coleta.enlaceSwap, coleta.geometriaWkt, coleta.srid]
                         end
                   when "Encalces contratados"
                         # Adiciona o cabeçalho
