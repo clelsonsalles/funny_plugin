@@ -28,27 +28,30 @@
                        </div>
 
                       <div class="row mb-3">
-                       <div class="col-md-6">
+                        <div class="col-md-6">
                           <p><%= f.label :idEstacao, "Id Estação", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", 
-                                  placeholder: "Id da Estação", required: true, 
-                                  pattern="[0-9]*" title="Este campo só pode conter números.", 
-                                  oninput="this.value = this.value.replace(/[^0-9]/g, ''); showAlert(this)" %></p>
-                                 <small id="idEstacaoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
-
-                        <script>
-                          function showAlert(input) {
-                            const alert = document.getElementById("idEstacaoAlert");
-                            if (input.value.match(/[^0-9]/)) {
-                              alert.style.display = "inline";
-                            } else {
-                              alert.style.display = "none";
-                            }
-                          }
-                        </script>
-
-
+                          <p>
+                            <%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", 
+                                placeholder: "Id da Estação", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="idEstacaoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
                         </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("idEstacao");
+                              var alert = document.getElementById("idEstacaoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
 
                         
                         <div class="col-md-6">
