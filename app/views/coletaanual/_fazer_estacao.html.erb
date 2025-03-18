@@ -23,14 +23,16 @@
 
                          <div class="col-md-6">
                           <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
+                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025'], ['2026', '2026'], ['2027', '2027'], ['2028', '2028'], ['2029', '2029'], ['2030', '2030']], @coleta.anoInformado), required: true %></p>
                          </div>
                        </div>
 
                       <div class="row mb-3">
-                        <div class="col-md-6">
+                       <div class="col-md-6">
                           <p><%= f.label :idEstacao, "Id Estação", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", placeholder: "Id da Estação", required: true %></p>
+                          <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", 
+                          placeholder: "Id da Estação", required: true, 
+                          oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :nEstacao, "Número da Estação", class: "form-label" %></p>
