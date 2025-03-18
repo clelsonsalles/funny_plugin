@@ -31,11 +31,10 @@
                        <div class="col-md-6">
                           <p><%= f.label :idEstacao, "Id Estação", class: "form-label" %></p>
                           <p><%= f.text_field :idEstacao, class: "form-control", id: "idEstacao", 
-                          placeholder: "Id da Estação", required: true, 
-                          pattern="[0-9]*" title="Este campo só pode conter números.", 
-                          oninput="this.value = this.value.replace(/[^0-9]/g, ''); showAlert(this)" %></p>
-                          <small id="idEstacaoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
-                        </div>
+                                  placeholder: "Id da Estação", required: true, 
+                                  pattern="[0-9]*" title="Este campo só pode conter números.", 
+                                  oninput="this.value = this.value.replace(/[^0-9]/g, ''); showAlert(this)" %></p>
+                                 <small id="idEstacaoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
 
                         <script>
                           function showAlert(input) {
@@ -47,6 +46,11 @@
                             }
                           }
                         </script>
+
+
+                        </div>
+
+                        
                         <div class="col-md-6">
                           <p><%= f.label :nEstacao, "Número da Estação", class: "form-label" %></p>
                           <p><%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", placeholder: "Número da Estação", required: true %></p>
