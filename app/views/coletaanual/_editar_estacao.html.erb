@@ -53,11 +53,32 @@
                           </script>
 
 
-                        
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                           <p><%= f.label :nEstacao, "Número da Estação", class: "form-label" %></p>
-                          <p><%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", placeholder: "Número da Estação", required: true %></p>
+                          <p>
+                            <%= f.text_field :nEstacao, class: "form-control", id: "nEstacao", 
+                                placeholder: "Id da Estação", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="nEstacaoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
                         </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("nEstacao");
+                              var alert = document.getElementById("nEstacaoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+                 
+                        
                       </div>
 
                      <div class="row mb-3">
