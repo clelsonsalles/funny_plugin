@@ -22,21 +22,86 @@
                        </div>
 
                       <div class="row mb-3">
-                        <div class="col-md-6">
-                          <p><%= f.label :idEstacaoOrigem, "Id da estação de origem", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", placeholder: "Id da Estação de Origem", required: true %></p>
+                                                 <div class="col-md-6">
+                          <p><%= f.label :idEstacaoOrigem, "Id Estação Origem", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoOrigem", 
+                                placeholder: "Id Estação Origem", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="idEstacaoOrigemAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
                         </div>
-                        <div class="col-md-6">
-                          <p><%= f.label :idEstacaoDestino, "Id da estação de destino", class: "form-label" %></p>
-                          <p><%= f.text_field :idEstacaoDestino, class: "form-control", id: "idEstacaoDestino", placeholder: "Id da Estação de destino", required: true %></p>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("idEstacaoOrigem");
+                              var alert = document.getElementById("idEstacaoOrigemAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+                                              
+                     <div class="col-md-6">
+                          <p><%= f.label :idEstacaoDestino, "Id Estação Destino", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :idEstacaoOrigem, class: "form-control", id: "idEstacaoDestino", 
+                                placeholder: "Id Estação Origem", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="idEstacaoOrigemAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
                         </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("idEstacaoDestino");
+                              var alert = document.getElementById("idEstacaoDestinoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+
+
                       </div>
 
                      <div class="row mb-3">
-                      <div class="col-md-6">
-                         <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
-                         <p><%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", placeholder: "Id Enlace", required: true %></p>
-                      </div>
+                         <div class="col-md-6">
+                          <p><%= f.label :idEnlace, "Id Enlace", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", 
+                                placeholder: "Id Enlace", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="idEnlaceAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("idEnlace");
+                              var alert = document.getElementById("idEnlaceAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+
+
                       <div class="col-md-6">
                           <p><%= f.label :enlaceMeio, "Meio Transporte", class: "form-label" %></p>
                           <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'], ['cabo_coaxial', 'cabo_coaxial'], ['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra'], ['satelite', 'satelite']], @coleta.enlaceMeio), required: true %></p>
