@@ -41,28 +41,9 @@
 
                          
                         <div class="col-md-6">
-                            <p><%= f.label :valor, "Valor", class: "form-label" %></p>
-                            <p>
-                              <%= f.text_field :valor, class: "form-control", id: "valorInput", 
-                                  placeholder: "0,00", required: true, 
-                                  oninput: "formatCurrency(this)" %>
-                            </p>
-                            <small id="valorAlert" style="color: red; display: none;">Digite um valor válido.</small>
-                          </div>
-                          
-                          <script>
-                            function formatCurrency(input) {
-                              let value = input.value.replace(/\D/g, ""); // Remove tudo que não for número
-                              let floatValue = parseFloat(value) / 100; // Converte para decimal
-                          
-                              if (!isNaN(floatValue)) {
-                                input.value = floatValue.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-                                document.getElementById("valorAlert").style.display = "none";
-                              } else {
-                                document.getElementById("valorAlert").style.display = "inline";
-                              }
-                            }
-                          </script>
+                          <p><%= f.label :valor, "Valores", class: "form-label" %></p>
+                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
+                        </div>
                      
                     </div>
 
