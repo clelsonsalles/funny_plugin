@@ -40,44 +40,36 @@
                         </div>
 
                          
-                       <div class="col-md-6">
-                            <p>
-                              <%= f.label :valor, "Valor Decimal", class: "form-label" %>
-                              <span data-bs-toggle="tooltip" title="Digite apenas números com até duas casas decimais. Exemplo: 123.45">
-                                <i class="fas fa-info-circle"></i>
-                              </span>
-                            </p>
-                            <p>
-                              <%= f.text_field :valor, class: "form-control", id: "valorInput", 
-                                  placeholder: "Digite um valor decimal", required: true, 
-                                  pattern="^\d+(\.\d{1,2})?$", title="Digite um número decimal válido. Exemplo: 123.45", 
-                                  oninput="validateDecimal(this)" %>
-                            </p>
-                            <small id="valorAlert" style="color: red; display: none;">Digite um número decimal válido.</small>
-                          </div>
-                          
-                          <script>
-                            document.addEventListener("DOMContentLoaded", function () {
-                              var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-                              var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                                return new bootstrap.Tooltip(tooltipTriggerEl);
-                              });
+                      <div class="col-md-6">
+                          <p>
+                            <%= f.label :valor, "Valor Decimal", class: "form-label" %>
+                            <span data-bs-toggle="tooltip" title="Digite um número decimal com até duas casas decimais. Exemplo: 123.45">
+                              <i class="fas fa-info-circle"></i>
+                            </span>
+                          </p>
+                          <p>
+                            <%= f.text_field :valor, class: "form-control", id: "valorInput", 
+                                placeholder: "Digite um valor decimal", required: true, 
+                                oninput="validateDecimal(this)" %>
+                          </p>
+                          <small id="valorAlert" style="color: red; display: none;">Digite um número decimal válido.</small>
+                        </div>
+                        
+                        <script>
+                          document.addEventListener("DOMContentLoaded", function () {
+                            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                              new bootstrap.Tooltip(tooltipTriggerEl);
                             });
-                          
-                            function validateDecimal(input) {
-                              input.value = input.value.replace(/[^0-9.]/g, ''); // Permite apenas números e ponto decimal
-                              let regex = /^\d+(\.\d{0,2})?$/; // Regex para número decimal com até duas casas
-                              let alert = document.getElementById("valorAlert");
-                          
-                              if (!regex.test(input.value) && input.value !== "") {
-                                alert.style.display = "inline";
-                              } else {
-                                alert.style.display = "none";
-                              }
-                            }
-                          </script>
-                                               
-                    </div>
+                          });
+                        
+                          function validateDecimal(input) {
+                            input.value = input.value.replace(/[^0-9.]/g, ''); // Permite apenas números e ponto decimal
+                            
+                            // Garantir que há no máximo um ponto decimal
+                        
+                                                                       
+                                            </div>
 
                     <div class="row mb-3">
 
