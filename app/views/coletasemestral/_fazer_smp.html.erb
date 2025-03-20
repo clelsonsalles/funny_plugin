@@ -44,7 +44,7 @@
                           <p><%= f.label :valor, "Valor", class: "form-label" %></p>
                           <p>
                             <%= f.text_field :valor, class: "form-control", id: "valorInput", 
-                                placeholder: "R$ 0,00", required: true, 
+                                placeholder: "0,00", required: true, 
                                 oninput: "formatCurrency(this)" %>
                           </p>
                           <small id="valorAlert" style="color: red; display: none;">Digite um valor válido.</small>
