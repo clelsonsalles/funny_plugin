@@ -82,14 +82,102 @@
                       </div>
 
                      <div class="row mb-3">
+
                       <div class="col-md-6">
-                         <p><%= f.label :latitude, "Latitude", class: "form-label" %></p>
-                         <p><%= f.text_field :latitude, class: "form-control", latitude: "Latitude", placeholder: "Latitude", required: true %></p>
-                      </div>
-                       <div class="col-md-6">
-                          <p><%= f.label :longitude, "Longitude", class: "form-label" %></p>
-                          <p><%= f.text_field :longitude, class: "form-control", longitude: "Longitude", placeholder: "Longitude", required: true %></p>
-                        </div>
+                            <p><%= f.label :latitude, "Latitude", class: "form-label" %></p>
+                            <p>
+                              <%= f.text_field :latitude, class: "form-control", id: "latitude", 
+                                  placeholder: "Digite a latitude", required: true, 
+                                  title: "Este campo só pode conter números decimais com vírgula e um sinal negativo opcional.", 
+                                  oninput: "formatLatitude(this)" %>
+                            </p>
+                            <small id="latitudeAlert" style="color: red; display: none;">
+                              Apenas números, uma vírgula e um sinal negativo no início são permitidos.
+                            </small>
+                          </div>
+                          
+                          <script>
+                            function formatLatitude(input) {
+                              var alert = document.getElementById("latitudeAlert");
+                          
+                              // Remove tudo que não seja número, vírgula ou hífen
+                              let value = input.value.replace(/[^0-9,-]/g, '');
+                          
+                              // Garante que o sinal de menos (-) só apareça no início
+                              if (value.includes("-")) {
+                                value = "-" + value.replace(/-/g, '');
+                              }
+                          
+                              // Garante que haja no máximo uma vírgula
+                              let parts = value.split(",");
+                              if (parts.length > 2) {
+                                value = parts[0] + "," + parts.slice(1).join("").replace(/,/g, '');
+                              }
+                          
+                              // Atualiza o valor no campo
+                              input.value = value;
+                          
+                              // Verifica se há erro
+                              if (value.match(/[^0-9,-]/) || 
+                                  (value.match(/,/g) || []).length > 1 || 
+                                  (value.match(/-/g) || []).length > 1 || 
+                                  (value.includes('-') && value[0] !== '-')) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+                              <div class="col-md-6">
+                                  <p><%= f.label :longitude, "Longitude", class: "form-label" %></p>
+                                  <p>
+                                    <%= f.text_field :longitude, class: "form-control", id: "longitude", 
+                                        placeholder: "Digite a longitude", required: true, 
+                                        title: "Este campo só pode conter números decimais com vírgula e um sinal negativo opcional.", 
+                                        oninput: "formatLongitude(this)" %>
+                                  </p>
+                                  <small id="longitudeAlert" style="color: red; display: none;">
+                                    Apenas números, uma vírgula e um sinal negativo no início são permitidos.
+                                  </small>
+                                </div>
+                                
+                                <script>
+                                  function formatLongitude(input) {
+                                    var alert = document.getElementById("longitudeAlert");
+                                
+                                    // Remove tudo que não seja número, vírgula ou hífen
+                                    let value = input.value.replace(/[^0-9,-]/g, '');
+                                
+                                    // Garante que o sinal de menos (-) só apareça no início
+                                    if (value.includes("-")) {
+                                      value = "-" + value.replace(/-/g, '');
+                                    }
+                                
+                                    // Garante que haja no máximo uma vírgula
+                                    let parts = value.split(",");
+                                    if (parts.length > 2) {
+                                      value = parts[0] + "," + parts.slice(1).join("").replace(/,/g, '');
+                                    }
+                                
+                                    // Atualiza o valor no campo
+                                    input.value = value;
+                                
+                                    // Verifica se há erro
+                                    if (value.match(/[^0-9,-]/) || 
+                                        (value.match(/,/g) || []).length > 1 || 
+                                        (value.match(/-/g) || []).length > 1 || 
+                                        (value.includes('-') && value[0] !== '-')) {
+                                      alert.style.display = "inline";
+                                    } else {
+                                      alert.style.display = "none";
+                                    }
+                                  }
+                                </script>
+
+
+                     
+
                        </div>
 
                      <div class="row mb-3">
