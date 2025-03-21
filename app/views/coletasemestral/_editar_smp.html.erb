@@ -26,7 +26,7 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
-                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]), required: true %></p>
+                          <p><%= f.select :trimestre, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4]]), required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione a UF" %></p>
@@ -37,24 +37,69 @@
                      <div class="row mb-3">
                        <div class="col-md-6">
                           <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
-                          <p><%= f.select :dadoInformado, options_for_select([['receita', 'Receita_Operacional_Líquida_ROL'], ['capital', 'Capital_Expenditure_CAPEX'], ['trafego', 'Tráfego_Dados_Total_MB, Tráfego_Voz_Minutos']]), required: true %></p>
+                          <p><%= f.select :dadoInformado, options_for_select([['Receita_Operacional_Líquida_ROL', 'Receita_Operacional_Líquida_ROL'], ['Capital_Expenditure_CAPEX', 'Capital_Expenditure_CAPEX'], ['Tráfego_Dados_Total_MB', 'Tráfego_Dados_Total_MB'], ['Tráfego_Voz_Minutos','Tráfego_Voz_Minutos']]), required: true %></p>
                         </div>
 
-                         <div class="col-md-6">
-                          <p><%= f.label :valor, "Valores", class: "form-label" %></p>
-                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
-                        </div>
 
+                      <div class="col-md-6">
+  <p><%= f.label :valor, "Valores", class: "form-label" %></p>
+  <p>
+    <%= f.text_field :valor, class: "form-control", id: "valor", 
+        placeholder: "Digite um valor", required: true, 
+        title: "Este campo só pode conter números decimais com vírgula.", 
+        oninput: "this.value = this.value.replace(/[^0-9,]/g, '').replace(/(,.*?),/g, '$1'); showAlert()" %>
+  </p>
+  <small id="valorAlert" style="color: red; display: none;">Apenas números e uma única vírgula são permitidos.</small>
+</div>
+
+<script>
+  function showAlert() {
+    var input = document.getElementById("valor");
+    var alert = document.getElementById("valorAlert");
+
+    if (input.value.match(/[^0-9,]/) || (input.value.match(/,/g) || []).length > 1) {
+      alert.style.display = "inline";
+    } else {
+      alert.style.display = "none";
+    }
+  }
+</script>
+
+
+                         
                       
-                    </div>
+                     </div>
 
                     <div class="row mb-3">
-                       <div class="col-md-6">
+
+
+                    <div class="col-md-6">
                           <p><%= f.label :cn, "CN", class: "form-label" %></p>
-                          <p><%= f.text_field :cn, class: "form-control", id: "cn", placeholder: "CN", required: true %></p>
+                          <p>
+                            <%= f.text_field :cn, class: "form-control", id: "cn", 
+                                placeholder: "CN", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="cnAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
                         </div>
 
-                       
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("cn");
+                              var alert = document.getElementById("cnAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+                  
+  
+                     
                       
                     </div>
 
