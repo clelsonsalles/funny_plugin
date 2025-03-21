@@ -71,9 +71,32 @@
 
                     <div class="row mb-3">
 
+
                     <div class="col-md-6">
                           <p><%= f.label :cn, "CN", class: "form-label" %></p>
-                          <p><%= f.text_field :cn, class: "form-control", id: "cn", placeholder: "CN", required: false %></p>
+                          <p>
+                            <%= f.text_field :cn, class: "form-control", id: "cn", 
+                                placeholder: "CN", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="cnAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("cn");
+                              var alert = document.getElementById("cnAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+                  
   
                      
                       
