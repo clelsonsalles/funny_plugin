@@ -45,8 +45,8 @@
   <p>
     <%= f.text_field :valor, class: "form-control", id: "valor", 
         placeholder: "Digite um valor", required: true, 
-        title="Este campo só pode conter números decimais.", 
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d*\.\d*?)\..*/g, '$1'); showAlert()" %>
+        pattern: "[0-9]*\\.?[0-9]*", title: "Este campo só pode conter números decimais.",
+        oninput: "this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d*\\.?\\d*?)\\..*/g, '$1'); showAlert()" %>
   </p>
   <small id="valorAlert" style="color: red; display: none;">Apenas números decimais são permitidos.</small>
 </div>
@@ -54,7 +54,7 @@
 <script>
   function showAlert() {
     var input = document.getElementById("valor");
-    var alert = document.getElementById("valorAlert"); // Corrigido o nome do id
+    var alert = document.getElementById("valorAlert"); // Corrigido o ID
 
     if (input.value.match(/[^0-9.]/) || (input.value.match(/\./g) || []).length > 1) {
       alert.style.display = "inline";
