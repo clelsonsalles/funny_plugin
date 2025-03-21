@@ -123,58 +123,77 @@
                     <div class="row mb-3">
 
                       <div class="col-md-6">
-  <p><%= f.label :geometriaWkt, "Geometria WKT (LINESTRING)", class: "form-label" %></p>
-  <p>
-    <%= f.text_area :geometriaWkt, class: "form-control", id: "geometriaWkt", 
-        placeholder: "Digite a geometria WKT (LINESTRING)", required: true, 
-        title: "O WKT deve começar com LINESTRING e conter um formato válido, como LINESTRING(x1 y1, x2 y2, ...)", 
-        oninput: "validateWKT(this)" %>
-  </p>
-  <small id="geometriaWktAlert" style="color: red; display: none;">
-    O formato WKT deve começar com LINESTRING e seguir o padrão correto.<br>
-    Exemplo válido: LINESTRING(23.653538 -46.529374, 24.000000 -47.000000)
-  </small>
-</div>
+                            <p><%= f.label :geometriaWkt, "Geometria WKT (LINESTRING)", class: "form-label" %></p>
+                            <p>
+                              <%= f.text_area :geometriaWkt, class: "form-control", id: "geometriaWkt", 
+                                  placeholder: "Digite a geometria WKT (LINESTRING)", required: true, 
+                                  title: "O WKT deve começar com LINESTRING e conter um formato válido, como LINESTRING(x1 y1, x2 y2, ...)", 
+                                  oninput: "validateWKT(this)" %>
+                            </p>
+                            <small id="geometriaWktAlert" style="color: red; display: none;">
+                              O formato WKT deve começar com LINESTRING e seguir o padrão correto.<br>
+                              Exemplo válido: LINESTRING(23.653538 -46.529374, 24.000000 -47.000000)
+                            </small>
+                          </div>
+                          
+                          <script>
+                            function validateWKT(input) {
+                              var alert = document.getElementById("geometriaWktAlert");
+                              var value = input.value.trim().toUpperCase();
+                          
+                              // Expressão regular para validar LINESTRING corretamente
+                              var wktRegex = /^LINESTRING\s*\(\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?(\s*,\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?)*\s*\)$/;
+                          
+                              // Verifica se corresponde ao formato esperado
+                              if (!wktRegex.test(value) || !isValidParentheses(value)) {
+                                alert.style.display = "inline"; // Exibe o alerta
+                                input.style.border = "2px solid red"; // Adiciona borda vermelha para destacar erro
+                              } else {
+                                alert.style.display = "none"; // Esconde o alerta
+                                input.style.border = "1px solid #ced4da"; // Volta à borda normal
+                              }
+                            }
+                          
+                            function isValidParentheses(str) {
+                              let stack = [];
+                              for (let char of str) {
+                                if (char === '(') {
+                                  stack.push(char);
+                                } else if (char === ')') {
+                                  if (stack.length === 0) return false;
+                                  stack.pop();
+                                }
+                              }
+                              return stack.length === 0; // Deve estar vazio no final
+                            }
+                          </script>
 
-<script>
-  function validateWKT(input) {
-    var alert = document.getElementById("geometriaWktAlert");
-    var value = input.value.trim().toUpperCase();
+                        <div class="col-md-6">
+                          <p><%= f.label :srid, "SRID", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :srid, class: "form-control", id: "srid", 
+                                placeholder: "SRID", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="sridAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
 
-    // Expressão regular para validar LINESTRING corretamente
-    var wktRegex = /^LINESTRING\s*\(\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?(\s*,\s*-?\d+(\.\d+)?\s+-?\d+(\.\d+)?)*\s*\)$/;
-
-    // Verifica se corresponde ao formato esperado
-    if (!wktRegex.test(value) || !isValidParentheses(value)) {
-      alert.style.display = "inline"; // Exibe o alerta
-      input.style.border = "2px solid red"; // Adiciona borda vermelha para destacar erro
-    } else {
-      alert.style.display = "none"; // Esconde o alerta
-      input.style.border = "1px solid #ced4da"; // Volta à borda normal
-    }
-  }
-
-  function isValidParentheses(str) {
-    let stack = [];
-    for (let char of str) {
-      if (char === '(') {
-        stack.push(char);
-      } else if (char === ')') {
-        if (stack.length === 0) return false;
-        stack.pop();
-      }
-    }
-    return stack.length === 0; // Deve estar vazio no final
-  }
-</script>
-
-
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("nEstacao");
+                              var alert = document.getElementById("nEstacaoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
 
                                              
-                       <div class="col-md-6">
-                          <p><%= f.label :srid, "SRID", class: "form-label" %></p>
-                          <p><%= f.text_field :srid, class: "form-control", id: "srid", placeholder: "SRID", required: true %></p>
-                        </div>
+                       
                     </div>
 
                      <div class="row mb-3">
