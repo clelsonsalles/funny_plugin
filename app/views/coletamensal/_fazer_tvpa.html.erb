@@ -64,11 +64,33 @@
                       </div>
 
                      <div class="row mb-3">
-                       <div class="col-md-6">
+                         <div class="col-md-6">
                           <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
-                          <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade", required: true %></p>
-                       </div>
-                       
+                          <p>
+                            <%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", 
+                                placeholder: "Quantidade", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="quantidadeAcessoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("quantidadeAcesso");
+                              var alert = document.getElementById("quantidadeAcessoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
+
+
+                      
                      </div>
           
           
