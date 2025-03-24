@@ -7,7 +7,7 @@
                    <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
                    <%= f.hidden_field :project_id, :value => @coleta.project_id %>
 
-                    <div class="box-title"><%= @coleta.tipoColeta %></div>
+                     <div class="box-title"><%= @coleta.tipoColeta %></div>
                          
                        <div class="row mb-3">
                          <div class="col-md-6">
@@ -27,7 +27,7 @@
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :trimestre, "Trimestre", class: "form-label" %></p>
-                          <p><%= f.select :trimestre, options_for_select([['TR1', 1], ['TR2', 2], ['TR3', 3], ['TR4', 4]]), required: true %></p>
+                          <p><%= f.select :trimestre, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4]]), required: true %></p>
                         </div>
                         <div class="col-md-6">
                           <p><%= f.label :uf, "Selecione a UF" %></p>
@@ -37,13 +37,54 @@
 
                      <div class="row mb-3">
                        <div class="col-md-6">
-                          <p><%= f.label :dadoInformado, "Dado Informado", class: "form-label" %></p>
-                          <p><%= f.text_field :dadoInformado, class: "form-control", id: "dadoInformado", placeholder: "Dado Informado", required: true %></p>
-                        </div>
+                           <p><%= f.label :dadoInformado, "Dado Informado" %></p>
+                           <p><%= f.select :uf, options_for_select([['Receita_Operacional_Líquida_ROL', 'Receita_Operacional_Líquida_ROL'], ['Capital_Expenditure_CAPEX', 'Capital_Expenditure_CAPEX'], ['Tráfego_Dados_Total_MB', 'Tráfego_Dados_Total_MB'], ['Tráfego_Voz_Minutos', 'Tráfego_Voz_Minutos']]) {}, class:'form-select', required: true %></p>
+                       </div>
                         <div class="col-md-6">
-                          <p><%= f.label :valor, "Valores", class: "form-label" %></p>
-                          <p><%= f.text_field :valor, class: "form-control", id: "valor", placeholder: "Valores", required: true %></p>
-                        </div>
+                            <p><%= f.label :valor, "Valores", class: "form-label" %></p>
+                            <p>
+                              <%= f.text_field :valor, class: "form-control", id: "valor", 
+                                  placeholder: "Digite o Valor", required: true, 
+                                  title: "Este campo só pode conter números decimais com vírgula ou montários.", 
+                                  oninput: "formatValores(this)" %>
+                            </p>
+                            <small id="valorAlert" style="color: red; display: none;">
+                              Apenas números, uma vírgula são permitidos.
+                            </small>
+                          </div>
+                          
+                          <script>
+                            function formatLatitude(input) {
+                              var alert = document.getElementById("valorAlert");
+                          
+                              // Remove tudo que não seja número, vírgula ou hífen
+                              let value = input.value.replace(/[^0-9,-]/g, '');
+                          
+                              // Garante que o sinal de menos (-) só apareça no início
+                              if (value.includes("-")) {
+                                value = "-" + value.replace(/-/g, '');
+                              }
+                          
+                              // Garante que haja no máximo uma vírgula
+                              let parts = value.split(",");
+                              if (parts.length > 2) {
+                                value = parts[0] + "," + parts.slice(1).join("").replace(/,/g, '');
+                              }
+                          
+                              // Atualiza o valor no campo
+                              input.value = value;
+                          
+                              // Verifica se há erro
+                              if (value.match(/[^0-9,-]/) || 
+                                  (value.match(/,/g) || []).length > 1 || 
+                                  (value.match(/-/g) || []).length > 1 || 
+                                  (value.includes('-') && value[0] !== '-')) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
 
                       
                     </div>
