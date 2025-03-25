@@ -108,17 +108,57 @@
                           <p><%= f.label :tipoProduto, "Tipo de Produto", class: "form-label" %></p>
                           <p><%= f.select :tipoProduto, options_for_select([['internet', 'internet'], ['linha_dedicada', 'linha_dedicada'], ['m2m', 'm2m'], ['outros', 'outros']], @coleta.tipoProduto), required: true %></p>
                        </div>
-                       <div class="col-md-6">
-                               <p><%= f.label :velocidade, "Velocidade", class: "form-label" %></p>
-                               <p><%= f.text_field :velocidade, class: "form-control", id: "velocidade", placeholder: "Digite a velocidade", required: true %></p>
-                       </div>
+                       
+                        <div class="col-md-6">
+                          <p><%= f.label :velocidade, "Velocidade", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :velocidade, class: "form-control", id: "velocidade", 
+                                placeholder: "Velocidade", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="velocidadeAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("velocidade");
+                              var alert = document.getElementById("velocidadeAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
+
                      </div>
 
                      <div class="row mb-3">
-                       <div class="col-md-6">
+                      <div class="col-md-6">
                           <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
-                          <p><%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Digite a quantidade", required: true %></p>
-                       </div>
+                          <p>
+                            <%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", 
+                                placeholder: "Quantidade", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="quantidadeAcessoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("quantidadeAcesso");
+                              var alert = document.getElementById("quantidadeAcessoAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script>
                        <div class="col-md-6">
                           <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
                           <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
