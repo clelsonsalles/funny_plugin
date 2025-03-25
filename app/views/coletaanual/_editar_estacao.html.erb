@@ -88,7 +88,7 @@
                             <p>
                               <%= f.text_field :latitude, class: "form-control", id: "latitude", 
                                   placeholder: "Digite a latitude", required: true, 
-                                  title: "Este campo só pode conter números decimais com vírgula e um sinal negativo opcional.", 
+                                  title: "Este é um campo de latitude. Só pode conter números decimais com vírgula e um sinal negativo opcional.", 
                                   oninput: "formatLatitude(this)" %>
                             </p>
                             <small id="latitudeAlert" style="color: red; display: none;">
@@ -134,7 +134,7 @@
                                   <p>
                                     <%= f.text_field :longitude, class: "form-control", id: "longitude", 
                                         placeholder: "Digite a longitude", required: true, 
-                                        title: "Este campo só pode conter números decimais com vírgula e um sinal negativo opcional.", 
+                                        title: "Este é um campo de longitude só pode conter números decimais com vírgula e um sinal negativo opcional.", 
                                         oninput: "formatLongitude(this)" %>
                                   </p>
                                   <small id="longitudeAlert" style="color: red; display: none;">
