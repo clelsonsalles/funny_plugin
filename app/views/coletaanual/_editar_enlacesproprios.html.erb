@@ -6,7 +6,7 @@
                    <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
                    <%= f.hidden_field :project_id, :value => @coleta.project_id %>
 
-                     <div class="box-title"><%= @coleta.tipoColeta %></div>
+                   <div class="box-title"><%= @coleta.tipoColeta %></div>
                          
                       <div class="row mb-3">
                          <div class="col-md-6">
@@ -79,27 +79,51 @@
                       </div>
 
                      <div class="row mb-3">
-               
-                        <div class="col-md-6">
+
+                      <div class="col-md-6">
+                          <p><%= f.label :idEnlace, "Id Estação B", class: "form-label" %></p>
+                          <p>
+                            <%= f.text_field :idEnlace, class: "form-control", id: "idEnlace", 
+                                placeholder: "idEnlace", required: true, 
+                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
+                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
+                          </p>
+                          <small id="idEnlaceAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
+                        </div>
+
+                          <script>
+                            function showAlert() {
+                              var input = document.getElementById("idEnlace");
+                              var alert = document.getElementById("idEnlaceAlert");
+                              
+                              if (input.value.match(/[^0-9]/)) {
+                                alert.style.display = "inline";
+                              } else {
+                                alert.style.display = "none";
+                              }
+                            }
+                          </script> 
+                     
+                       <div class="col-md-6">
                           <p><%= f.label :enlaceMeio, "Meio Transporte", class: "form-label" %></p>
                           <p><%= f.select :enlaceMeio, options_for_select([['escolher', 'Escolher...'],['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.enlaceMeio), required: true %></p>
                         </div>
-                         <div class="col-md-6">
-                         <p><%= f.label :enlaceNominal, "Capacidade Nominal", class: "form-label" %></p>
-                         <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal", required: true %></p>
-                      </div>
-                      
                     </div>
 
                     <div class="row mb-3">
-                     
+                      <div class="col-md-6">
+                         <p><%= f.label :enlaceNominal, "Capacidade Nominal", class: "form-label" %></p>
+                         <p><%= f.text_field :enlaceNominal, class: "form-control", id: "enlaceNominal", placeholder: "Enlace Nominal", required: true %></p>
+                      </div>
                        <div class="col-md-6">
                           <p><%= f.label :enlaceSwap, "SN Swap", class: "form-label" %></p>
                           <p><%= f.select :enlaceSwap, options_for_select([['escolher', 'Escolher...'],['S', 'S'], ['N', 'N']], @coleta.enlaceSwap), required: true %></p>
                         </div>
-                    
+                    </div>
 
-                     <div class="col-md-6">
+                    <div class="row mb-3">
+
+                      <div class="col-md-6">
                             <p><%= f.label :geometriaWkt, "Geometria WKT (LINESTRING)", class: "form-label" %></p>
                             <p>
                               <%= f.text_area :geometriaWkt, class: "form-control", id: "geometriaWkt", 
@@ -145,9 +169,6 @@
                             }
                           </script>
 
-                    </div>
-
-                      <div class="row mb-3">
                         <div class="col-md-6">
                           <p><%= f.label :srid, "SRID", class: "form-label" %></p>
                           <p>
