@@ -1,139 +1,77 @@
 <%= error_messages_for 'user' %>
 
 <div id="user_form">
-  <!--[form:user]-->
-  <div class="splitcontent">
-    <div class="splitcontentleft">
-      <fieldset class="box tabular">
-        <legend><%= l(:label_information_plural) %></legend>
-        
-        <!-- Linha 1: login -->
-        <div class="mb-3">
-          <%= f.label :login, class: "form-label" %>
-          <%= f.text_field :login, required: true, class: "form-control" %>
-        </div>
+<!--[form:user]-->
+<div class="splitcontent">
+<div class="splitcontentleft">
+<fieldset class="box tabular">
+  <legend><%=l(:label_information_plural)%></legend>
+  <p><%= f.text_field :login, :required => true, :size => 25  %></p>
+  <p><%= f.text_field :firstname, :required => true %></p>
+  <p><%= f.text_field :lastname, :required => true %></p>
+  <p><%= f.text_field :mail, :required => true %></p>
+  <% unless @user.force_default_language? %>
+  <p><%= f.select :language, lang_options_for_select %></p>
+  <% end %>
 
-        <!-- Linha 2: firstname -->
-        <div class="mb-3">
-          <%= f.label :firstname, class: "form-label" %>
-          <%= f.text_field :firstname, required: true, class: "form-control" %>
-        </div>
+  <% @user.custom_field_values.each do |value| %>
+    <p><%= custom_field_tag_with_label :user, value %></p>
+  <% end %>
 
-        <!-- Linha 3: lastname -->
-        <div class="mb-3">
-          <%= f.label :lastname, class: "form-label" %>
-          <%= f.text_field :lastname, required: true, class: "form-control" %>
-        </div>
+  <p><%= f.check_box :admin, :disabled => (@user == User.current) %></p>
+  <%= call_hook(:view_users_form, :user => @user, :form => f) %>
+</fieldset>
 
-        <!-- Linha 4: mail -->
-        <div class="mb-3">
-          <%= f.label :mail, class: "form-label" %>
-          <%= f.text_field :mail, required: true, class: "form-control" %>
-        </div>
-
-        <!-- Linha 5: language -->
-        <% unless @user.force_default_language? %>
-          <div class="mb-3">
-            <%= f.label :language, class: "form-label" %>
-            <%= f.select :language, lang_options_for_select, {}, class: "form-select" %>
-          </div>
-        <% end %>
-
-        <!-- Linha 6: Custom Fields -->
-        <% @user.custom_field_values.each do |value| %>
-          <div class="mb-3">
-            <%= custom_field_tag_with_label :user, value %>
-          </div>
-        <% end %>
-
-        <!-- Linha 7: admin -->
-        <div class="mb-3">
-          <div class="form-check">
-            <%= f.check_box :admin, { disabled: (@user == User.current), class: "form-check-input", id: "user_admin" } %>
-            <%= f.label :admin, class: "form-check-label", for: "user_admin" %>
-          </div>
-        </div>
-
-        <%= call_hook(:view_users_form, user: @user, form: f) %>
-      </fieldset>
-
-      <fieldset class="box tabular">
-        <legend><%= l(:label_authentication) %></legend>
-        <% unless @auth_sources.empty? %>
-          <div class="mb-3">
-            <%= f.label :auth_source_id, class: "form-label" %>
-            <%= f.select :auth_source_id,
-                  [[l(:label_internal), ""]] + @auth_sources.collect { |a| [a.name, a.id] },
-                  {},
-                  class: "form-select",
-                  onchange: "if (this.value=='') {$('#password_fields').show();} else {$('#password_fields').hide();}" %>
-          </div>
-        <% end %>
-
-        <div id="password_fields" style="<%= 'display:none;' if @user.auth_source %>">
-          <div class="mb-3">
-            <%= f.label :password, class: "form-label" %>
-            <%= f.password_field :password, required: @user.new_record?, class: "form-control" %>
-            <em class="info"><%= l(:text_caracters_minimum, count: Setting.password_min_length) %></em>
-            <% if Setting.password_required_char_classes.any? %>
-              <em class="info">
-                <%= l(:text_characters_must_contain, character_classes: Setting.password_required_char_classes.collect { |c| l("label_password_char_class_#{c}") }.join(", ")) %>
-              </em>
-            <% end %>
-          </div>
-
-          <div class="mb-3">
-            <%= f.label :password_confirmation, class: "form-label" %>
-            <%= f.password_field :password_confirmation, required: @user.new_record?, class: "form-control" %>
-          </div>
-
-          <div class="mb-3">
-            <div class="form-check">
-              <%= f.check_box :generate_password, class: "form-check-input", id: "user_generate_password" %>
-              <%= f.label :generate_password, class: "form-check-label", for: "user_generate_password" %>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="form-check">
-              <%= f.check_box :must_change_passwd, class: "form-check-input", id: "user_must_change_passwd" %>
-              <%= f.label :must_change_passwd, class: "form-check-label", for: "user_must_change_passwd" %>
-            </div>
-          </div>
-        </div>
-
-        <% if Setting.twofa? && !@user.new_record? -%>
-          <div class="mb-3">
-            <label><%= l :setting_twofa -%></label>
-            <% if @user.twofa_active? %>
-              <p><%= l 'twofa_currently_active', twofa_scheme_name: l("twofa__#{@user.twofa_scheme}__name") %></p>
-              <% if @user == User.current %>
-                <%= link_to l('button_disable'), { controller: 'twofa', action: 'deactivate_init', scheme: @user.twofa_scheme }, method: :post %>
-              <% else %>
-                <%= link_to l('button_disable'), { controller: 'twofa', action: 'admin_deactivate', user_id: @user }, method: :post %>
-              <% end %>
-            <% else %>
-              <%= l 'twofa_not_active' %>
-            <% end %>
-          </div>
-        <% end -%>
-      </fieldset>
-    </div>
+<fieldset class="box tabular">
+  <legend><%=l(:label_authentication)%></legend>
+  <% unless @auth_sources.empty? %>
+  <p><%= f.select :auth_source_id, ([[l(:label_internal), ""]] + @auth_sources.collect { |a| [a.name, a.id] }), {}, :onchange => "if (this.value=='') {$('#password_fields').show();} else {$('#password_fields').hide();}" %></p>
+  <% end %>
+  <div id="password_fields" style="<%= 'display:none;' if @user.auth_source %>">
+  <p>
+    <%= f.password_field :password, :required => @user.new_record?, :size => 25  %>
+    <em class="info"><%= l(:text_caracters_minimum, :count => Setting.password_min_length) %></em>
+    <% if Setting.password_required_char_classes.any? %>
+      <em class="info"><%= l(:text_characters_must_contain, :character_classes => Setting.password_required_char_classes.collect{|c| l("label_password_char_class_#{c}")}.join(", ")) %></em>
+    <% end %>
+  </p>
+  <p><%= f.password_field :password_confirmation, :required => @user.new_record?, :size => 25  %></p>
+  <p><%= f.check_box :generate_password %></p>
+  <p><%= f.check_box :must_change_passwd %></p>
   </div>
+  <% if Setting.twofa? && !@user.new_record? -%>
+  <p>
+    <label><%=l :setting_twofa -%></label>
+    <% if @user.twofa_active? %>
+      <%=l 'twofa_currently_active', twofa_scheme_name: l("twofa__#{@user.twofa_scheme}__name") -%><br/>
+      <% if @user == User.current # administrators cannot deactivate their own 2FA without confirmation code %>
+        <%= link_to l('button_disable'), { controller: 'twofa', action: 'deactivate_init', scheme: @user.twofa_scheme }, method: :post -%>
+      <% else %>
+        <%= link_to l('button_disable'), { controller: 'twofa', action: 'admin_deactivate', user_id: @user }, method: :post -%>
+      <% end %>
+    <% else %>
+      <%=l 'twofa_not_active' %>
+    <% end %>
+  </p>
+  <% end -%>
+</fieldset>
 </div>
 
+
+</div>
+</div>
 <div style="clear:left;"></div>
 <!--[eoform:user]-->
 
 <%= javascript_tag do %>
-  $(document).ready(function(){
-    $('#user_generate_password').change(function(){
-      var passwd = $('#user_password, #user_password_confirmation');
-      if ($(this).is(':checked')){
-        passwd.val('').attr('disabled', true);
-      } else {
-        passwd.removeAttr('disabled');
-      }
-    }).trigger('change');
-  });
+$(document).ready(function(){
+  $('#user_generate_password').change(function(){
+    var passwd = $('#user_password, #user_password_confirmation');
+    if ($(this).is(':checked')){
+      passwd.val('').attr('disabled', true);
+    }else{
+      passwd.removeAttr('disabled');
+    }
+  }).trigger('change');
+});
 <% end %>
