@@ -22,6 +22,9 @@ class AccountController < ApplicationController
   include CustomFieldsHelper
 
   self.main_menu = false
+  layout :resolve_layout
+
+
 
   # prevents login action to be filtered by check_if_login_required application scope filter
   skip_before_action :check_if_login_required, :check_password_change
@@ -446,6 +449,16 @@ class AccountController < ApplicationController
   def account_locked(user, redirect_path=signin_path)
     flash[:error] = l(:notice_account_locked)
     redirect_to redirect_path
+  end
+end
+
+private
+
+def resolve_layout
+  if action_name == 'login'
+    'login'
+  else
+    'base'
   end
 end
 
