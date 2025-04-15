@@ -125,9 +125,10 @@
           </div>
         </div>
 
-        <!-- Submit Button: automatically handled by form_for -->
+        <!-- Centralizar os botões -->
         <div class="text-center mt-4">
-          <%= f.submit l(:button_submit), class: "btn btn-primary" %>
+          <%= f.submit 'Criar', class: "btn btn-success me-2" %>
+          <%= link_to 'Criar e Continuar', some_path, class: "btn btn-primary" %> <!-- Ajuste 'some_path' com a URL apropriada -->
         </div>
 
       <% end %>
