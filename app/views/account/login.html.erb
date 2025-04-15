@@ -1,32 +1,93 @@
 <%= call_hook :view_account_login_top %>
 
-<div id="login-form">
-  <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
-  <%= back_url_hidden_field_tag %>
+<style>
+  .login-page {
+    height: 100vh;
+  }
 
-<h2><b>Login</b></h2>
-<p>Insira seus dados para entrar no sistema </p>
-  
-  <label for="username"><%=l(:field_login)%></label>
-  <%= text_field_tag 'username', params[:username], :tabindex => '1', :autofocus => params[:username].blank? %>
-  
-  <label for="password">
-    <%=l(:field_password)%>
-    
-  </label>
-  <%= password_field_tag 'password', nil, :tabindex => '2', :autofocus => params[:username].present? %>
-  <%= link_to l(:label_password_lost), lost_password_path, :class => "lost_password" if Setting.lost_password? %>
-  
-  
-  <% if Setting.autologin? %>
-    <label for="autologin"><%= check_box_tag 'autologin', 1, false, :tabindex => 4 %> <%= l(:label_stay_logged_in) %></label>
-  <% end %>
+  .login-left {
+    background-color: #f8f9fa;
+  }
 
- <input type="submit" name="login" value="<%=l(:button_login)%>" tabindex="5" id="login-submit" class="btn btn-primary" />
- 
-  <% end %>
-<center><p>É novo por aqui? <a href="http://191.252.196.83:81/account/register">Criar conta</a></p></center>
+  .login-right {
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .login-title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .login-subtitle {
+    font-size: 18px;
+    color: #6c757d;
+  }
+
+  .form-label {
+    margin-top: 15px;
+  }
+
+  .login-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+
+<div class="container-fluid login-page d-flex align-items-center justify-content-center">
+  <div class="row w-100">
+    <!-- Coluna da esquerda com informações -->
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center login-left text-center p-5">
+      <h1 class="login-title">Nome do Sistema</h1>
+      <p class="login-subtitle">Subtítulo ou descrição do sistema</p>
+    </div>
+
+    <!-- Coluna da direita com o formulário -->
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center login-right p-5">
+      <div class="w-100" style="max-width: 400px;">
+        <div id="login-form">
+          <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
+            <%= back_url_hidden_field_tag %>
+
+            <h2 class="mb-3">Login</h2>
+            <p>Insira seus dados para entrar no sistema</p>
+
+            <div class="form-group">
+              <label class="form-label" for="username"><%= l(:field_login) %></label>
+              <%= text_field_tag 'username', params[:username], class: "form-control", tabindex: '1', autofocus: params[:username].blank? %>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="password"><%= l(:field_password) %></label>
+              <%= password_field_tag 'password', nil, class: "form-control", tabindex: '2', autofocus: params[:username].present? %>
+            </div>
+
+            <% if Setting.lost_password? %>
+              <div class="mt-2">
+                <%= link_to l(:label_password_lost), lost_password_path, class: "text-muted" %>
+              </div>
+            <% end %>
+
+            <% if Setting.autologin? %>
+              <div class="form-check mt-3">
+                <%= check_box_tag 'autologin', 1, false, class: "form-check-input", id: "autologin" %>
+                <label class="form-check-label" for="autologin"><%= l(:label_stay_logged_in) %></label>
+              </div>
+            <% end %>
+
+            <button type="submit" name="login" class="btn btn-primary btn-block w-100 mt-4" tabindex="5" id="login-submit">
+              <%= l(:button_login) %>
+            </button>
+
+          <% end %>
+
+          <div class="login-footer">
+            <p class="mt-4">É novo por aqui? <a href="http://191.252.196.83:81/account/register">Criar conta</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 <%= call_hook :view_account_login_bottom %>
