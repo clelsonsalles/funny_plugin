@@ -448,3 +448,16 @@ class AccountController < ApplicationController
     redirect_to redirect_path
   end
 end
+
+layout :resolve_layout
+
+private
+
+def resolve_layout
+  if action_name == 'login'
+    'login'
+  else
+    'base'
+  end
+end
+
