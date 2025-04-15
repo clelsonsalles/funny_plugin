@@ -2,49 +2,33 @@
   <h3 class="text-dark mb-4">Painel de Administração</h3>
 
   <div class="row">
-    <%= [
-      { link: '/admin/projects', icon: 'fa-university', title: 'Administrar Empresas', subtitle: 'Gerencie suas empresas parceiras', gradient: 'linear-gradient(135deg, #007bff, #00c6ff)' },
-      { link: '/users', icon: 'fa-user-circle-o', title: 'Administrar Usuários', subtitle: 'Gerencie os usuários do sistema', gradient: 'linear-gradient(135deg, #28a745, #a8eb12)' },
-      { link: '/cliente/register', icon: 'fa-user-circle', title: 'Cadastro de Analistas', subtitle: 'Faça aqui o cadastro dos Analistas', gradient: 'linear-gradient(135deg, #ffc107, #ff8f00)' },
-      { link: '/settings', icon: 'fa-cogs', title: 'Configurações', subtitle: 'Configurações gerais do sistema', gradient: 'linear-gradient(135deg, #343a40, #6c757d)' },
-      { link: '/settings/plugin/funny_plugin', icon: 'fa-calendar', title: 'Data das Coletas', subtitle: 'Definir datas de coletas com Anatel', gradient: 'linear-gradient(135deg, #17a2b8, #48d6ff)' },
-      { link: '/reports', icon: 'fa-file-text', title: 'Relatórios', subtitle: 'Gerar relatórios das coletas', gradient: 'linear-gradient(135deg, #dc3545, #ff6a6a)' }
+    <% [
+      { link: '/admin/projects', icon: 'fa-university', title: 'Administrar Empresas', subtitle: 'Gerencie suas empresas parceiras', color: 'bg-primary' },
+      { link: '/users', icon: 'fa-user-circle-o', title: 'Administrar Usuários', subtitle: 'Gerencie os usuários do sistema', color: 'bg-success' },
+      { link: '/cliente/register', icon: 'fa-user-circle', title: 'Cadastro de Analistas', subtitle: 'Faça aqui o cadastro dos Analistas', color: 'bg-warning' },
+      { link: '/settings', icon: 'fa-cogs', title: 'Configurações', subtitle: 'Configurações gerais do sistema', color: 'bg-dark' },
+      { link: '/settings/plugin/funny_plugin', icon: 'fa-calendar', title: 'Data das Coletas', subtitle: 'Definir datas de coletas com Anatel', color: 'bg-info' },
+      { link: '/reports', icon: 'fa-file-text', title: 'Relatórios', subtitle: 'Gerar relatórios das coletas', color: 'bg-danger' }
     ].each do |item| %>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <a href="<%= item[:link] %>" class="text-decoration-none">
-          <div class="card text-white shadow-lg rounded-4 h-100 animate-hover" style="background: <%= item[:gradient] %>; transition: transform 0.3s;">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center text-center p-4">
+      <div class="col-md-4 mb-4">
+        <div class="card text-white <%= item[:color] %> shadow-lg h-100 rounded-4 hover-shadow" style="min-height: 220px;">
+          <div class="card-body d-flex flex-column justify-content-center align-items-center text-center p-4">
+            <a href="<%= item[:link] %>" class="text-white text-decoration-none">
               <i class="fa <%= item[:icon] %> mb-3" style="font-size: 3rem;"></i>
-              <h5 class="fw-bold fs-5"><%= item[:title] %></h5>
-              <p class="fs-6 mb-0"><%= item[:subtitle] %></p>
-            </div>
+              <h5 class="fw-bold"><%= item[:title] %></h5>
+              <p class="mb-0"><%= item[:subtitle] %></p>
+            </a>
           </div>
-        </a>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
 
 <style>
-  .animate-hover:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-  }
-
-  @media (max-width: 768px) {
-    h5.fw-bold.fs-5 {
-      font-size: 1.1rem;
-    }
-
-    p.fs-6 {
-      font-size: 0.9rem;
-    }
-
-    .card i {
-      font-size: 2.2rem !important;
-    }
+  .hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
   }
 </style>
-
-
-
