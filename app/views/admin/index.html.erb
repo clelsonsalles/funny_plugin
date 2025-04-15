@@ -26,9 +26,27 @@
 </div>
 
 <style>
-  .hover-shadow:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-  }
+ .card {
+  position: relative; /* Evitar que algum outro elemento sobreponha */
+}
+
+.card-body {
+  background-color: transparent; /* Garantir que não sobreponha com fundo branco */
+  color: white; /* Assegura que o texto dentro do card tenha contraste */
+}
+
+.card-body a {
+  color: white; /* Garantir que os links fiquem visíveis */
+}
+
+.card i {
+  color: white; /* Garantir que os ícones também fiquem brancos */
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
 </style>
