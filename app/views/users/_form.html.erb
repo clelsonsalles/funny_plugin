@@ -51,7 +51,7 @@
 
             <!-- Admin Checkbox -->
             <div class="mb-3">
-              <div class="form-check">
+              <div class="form-check custom-checkbox">
                 <%= f.check_box :admin, { disabled: (@user == User.current), class: "form-check-input", id: "user_admin" } %>
                 <%= f.label :admin, class: "form-check-label", for: "user_admin" %>
               </div>
@@ -92,14 +92,14 @@
               </div>
 
               <div class="mb-3">
-                <div class="form-check">
+                <div class="form-check custom-checkbox">
                   <%= f.check_box :generate_password, class: "form-check-input", id: "user_generate_password" %>
                   <%= f.label :generate_password, class: "form-check-label", for: "user_generate_password" %>
                 </div>
               </div>
 
               <div class="mb-3">
-                <div class="form-check">
+                <div class="form-check custom-checkbox">
                   <%= f.check_box :must_change_passwd, class: "form-check-input", id: "user_must_change_passwd" %>
                   <%= f.label :must_change_passwd, class: "form-check-label", for: "user_must_change_passwd" %>
                 </div>
@@ -125,10 +125,10 @@
           </div>
         </div>
 
-        <!-- Centralizar os botões -->
+        <!-- Botões Centralizados -->
         <div class="text-center mt-4">
           <%= f.submit 'Criar', class: "btn btn-success me-2" %>
-          <%= link_to 'Criar e Continuar',  class: "btn btn-primary" %> <!-- Ajuste 'some_path' com a URL apropriada -->
+          <%= link_to 'Criar e Continuar',  some_path, class: "btn btn-primary" %> <!-- Ajuste 'some_path' com a URL apropriada -->
         </div>
 
       <% end %>
@@ -148,3 +148,29 @@
     }).trigger('change');
   });
 <% end %>
+
+<style>
+  /* Estilo dos checkboxes com destaque e animação 2D */
+  .custom-checkbox .form-check-input {
+    transition: all 0.3s ease;
+  }
+
+  .custom-checkbox .form-check-input:checked {
+    background-color: #007bff; /* Cor ao ser marcado */
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  }
+
+  .custom-checkbox .form-check-input:hover {
+    transform: scale(1.1); /* Efeito 2D ao passar o mouse */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+  }
+
+  /* Centralizar os botões */
+  .text-center .btn {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+</style>
