@@ -9,26 +9,29 @@
     </div>
     <div class="card-body">
       <% if @user.auth_source_id.nil? %>
-        <div class="mb-3">
-          <%= f.label :login, class: "form-label" %>
-          <%= f.text_field :login, size: 25, required: true, class: "form-control" %>
+        <div class="row mb-3">
+          <div class="col-12 col-md-6 mb-3">
+            <%= f.label :login, class: "form-label" %>
+            <%= f.text_field :login, size: 25, required: true, class: "form-control" %>
+          </div>
+          <div class="col-12 col-md-6 mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, size: 25, required: true, class: "form-control" %>
+            <small class="form-text text-muted">
+              <%= l(:text_caracters_minimum, count: Setting.password_min_length) %>
+              <% if Setting.password_required_char_classes.any? %>
+                <br/>
+                <%= l(:text_characters_must_contain, character_classes: Setting.password_required_char_classes.collect { |c| l("label_password_char_class_#{c}") }.join(", ")) %>
+              <% end %>
+            </small>
+          </div>
         </div>
 
-        <div class="mb-3">
-          <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, size: 25, required: true, class: "form-control" %>
-          <small class="form-text text-muted">
-            <%= l(:text_caracters_minimum, count: Setting.password_min_length) %>
-            <% if Setting.password_required_char_classes.any? %>
-              <br/>
-              <%= l(:text_characters_must_contain, character_classes: Setting.password_required_char_classes.collect { |c| l("label_password_char_class_#{c}") }.join(", ")) %>
-            <% end %>
-          </small>
-        </div>
-
-        <div class="mb-3">
-          <%= f.label :password_confirmation, class: "form-label" %>
-          <%= f.password_field :password_confirmation, size: 25, required: true, class: "form-control" %>
+        <div class="row mb-3">
+          <div class="col-12 col-md-6 mb-3">
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, size: 25, required: true, class: "form-control" %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -39,30 +42,33 @@
       Dados do Analista
     </div>
     <div class="card-body">
-      <div class="mb-3">
-        <%= f.label :firstname, class: "form-label" %>
-        <%= f.text_field :firstname, required: true, class: "form-control" %>
+      <div class="row mb-3">
+        <div class="col-12 col-md-6 mb-3">
+          <%= f.label :firstname, class: "form-label" %>
+          <%= f.text_field :firstname, required: true, class: "form-control" %>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+          <%= f.label :lastname, class: "form-label" %>
+          <%= f.text_field :lastname, required: true, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <%= f.label :lastname, class: "form-label" %>
-        <%= f.text_field :lastname, required: true, class: "form-control" %>
-      </div>
+      <div class="row mb-3">
+        <div class="col-12 col-md-6 mb-3">
+          <%= f.label :mail, class: "form-label" %>
+          <%= f.text_field :mail, required: true, class: "form-control" %>
+        </div>
 
-      <div class="mb-3">
-        <%= f.label :mail, class: "form-label" %>
-        <%= f.text_field :mail, required: true, class: "form-control" %>
+        <% unless @user.force_default_language? %>
+          <div class="col-12 col-md-6 mb-3">
+            <%= f.label :language, class: "form-label" %>
+            <%= f.select :language, lang_options_for_select, {}, class: "form-select" %>
+          </div>
+        <% end %>
       </div>
 
       <%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
         <!-- Campos de preferência personalizados aqui, se necessário -->
-      <% end %>
-
-      <% unless @user.force_default_language? %>
-        <div class="mb-3">
-          <%= f.label :language, class: "form-label" %>
-          <%= f.select :language, lang_options_for_select, {}, class: "form-select" %>
-        </div>
       <% end %>
     </div>
   </div>
@@ -71,7 +77,6 @@
     <%= submit_tag l(:button_submit), class: "btn btn-success" %>
   </div>
 <% end %>
-
 
 
 
