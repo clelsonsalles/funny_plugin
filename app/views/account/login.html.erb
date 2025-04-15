@@ -1,50 +1,15 @@
-<%= call_hook :view_account_login_top %>
-
-<style>
-  .login-page {
-    height: 100vh;
-  }
-
-  .login-left {
-    background-color: #f8f9fa;
-  }
-
-  .login-right {
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  }
-
-  .login-title {
-    font-size: 32px;
-    font-weight: bold;
-  }
-
-  .login-subtitle {
-    font-size: 18px;
-    color: #6c757d;
-  }
-
-  .form-label {
-    margin-top: 15px;
-  }
-
-  .login-footer {
-    margin-top: 20px;
-    text-align: center;
-  }
-</style>
-
-<div class="container-fluid login-page d-flex align-items-center justify-content-center">
+<div class="container-fluid login-container d-flex align-items-center justify-content-center">
   <div class="row w-100">
-    <!-- Coluna da esquerda com informações -->
+    <!-- Lado esquerdo com título -->
     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center login-left text-center p-5">
-      <h1 class="login-title">Nome do Sistema</h1>
-      <p class="login-subtitle">Subtítulo ou descrição do sistema</p>
+      <img src="https://via.placeholder.com/120x120.png?text=Logo" alt="Logo" class="logo" />
+      <h1 class="login-title">Anatel Connect</h1>
+      <p class="login-subtitle">Sistema Integrado de Acompanhamento</p>
     </div>
 
-    <!-- Coluna da direita com o formulário -->
-    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center login-right p-5">
-      <div class="w-100" style="max-width: 400px;">
+    <!-- Lado direito com o formulário -->
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center p-5">
+      <div class="login-right w-100 p-5" style="max-width: 400px;">
         <div id="login-form">
           <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
             <%= back_url_hidden_field_tag %>
@@ -64,7 +29,7 @@
 
             <% if Setting.lost_password? %>
               <div class="mt-2">
-                <%= link_to l(:label_password_lost), lost_password_path, class: "text-muted" %>
+                <%= link_to l(:label_password_lost), lost_password_path, class: "text-muted small" %>
               </div>
             <% end %>
 
@@ -75,19 +40,16 @@
               </div>
             <% end %>
 
-            <button type="submit" name="login" class="btn btn-primary btn-block w-100 mt-4" tabindex="5" id="login-submit">
+            <button type="submit" name="login" class="btn btn-dark w-100 mt-4" tabindex="5" id="login-submit">
               <%= l(:button_login) %>
             </button>
-
           <% end %>
 
           <div class="login-footer">
-            <p class="mt-4">É novo por aqui? <a href="http://191.252.196.83:81/account/register">Criar conta</a></p>
+            <p class="mt-4">É novo por aqui? <a href="/account/register">Criar conta</a></p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= call_hook :view_account_login_bottom %>
