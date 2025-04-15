@@ -125,10 +125,9 @@
           </div>
         </div>
 
-        <!-- Botões Centralizados -->
+        <!-- Somente o botão "Criar" -->
         <div class="text-center mt-4">
-          <%= f.submit 'Criar', class: "btn btn-success me-2" %>
-          <%= link_to 'Criar e Continuar',  some_path, class: "btn btn-primary" %> <!-- Ajuste 'some_path' com a URL apropriada -->
+          <%= f.submit 'Criar', class: "btn btn-success" %>  <!-- Somente mantém o botão "Criar" -->
         </div>
 
       <% end %>
