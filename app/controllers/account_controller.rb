@@ -449,15 +449,5 @@ class AccountController < ApplicationController
   end
 end
 
-layout :resolve_layout
 
-private
-
-def resolve_layout
-  if action_name == 'login'
-    'login'
-  else
-    'base'
-  end
-end
 
