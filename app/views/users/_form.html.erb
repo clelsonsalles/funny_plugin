@@ -13,27 +13,25 @@
           </div>
 
           <div class="card-body">
-            <!-- Form Fields: login, firstname, lastname, mail (em linha) -->
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <%= f.label :login, class: "form-label" %>
-                <%= f.text_field :login, required: true, class: "form-control" %>
-              </div>
-              <div class="col-md-6">
-                <%= f.label :firstname, class: "form-label" %>
-                <%= f.text_field :firstname, required: true, class: "form-control" %>
-              </div>
+            <!-- Form Fields: login, firstname, lastname, mail -->
+            <div class="mb-3">
+              <%= f.label :login, class: "form-label" %>
+              <%= f.text_field :login, required: true, class: "form-control" %>
             </div>
 
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <%= f.label :lastname, class: "form-label" %>
-                <%= f.text_field :lastname, required: true, class: "form-control" %>
-              </div>
-              <div class="col-md-6">
-                <%= f.label :mail, class: "form-label" %>
-                <%= f.text_field :mail, required: true, class: "form-control" %>
-              </div>
+            <div class="mb-3">
+              <%= f.label :firstname, class: "form-label" %>
+              <%= f.text_field :firstname, required: true, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :lastname, class: "form-label" %>
+              <%= f.text_field :lastname, required: true, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :mail, class: "form-label" %>
+              <%= f.text_field :mail, required: true, class: "form-control" %>
             </div>
 
             <!-- Language Field -->
@@ -127,7 +125,7 @@
           </div>
         </div>
 
-        <!-- Submit Button -->
+        <!-- Submit Button: automatically handled by form_for -->
         <div class="text-center mt-4">
           <%= f.submit l(:button_submit), class: "btn btn-primary" %>
         </div>
