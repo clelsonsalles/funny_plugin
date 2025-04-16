@@ -11,31 +11,38 @@
     <% listaSelectUf = [["Selecione", ""]] + @ufs.map { |uf| ["#{uf.sigla} - #{uf.nome}", uf.sigla] } %>
     <% listaSelectMunicipio = @municipios.map { |m| [m.nome, m.id] } %>
 
-    <!-- Linha com os 3 campos em colunas -->
-    <div class="row g-3 align-items-end mb-4">
-      <!-- UF -->
-      <div class="col-md-4">
-        <%= f.label :uf, "Selecione a UF", class: "form-label" %>
-        <%= f.select :uf, options_for_select(listaSelectUf), { selected: "Selecione uma UF" }, class: 'form-select' %>
-      </div>
+    <!-- Box com fundo e borda -->
+    <div class="p-4 border border-secondary rounded shadow-sm mb-4" style="background-color: #f8f9fa;">
+      <!-- Título -->
+      <h4 class="mb-1">IBGE</h4>
+      <p class="text-muted mb-4">Escolha a UF e a cidade e veja o código do IBGE</p>
 
-      <!-- Cidade -->
-      <div class="col-md-4">
-        <%= f.label :cidade, "Cidade", class: "form-label" %>
-        <%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Selecione um valor para o campo UF", disabled: true %>
-      </div>
+      <!-- Linha com os 3 campos -->
+      <div class="row g-3 align-items-end">
+        <!-- UF -->
+        <div class="col-md-4">
+          <%= f.label :uf, "Selecione a UF", class: "form-label" %>
+          <%= f.select :uf, options_for_select(listaSelectUf), { selected: "Selecione uma UF" }, class: 'form-select' %>
+        </div>
 
-      <!-- Código IBGE -->
-      <div class="col-md-4">
-        <%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %>
-        <%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %>
+        <!-- Cidade -->
+        <div class="col-md-4">
+          <%= f.label :cidade, "Cidade", class: "form-label" %>
+          <%= f.text_field :cidade, class: "form-control", id: "cidade", placeholder: "Selecione um valor para o campo UF", disabled: true %>
+        </div>
+
+        <!-- Código IBGE -->
+        <div class="col-md-4">
+          <%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %>
+          <%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Selecione um valor para o campo UF", disabled: true %>
+        </div>
       </div>
     </div>
 
-    <!-- Botão -->
-    <div class="row mb-4">
-      <div class="col-md-4">
-        <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg text-white' %>
+    <!-- Botão alinhado à direita -->
+    <div class="row">
+      <div class="col text-end">
+        <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-success btn-lg text-white' %>
       </div>
     </div>
   <% end %>
@@ -52,3 +59,4 @@
     }
   });
 </script>
+
