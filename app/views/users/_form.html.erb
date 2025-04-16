@@ -2,35 +2,36 @@
   <h5 class="card-header bg-info text-white">Autenticação</h5>
   <div class="card-body">
 
-    <!-- Campo Senha -->
-    <div class="mb-3">
-      <%= f.label :password, "Senha", class: "form-label" %>
-      <%= f.password_field :password, class: "form-control", required: true %>
-      <small class="form-text text-muted">
-        Deve ter ao menos 8 caracteres.<br>
-        Precisa conter Letras maiúsculas, Letras minúsculas, dígitos, caracteres especiais.
-      </small>
-    </div>
+    <!-- Linha com Senha e Confirmação -->
+    <div class="row">
+      <div class="mb-3 col-md-6">
+        <%= f.label :password, "Senha", class: "form-label" %>
+        <%= f.password_field :password, class: "form-control", required: true %>
+        <small class="form-text text-muted">
+          Deve ter ao menos 8 caracteres.<br>
+          Precisa conter Letras maiúsculas, Letras minúsculas, dígitos, caracteres especiais.
+        </small>
+      </div>
 
-    <!-- Campo Confirmação de Senha -->
-    <div class="mb-3">
-      <%= f.label :password_confirmation, "Confirmação", class: "form-label" %>
-      <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+      <div class="mb-3 col-md-6">
+        <%= f.label :password_confirmation, "Confirmação", class: "form-label" %>
+        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+      </div>
     </div>
 
     <!-- Checkbox: Gerar senha -->
     <div class="form-check mb-3 shadow-sm p-2 rounded bg-light">
-      <%= f.check_box :generate_password, {}, '1', '0', class: "form-check-input", id: "user_generate_password" %>
+      <%= f.check_box :generate_password, { class: "form-check-input", id: "user_generate_password" }, '1', '0' %>
       <%= f.label :generate_password, "Gerar senha", class: "form-check-label", for: "user_generate_password" %>
     </div>
 
-    <!-- Checkbox: Forçar troca de senha -->
+    <!-- Checkbox: Trocar senha ao logar -->
     <div class="form-check mb-4 shadow-sm p-2 rounded bg-light">
-      <%= f.check_box :must_change_passwd, {}, '1', '0', class: "form-check-input", id: "user_must_change_passwd" %>
+      <%= f.check_box :must_change_passwd, { class: "form-check-input", id: "user_must_change_passwd" }, '1', '0' %>
       <%= f.label :must_change_passwd, "É necessário alterar sua senha na próxima vez que tentar acessar sua conta", class: "form-check-label", for: "user_must_change_passwd" %>
     </div>
 
-    <!-- Botões -->
+    <!-- Botões Criar e Criar e Continuar -->
     <div class="d-flex justify-content-center gap-3">
       <%= f.submit l(:button_create), name: 'continue', class: "btn btn-success px-4" %>
       <%= f.submit l(:button_create_and_continue), class: "btn btn-success px-4" %>
