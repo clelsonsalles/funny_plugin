@@ -1,177 +1,40 @@
-<%= error_messages_for 'user' %>
+<div class="card p-4 shadow-sm">
+  <h5 class="card-header bg-info text-white">Autenticação</h5>
+  <div class="card-body">
 
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Cadastrar Analista</h2>
-
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <%= labelled_form_for @user, :url => register_path do |f| %>
-        
-        <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white">
-            <h5><%= l(:label_information_plural) %></h5>
-          </div>
-
-          <div class="card-body">
-            <!-- Form Fields: login, firstname, lastname, mail -->
-            <div class="mb-3">
-              <%= f.label :login, class: "form-label" %>
-              <%= f.text_field :login, required: true, class: "form-control" %>
-            </div>
-
-            <div class="mb-3">
-              <%= f.label :firstname, class: "form-label" %>
-              <%= f.text_field :firstname, required: true, class: "form-control" %>
-            </div>
-
-            <div class="mb-3">
-              <%= f.label :lastname, class: "form-label" %>
-              <%= f.text_field :lastname, required: true, class: "form-control" %>
-            </div>
-
-            <div class="mb-3">
-              <%= f.label :mail, class: "form-label" %>
-              <%= f.text_field :mail, required: true, class: "form-control" %>
-            </div>
-
-            <!-- Language Field -->
-            <% unless @user.force_default_language? %>
-              <div class="mb-3">
-                <%= f.label :language, class: "form-label" %>
-                <%= f.select :language, lang_options_for_select, {}, class: "form-select" %>
-              </div>
-            <% end %>
-
-            <!-- Custom Fields -->
-            <% @user.custom_field_values.each do |value| %>
-              <div class="mb-3">
-                <%= custom_field_tag_with_label :user, value %>
-              </div>
-            <% end %>
-
-            <!-- Admin Checkbox -->
-            <div class="mb-3">
-              <div class="form-check custom-checkbox">
-                <%= f.check_box :admin, { disabled: (@user == User.current), class: "form-check-input", id: "user_admin" } %>
-                <%= f.label :admin, class: "form-check-label", for: "user_admin" %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Authentication Section -->
-        <div class="card shadow-sm mt-4">
-          <div class="card-header bg-info text-white">
-            <h5><%= l(:label_authentication) %></h5>
-          </div>
-
-          <div class="card-body">
-            <% unless @auth_sources.empty? %>
-              <div class="mb-3">
-                <%= f.label :auth_source_id, class: "form-label" %>
-                <%= f.select :auth_source_id, [[l(:label_internal), ""]] + @auth_sources.collect { |a| [a.name, a.id] }, {}, class: "form-select", onchange: "if (this.value=='') {$('#password_fields').show();} else {$('#password_fields').hide();}" %>
-              </div>
-            <% end %>
-
-            <!-- Password Fields -->
-            <div id="password_fields" style="<%= 'display:none;' if @user.auth_source %>">
-              <div class="mb-3">
-                <%= f.label :password, class: "form-label" %>
-                <%= f.password_field :password, required: @user.new_record?, class: "form-control" %>
-                <em class="info"><%= l(:text_caracters_minimum, count: Setting.password_min_length) %></em>
-                <% if Setting.password_required_char_classes.any? %>
-                  <em class="info">
-                    <%= l(:text_characters_must_contain, character_classes: Setting.password_required_char_classes.collect { |c| l("label_password_char_class_#{c}") }.join(", ")) %>
-                  </em>
-                <% end %>
-              </div>
-
-              <div class="mb-3">
-                <%= f.label :password_confirmation, class: "form-label" %>
-                <%= f.password_field :password_confirmation, required: @user.new_record?, class: "form-control" %>
-              </div>
-
-              <div class="mb-3">
-                <div class="form-check custom-checkbox">
-                  <%= f.check_box :generate_password, class: "form-check-input", id: "user_generate_password" %>
-                  <%= f.label :generate_password, class: "form-check-label", for: "user_generate_password" %>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <div class="form-check custom-checkbox">
-                  <%= f.check_box :must_change_passwd, class: "form-check-input", id: "user_must_change_passwd" %>
-                  <%= f.label :must_change_passwd, class: "form-check-label", for: "user_must_change_passwd" %>
-                </div>
-              </div>
-            </div>
-
-             <!-- Two-factor Authentication -->
-            <% if Setting.twofa? && !@user.new_record? %>
-              <div class="mb-3">
-                <label><%= l :setting_twofa %></label>
-                <% if @user.twofa_active? %>
-                  <p><%= l 'twofa_currently_active', twofa_scheme_name: l("twofa__#{@user.twofa_scheme}__name") %></p>
-                  <% if @user == User.current %>
-                    <%= link_to l('button_disable'), { controller: 'twofa', action: 'deactivate_init', scheme: @user.twofa_scheme }, method: :post %>
-                  <% else %>
-                    <%= link_to l('button_disable'), { controller: 'twofa', action: 'admin_deactivate', user_id: @user }, method: :post %>
-                  <% end %>
-                <% else %>
-                  <%= l 'twofa_not_active' %>
-                <% end %>
-              </div>
-            <% end -%>
-
-           
-          </div>
-        </div>
-
-        <!-- Somente o botão "Criar" -->
-        <div class="text-center mt-4">
-          <%= f.submit 'Criar', class: "btn btn-success" %>  <!-- Somente mantém o botão "Criar" -->
-        </div>
-
-      <% end %>
+    <!-- Campo Senha -->
+    <div class="mb-3">
+      <%= f.label :password, "Senha", class: "form-label" %>
+      <%= f.password_field :password, class: "form-control", required: true %>
+      <small class="form-text text-muted">
+        Deve ter ao menos 8 caracteres.<br>
+        Precisa conter Letras maiúsculas, Letras minúsculas, dígitos, caracteres especiais.
+      </small>
     </div>
+
+    <!-- Campo Confirmação de Senha -->
+    <div class="mb-3">
+      <%= f.label :password_confirmation, "Confirmação", class: "form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+    </div>
+
+    <!-- Checkbox: Gerar senha -->
+    <div class="form-check mb-3 shadow-sm p-2 rounded bg-light">
+      <%= f.check_box :generate_password, {}, '1', '0', class: "form-check-input", id: "user_generate_password" %>
+      <%= f.label :generate_password, "Gerar senha", class: "form-check-label", for: "user_generate_password" %>
+    </div>
+
+    <!-- Checkbox: Forçar troca de senha -->
+    <div class="form-check mb-4 shadow-sm p-2 rounded bg-light">
+      <%= f.check_box :must_change_passwd, {}, '1', '0', class: "form-check-input", id: "user_must_change_passwd" %>
+      <%= f.label :must_change_passwd, "É necessário alterar sua senha na próxima vez que tentar acessar sua conta", class: "form-check-label", for: "user_must_change_passwd" %>
+    </div>
+
+    <!-- Botões -->
+    <div class="d-flex justify-content-center gap-3">
+      <%= f.submit l(:button_create), name: 'continue', class: "btn btn-success px-4" %>
+      <%= f.submit l(:button_create_and_continue), class: "btn btn-success px-4" %>
+    </div>
+
   </div>
 </div>
-
-<%= javascript_tag do %>
-  $(document).ready(function(){
-    $('#user_generate_password').change(function(){
-      var passwd = $('#user_password, #user_password_confirmation');
-      if ($(this).is(':checked')){
-        passwd.val('').attr('disabled', true);
-      } else {
-        passwd.removeAttr('disabled');
-      }
-    }).trigger('change');
-  });
-<% end %>
-
-<style>
-  /* Estilo dos checkboxes com destaque e animação 2D */
-  .custom-checkbox .form-check-input {
-    transition: all 0.3s ease;
-  }
-
-  .custom-checkbox .form-check-input:checked {
-    background-color: #007bff; /* Cor ao ser marcado */
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
-  }
-
-  .custom-checkbox .form-check-input:hover {
-    transform: scale(1.1); /* Efeito 2D ao passar o mouse */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-  }
-
-  /* Centralizar os botões */
-  .text-center .btn {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-</style>
