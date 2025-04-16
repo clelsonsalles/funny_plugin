@@ -8,7 +8,11 @@
     <%= f.hidden_field :tipoColeta, value: @coleta.tipoColeta %>
     <%= f.hidden_field :project_id, value: @coleta.project_id %>
 
-    <div class="box-title mb-4"><h4><%= @coleta.tipoColeta %></h4></div>
+    <!-- Título e subtítulo -->
+    <div class="box-title mb-4">
+      <h4>IBGE</h4>
+      <p>Escolha a cidade e veja o código do IBGE</p>
+    </div>
 
     <div class="card shadow-sm p-3 mb-4" style="border: 1px solid #dcdcdc;">
       <div class="card-body">
@@ -67,7 +71,3 @@
     }, false);
   });
 </script>
-
-
-
-              
