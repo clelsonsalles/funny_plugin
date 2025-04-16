@@ -1,7 +1,6 @@
 <div class="container-md mt-4">
   <%= form_for @coleta, url: coleta_mensal_fazer_path, html: { id: "formColeta", class: "needs-validation", novalidate: true } do |f| %>
     <%= f.hidden_field :id, value: @coleta.id %>
-    <%= f.hidden_field :uf, value: @coleta.uf %>
     <%= f.hidden_field :mes, value: @coleta.mes %>
     <%= f.hidden_field :ano, value: @coleta.ano %>
     <%= f.hidden_field :tituloColeta, value: @coleta.tituloColeta %>
@@ -10,15 +9,16 @@
 
     <h4 class="mb-4"><%= @coleta.tipoColeta %></h4>
 
-    <!-- UF (fixa) -->
+    <!-- UF -->
     <div class="row mb-3">
       <div class="col-md-6">
-        <%= f.label :uf, "UF selecionada", class: "form-label" %>
-        <%= f.text_field :uf, value: @coleta.uf, class: "form-control", id: "uf", disabled: true %>
+        <%= f.label :uf, "UF", class: "form-label" %>
+        <%= f.select :uf, options_for_select([["Selecione", ""]] + @ufs.map { |uf| [uf, uf] }, @coleta.uf), {}, class: "form-select", id: "uf", required: true %>
+        <div class="invalid-feedback">Por favor, selecione uma UF.</div>
       </div>
     </div>
 
-    <!-- Cidade (carregada via API com base na UF) -->
+    <!-- Cidade -->
     <div class="row mb-3">
       <div class="col-md-6">
         <%= f.label :cidade, "Cidade", class: "form-label" %>
@@ -39,7 +39,7 @@
     <!-- Botão -->
     <div class="row">
       <div class="col-md-6">
-        <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg text-white' %>
+        <%= f.submit 'Concluir', class: 'btn btn-success btn-lg' %>
       </div>
     </div>
   <% end %>
@@ -47,33 +47,38 @@
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', () => {
+    const ufSelect = document.getElementById('uf');
     const cidadeSelect = document.getElementById('cidade');
     const codigoIBGEInput = document.getElementById('codigoIBGE');
-    const uf = document.getElementById('uf')?.value;
 
-    // Carrega cidades da UF automaticamente
-    if (uf) {
-      fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
-        .then(response => response.json())
-        .then(data => {
-          cidadeSelect.innerHTML = '<option value="">Selecione</option>';
-          data.forEach(mun => {
-            const option = document.createElement('option');
-            option.value = mun.nome;
-            option.dataset.codigo = mun.id;
-            cidadeSelect.appendChild(option);
+    // Quando a UF mudar, carregar os municípios
+    ufSelect.addEventListener('change', () => {
+      const uf = ufSelect.value;
+      cidadeSelect.innerHTML = '<option value="">Carregando...</option>';
+      codigoIBGEInput.value = '';
+
+      if (uf) {
+        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
+          .then(response => response.json())
+          .then(data => {
+            cidadeSelect.innerHTML = '<option value="">Selecione</option>';
+            data.forEach(mun => {
+              const option = document.createElement('option');
+              option.value = mun.nome;
+              option.dataset.codigo = mun.id;
+              cidadeSelect.appendChild(option);
+            });
           });
-        });
-    }
-
-    // Preenche o código IBGE ao selecionar uma cidade
-    cidadeSelect.addEventListener('change', () => {
-      const selectedOption = cidadeSelect.options[cidadeSelect.selectedIndex];
-      const codigoIBGE = selectedOption?.dataset.codigo || '';
-      codigoIBGEInput.value = codigoIBGE;
+      }
     });
 
-    // Validação Bootstrap
+    // Quando a cidade mudar, preencher o código IBGE
+    cidadeSelect.addEventListener('change', () => {
+      const selected = cidadeSelect.options[cidadeSelect.selectedIndex];
+      codigoIBGEInput.value = selected.dataset.codigo || '';
+    });
+
+    // Validação visual Bootstrap
     const form = document.getElementById('formColeta');
     form.addEventListener('submit', function (event) {
       if (!form.checkValidity()) {
