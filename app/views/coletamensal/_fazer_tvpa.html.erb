@@ -80,3 +80,72 @@
             var input = document.getElementById("quantidadeAcesso");
             var alert = document.getElementById("quantidadeAcessoAlert");
             alert.style.display = input.value.match(/[^0-9]/) ? "inline" : "none";
+          }
+        </script>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <%= f.submit "Salvar", class: "btn btn-primary" %>
+          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary text-white' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<br/><br/>
+
+<div class="container">
+  <h4>Lista de Coletas</h4>
+  <table class="table table-custom">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Cnpj</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Mês</th>
+        <th scope="col">Código IBGE</th>
+        <th scope="col">Tipo de Cliente</th>
+        <th scope="col">Tipo de Atendimento</th>
+        <th scope="col">Tipo Meio</th>
+        <th scope="col">Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @coletas.each do |coleta| %>
+        <tr>
+          <td><%= coleta.cnpj %></td>
+          <td><%= coleta.anoInformado %></td>
+          <td><%= coleta.mesInformado %></td>
+          <td><%= coleta.codigoIBGE %></td>
+          <td><%= coleta.tipoCliente %></td>
+          <td><%= coleta.tipoAtendimento %></td>
+          <td><%= coleta.tipoMeio %></td>
+          <td><%= coleta.quantidadeAcesso %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tecnologiaPorMeio = {
+      cabo_coaxial: ['Cable Modem', 'HFC'],
+      cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
+      radio: ['LTE/4G', 'Wi-Fi', 'WFA'],
+      fibra: ['FTTH', 'Ethernet']
+    };
+
+    const tipoMeioSelect = document.getElementById('tipoMeio');
+    const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
+
+    tipoMeioSelect.addEventListener('change', (event) => {
+      const meioSelecionado = event.target.value;
+      const opcoesSelect = tecnologiaPorMeio[meioSelecionado] || ['Selecione uma tecnologia'];
+
+      tipoTecnologiaSelect.innerHTML = '<option value="">Selecione uma tecnologia</option>';
+      opcoesSelect.forEach(tecnologia => {
+        tipoTecnologiaSelect.innerHTML += `<option value="${tecnologia}">${tecnologia}</option>`;
+      });
+    });
+  });
+</script>
