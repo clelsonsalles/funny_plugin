@@ -1,15 +1,30 @@
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  .login-container {
+    height: 100vh;
+  }
+
+  .login-right {
+    max-width: 400px;
+    width: 100%;
+  }
+</style>
+
 <div class="container-fluid login-container d-flex align-items-center justify-content-center">
   <div class="row w-100">
-    <!-- Lado esquerdo com título -->
+    <!-- Lado esquerdo -->
     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center login-left text-center p-5">
-      <!–<img src="https://github.com/clelsonsalles/funny_tema/blob/master/image/logo.png" alt="Logo" class="logo" />-->
       <h1 class="login-title">eColeta</h1>
       <h3 class="login-subtitle">Sistema eletrônico para qualificação dos dados e integração com o sistema Coleta de Dados Anatel</h3>
     </div>
 
-    <!-- Lado direito com o formulário -->
-    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center p-5">
-      <div class="login-right w-100 p-5" style="max-width: 400px;">
+    <!-- Lado direito com formulário centralizado -->
+    <div class="col-md-6 d-flex justify-content-center align-items-center p-5">
+      <div class="login-right p-5">
         <div id="login-form">
           <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
             <%= back_url_hidden_field_tag %>
@@ -53,3 +68,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
