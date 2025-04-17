@@ -1,258 +1,95 @@
-<div class="container-md">
-               <%= form_for @coleta, url: coleta_mensal_atualizar_path do |f| %>
-                   <%= f.hidden_field :id, :value => @coleta.id %>
-                   <%= f.hidden_field :uf, :value => @coleta.uf %>
-                   <%= f.hidden_field :cidade, :value => @coleta.cidade %>
-                   <%= f.hidden_field :codigoIBGE, :value => @coleta.codigoIBGE %>
-                   <%= f.hidden_field :mes, :value => @coleta.mes %>
-                   <%= f.hidden_field :ano, :value => @coleta.ano %>
-                   <%= f.hidden_field :tituloColeta, :value => @coleta.tituloColeta %>
-                   <%= f.hidden_field :tipoColeta, :value => @coleta.tipoColeta %>
-                   <%= f.hidden_field :project_id, :value => @coleta.project_id %>
-                   <%= f.hidden_field :semestre, :value => @coleta.semestre %>
+<div class="container my-4">
+  <div class="card shadow-sm border border-primary">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0"><%= @coleta.tipoColeta %></h5>
+    </div>
+    <div class="card-body">
+      <p class="text-muted mb-4">Coleta de dados de acessos:</p>
 
-                    <div class="box-title"><%= @coleta.tipoColeta %></div>
-                       <div class="box-description">Coleta de dados de acessos:
+      <%= form_for @coleta, url: coleta_mensal_atualizar_path do |f| %>
+        <%= f.hidden_field :id, value: @coleta.id %>
+        <%= f.hidden_field :uf, value: @coleta.uf %>
+        <%= f.hidden_field :cidade, value: @coleta.cidade %>
+        <%= f.hidden_field :codigoIBGE, value: @coleta.codigoIBGE %>
+        <%= f.hidden_field :mes, value: @coleta.mes %>
+        <%= f.hidden_field :ano, value: @coleta.ano %>
+        <%= f.hidden_field :tituloColeta, value: @coleta.tituloColeta %>
+        <%= f.hidden_field :tipoColeta, value: @coleta.tipoColeta %>
+        <%= f.hidden_field :project_id, value: @coleta.project_id %>
+        <%= f.hidden_field :semestre, value: @coleta.semestre %>
 
-                       <div class="row mb-3">
-                         <div class="col-md-6">
-                              <p><%= f.label :cnpj, "CNPJ", class: "form-label" %></p>
-                              <p><%= f.text_field :cnpj, class: "form-control", id: "cnpj", 
-                                      placeholder: "Digite o CNPJ da Prestadora", required: true,
-                                      maxlength: 14, oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %></p>
-                         </div>
-                      </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <%= f.label :cnpj, "CNPJ", class: "form-label" %>
+            <%= f.text_field :cnpj, class: "form-control", id: "cnpj", placeholder: "Digite o CNPJ da Prestadora", required: true, maxlength: 14, oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %>
+          </div>
+          <div class="col-md-3">
+            <%= f.label :mesInformado, "Mês", class: "form-label" %>
+            <%= f.select :mesInformado, options_for_select((1..12).map { |m| [m.to_s, m.to_s] }, @coleta.mesInformado), {}, class: "form-select", required: true %>
+          </div>
+          <div class="col-md-3">
+            <%= f.label :anoInformado, "Ano", class: "form-label" %>
+            <%= f.select :anoInformado, options_for_select([2023, 2024, 2025], @coleta.anoInformado), {}, class: "form-select", required: true %>
+          </div>
+        </div>
 
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <%= f.label :uf, "UF selecionada", class: "form-label" %>
+            <%= f.text_field :uf, class: "form-control", id: "uf", disabled: true, required: true %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :cidade, "Cidade selecionada", class: "form-label" %>
+            <%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true, required: true %>
+          </div>
+        </div>
 
-                        <div class="row mb-3">
-                         
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %>
+            <%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'PJ'], ['UP', 'UP']], @coleta.tipoCliente), {}, class: "form-select", required: true %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %>
+            <%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", disabled: true, required: true %>
+          </div>
+        </div>
 
-                         <div class="col-md-6">
-                           <%= f.label :mesInformado, "Mês", class: "form-label" %>
-                           <%= f.select :mesInformado, 
-                                   options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], 
-                                   ['6', '6'], ['7', '7'], ['7', '8'], ['9', '9'], ['10', '10'], 
-                                   ['11', '11'], ['12', '12']], @coleta.mesInformado), 
-                                   {}, # Hash de opções adicionais para a tag <select>
-                                   { class: 'form-control', required: true } # Hash de atributos HTML
-                            %>
-                          </div>
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %>
+            <%= f.select :tipoMeio, options_for_select([['Selecione um meio', 'Selecione um meio'], ['cabo_coaxial', 'cabo_coaxial'], ['cabo_metalico', 'cabo_metalico'], ['radio', 'radio'], ['fibra', 'fibra']], @coleta.tipoMeio), {}, class: "form-select", id: "tipoMeio", required: true %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %>
+            <%= f.select :tipoTecnologia, options_for_select([], @coleta.tipoTecnologia), {}, class: "form-select", id: "tipoTecnologia", required: true %>
+          </div>
+        </div>
 
-        
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %>
+            <%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", placeholder: "Quantidade", required: true, pattern: "[0-9]*", title: "Este campo só pode conter números.", oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %>
+            <small id="quantidadeAcessoAlert" class="form-text text-danger d-none">Apenas números são permitidos.</small>
+          </div>
+        </div>
 
-
-
-
-
-                         <div class="col-md-6">
-                          <p><%= f.label :anoInformado, "Ano", class: "form-label" %></p>
-                          <p><%= f.select :anoInformado, options_for_select([['2023', '2023'], ['2024', '2024'], ['2025', '2025']], @coleta.anoInformado), required: true %></p>
-                         </div>
-                    
-                       </div>
-                         
-                       <div class="row mb-3">
-                         <div class="col-md-6">
-                              <p><%= f.label :uf, "UF selecionada" %></p>
-                               <p><%= f.text_field :uf, class: "form-control", id: "uf", disabled: true, required: true  %></p>
-                         </div>
-                         <div class="col-md-6">
-                               <p><%= f.label :cidade, "Cidade selecionada", class: "form-label" %></p>
-                               <p><%= f.text_field :cidade, class: "form-control", id: "cidade", disabled: true, required: true  %></p>
-                         </div>
-                       </div>
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <p><%= f.label :tipoCliente, "Tipo de Cliente", class: "form-label" %></p>
-                          <p><%= f.select :tipoCliente, options_for_select([['PF', 'Pessoa Física'], ['PJ', 'PJ'], ['UP', 'UP']], @coleta.tipoCliente), required: true %></p>
-                        </div>
-                        <div class="col-md-6">
-                          <p><%= f.label :codigoIBGE, "Código IBGE", class: "form-label" %></p>
-                          <p><%= f.text_field :codigoIBGE, class: "form-control", id: "codigoIBGE", placeholder: "Código IBGE", disabled: true, required: true %></p>
-                       </div>
-                        
-                      
-                    </div>
-
-                     <div class="row mb-3">
-                       <% if @coleta.tipoMeio.nil? %>
-                      <div class="col-md-6">
-                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                      
-                        <p><%= f.select :tipoMeio, 
-                              options_for_select([['Selecione um meio', 'Selecione um meio'],
-                                        ['cabo_coaxial', 'cabo_coaxial'], 
-                                        ['cabo_metalico', 'cabo_metalico'], 
-                                        ['radio', 'radio'], 
-                                        ['fibra', 'fibra']]), 
-                                    {required: true}, {id: 'tipoMeio'}  %></p>
-                      </div>
-
-                     <div class="col-md-6">
-                      <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
-                       <p><%= f.select :tipoTecnologia, 
-                            options_for_select([]), 
-                            {required: true}, {id: 'tipoTecnologia'}  %></p>
-                    </div>
-                  <% else %>
-                  <div class="col-md-6">
-                        <p><%= f.label :tipoMeio, "Tipo de Meio", class: "form-label" %></p>
-                      
-                        <p><%= f.select :tipoMeio, 
-                              options_for_select([['Selecione um meio', 'Selecione um meio'],
-                                        ['cabo_coaxial', 'cabo_coaxial'], 
-                                        ['cabo_metalico', 'cabo_metalico'], 
-                                        ['radio', 'radio'], 
-                                        ['fibra', 'fibra']], @coleta.tipoMeio), 
-                                    {required: true}, {id: 'tipoMeio'}  %></p>
-                      </div>
-
-                     <div class="col-md-6">
-                      <p><%= f.label :tipoTecnologia, "Tipo de Tecnologia", class: "form-label" %></p>
-                       <p><%= f.select :tipoTecnologia, 
-                            options_for_select([[@coleta.tipoTecnologia, @coleta.tipoTecnologia]], @coleta.tipoTecnologia), 
-                            {required: true}, {id: 'tipoTecnologia'}  %></p>
-                    </div>
-                  <% end %>
-                  </div>
-
-                     <div class="row mb-3">
-                         <div class="col-md-6">
-                          <p><%= f.label :quantidadeAcesso, "Quantidade", class: "form-label" %></p>
-                          <p>
-                            <%= f.text_field :quantidadeAcesso, class: "form-control", id: "quantidadeAcesso", 
-                                placeholder: "Quantidade", required: true, 
-                                pattern: "[0-9]*", title: "Este campo só pode conter números.", 
-                                oninput: "this.value = this.value.replace(/[^0-9]/g, ''); showAlert()" %>
-                          </p>
-                          <small id="quantidadeAcessoAlert" style="color: red; display: none;">Apenas números são permitidos.</small>
-                        </div>
-
-                          <script>
-                            function showAlert() {
-                              var input = document.getElementById("quantidadeAcesso");
-                              var alert = document.getElementById("quantidadeAcessoAlert");
-                              
-                              if (input.value.match(/[^0-9]/)) {
-                                alert.style.display = "inline";
-                              } else {
-                                alert.style.display = "none";
-                              }
-                            }
-                          </script>
-
-
-
-                      
-                     </div>
-          
-          
-                     <div class="row mb-3">
-                       <div class="col-md-6">
-                          <%= f.submit "Adicionar", class:" btn btn-primary" %>
-                        </div>
-                        <div class="col-md-6">
-                          <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary btn-lg  text-white' %>
-
-                        </div>
-                      </div>
-
-          
-
-
-               <% end %>
-
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <%= f.submit "Adicionar", class: "btn btn-success w-100" %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to 'Concluir', cliente_cliente_path, class: 'btn btn-secondary w-100' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
- <br/><br/>
-
-<div class="container">
-  <h4> Lista de Coletas</h4>
-    <table class="table table-custom">
-            <thead class="thead-light">
-                <tr>
-                   <th scope="col">Cnpj</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Mês</th>
-                    <th scope="col">Codigo IBGE</th>
-                    <th scope="col">Tipo de Cliente</th>
-                    <th scope="col">Tipo de Atendimento</th>
-                    <th scope="col">Tipo Meio</th>
-                    <th scope="col">Quantidade</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-             <% for coleta in @coletas %>
-                <tr> 
-                     <td><%= coleta.cnpj %></td>
-                     <td><%= coleta.anoInformado %></td>
-                     <td><%= coleta.mesInformado %></td>
-                     <td><%= coleta.codigoIBGE%></td>
-                     <td><%= coleta.tipoCliente%></td>
-                     <td><%= coleta.tipoAtendimento%></td>
-                     <td><%= coleta.tipoMeio%></td>
-                     <td><%= coleta.quantidadeAcesso%></td>
-                     
-                </tr>
-            <% end %>
-              
-               
-            </tbody>
-        </table>
-</div>
-
-<script>
-  // Mapeamento entre Tipo de Meio e Tecnologias correspondentes
-document.addEventListener('DOMContentLoaded', () => {
- const tecnologiaPorMeio = {
-  cabo_coaxial: ['Cable Modem', 'HFC'],
-  cabo_metalico: ['XDSL', 'PLC', 'ETHERNET'],
-  radio: ['LTE/4G', 'Wi-Fi', 'WFA'],
-  fibra: ['FTTH', 'Ethernet']
-};
-
-const tipoMeioSelect = document.getElementById('tipoMeio');
-const tipoTecnologiaSelect = document.getElementById('tipoTecnologia');
-
-// Atualizar opções quando o meio for alterado
-tipoMeioSelect.addEventListener('change', (event) => {
-  const meioSelecionado = event.target.value;
 
 
-  // Adicionar opções baseadas no meio selecionado
-  var opcoesSelect = ['', 'Selecione uma tecnologia'];
-  switch(meioSelecionado){
-    case('cabo_coaxial'):
-      opcoesSelect = tecnologiaPorMeio.cabo_coaxial;
-      break;
-    case('cabo_metalico'):
-      opcoesSelect = tecnologiaPorMeio.cabo_metalico;
-      break;
-
-     case('radio'):
-      opcoesSelect = tecnologiaPorMeio.radio;
-      break;
-
-     case('fibra'):
-      opcoesSelect = tecnologiaPorMeio.fibra;
-      break;
-
-    default:
-      opcoesSelect = ['Selecione uma tecnologia'];
-
-  }
-  // Limpar opções do select de tecnologia
-  tipoTecnologiaSelect.innerHTML = '<option value="">Selecione uma tecnologia</option>';
-  // Carregar as opções de teconologia conforme o meio selecionado
-  for (var cont = 0; cont < opcoesSelect.length; cont++){
-    tipoTecnologiaSelect.innerHTML += '<option value="' + opcoesSelect[cont] +'">'+ opcoesSelect[cont] +'</option>';
-  }
 
 
-});
 
-});
 
-</script>
